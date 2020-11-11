@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本次是阿里云天池平台上的在线编程battle赛，详细信息如下 比赛地址： 【精神小伙场】水一波礼品队【精神小伙场】次次AC队 活动规则： 1、参赛者将与对手【次次AC队】进行较量，答出一题即可上榜，上榜人数多的一方取得胜利并瓜分【精神小伙场】所含34万积分 (可在天池兑换各种丰厚奖品）。 2、请在10月24日下午20：00-22：00期间答题，比赛结束后可以答题但不计入排行榜。 3、排行榜采用AC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程battle-精神小伙场">
+<meta property="og:url" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="本次是阿里云天池平台上的在线编程battle赛，详细信息如下 比赛地址： 【精神小伙场】水一波礼品队【精神小伙场】次次AC队 活动规则： 1、参赛者将与对手【次次AC队】进行较量，答出一题即可上榜，上榜人数多的一方取得胜利并瓜分【精神小伙场】所含34万积分 (可在天池兑换各种丰厚奖品）。 2、请在10月24日下午20：00-22：00期间答题，比赛结束后可以答题但不计入排行榜。 3、排行榜采用AC">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.alicdn.com/tfs/TB1TzBYNfb2gK0jSZK9XXaEgFXa-40-40.png">
+<meta property="og:image" content="https://img.alicdn.com/tfs/TB1TzBYNfb2gK0jSZK9XXaEgFXa-40-40.png">
+<meta property="og:image" content="https://img.alicdn.com/tfs/TB1xubla3gP7K4jSZFqXXamhVXa-40-40.png">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/TB1xubla3gP7K4jSZFqXXamhVXa-40-40.png">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways3.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide1.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide2.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide3.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide4.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide5.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide6.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide7.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide8.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide9.PNG">
+<meta property="og:image" content="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide10.PNG">
+<meta property="article:published_time" content="2020-10-24T12:26:36.000Z">
+<meta property="article:modified_time" content="2020-10-28T12:48:49.900Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="阿里云天池赛">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.alicdn.com/tfs/TB1TzBYNfb2gK0jSZK9XXaEgFXa-40-40.png">
+
+<link rel="canonical" href="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>编程battle-精神小伙场 | CTF of Z2BNS</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?<41fc030db57d5570dd22f78997dc4a7e>";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          编程battle-精神小伙场
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-24 20:26:36" itemprop="dateCreated datePublished" datetime="2020-10-24T20:26:36+08:00">2020-10-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-28 20:48:49" itemprop="dateModified" datetime="2020-10-28T20:48:49+08:00">2020-10-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/CONTEST/" itemprop="url" rel="index"><span itemprop="name">CONTEST</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本次是阿里云天池平台上的在线编程battle赛，详细信息如下</p>
+<p><strong>比赛地址：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/oj/141733967030952298?spm=5176.15098393.J_6210563800.4.450a5cd646REpt">【精神小伙场】水一波礼品队</a><br><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/oj/140269389066823835?spm=5176.15098393.J_6210563800.2.450a5cd646REpt">【精神小伙场】次次AC队</a></p>
+<p><strong>活动规则：</strong></p>
+<p>1、参赛者将与对手【次次AC队】进行较量，答出一题即可上榜，上榜人数多的一方取得胜利并瓜分【精神小伙场】所含34万积分 (可在天池兑换各种丰厚奖品）。 2、请在10月24日下午20：00-22：00期间答题，比赛结束后可以答题但不计入排行榜。 3、排行榜采用ACM赛制，总用时为罚时+答题时间总和。排行榜每2分钟更新1次，22点显示排行榜最终结果。 4、代码中请勿包含任何个人信息、账号、口令等信息，以免造成泄漏。 5、比赛答疑和交流欢迎加入钉钉群：35215271 6、积分会在5个工作日内自动发放至个人账号</p>
+<p><strong>奖品设置：</strong></p>
+<p>获胜一方上榜选手均分34万积分（天池粮票） 粮票兑换奖品链接：<a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/home/souvenir">https://tianchi.aliyun.com/home/souvenir</a></p>
+<a id="more"></a>
+
+<p><strong>参赛题目：</strong></p>
+<table>
+<thead>
+<tr>
+<th>题目</th>
+<th>难度</th>
+<th>通过率</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.笛卡尔积</td>
+<td>中等</td>
+<td>91%</td>
+<td><img src="https://img.alicdn.com/tfs/TB1TzBYNfb2gK0jSZK9XXaEgFXa-40-40.png" alt="img"></td>
+</tr>
+<tr>
+<td>2.解码方式</td>
+<td>困难</td>
+<td>67%</td>
+<td><img src="https://img.alicdn.com/tfs/TB1TzBYNfb2gK0jSZK9XXaEgFXa-40-40.png" alt="img"></td>
+</tr>
+<tr>
+<td>3.数字消除</td>
+<td>简单</td>
+<td>28%</td>
+<td><img src="https://img.alicdn.com/tfs/TB1xubla3gP7K4jSZFqXXamhVXa-40-40.png" alt="img"></td>
+</tr>
+<tr>
+<td>4.连接两个字符串中的不同字符</td>
+<td>简单</td>
+<td>71%</td>
+<td><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/TB1xubla3gP7K4jSZFqXXamhVXa-40-40.png" alt="img"></td>
+</tr>
+</tbody></table>
+<p>我是作为“水一波礼品队”参加的，下面是本次比赛的做题过程及题解分析，仅此记录学习一下</p>
+<h6 id="连接两个字符串中的不同字符"><a href="#连接两个字符串中的不同字符" class="headerlink" title="连接两个字符串中的不同字符"></a>连接两个字符串中的不同字符</h6><p><strong>题目描述：</strong></p>
+<p>给出两个字符串, 你需要修改第一个字符串，将所有与第二个字符串中相同的字符删除, 并且第二个字符串中不同的字符与第一个字符串的不同字符连接</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">样例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入 : s1 = <span class="string">&quot;aacdb&quot;</span>, s2 = <span class="string">&quot;gafd&quot;</span></span><br><span class="line">输出 : <span class="string">&quot;cbgf&quot;</span></span><br><span class="line"></span><br><span class="line">样例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入 : <span class="string">&quot;abcs&quot;</span>, s2 = <span class="string">&quot;cxzca&quot;</span></span><br><span class="line">输出 : <span class="string">&quot;bsxz&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong>先遍历s1中的字符判断是否在s2中，如果不在就添加到最后结果中；然后同理再遍历s2</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * @param s1: the 1st string</span></span><br><span class="line"><span class="comment">     * @param s2: the 2nd string</span></span><br><span class="line"><span class="comment">     * @return: uncommon characters of given strings</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">concatenetedString</span><span class="params">(<span class="built_in">string</span> &amp;s1, <span class="built_in">string</span> &amp;s2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="comment">//存储最后结果</span></span><br><span class="line">    <span class="built_in">string</span> result=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="comment">//遍历查找s1中的不在s2中的字符</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;s1.length();i++)&#123;</span><br><span class="line">        <span class="comment">//遍历查找字符串s2是否包含子串s1中的字符,其中string:npos是个特殊值，说明查找没有匹配</span></span><br><span class="line">        <span class="keyword">if</span>(s2.find(s1[i])==<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">            <span class="comment">//如果s2中不含当前s1中的字符，则添加到result中</span></span><br><span class="line">            result+=s1[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//同理，找到s2中的不在s1中的字符</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;s2.length();i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s1.find(s2[i])==<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">            result+=s2[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="数字消除"><a href="#数字消除" class="headerlink" title="数字消除"></a>数字消除</h6><p><strong>题目描述：</strong></p>
+<p>给定一个数字构成的字符串，如果连着两个数字都相同，则可以消除，消除后前部分和后部分会连在一起，可以继续进行消除，现在问你能消除几次？</p>
+<p>$1 \leq len(s) \leq 1000000$</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Example <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Input: <span class="string">&quot;43211234&quot;</span></span><br><span class="line">Output: <span class="number">4</span></span><br><span class="line"></span><br><span class="line">Example <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Input: <span class="string">&quot;101&quot;</span></span><br><span class="line">Output: <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong>遍历字符串，判断当前字符与下一位置字符是否相同，相同则使用earse函数删除相同的这两个字符，然后回退到上一个字符进行判断。注意特殊情况前两个字符相同时不进行回退。</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * @param Numbers: a string of Numbers</span></span><br><span class="line"><span class="comment">     * @return: returns the number of eliminations</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">NumberOfErasures</span><span class="params">(<span class="built_in">string</span> &amp;Numbers)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here.</span></span><br><span class="line">        <span class="comment">//记录消除次数</span></span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;Numbers.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(Numbers[i]==Numbers[i+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="comment">//string erase函数删除从i开始的2个字符</span></span><br><span class="line">                Numbers.erase(i,<span class="number">2</span>);</span><br><span class="line">                result+=<span class="number">1</span>;</span><br><span class="line">                <span class="comment">//结束五分之后才改完这个错误提交成功，没计算成绩</span></span><br><span class="line">                <span class="comment">//特殊情况，前两个字符就匹配上的话要特殊处理</span></span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">                    i-=<span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    i-=<span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h6><p><strong>题目描述：</strong></p>
+<p>我们采用二维数组setList[][]表示集合数组，其中setList[i]中的每个元素都为整数，且不相同。求集合setList[0],setList[1],…,setList[setList.length - 1]的笛卡尔积。 一般地，集合A和集合B的笛卡尔积A×B = {(x,y)|x∈A∧y∈B}。</p>
+<ul>
+<li><code>1 &lt;= setList.length &lt;= 5</code></li>
+<li><code>1 &lt;= setList[i].length &lt;= 5</code></li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">样例<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">setList = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>]]</span><br><span class="line">输出: [[<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">1</span>,<span class="number">4</span>,<span class="number">6</span>],[<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>]]</span><br><span class="line">解释:</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]和[<span class="number">4</span>]和[<span class="number">5</span>,<span class="number">6</span>]的笛卡尔积为[[<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">1</span>,<span class="number">4</span>,<span class="number">6</span>],[<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line">样例<span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">setList = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>]]</span><br><span class="line">输出: [[<span class="number">1</span>,<span class="number">4</span>],[<span class="number">2</span>,<span class="number">4</span>],[<span class="number">3</span>,<span class="number">4</span>]]</span><br><span class="line">解释:</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]和[<span class="number">4</span>]的笛卡尔积为[[<span class="number">1</span>,<span class="number">4</span>],[<span class="number">2</span>,<span class="number">4</span>],[<span class="number">3</span>,<span class="number">4</span>]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong></p>
+<p>这道题自己没做出来，本来是想遍历setList中的每个向量元素，有多少个向量元素就写多少个for循环，但是向量元素的个数不确定没办法写for循环不知道写几个，不过setListl.length&lt;=5,可以穷举出来所有的可能🤣可以用很多个for循环穷举（个数为2时2个for循环为3时3个for循环…也可以写5个for循环循环前添加判断条件，循环中用push_back(),pop_back(),这种循环其实就是回溯法），网上参考了别的资料，这道题是要用回溯求解，代码如下：</p>
+<p><strong>回溯代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * @param setList: The input set list</span></span><br><span class="line"><span class="comment">     * @return: the cartesian product of the set list</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//存储最后结果</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="comment">//存储最后结果中的一个元素</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; lv;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">getSet</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; &amp;setList)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//Write your code here</span></span><br><span class="line">        dfs(setList,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//DFS（深度优先搜索），回溯法</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; &amp;setList,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i==setList.size())&#123;</span><br><span class="line">            ans.push_back(lv);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;setList[i].size();j++)&#123;</span><br><span class="line">            lv.push_back(setList[i][j]);</span><br><span class="line">            dfs(setList,i+<span class="number">1</span>);</span><br><span class="line">            lv.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="解码方式"><a href="#解码方式" class="headerlink" title="解码方式"></a>解码方式</h6><p><strong>题目描述：</strong></p>
+<p>使用以下映射方式将 A-Z 的消息编码为数字:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#39;A&#39; -&gt; 1</span><br><span class="line">&#39;B&#39; -&gt; 2</span><br><span class="line">...</span><br><span class="line">&#39;Z&#39; -&gt; 26</span><br></pre></td></tr></table></figure>
+
+<p>除此之外, 编码的字符串也可以包含字符 <code>*</code>, 它代表了 1 到 9 的数字中的其中一个.给出包含数字和字符 <code>*</code> 的编码消息, 返回所有解码方式的数量. 因为结果可能很大, 所以结果需要对 10^9 + 7 取模</p>
+<ul>
+<li>输入的字符串在范围 [1, 10^5] 内.</li>
+<li>输入的字符串只能包含字符 <code>*</code> 和数字 <code>0</code> - <code>9</code>.</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">样例<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入: <span class="string">&quot;*&quot;</span></span><br><span class="line">输出: <span class="number">9</span></span><br><span class="line">说明: 你可以译码为 <span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>, <span class="string">&quot;D&quot;</span>, <span class="string">&quot;E&quot;</span>, <span class="string">&quot;F&quot;</span>, <span class="string">&quot;G&quot;</span>, <span class="string">&quot;H&quot;</span>, <span class="string">&quot;I&quot;</span>.</span><br><span class="line"></span><br><span class="line">样例<span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入: <span class="string">&quot;1*&quot;</span></span><br><span class="line">输出: <span class="number">18</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>思路：</strong></p>
+<p>这道题比赛时根本没时间看，后来看完一顿乱写，越写越迷，真的还是要有思路，不能是乱碰乱撞式写法，这道题比较复杂，是LeetCode上面的原题<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-ways-ii">解码方法2</a>，还有一道相似的更基础版的题<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-ways">解码方法</a></p>
+<p>我现在太菜了😆，题解也看得似懂非懂，这道题确实也挺难的，就先把官方题解放在下面</p>
+<p><strong>方法一：记忆性递归</strong><br><strong>算法</strong></p>
+<p>对输入的字符序列，考虑每种可能的解码情况。</p>
+<p>假设有函数 <code>ways(s,i)</code>，返回字符串 ss 中前 ii 个字符的解码方法数量。调用 <code>ways(s, s.length()-1)</code> 得到字符串中所有字符的解码方法数量。</p>
+<p>我们从字符串 ss 的最后一个字符开始解码，假设此时调用函数 <code>ways(s,i)</code>。在 <code>ways(s,i)</code> 中计算前 i 个字符的所有解码方法数量。第 i 个字符有以下几种情况。</p>
+<p>第 i 个字符是 <code>*</code>。首先考虑第$ i$ 个字符单独解码的情况，<code>*</code> 表示 1-9 中任意一个数字，对应 <code>A-I</code> 中任意一个字母。前 i 个字符的解码可以表示为在前 $i−1$ 个字符解码的结尾加上 <code>A-I</code> 中任意一个字母。因此总的解码数量为前$ n-1$个字符解码数量的 9 倍，即 <code>9*ways(s,i-1)</code>。</p>
+<p>除此之外，第 $ i$  个字符也可以和第 $i−1$ 个字符一起解码。如果第$ i-1$  个字符是 <code>1</code>，它们可以表示 <code>11-19</code> 中任意一个数字，对应 <code>K-S</code> 中任意一个字母。前 $ i$  个字符的解码可以表示为在前 $i−2$ 个字符解码的结尾加上 <code>K-S</code> 中任意一个字母。因此总的解码数量为前$n−2$ 个字符解码数量的 9 倍，即 <code>9*ways(s,i-2)</code>。需要注意的是使用两个字符 <code>1*</code> 一起解码和两个字符分开单独解码的结果不重复。</p>
+<p>如果第$i−1$ 个字符是 <code>2</code>，那么 <code>2*</code> 可以表示 <code>21-26</code> 中任意一个数字，对应 <code>U-Z</code> 中任意一个字母。总的解码数量是前$i−2$ 个字符解码数量的 6 倍，即 <code>6*ways(s,i-2)</code>。</p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways3.PNG" alt="解码方式"></p>
+<p>如果第 $i−1$ 个字符是 <code>*，</code>那么<code>**</code> 可以表示 <code>11-19</code>（9）和 <code>21-26</code>（6） 中任意一个数字。因此总的解码数量是前 $i−2$ 个字符解码数量的 15（9+6） 倍，即 <code>15*ways(s,i-2)</code>。</p>
+<p>如果第 $i$ 个字符是 <code>1-9</code> 的数字。首先考虑单个字符解码的情况。此时前 $i$ 个字符的解码数量等于前 $i-1$ 个字符的解码数量。如果第 $i$ 个字符是 <code>0</code>，那么它不能单独解码，必须与它的前一个字符一起解码。前一个字符是 <code>1</code>，<code>2</code> 或 <code>*</code> 时才可以解码。具体情况如下。</p>
+<p>如果前一个字符是 <code>1</code>，那么它们可以是 <code>10-19</code> 中任意一个数字。此时解码数量等于前 $i-2$ 个字符的解码数量。</p>
+<p>如果前一个字符是 <code>2</code>，则有效数字范围为 <code>20-26</code>。只有当前字符小于 7 时可以解码。此时解码数量等于前 $i−2$ 个字符的解码数量。</p>
+<p>如果前一个字符是 <code>*</code>，那么解码数量取决于当前数字。如果当前数字大于 6，那么它们只能是 <code>17-19</code> 中任意一个（<code>27-29</code> 是无效的解码数字）。此时解码数量等于前$i−2$ 个字符的解码数量。</p>
+<p>如果当前数字小于 <code>7</code>，则 <code>*</code> 可以是 <code>1</code> 或 <code>2</code>。对应 <code>10-16</code> 或者 <code>20-26</code> 中任意一个数字。此时解码数量等于前$i−2$ 个字符解码数量的 2 倍。</p>
+<p>在函数 <code>ways</code> 中实现所有的情况，递归调用 <code>ways</code> 计算所有字符的解码数量。记录已经计算出来的前 $i$ 个字符的解码数量，减少重复调用，降低计算复杂度。</p>
+<p>Java代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> M = <span class="number">1000000007</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numDecodings</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Integer[] memo=<span class="keyword">new</span> Integer[s.length()];</span><br><span class="line">        <span class="keyword">return</span> ways(s, s.length() - <span class="number">1</span>,memo);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">ways</span><span class="params">(String s, <span class="keyword">int</span> i,Integer[] memo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(memo[i]!=<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> memo[i];</span><br><span class="line">        <span class="keyword">if</span> (s.charAt(i) == <span class="string">&#x27;*&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">long</span> res = <span class="number">9</span> * ways(s, i - <span class="number">1</span>,memo);</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                res = (res + <span class="number">9</span> * ways(s, i - <span class="number">2</span>,memo)) % M;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">                res = (res + <span class="number">6</span> * ways(s, i - <span class="number">2</span>,memo)) % M;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                res = (res + <span class="number">15</span> * ways(s, i - <span class="number">2</span>,memo)) % M;</span><br><span class="line">            memo[i]=(<span class="keyword">int</span>)res;</span><br><span class="line">            <span class="keyword">return</span> memo[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> res = s.charAt(i) != <span class="string">&#x27;0&#x27;</span> ? ways(s, i - <span class="number">1</span>,memo) : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">            res = (res + ways(s, i - <span class="number">2</span>,memo)) % M;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;2&#x27;</span> &amp;&amp; s.charAt(i) &lt;= <span class="string">&#x27;6&#x27;</span>)</span><br><span class="line">            res = (res + ways(s, i - <span class="number">2</span>,memo)) % M;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                res = (res + (s.charAt(i)&lt;=<span class="string">&#x27;6&#x27;</span>?<span class="number">2</span>:<span class="number">1</span>) * ways(s, i - <span class="number">2</span>,memo)) % M;</span><br><span class="line">        memo[i]= (<span class="keyword">int</span>)res;</span><br><span class="line">        <span class="keyword">return</span> memo[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(n)$，其中 $n$ 表示输入字符串和备忘录数组的长度，备忘录数组中每项计算时间复杂度为 $O(1)$。</p>
+</li>
+<li><p>空间复杂度：$O(n)$，递归树的深度为 $n$。</p>
+</li>
+</ul>
+<p><strong>方法二：动态规划</strong><br><strong>算法</strong></p>
+<p>从 方法一 可以看出，字符串前 $i$ 个字符的解码方法数量只与前 $i$ 个字符有关，与它后面的字符无关。因此该问题也可以使用动态规划解决。</p>
+<p>如果知道字符串前 $i−1$ 个字符的解码数量和前 $i−2$ 个字符的解码数量，就可以计算出前 $i$ 个字符的解码数量。从前往后计算数组 $dp$ 中每一项，$dp[i]$ 表示字符串 $s$ 前 $i$ 个字符的编码数量。</p>
+<p>通过一个简单实例的图解说明 $dp$ 的计算过程。</p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide1.PNG" alt="img"></p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide2.PNG" alt="img"></p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide3.PNG" alt="img"></p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide4.PNG" alt="img"></p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide5.PNG" alt="img"></p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide6.PNG" alt="img"></p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide7.PNG" alt="img"></p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide8.PNG" alt="img"></p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide9.PNG" alt="img"></p>
+<p><img src="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/639_Decode_Ways_IISlide10.PNG" alt="img"></p>
+<p><strong>Java代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> M = <span class="number">1000000007</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numDecodings</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span>[] dp = <span class="keyword">new</span> <span class="keyword">long</span>[s.length() + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = s.charAt(<span class="number">0</span>) == <span class="string">&#x27;*&#x27;</span> ? <span class="number">9</span> : s.charAt(<span class="number">0</span>) == <span class="string">&#x27;0&#x27;</span> ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">&#x27;*&#x27;</span>) &#123;</span><br><span class="line">                dp[i + <span class="number">1</span>] = <span class="number">9</span> * dp[i];</span><br><span class="line">                <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                    dp[i + <span class="number">1</span>] = (dp[i + <span class="number">1</span>] + <span class="number">9</span> * dp[i - <span class="number">1</span>]) % M;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">                    dp[i + <span class="number">1</span>] = (dp[i + <span class="number">1</span>] + <span class="number">6</span> * dp[i - <span class="number">1</span>]) % M;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                    dp[i + <span class="number">1</span>] = (dp[i + <span class="number">1</span>] + <span class="number">15</span> * dp[i - <span class="number">1</span>]) % M;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                dp[i + <span class="number">1</span>] = s.charAt(i) != <span class="string">&#x27;0&#x27;</span> ? dp[i] : <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                    dp[i + <span class="number">1</span>] = (dp[i + <span class="number">1</span>] + dp[i - <span class="number">1</span>]) % M;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;2&#x27;</span> &amp;&amp; s.charAt(i) &lt;= <span class="string">&#x27;6&#x27;</span>)</span><br><span class="line">                    dp[i + <span class="number">1</span>] = (dp[i + <span class="number">1</span>] + dp[i - <span class="number">1</span>]) % M;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                    dp[i + <span class="number">1</span>] = (dp[i + <span class="number">1</span>] + (s.charAt(i) &lt;= <span class="string">&#x27;6&#x27;</span> ? <span class="number">2</span> : <span class="number">1</span>) * dp[i - <span class="number">1</span>]) % M;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) dp[s.length()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(n)$，其中 $n$ 是输入字符串的长度，数组 $dp$ 长度为 $n+1$，计算数组每一项的时间复杂度为 $O(1)$。</p>
+</li>
+<li><p>空间复杂度：$O(n)$，数组 $dp$ 的长度为 $n+1$。</p>
+</li>
+</ul>
+<p><strong>方法三：恒定空间的动态规划</strong><br><strong>算法</strong></p>
+<p>只要知道 $dp[i-2]$ 和 $dp[i-1]$ 就可以计算出 $dp[i]$。因此不需要保存数组 $dp$ 的所有值，只需要记录数组 $dp$ 的最后两个值就可以计算出下一项。其他过程与 方法二 相同。</p>
+<p><strong>Java代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> M = <span class="number">1000000007</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numDecodings</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> first = <span class="number">1</span>, second = s.charAt(<span class="number">0</span>) == <span class="string">&#x27;*&#x27;</span> ? <span class="number">9</span> : s.charAt(<span class="number">0</span>) == <span class="string">&#x27;0&#x27;</span> ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">long</span> temp = second;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">&#x27;*&#x27;</span>) &#123;</span><br><span class="line">                second = <span class="number">9</span> * second;</span><br><span class="line">                <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                    second = (second + <span class="number">9</span> * first) % M;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">                    second = (second + <span class="number">6</span> * first) % M;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                    second = (second + <span class="number">15</span> * first) % M;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                second = s.charAt(i) != <span class="string">&#x27;0&#x27;</span> ? second : <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                    second = (second + first) % M;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;2&#x27;</span> &amp;&amp; s.charAt(i) &lt;= <span class="string">&#x27;6&#x27;</span>)</span><br><span class="line">                    second = (second + first) % M;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i - <span class="number">1</span>) == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                    second = (second + (s.charAt(i) &lt;= <span class="string">&#x27;6&#x27;</span> ? <span class="number">2</span> : <span class="number">1</span>) * first) % M;</span><br><span class="line">            &#125;</span><br><span class="line">            first = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) second;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(n)$，其中 $n$ 是输入字符串的长度，需要计算到第 $n$ 次才能得到所有字符的解码数量。</li>
+<li>空间复杂度：$O(1)$，使用恒定空间。</li>
+</ul>
+<h6 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h6><p><strong>递归、回溯和DFS的区别</strong></p>
+<ul>
+<li>递归是一种算法结构，回溯是一种算法思想。</li>
+<li>一个递归就是在函数中调用函数本身来解决问题。</li>
+<li>回溯就是通过不同的尝试来生成问题的解，有点类似于穷举，但是和穷举不同的是回溯会“剪枝”</li>
+</ul>
+<p>回溯搜索是深度优先搜索（DFS）的一种。对于某一个搜索树来说（搜索树是起记录路径和状态判断的作用），回溯和DFS主要的区别是，回溯法在求解过程中不保留完整的树形结构，而深度优先搜索则记下完整的搜索树。</p>
+<p><strong>递归的一般结构</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">     <span class="keyword">if</span>(符合边界条件)  </span><br><span class="line">     &#123;  </span><br><span class="line">        <span class="comment">///////  </span></span><br><span class="line">        <span class="keyword">return</span>;  </span><br><span class="line">     &#125;  </span><br><span class="line"></span><br><span class="line">     <span class="comment">//某种形式的调用  </span></span><br><span class="line">     f();  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p><strong>回溯的一般结构</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> 当前状态)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">      <span class="keyword">if</span>(当前状态为边界状态)  </span><br><span class="line">      &#123;  </span><br><span class="line">        记录或输出  </span><br><span class="line">        <span class="keyword">return</span>;  </span><br><span class="line">      &#125;  </span><br><span class="line">      <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)       <span class="comment">//横向遍历解答树所有子节点  </span></span><br><span class="line">      &#123;  </span><br><span class="line">           <span class="comment">//扩展出一个子状态。  </span></span><br><span class="line">           修改了全局变量  </span><br><span class="line">           <span class="keyword">if</span>(子状态满足约束条件)  </span><br><span class="line">            &#123;  </span><br><span class="line">              dfs(子状态)  </span><br><span class="line">           &#125;  </span><br><span class="line">            恢复全局变量<span class="comment">//回溯部分  </span></span><br><span class="line">      &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><p>数字消除这道题做的时候感觉还挺简单的，不知道为什么这道题的通过率反而是最低的，通过率28%提交次数243。解码方式这道最难的题反而通过率高达67%，提交次数91，不知道都怎么做的，有没有百度，我觉得还是自己好好做吧，主要为了提高自己嘛，成绩不那么重要😛。这次比赛在线编辑运行测试数据、提交代码检测结果太慢了，我提交完数字消除这道题后太慢了我才做的笛卡尔积那道题，数字消除还挺有自信的感觉是对的，好久才出评判结果，评判出错后我想着应该好改，就在做笛卡尔积那道题没怎么着急改，所以最后没有及时提交那道题。前三题都还可以，最后一道题感觉有点晕，也是我现在做题少的原因还是太菜了，继续加油吧。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91%E5%A4%A9%E6%B1%A0%E8%B5%9B/" rel="tag"><i class="fa fa-tag"></i> 阿里云天池赛</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/23/%E5%9B%9E%E6%96%87%E6%95%B0/" rel="prev" title="回文数">
+      <i class="fa fa-chevron-left"></i> 回文数
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/" rel="next" title="第212场周赛">
+      第212场周赛 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E4%B8%8D%E5%90%8C%E5%AD%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">连接两个字符串中的不同字符</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E6%B6%88%E9%99%A4"><span class="nav-number">2.</span> <span class="nav-text">数字消除</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF"><span class="nav-number">3.</span> <span class="nav-text">笛卡尔积</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">解码方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">5.</span> <span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">loadding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <br/>
+  
+  </div>
+
+
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+ 
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

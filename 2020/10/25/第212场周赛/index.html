@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="比赛地址 比赛说明本场竞赛由「猿辅导」&amp;「力扣」联合主办 【工作机会奖励】  排名第 1 ~ 1000 名参赛者可获「猿辅导」社招简历内推机会。  【实物周边奖励】  排名第 1 ~ 10 名的参赛者可获「2020 猿辅导鼠年纪念币」； 排名第 11 ~ 30 名的参赛者可获「小猿手办」； 排名第 99、199、299 名的参赛者可获「幸运奖」；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第212场周赛">
+<meta property="og:url" content="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="比赛地址 比赛说明本场竞赛由「猿辅导」&amp;「力扣」联合主办 【工作机会奖励】  排名第 1 ~ 1000 名参赛者可获「猿辅导」社招简历内推机会。  【实物周边奖励】  排名第 1 ~ 10 名的参赛者可获「2020 猿辅导鼠年纪念币」； 排名第 11 ~ 30 名的参赛者可获「小猿手办」； 排名第 99、199、299 名的参赛者可获「幸运奖」；">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex1.png">
+<meta property="og:image" content="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex2.png">
+<meta property="og:image" content="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex3.png">
+<meta property="og:image" content="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank1.jpg">
+<meta property="og:image" content="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank2.jpg">
+<meta property="og:image" content="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank3.jpg">
+<meta property="og:image" content="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank4.jpg">
+<meta property="article:published_time" content="2020-10-25T02:54:34.000Z">
+<meta property="article:modified_time" content="2020-11-04T13:23:05.888Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="LeetCode周赛">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex1.png">
+
+<link rel="canonical" href="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>第212场周赛 | CTF of Z2BNS</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?<41fc030db57d5570dd22f78997dc4a7e>";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第212场周赛
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-25 10:54:34" itemprop="dateCreated datePublished" datetime="2020-10-25T10:54:34+08:00">2020-10-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-04 21:23:05" itemprop="dateModified" datetime="2020-11-04T21:23:05+08:00">2020-11-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/CONTEST/" itemprop="url" rel="index"><span itemprop="name">CONTEST</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-212/">比赛地址</a></p>
+<h6 id="比赛说明"><a href="#比赛说明" class="headerlink" title="比赛说明"></a>比赛说明</h6><p>本场竞赛由「猿辅导」&amp;「力扣」联合主办</p>
+<p><strong>【工作机会奖励】</strong></p>
+<ul>
+<li>排名第 1 ~ 1000 名参赛者可获「猿辅导」社招简历内推机会。</li>
+</ul>
+<p><strong>【实物周边奖励】</strong></p>
+<ul>
+<li>排名第 1 ~ 10 名的参赛者可获「2020 猿辅导鼠年纪念币」；</li>
+<li>排名第 11 ~ 30 名的参赛者可获「小猿手办」；</li>
+<li>排名第 99、199、299 名的参赛者可获「幸运奖」；</li>
+</ul>
+<a id="more"></a>
+
+<p><strong>重要提示</strong></p>
+<ol>
+<li><p>请注意，每个错误提交的惩罚时间已经从 <strong>10分钟</strong> 改变为了 <strong>5分钟</strong> 。</p>
+</li>
+<li><p>力扣一向非常重视竞赛的公平，为了保障每一位用户的权益，如有用户被检查出竞赛中存在违规行为（如抄袭、作弊等），我们会坚持以 <strong>零容忍</strong> 的态度维护竞赛的公平、公正。</p>
+</li>
+<li><p>以下被判定为竞赛中的违规行为</p>
+<ul>
+<li><p>一人使用多账号提交（英文站 LCUS 的账号 和 中文站 LCCN 的账号属于两个账号）</p>
+</li>
+<li><p>通过不正当的方式将部分或全部测试用例的答案直接贴到代码里的</p>
+</li>
+<li><p>多账号提交雷同代码（抄袭）</p>
+</li>
+<li><p>使用不正当手段影响他人竞赛的</p>
+</li>
+<li><p>竞赛结束前在讨论区发布答案的</p>
+</li>
+</ul>
+</li>
+<li><p>如被发现违规行为，我们将会严格按照以下处罚规则执行：</p>
+<ul>
+<li><p><strong>第一次违规</strong>：账号内的所有积分清零，账号冻结 1 个月</p>
+</li>
+<li><p><strong>第二次违规</strong>：永久封号</p>
+</li>
+</ul>
+</li>
+<li><p>同时我们也鼓励大家共同维护竞赛的公平和公正，我们会给与举报成功的用户额外的奖励：</p>
+<ul>
+<li><p>被认定为违规账号的前 10 名举报者，每人可获得 20 积分奖励</p>
+</li>
+<li><p>每人每场最高可获得举报成功的 100 积分奖励</p>
+</li>
+</ul>
+</li>
+</ol>
+<h6 id="题目列表"><a href="#题目列表" class="headerlink" title="题目列表"></a>题目列表</h6><table>
+<thead>
+<tr>
+<th>题目</th>
+<th>难度</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/slowest-key/">按键持续时间最长的键</a></td>
+<td>简单</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/arithmetic-subarrays/">等差子数组</a></td>
+<td>中等</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-with-minimum-effort/">最小体力消耗路径</a></td>
+<td>中等</td>
+<td>5</td>
+</tr>
+<tr>
+<td>4.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rank-transform-of-a-matrix/">矩阵转换后的秩</a></td>
+<td>困难</td>
+<td>7</td>
+</tr>
+</tbody></table>
+<h6 id="按键持续时间最长的键"><a href="#按键持续时间最长的键" class="headerlink" title="按键持续时间最长的键"></a>按键持续时间最长的键</h6><p><strong>题目描述：</strong></p>
+<p>LeetCode 设计了一款新式键盘，正在测试其可用性。测试人员将会点击一系列键（总计 n 个），每次一个。</p>
+<p>给你一个长度为 n 的字符串 <code>keysPressed</code> ，其中 <code>keysPressed[i]</code> 表示测试序列中第 i 个被按下的键。<code>releaseTimes</code> 是一个升序排列的列表，其中 <code>releaseTimes[i]</code> 表示松开第 i 个键的时间。字符串和数组的 <strong>下标都从 0 开始</strong> 。第 <code>0</code> 个键在时间为 <code>0</code> 时被按下，接下来每个键都 <strong>恰好</strong> 在前一个键松开时被按下。</p>
+<p>测试人员想要找出按键 <strong>持续时间最长</strong> 的键。第 <code>i</code> 次按键的持续时间为 <code>releaseTimes[i] - releaseTimes[i - 1]</code> ，第 <code>0</code> 次按键的持续时间为 <code>releaseTimes[0]</code> 。</p>
+<p>注意，测试期间，同一个键可以在不同时刻被多次按下，而每次的持续时间都可能不同。</p>
+<p>请返回按键 <strong>持续时间最长</strong> 的键，如果有多个这样的键，则返回 <strong>按字母顺序排列最大</strong> 的那个键。</p>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入：releaseTimes &#x3D; [9,29,49,50], keysPressed &#x3D; &quot;cbcd&quot;</span><br><span class="line">输出：&quot;c&quot;</span><br><span class="line">解释：按键顺序和持续时间如下：</span><br><span class="line">按下 &#39;c&#39; ，持续时间 9（时间 0 按下，时间 9 松开）</span><br><span class="line">按下 &#39;b&#39; ，持续时间 29 - 9 &#x3D; 20（松开上一个键的时间 9 按下，时间 29 松开）</span><br><span class="line">按下 &#39;c&#39; ，持续时间 49 - 29 &#x3D; 20（松开上一个键的时间 29 按下，时间 49 松开）</span><br><span class="line">按下 &#39;d&#39; ，持续时间 50 - 49 &#x3D; 1（松开上一个键的时间 49 按下，时间 50 松开）</span><br><span class="line">按键持续时间最长的键是 &#39;b&#39; 和 &#39;c&#39;（第二次按下时），持续时间都是 20</span><br><span class="line">&#39;c&#39; 按字母顺序排列比 &#39;b&#39; 大，所以答案是 &#39;c&#39;</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入：releaseTimes &#x3D; [12,23,36,46,62], keysPressed &#x3D; &quot;spuda&quot;</span><br><span class="line">输出：&quot;a&quot;</span><br><span class="line">解释：按键顺序和持续时间如下：</span><br><span class="line">按下 &#39;s&#39; ，持续时间 12</span><br><span class="line">按下 &#39;p&#39; ，持续时间 23 - 12 &#x3D; 11</span><br><span class="line">按下 &#39;u&#39; ，持续时间 36 - 23 &#x3D; 13</span><br><span class="line">按下 &#39;d&#39; ，持续时间 46 - 36 &#x3D; 10</span><br><span class="line">按下 &#39;a&#39; ，持续时间 62 - 46 &#x3D; 16</span><br><span class="line">按键持续时间最长的键是 &#39;a&#39; ，持续时间 16</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>releaseTimes.length == n</code></li>
+<li><code>keysPressed.length == n</code></li>
+<li><code>2 &lt;= n &lt;= 1000</code></li>
+<li><code>0 &lt;= releaseTimes[i] &lt;= 109</code></li>
+<li><code>releaseTimes[i] &lt; releaseTimes[i+1]</code></li>
+<li><code>keysPressed 仅由小写英文字母组成</code></li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>用一个变量存储最长的持续时间，然后依次遍历releaseTimes计算每个键的持续时间（第1个键特殊处理），比较持续时间若相同比较字母顺序。</p>
+<p><strong>提交的代码：</strong>（运行时间16ms，内存消耗10.7M）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">slowestKey</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; releaseTimes, <span class="built_in">string</span> keysPressed)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//先把releaseTimes转换成每个键的持续时间，从后面开始</span></span><br><span class="line">        <span class="keyword">int</span> key_time=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=releaseTimes.size()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="comment">//计算持续时间，第一个键例外</span></span><br><span class="line">            <span class="keyword">if</span>(i!=<span class="number">0</span>)&#123;</span><br><span class="line">                releaseTimes[i]=releaseTimes[i]-releaseTimes[i<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(releaseTimes[i]&gt;key_time)&#123;</span><br><span class="line">                <span class="comment">//持续时间最长的键</span></span><br><span class="line">                key_time=releaseTimes[i];</span><br><span class="line">                c=keysPressed[i];</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(releaseTimes[i]==key_time)&#123;</span><br><span class="line">                <span class="comment">//相同持续时间比较字母顺序</span></span><br><span class="line">                <span class="keyword">if</span>(keysPressed[i]&gt;c)&#123;</span><br><span class="line">                    c=keysPressed[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="等差子数组"><a href="#等差子数组" class="headerlink" title="等差子数组"></a>等差子数组</h6><p><strong>题目描述：</strong></p>
+<p>如果一个数列由至少两个元素组成，且每两个连续元素之间的差值都相同，那么这个序列就是 等差数列 。更正式地，数列 <code>s</code> 是等差数列，只需要满足：对于每个有效的 <code>i</code> ， s[i+1] - s[i] == s[1] - s[0] 都成立。</p>
+<p>例如，下面这些都是 <strong>等差数列</strong> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1, 3, 5, 7, 9</span><br><span class="line">7, 7, 7, 7</span><br><span class="line">3, -1, -5, -9</span><br></pre></td></tr></table></figure>
+
+<p>下面的数列 <strong>不是等差数列</strong> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1, 1, 2, 5, 7</span><br></pre></td></tr></table></figure>
+
+<p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code>，和两个由 <code>m</code> 个整数组成的数组 <code>l</code> 和 <code>r</code>，后两个数组表示 <code>m</code> 组范围查询，其中第 <code>i</code> 个查询对应范围 <code>[l[i], r[i]]</code> 。所有数组的下标都是 <strong>从 0 开始</strong> 的。</p>
+<p>返回 <code>boolean</code> 元素构成的答案列表 <code>answer</code> 。如果子数组 <code>nums[l[i]], nums[l[i]+1], ... , nums[r[i]]</code> 可以 <strong>重新排列</strong> 形成 <strong>等差数列</strong> ，<code>answer[i]</code> 的值就是 <code>true</code>；否则<code>answer[i]</code> 的值就是 <code>false</code> 。</p>
+<p> <strong>示例1：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">4</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">7</span>], l = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>], r = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">输出：[<span class="literal">true</span>,<span class="literal">false</span>,<span class="literal">true</span>]</span><br><span class="line">解释：</span><br><span class="line">第 <span class="number">0</span> 个查询，对应子数组 [<span class="number">4</span>,<span class="number">6</span>,<span class="number">5</span>] 。可以重新排列为等差数列 [<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>] 。</span><br><span class="line">第 <span class="number">1</span> 个查询，对应子数组 [<span class="number">4</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">9</span>] 。无法重新排列形成等差数列。</span><br><span class="line">第 <span class="number">2</span> 个查询，对应子数组 [<span class="number">5</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">7</span>] 。可以重新排列为等差数列 [<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>] 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">-12</span>,<span class="number">-9</span>,<span class="number">-3</span>,<span class="number">-12</span>,<span class="number">-6</span>,<span class="number">15</span>,<span class="number">20</span>,<span class="number">-25</span>,<span class="number">-20</span>,<span class="number">-15</span>,<span class="number">-10</span>], l = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">7</span>], r = [<span class="number">4</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">10</span>]</span><br><span class="line">输出：[<span class="literal">false</span>,<span class="literal">true</span>,<span class="literal">false</span>,<span class="literal">false</span>,<span class="literal">true</span>,<span class="literal">true</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == nums.length</code></li>
+<li><code>m == l.length</code></li>
+<li><code>m == r.length</code></li>
+<li><code>2 &lt;= n &lt;= 500</code></li>
+<li><code>1 &lt;= m &lt;= 500</code></li>
+<li><code>0 &lt;= l[i] &lt; r[i] &lt; n</code></li>
+<li><code>-105 &lt;= nums[i] &lt;= 105</code></li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>用vector容器存储返回结果，默认值为true。m次循环（m是数组l的长度），在每次循环中得到相对应的范围数组，然后判断数组是否是等差数列，如果不是则修改结果容器对应元素为false</p>
+<p><strong>代码：</strong>（执行用时204ms，击败47.38%，内存20.9M，击败83.18%）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">checkArithmeticSubarrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; l, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; r)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义布尔类型返回向量容器，默认值是true</span></span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">result</span><span class="params">(l.size(),<span class="literal">true</span>)</span></span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">        <span class="keyword">int</span> d=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//得到结果</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l.size();i++)&#123;</span><br><span class="line">            <span class="comment">//数组元素清空</span></span><br><span class="line">            tmp.clear();</span><br><span class="line">            <span class="keyword">for</span>(j=l[i];j&lt;=r[i];j++)&#123;</span><br><span class="line">                <span class="comment">//存储获取到的范围数组</span></span><br><span class="line">                tmp.push_back(nums[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//重新排序</span></span><br><span class="line">            sort(tmp.begin(),tmp.end());</span><br><span class="line">            <span class="comment">//判断子数组是否是等差数组</span></span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;tmp.size()<span class="number">-1</span>;j++)&#123;</span><br><span class="line">                    <span class="comment">//求公差</span></span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">0</span>)&#123;</span><br><span class="line">                        d=tmp[j+<span class="number">1</span>]-tmp[j];</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        <span class="comment">//差不等于公差d</span></span><br><span class="line">                        <span class="keyword">if</span>(tmp[j+<span class="number">1</span>]-tmp[j]!=d)&#123;</span><br><span class="line">                            result[i]=<span class="literal">false</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            tmp.clear();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h6 id="最小体力消耗路径"><a href="#最小体力消耗路径" class="headerlink" title="最小体力消耗路径"></a>最小体力消耗路径</h6><p><strong>题目描述：</strong></p>
+<p>你准备参加一场远足活动。给你一个二维 <code>rows x columns</code> 的地图 <code>heights</code> ，其中 <code>heights[row][col]</code> 表示格子 <code>(row, col)</code> 的高度。一开始你在最左上角的格子 <code>(0, 0)</code> ，且你希望去最右下角的格子 <code>(rows-1, columns-1)</code> （注意下标从 <strong>0</strong> 开始编号）。你每次可以往 <strong>上，下，左，右</strong> 四个方向之一移动，你想要找到耗费 <strong>体力</strong> 最小的一条路径。</p>
+<p>一条路径耗费的 <strong>体力值</strong> 是路径上相邻格子之间 <strong>高度差绝对值</strong> 的 <strong>最大值</strong> 决定的。</p>
+<p>请你返回从左上角走到右下角的最小 <strong>体力消耗值</strong> 。</p>
+<p><strong>示例1：</strong></p>
+<p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex1.png" alt="img"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：heights = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">8</span>,<span class="number">2</span>],[<span class="number">5</span>,<span class="number">3</span>,<span class="number">5</span>]]</span><br><span class="line">输出：<span class="number">2</span></span><br><span class="line">解释：路径 [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">5</span>] 连续格子的差值绝对值最大为 <span class="number">2</span> 。</span><br><span class="line">这条路径比路径 [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">5</span>] 更优，因为另一条路劲差值最大值为 <span class="number">3</span> 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2：</strong></p>
+<p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex2.png" alt="img"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：heights = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">8</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">3</span>,<span class="number">5</span>]]</span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">解释：路径 [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>] 的相邻格子差值绝对值最大为 <span class="number">1</span> ，比路径 [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">5</span>] 更优。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例3：</strong></p>
+<p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex3.png" alt="img"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：heights = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]]</span><br><span class="line">输出：<span class="number">0</span></span><br><span class="line">解释：上图所示路径不需要消耗任何体力。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>rows == heights.length</code></li>
+<li><code>columns == heights[i].length</code></li>
+<li><code>1 &lt;= rows, columns &lt;= 100</code></li>
+<li><code>1 &lt;= heights[i][j] &lt;= 106</code></li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>没什么好的想法，直观的解法就是遍历所有的走法，从（0,0）到（row-1，columns-1），不对好像也不行，因为还有往回查的。</p>
+<p><strong>代码：</strong></p>
+<h6 id="矩阵转换后的秩"><a href="#矩阵转换后的秩" class="headerlink" title="矩阵转换后的秩"></a>矩阵转换后的秩</h6><p><strong>题目描述：</strong></p>
+<p>给你一个 <code>m x n</code> 的矩阵 <code>matrix</code> ，请你返回一个新的矩阵 <code>answer</code> ，其中 <code>answer[row][col]</code> 是 <code>matrix[row][col]</code> 的秩。</p>
+<p>每个元素的 <strong>秩</strong> 是一个整数，表示这个元素相对于其他元素的大小关系，它按照如下规则计算：</p>
+<ul>
+<li>如果一个元素是它所在行和列的最小值，那么它的 <strong>秩</strong> 为 1。</li>
+<li>如果两个元素 <code>p</code> 和 <code>q</code> 在 同一行 或者 同一列 ，那么：</li>
+<li><ul>
+<li>如果 <code>p &lt; q</code> ，那么 <code>rank(p) &lt; rank(q)</code></li>
+<li>如果 <code>p == q</code> ，那么 <code>rank(p) == rank(q)</code></li>
+<li>如果 <code>p &gt; q</code> ，那么 <code>rank(p) &gt; rank(q)</code></li>
+</ul>
+</li>
+<li>秩 需要越 小 越好。</li>
+</ul>
+<p>题目保证按照上面规则 answer 数组是唯一的。</p>
+<p><strong>示例1：</strong></p>
+<p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank1.jpg" alt="img"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]]</span><br><span class="line">输出：[[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">解释：</span><br><span class="line">matrix[<span class="number">0</span>][<span class="number">0</span>] 的秩为 <span class="number">1</span> ，因为它是所在行和列的最小整数。</span><br><span class="line">matrix[<span class="number">0</span>][<span class="number">1</span>] 的秩为 <span class="number">2</span> ，因为 matrix[<span class="number">0</span>][<span class="number">1</span>] &gt; matrix[<span class="number">0</span>][<span class="number">0</span>] 且 matrix[<span class="number">0</span>][<span class="number">0</span>] 的秩为 <span class="number">1</span> 。</span><br><span class="line">matrix[<span class="number">1</span>][<span class="number">0</span>] 的秩为 <span class="number">2</span> ，因为 matrix[<span class="number">1</span>][<span class="number">0</span>] &gt; matrix[<span class="number">0</span>][<span class="number">0</span>] 且 matrix[<span class="number">0</span>][<span class="number">0</span>] 的秩为 <span class="number">1</span> 。</span><br><span class="line">matrix[<span class="number">1</span>][<span class="number">1</span>] 的秩为 <span class="number">3</span> ，因为 matrix[<span class="number">1</span>][<span class="number">1</span>] &gt; matrix[<span class="number">0</span>][<span class="number">1</span>]， matrix[<span class="number">1</span>][<span class="number">1</span>] &gt; matrix[<span class="number">1</span>][<span class="number">0</span>] 且 matrix[<span class="number">0</span>][<span class="number">1</span>] 和 matrix[<span class="number">1</span>][<span class="number">0</span>] 的秩都为 <span class="number">2</span> 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2：</strong></p>
+<p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank2.jpg" alt="img"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">7</span>,<span class="number">7</span>],[<span class="number">7</span>,<span class="number">7</span>]]</span><br><span class="line">输出：[[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例3：</strong></p>
+<p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank3.jpg" alt="img"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">20</span>,<span class="number">-21</span>,<span class="number">14</span>],[<span class="number">-19</span>,<span class="number">4</span>,<span class="number">19</span>],[<span class="number">22</span>,<span class="number">-47</span>,<span class="number">24</span>],[<span class="number">-19</span>,<span class="number">4</span>,<span class="number">19</span>]]</span><br><span class="line">输出：[[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">1</span>,<span class="number">6</span>],[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例4：</strong></p>
+<p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank4.jpg" alt="img"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">7</span>,<span class="number">3</span>,<span class="number">6</span>],[<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">9</span>,<span class="number">8</span>,<span class="number">2</span>]]</span><br><span class="line">输出：[[<span class="number">5</span>,<span class="number">1</span>,<span class="number">4</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">6</span>,<span class="number">3</span>,<span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>m == matrix.length</code></li>
+<li><code>n == matrix[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 500</code></li>
+<li><code>-109 &lt;= matrix[row][col] &lt;= 109</code></li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>这道属于难题，我都没看，上一道中等题我都没做出来，还是先算了</p>
+<p><strong>代码：</strong></p>
+<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><p>第一次参加LeetCode周赛，只提交了一道题，排名好像几千名吧，这么看参加的人还不少哇，不过第二道题挺可惜的提交了以后超出时间限制😥也没时间改了，后来复盘发现存储范围数组的tmp容器排序代码我放到了for循环中，应该放到外面也就是说要全部获取到tmp元素后再调用sort函数排序，不能放入一个元素就排一下序，没必要。其实参加周赛的时候心神不定，不专注，有心事。或许是因为没信心吧，所以做的慢了些，效率不高，下次加油吧。</p>
+<p>啊好懵，本科学的算法和数据结构都忘了（也可能没学会）🤣。决定还是先刷简单题吧，这周赛我觉得我现在水平不太行，题解要写好久，等到刷了一定数量的简单题有了一定的水平之后再来完成这些周赛的题解吧，不过我一定会回来的🤔</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/LeetCode%E5%91%A8%E8%B5%9B/" rel="tag"><i class="fa fa-tag"></i> LeetCode周赛</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/24/%E7%BC%96%E7%A8%8Bbattle-%E7%B2%BE%E7%A5%9E%E5%B0%8F%E4%BC%99%E5%9C%BA/" rel="prev" title="编程battle-精神小伙场">
+      <i class="fa fa-chevron-left"></i> 编程battle-精神小伙场
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/25/2020-10-25/" rel="next" title="Don't give up and don't give in！">
+      Don't give up and don't give in！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%AF%94%E8%B5%9B%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">比赛说明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%88%97%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">题目列表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89%E9%94%AE%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4%E6%9C%80%E9%95%BF%E7%9A%84%E9%94%AE"><span class="nav-number">3.</span> <span class="nav-text">按键持续时间最长的键</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AD%89%E5%B7%AE%E5%AD%90%E6%95%B0%E7%BB%84"><span class="nav-number">4.</span> <span class="nav-text">等差子数组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BD%93%E5%8A%9B%E6%B6%88%E8%80%97%E8%B7%AF%E5%BE%84"><span class="nav-number">5.</span> <span class="nav-text">最小体力消耗路径</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%BD%AC%E6%8D%A2%E5%90%8E%E7%9A%84%E7%A7%A9"><span class="nav-number">6.</span> <span class="nav-text">矩阵转换后的秩</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">loadding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <br/>
+  
+  </div>
+
+
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+ 
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
