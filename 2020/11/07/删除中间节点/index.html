@@ -30,7 +30,7 @@
 <meta property="og:description" content="题目地址 难度：⭐ 题目描述：实现一种算法，删除单向链表中间的某个节点（即不是第一个或最后一个节点），假定你只能访问该节点。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-07T05:24:19.000Z">
-<meta property="article:modified_time" content="2020-11-07T05:32:11.403Z">
+<meta property="article:modified_time" content="2020-11-11T14:39:47.690Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="简单">
@@ -233,10 +233,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-07 13:24:19 / 修改时间：13:32:11" itemprop="dateCreated datePublished" datetime="2020-11-07T13:24:19+08:00">2020-11-07</time>
+              <time title="创建时间：2020-11-07 13:24:19" itemprop="dateCreated datePublished" datetime="2020-11-07T13:24:19+08:00">2020-11-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:39:47" itemprop="dateModified" datetime="2020-11-11T22:39:47+08:00">2020-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -301,21 +307,14 @@
 <p><strong>难度：</strong>⭐</p>
 <h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>实现一种算法，删除单向链表中间的某个节点（即不是第一个或最后一个节点），假定你只能访问该节点。</p>
 <a id="more"></a>
-
 <p><strong>示例：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：单向链表a-&gt;b-&gt;c-&gt;d-&gt;e-&gt;f中的节点c</span><br><span class="line">结果：不返回任何数据，但该链表变为a-&gt;b-&gt;d-&gt;e-&gt;f</span><br></pre></td></tr></table></figure>
-
-
-
 <center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
 
 <h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
 <p>依次把删除节点下一个节点的值赋值给当前节点，也就是说把要删除的节点当做下一个节点，这样把要删除节点后面的链元素依次前移。删除节点不是第一个或最后一个节点，处理特殊情况：删除的是倒数第二个节点因为它下一个节点是最后一个节点，依次调用deleteNode函数，若删除节点是倒数第二个，则直接next指针为NULL，否则递归调用deleteNode函数。</p>
 <p><strong>c++代码：</strong>(执行用时12ms，击败97.21%，内存消耗8.2M，击败5.84%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode* node)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//删除的节点不为第一个或最后一个节点</span></span><br><span class="line">        <span class="comment">//把要删除的节点变成下一个节点</span></span><br><span class="line">        node-&gt;val=node-&gt;next-&gt;val;</span><br><span class="line">        <span class="comment">//如果是不是倒数第二个节点，递归删除下一个节点</span></span><br><span class="line">        <span class="keyword">if</span>(node-&gt;next-&gt;next)&#123;</span><br><span class="line">            deleteNode(node-&gt;next);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//是倒数第二个节点，直接删除下一个节点</span></span><br><span class="line">            node-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
 <center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
 
 <h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，效率应该还行，哈哈哈😉!。</p>
@@ -633,6 +632,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

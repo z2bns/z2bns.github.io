@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2020/11/10/%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E7%BA%BF%E5%85%83%E7%B4%A0%E7%9A%84%E5%92%8C/sample_1911.png">
 <meta property="article:published_time" content="2020-11-10T02:08:35.000Z">
-<meta property="article:modified_time" content="2020-11-10T02:19:17.975Z">
+<meta property="article:modified_time" content="2020-11-11T14:38:30.653Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="简单">
@@ -235,10 +235,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-10 10:08:35 / 修改时间：10:19:17" itemprop="dateCreated datePublished" datetime="2020-11-10T10:08:35+08:00">2020-11-10</time>
+              <time title="创建时间：2020-11-10 10:08:35" itemprop="dateCreated datePublished" datetime="2020-11-10T10:08:35+08:00">2020-11-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:38:30" itemprop="dateModified" datetime="2020-11-11T22:38:30+08:00">2020-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -304,17 +310,13 @@
 <h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个正方形矩阵 <code>mat</code>，请你返回矩阵对角线元素的和。</p>
 <p>请你返回在矩阵主对角线上的元素和副对角线上且不在主对角线上元素的和。</p>
 <a id="more"></a>
-
 <p><strong>示例1：</strong></p>
 <p><img src="/2020/11/10/%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E7%BA%BF%E5%85%83%E7%B4%A0%E7%9A%84%E5%92%8C/sample_1911.png" alt="img"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：mat &#x3D; [[1,2,3],</span><br><span class="line">            [4,5,6],</span><br><span class="line">            [7,8,9]]</span><br><span class="line">输出：25</span><br><span class="line">解释：对角线的和为：1 + 5 + 9 + 3 + 7 &#x3D; 25</span><br><span class="line">请注意，元素 mat[1][1] &#x3D; 5 只会被计算一次。</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例2：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：mat &#x3D; [[1,1,1,1],</span><br><span class="line">            [1,1,1,1],</span><br><span class="line">            [1,1,1,1],</span><br><span class="line">            [1,1,1,1]]</span><br><span class="line">输出：8</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例3：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：mat &#x3D; [[5]]</span><br><span class="line">输出：5</span><br></pre></td></tr></table></figure>
-
 <p><strong>限制：</strong></p>
 <ul>
 <li><code>n == mat.length == mat[i].length</code></li>
@@ -327,16 +329,12 @@
 <p>根据题目描述模拟，直接加上对角线上的元素值，注意矩阵的行数为奇数时会重复加上主副对角线的重叠值，需要减去。</p>
 <p><strong>c++代码：</strong>(执行用时28ms，击败98.91%，内存消耗11.5M，击败5.03%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diagonalSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; mat)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n=mat.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            result+=mat[i][i];</span><br><span class="line">            result+=mat[i][n-i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//n是奇数，减去重复加上的中间的值</span></span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>!=<span class="number">0</span>)&#123;</span><br><span class="line">            result-=mat[(n<span class="number">-1</span>)/<span class="number">2</span>][(n<span class="number">-1</span>)/<span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
 <center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
 
 <h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/matrix-diagonal-sum/solution/ju-zhen-dui-jiao-xian-yuan-su-de-he-by-leetcode-so/">官方题解</a>:</h6><p><strong>方法一：遍历矩阵</strong><br><strong>思路与算法</strong></p>
 <p>遍历整个矩阵，如果当前坐标 (i, j)(i,j) 满足 i = ji=j 或者 i + j = n - 1i+j=n−1，就把当前的数字加入到答案中。</p>
 <p><strong>c++代码：</strong>（执行32ms，击败93.54%，内存11.5M，击败5.16%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diagonalSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; mat)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = mat.size(), sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == j || i + j == n - <span class="number">1</span>) &#123;</span><br><span class="line">                    sum += mat[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p><strong>复杂度分析</strong></p>
 <ul>
 <li>时间复杂度：$O(n^2)$，其中 $n$是矩阵 $\textit{mat}$的边长。</li>
@@ -346,7 +344,6 @@
 <p>逐行遍历，记当前的行号为 $i$，对于一行我们把 $(i, i)$ 位置和  加入答案。这样如果 $n$ 是奇数的话，最中间的格子会被加入两次。所以 $n$ 为奇数的时候，我们需要减掉矩阵最中心的那个值。</p>
 <p><strong>c++代码：</strong>（执行36ms，击败74.17%，内存11.5M，击败5.03%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diagonalSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; mat)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = mat.size(), sum = <span class="number">0</span>, mid = n / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            sum += mat[i][i] + mat[i][n - <span class="number">1</span> - i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum - mat[mid][mid] * (n &amp; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p><strong>复杂度分析</strong></p>
 <ul>
 <li>时间复杂度：，其中 $n$是矩阵 $\textit{mat}$ 的边长。</li>
@@ -669,6 +666,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

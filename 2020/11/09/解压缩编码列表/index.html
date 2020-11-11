@@ -30,7 +30,7 @@
 <meta property="og:description" content="题目地址 难度：⭐ 题目描述：给你一个以行程长度编码压缩的整数列表 nums 。 考虑每对相邻的两个元素 [freq, val] &#x3D; [nums[2*i], nums[2*i+1]] （其中 i &gt;&#x3D; 0 ），每一对都表示解压后子列表中有 freq 个值为 val 的元素，你需要从左到右连接所有子列表以生成解压后的列表。 请你返回解压后的列表。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-09T05:57:42.000Z">
-<meta property="article:modified_time" content="2020-11-09T06:09:38.205Z">
+<meta property="article:modified_time" content="2020-11-11T14:40:15.545Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="简单">
@@ -233,10 +233,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-09 13:57:42 / 修改时间：14:09:38" itemprop="dateCreated datePublished" datetime="2020-11-09T13:57:42+08:00">2020-11-09</time>
+              <time title="创建时间：2020-11-09 13:57:42" itemprop="dateCreated datePublished" datetime="2020-11-09T13:57:42+08:00">2020-11-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:40:15" itemprop="dateModified" datetime="2020-11-11T22:40:15+08:00">2020-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -303,13 +309,10 @@
 <p>考虑每对相邻的两个元素 <code>[freq, val] = [nums[2*i], nums[2*i+1]]</code> （其中 <code>i &gt;= 0</code> ），每一对都表示解压后子列表中有 <code>freq</code> 个值为 <code>val</code> 的元素，你需要从左到右连接所有子列表以生成解压后的列表。</p>
 <p>请你返回解压后的列表。</p>
 <a id="more"></a>
-
 <p><strong>示例1：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [1,2,3,4]</span><br><span class="line">输出：[2,4,4,4]</span><br><span class="line">解释：第一对 [1,2] 代表着 2 的出现频次为 1，所以生成数组 [2]。</span><br><span class="line">第二对 [3,4] 代表着 4 的出现频次为 3，所以生成数组 [4,4,4]。</span><br><span class="line">最后将它们串联到一起 [2] + [4,4,4] &#x3D; [2,4,4,4]。</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例2：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [1,1,2,3]</span><br><span class="line">输出：[1,3,3]</span><br></pre></td></tr></table></figure>
-
 <p><strong>限制：</strong></p>
 <ul>
 <li><code>2 &lt;= nums.length &lt;= 100</code></li>
@@ -322,16 +325,12 @@
 <p>遍历整数列表nums，对每对相邻元素，循环生成freq个值为val的元素。</p>
 <p><strong>c++代码：</strong>(执行用时8ms，击败80.33%，内存消耗10.4M，击败5.58%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">decompressRLElist</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.size()/<span class="number">2</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;nums[<span class="number">2</span>*i];++j)&#123;</span><br><span class="line">                result.push_back(nums[<span class="number">2</span>*i+<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
 <center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
 
 <h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/solution/zheng-shu-de-ge-wei-ji-he-zhi-chai-by-leetcode-sol/">官方题解</a>:</h6><p><strong>方法一：模拟</strong></p>
 <p>我们以步长（step）为 <code>2</code> 遍历数组 <code>nums</code>，对于当前遍历到的元素 <code>a</code> 和 <code>b</code>，我们将 <code>a</code> 个 <code>b</code> 添加进答案中即可。</p>
 <p><strong>c++代码：</strong>（执行8ms，击败80.33%，内存10.4M，击败5.12%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">decompressRLElist</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i += <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums[i]; ++j) &#123;</span><br><span class="line">                ans.push_back(nums[i + <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p><strong>复杂度分析</strong></p>
 <ul>
 <li>时间复杂度：$O(N+∑nums_{even})$，其中 $N$ 是数组 <code>nums</code> 的长度，$∑nums_{even}$  是数组 <code>nums</code> 中所有下标为偶数的元素之和。</li>
@@ -654,6 +653,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

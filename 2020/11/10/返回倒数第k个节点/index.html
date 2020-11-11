@@ -30,7 +30,7 @@
 <meta property="og:description" content="题目地址 难度：⭐ 题目描述：实现一种算法，找出单向链表中倒数第 k 个节点。返回该节点的值。 注意：本题相对原题稍作改动">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-10T13:18:10.000Z">
-<meta property="article:modified_time" content="2020-11-10T13:24:18.975Z">
+<meta property="article:modified_time" content="2020-11-11T14:37:11.480Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="简单">
@@ -233,10 +233,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-10 21:18:10 / 修改时间：21:24:18" itemprop="dateCreated datePublished" datetime="2020-11-10T21:18:10+08:00">2020-11-10</time>
+              <time title="创建时间：2020-11-10 21:18:10" itemprop="dateCreated datePublished" datetime="2020-11-10T21:18:10+08:00">2020-11-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:37:11" itemprop="dateModified" datetime="2020-11-11T22:37:11+08:00">2020-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -302,10 +308,8 @@
 <h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>实现一种算法，找出单向链表中倒数第 k 个节点。返回该节点的值。</p>
 <p><strong>注意：</strong>本题相对原题稍作改动</p>
 <a id="more"></a>
-
 <p><strong>示例：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入： 1-&gt;2-&gt;3-&gt;4-&gt;5 和 k &#x3D; 2</span><br><span class="line">输出： 4</span><br></pre></td></tr></table></figure>
-
 <p><strong>说明：</strong></p>
 <p>给定的$k$保证是有效的。</p>
 <center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
@@ -315,9 +319,6 @@
 <p>遍历链表，把每个结点指针存到vector容器中，返回倒数第k个节点的值可以直接下标获取。</p>
 <p><strong>c++代码：</strong>(执行用时4ms，击败73.35%，内存消耗10.6M，击败5.61%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">kthToLast</span><span class="params">(ListNode* head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//结点指针容器</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;ListNode*&gt; tmp;</span><br><span class="line">        <span class="keyword">while</span>(head)&#123;</span><br><span class="line">            tmp.push_back(head);</span><br><span class="line">            head=head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> tmp[tmp.size()-k]-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
 <center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
 
 <h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，轻松加愉快🥱</p>
@@ -635,6 +636,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

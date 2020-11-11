@@ -30,7 +30,7 @@
 <meta property="og:description" content="题目地址 难度：⭐ 题目描述：给你一个正整数数组 arr ，请你计算所有可能的奇数长度子数组的和。 子数组 定义为原数组中的一个连续子序列。 请你返回 arr 中 所有奇数长度子数组的和 。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-09T13:52:30.000Z">
-<meta property="article:modified_time" content="2020-11-09T14:41:49.615Z">
+<meta property="article:modified_time" content="2020-11-11T14:38:27.169Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="简单">
@@ -233,10 +233,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-09 21:52:30 / 修改时间：22:41:49" itemprop="dateCreated datePublished" datetime="2020-11-09T21:52:30+08:00">2020-11-09</time>
+              <time title="创建时间：2020-11-09 21:52:30" itemprop="dateCreated datePublished" datetime="2020-11-09T21:52:30+08:00">2020-11-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:38:27" itemprop="dateModified" datetime="2020-11-11T22:38:27+08:00">2020-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -303,16 +309,12 @@
 <p><strong>子数组</strong> 定义为原数组中的一个连续子序列。</p>
 <p>请你返回 <code>arr</code> 中 <strong>所有奇数长度子数组的和</strong> 。</p>
 <a id="more"></a>
-
 <p><strong>示例1：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">输入：arr &#x3D; [1,4,2,5,3]</span><br><span class="line">输出：58</span><br><span class="line">解释：所有奇数长度子数组和它们的和为：</span><br><span class="line">[1] &#x3D; 1</span><br><span class="line">[4] &#x3D; 4</span><br><span class="line">[2] &#x3D; 2</span><br><span class="line">[5] &#x3D; 5</span><br><span class="line">[3] &#x3D; 3</span><br><span class="line">[1,4,2] &#x3D; 7</span><br><span class="line">[4,2,5] &#x3D; 11</span><br><span class="line">[2,5,3] &#x3D; 10</span><br><span class="line">[1,4,2,5,3] &#x3D; 15</span><br><span class="line">我们将所有值求和得到 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 &#x3D; 58</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例2：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：arr &#x3D; [1,2]</span><br><span class="line">输出：3</span><br><span class="line">解释：总共只有 2 个长度为奇数的子数组，[1] 和 [2]。它们的和为 3 。</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例3：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr &#x3D; [10,11,12]</span><br><span class="line">输出：66</span><br></pre></td></tr></table></figure>
-
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>1 &lt;= arr.length &lt;= 100</code></li>
@@ -325,15 +327,10 @@
 <p>我这个思路是直观解法，应该挺麻烦的，可能有更好的答案，等看题解吧</p>
 <p><strong>c++代码：</strong>(执行用时12ms，击败37.26%，内存消耗8.5M，击败20.68%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumOddLengthSubarrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//遍历所有的奇数子数组，i为子数组的长度</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=arr.size();i+=<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="comment">//遍历arr数组,j为长度为i的子数组的个数</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;arr.size()-i+<span class="number">1</span>;++j)&#123;</span><br><span class="line">                <span class="comment">//计算长度为i的每个奇数子数组的和</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;i;++k)&#123;</span><br><span class="line">                    result+=arr[k+j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p><strong>解法二</strong>：还有一种效率更高的解法就是计算每个元素在奇数长度子数组中出现的次数，通过看题解得到思路如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">* odd奇数，even偶数</span><br><span class="line">* 对于每个元素i(数组中下标为i)来说，要构成奇数长度的子数组</span><br><span class="line">  即 i左边的元素个数left+i本身自己一个+右边元素的个数right=奇数</span><br><span class="line">  即 left+right=偶数</span><br><span class="line">* 满足a+b=偶数就只有两种情况</span><br><span class="line">  <span class="number">1.</span> 奇数+奇数=偶数</span><br><span class="line">  <span class="number">2.</span> 偶数+偶数=偶数</span><br><span class="line">* <span class="number">1.</span> 所以只需要求得i左边可以选择奇数长度的可能有多少种，即left_odd,同样求右边奇数right_odd</span><br><span class="line">     就可以求出策略<span class="number">1</span>有多少种可能</span><br><span class="line">  <span class="number">2.</span> 所以只需要求得i左边可以选择偶数长度的可能有多少种，即left_odd,同样求右边偶数right_odd</span><br><span class="line">     就可以求出策略<span class="number">1</span>有多少种可能，注意<span class="number">0</span>也算选择的一种可能</span><br><span class="line">* 即元素i在所有奇数长度子数组出现的次数总和是</span><br><span class="line">  left_odd*right_odd+left_even*right_even</span><br><span class="line">* 元素i左边元素共有i个，右边元素共有siz-i<span class="number">-1</span>个</span><br></pre></td></tr></table></figure>
-
 <p><strong>c++代码：</strong>（执行4ms，击败91.05,%，内存8.6M，击败8.85%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumOddLengthSubarrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.size(); i ++)&#123;</span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>, right = arr.size() - i,</span><br><span class="line">                left_even = (left + <span class="number">1</span>) / <span class="number">2</span>, right_even = (right + <span class="number">1</span>) / <span class="number">2</span>,</span><br><span class="line">                left_odd = left / <span class="number">2</span>, right_odd = right / <span class="number">2</span>;</span><br><span class="line">            res += (left_even * right_even + left_odd * right_odd) * arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
 <center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
 
 <h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，我提交的代码时间复杂度是$O(n^3)$，然后看别人的题解有复杂度$O(n)$的方法，其实就是计算每个元素在奇数长度子数组中出现的次数，做的时候我考虑过，因为时间问题就选择了这个暴力解法，毕竟也能通过不是吗😏，现在还是刷题没考虑太多最优解的问题，不然真的要花费很多时间，现在事情多也不能专门去研究这种题。</p>
@@ -651,6 +648,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2020/11/10/%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97%E5%AD%97%E7%AC%A6%E4%B8%B2/q1.jpg">
 <meta property="article:published_time" content="2020-11-10T10:42:18.000Z">
-<meta property="article:modified_time" content="2020-11-10T11:07:32.683Z">
+<meta property="article:modified_time" content="2020-11-11T14:37:38.113Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="简单">
@@ -235,10 +235,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-10 18:42:18 / 修改时间：19:07:32" itemprop="dateCreated datePublished" datetime="2020-11-10T18:42:18+08:00">2020-11-10</time>
+              <time title="创建时间：2020-11-10 18:42:18" itemprop="dateCreated datePublished" datetime="2020-11-10T18:42:18+08:00">2020-11-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-11 22:37:38" itemprop="dateModified" datetime="2020-11-11T22:37:38+08:00">2020-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -305,23 +311,17 @@
 <p>请你重新排列字符串 <code>s</code> ，其中第 <code>i</code> 个字符需要移动到 <code>indices[i]</code> 指示的位置。</p>
 <p>返回重新排列后的字符串。</p>
 <a id="more"></a>
-
 <p><strong>示例1：</strong></p>
 <p><img src="/2020/11/10/%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97%E5%AD%97%E7%AC%A6%E4%B8%B2/q1.jpg" alt="img"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;codeleet&quot;, indices &#x3D; [4,5,6,7,0,2,1,3]</span><br><span class="line">输出：&quot;leetcode&quot;</span><br><span class="line">解释：如图所示，&quot;codeleet&quot; 重新排列后变为 &quot;leetcode&quot; 。</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例2：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abc&quot;, indices &#x3D; [0,1,2]</span><br><span class="line">输出：&quot;abc&quot;</span><br><span class="line">解释：重新排列后，每个字符都还留在原来的位置上。</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例3：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;aiohn&quot;, indices &#x3D; [3,1,4,2,0]</span><br><span class="line">输出：&quot;nihao&quot;</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例4：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;aaiougrt&quot;, indices &#x3D; [4,0,2,6,7,3,1,5]</span><br><span class="line">输出：&quot;arigatou&quot;</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例5：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;art&quot;, indices &#x3D; [1,0,2]</span><br><span class="line">输出：&quot;rat&quot;</span><br></pre></td></tr></table></figure>
-
 <p><strong>提示：</strong></p>
 <ul>
 <li><p><code>s.length == indices.length == n</code></p>
@@ -341,16 +341,12 @@
 <p>使用map容器，map容器存储键值对，会根据各键值对的键的大小升序排序。用indices数组中的值作为键，对应的字符作为值存到map容器中，最后用map中的值组成字符串返回。</p>
 <p><strong>c++代码：</strong>(执行用时36ms，击败5.57%，内存消耗16.8M，击败5.04%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">restoreString</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; indices)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">char</span>&gt; myMap;</span><br><span class="line">        <span class="comment">//初始化map容器，会按照键值从小到大排序</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();++i)&#123;</span><br><span class="line">            myMap[indices[i]]=s[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;myMap.size();++i)&#123;</span><br><span class="line">            s[i]=myMap[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
 <center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
 
 <h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shuffle-string/solution/zhong-xin-pai-lie-zi-fu-chuan-by-leetcode-solution/">官方题解</a>:</h6><p><strong>方法一：模拟</strong><br><strong>思路与算法</strong></p>
 <p>创建一个新字符串 $\textit{result}$ 来存储答案。对于 $s$ 每个下标 $i$，将 $\textit{result}[\textit{indices}$[i]]处的字符设成 $s[i]$即可。</p>
 <p><strong>代码</strong>：（执行8ms，击败98.89%，内存15.2M，击败15.39%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">restoreString</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; indices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = s.length();</span><br><span class="line">        <span class="function"><span class="built_in">string</span> <span class="title">result</span><span class="params">(length, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            result[indices[i]] = s[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p><strong>复杂度分析</strong></p>
 <ul>
 <li><p>时间复杂度：$O(N)$，其中 $N$为字符串 $s$ 的长度。我们只需对字符串 $s$ 执行一次线性扫描即可。</p>
@@ -367,7 +363,6 @@
 <p>由于许多语言中的字符串类型都是<strong>不可更改的</strong>，实现原地修改较为麻烦，因此下面只给出 <code>C++</code> 的参考代码。</p>
 <p><strong>代码：</strong>（执行16ms，击败77.65%，内存15.3M，击败13.37%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">restoreString</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; indices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = s.length();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (indices[i] != i) &#123;</span><br><span class="line">                <span class="keyword">char</span> ch = s[i]; <span class="comment">// 当前需要被移动的字符</span></span><br><span class="line">                <span class="keyword">int</span> idx = indices[i]; <span class="comment">// 该字符需要被移动的目标位置</span></span><br><span class="line">                <span class="keyword">while</span> (idx != i) &#123;</span><br><span class="line">                    swap(s[idx], ch); <span class="comment">// 使用 swap 函数，在覆写 s[idx] 之前，先将其原始值赋给变量 ch</span></span><br><span class="line">                    swap(indices[idx], idx); <span class="comment">// 将封闭路径中的 indices 数组的值设置成下标自身</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 退出循环后，还要再覆写起点处的字符</span></span><br><span class="line">                s[i] = ch;</span><br><span class="line">                indices[i] = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p><strong>复杂度分析</strong></p>
 <ul>
 <li><p>时间复杂度：$O(N)$，其中 $N$ 为字符串 $s$ 的长度。尽管代码看上去有两层循环，但因为不会处理相同的封闭路径，每个下标实际上只被处理了一次，故时间复杂度是线性的。</p>
@@ -692,6 +687,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
