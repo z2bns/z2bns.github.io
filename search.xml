@@ -5333,7 +5333,67 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
   <entry>
     <title>6和9组成的最大数字</title>
     <url>/2020/11/13/6%E5%92%8C9%E7%BB%84%E6%88%90%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E5%AD%97/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/maximum-69-number/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个仅由数字 6 和 9 组成的正整数 <code>num</code>。</p>
+<p>你最多只能翻转一位数字，将 6 变成 9，或者把 9 变成 6 。</p>
+<p>请返回你可以得到的最大数字。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：num &#x3D; 9669</span><br><span class="line">输出：9969</span><br><span class="line">解释：</span><br><span class="line">改变第一位数字可以得到 6669 。</span><br><span class="line">改变第二位数字可以得到 9969 。</span><br><span class="line">改变第三位数字可以得到 9699 。</span><br><span class="line">改变第四位数字可以得到 9666 。</span><br><span class="line">其中最大的数字是 9969 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：num &#x3D; 9996</span><br><span class="line">输出：9999</span><br><span class="line">解释：将最后一位从 6 变到 9，其结果 9999 是最大的数。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：num &#x3D; 9999</span><br><span class="line">输出：9999</span><br><span class="line">解释：无需改变就已经是最大的数字了。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= num &lt;= 10^4</code></li>
+<li><code>num</code> 每一位上的数字都是 6 或者 9 。</li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>将整数转成字符串，若存在字符’6’，则把左边第一个字符’6’变成’9’，这样可以得到最大数字。</p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗6.1M，击败29.03%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum69Number</span> <span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//int转string</span></span><br><span class="line">        <span class="built_in">string</span> s=to_string(num);</span><br><span class="line">        <span class="comment">//把左边第一个6转成9</span></span><br><span class="line">        <span class="keyword">if</span>(s.find(<span class="string">&#x27;6&#x27;</span>)!=<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">            s[s.find(<span class="string">&#x27;6&#x27;</span>)]=<span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//string转int，atoi是标准库函数</span></span><br><span class="line">        <span class="keyword">return</span> atoi(s.c_str());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/maximum-69-number/solution/6-he-9-zu-cheng-de-zui-da-shu-zi-by-leetcode-solut/">官方题解</a>:</h6><p><strong>方法一： 模拟</strong></p>
+<p>现在把 <code>9</code> 翻转成 <code>6</code> 是不合理的，因为它会使得数字变小。因此我们应当找到 <code>num</code> 中最高位的 <code>6</code>，将其翻转成 <code>9</code>。</p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗6.2M，击败11.53%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum69Number</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> s = to_string(num);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span>&amp; ch: s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ch == <span class="string">&#x27;6&#x27;</span>) &#123;</span><br><span class="line">                ch = <span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stoi(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(\log \textit{num})$，表示 $\textit{num}$ 的位数。</p>
+</li>
+<li><p>空间复杂度：$O(\log \textit{num})$。为了代码编写方便，我们使用额外的字符串来存储 $\textit{num}$，使得可以直接修改特定位置的数字。</p>
+</li>
+</ul>
+<center>🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓知 识 点🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓🎓</center>
+
+<h6 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h6><p><strong>atoi()和stoi()的区别</strong></p>
+<p><strong>相同点：</strong></p>
+<ol>
+<li>都是C++字符处理函数，把数字字符串转换成int输出</li>
+<li>头文件都是#include\<cstring></cstring></li>
+</ol>
+<p><strong>不同点：</strong></p>
+<ol>
+<li>atoi()的参数是 const char<em> ,因此对于一个字符串str我们必须调用 c_str()的方法把这个string转换成 const char\</em>类型的,而stoi()的参数是const string*,不需要转化为 const char*；</li>
+<li>stoi()会做范围检查，默认范围是在int的范围内的，如果超出范围的话则会runtime error！而atoi()不会做范围检查，如果超出范围的话，超出上界，则输出上界，超出下界，则输出下界；</li>
+</ol>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>模拟解题，需要注意字符串转整数的两个函数stoi()和atoi()的使用。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
   </entry>
   <entry>
     <title>和为零的N个唯一整数</title>
@@ -5437,9 +5497,45 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
   <entry>
     <title>奇数值单元格的数目</title>
     <url>/2020/11/13/%E5%A5%87%E6%95%B0%E5%80%BC%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E6%95%B0%E7%9B%AE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong>c++代码：</strong>(执行用时8ms，击败53.87%，内存消耗8.1M，击败10.00%）</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/cells-with-odd-values-in-a-matrix/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个 <code>n</code> 行 <code>m</code> 列的矩阵，最开始的时候，每个单元格中的值都是 <code>0</code>。</p>
+<p>另有一个索引数组 <code>indices</code>，<code>indices[i] = [ri, ci]</code> 中的 <code>ri</code> 和 <code>ci</code> 分别表示指定的行和列（从 <code>0</code> 开始编号）。</p>
+<p>你需要将每对 <code>[ri, ci]</code> 指定的行和列上的所有单元格的值加 <code>1</code>。</p>
+<p>请你在执行完所有 <code>indices</code> 指定的增量操作后，返回矩阵中 「奇数值单元格」 的数目。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<p><img src="/2020/11/13/%E5%A5%87%E6%95%B0%E5%80%BC%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E6%95%B0%E7%9B%AE/e1.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：n &#x3D; 2, m &#x3D; 3, indices &#x3D; [[0,1],[1,1]]</span><br><span class="line">输出：6</span><br><span class="line">解释：最开始的矩阵是 [[0,0,0],[0,0,0]]。</span><br><span class="line">第一次增量操作后得到 [[1,2,1],[0,1,0]]。</span><br><span class="line">最后的矩阵是 [[1,3,1],[1,3,1]]，里面有 6 个奇数。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<p><img src="/2020/11/13/%E5%A5%87%E6%95%B0%E5%80%BC%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E6%95%B0%E7%9B%AE/e2.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：n &#x3D; 2, m &#x3D; 2, indices &#x3D; [[1,1],[0,0]]</span><br><span class="line">输出：0</span><br><span class="line">解释：最后的矩阵是 [[2,2],[2,2]]，里面没有奇数。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 50</code></li>
+<li><code>1 &lt;= m &lt;= 50</code></li>
+<li><code>1 &lt;= indices.length &lt;= 100</code></li>
+<li><code>0 &lt;= indices[i][0] &lt; n</code></li>
+<li><code>0 &lt;= indices[i][1] &lt; m</code></li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>直接模拟，遍历数组中的元素，对相应的行和列中的单元格的值加1，最后遍历矩阵，统计奇数值单元格的数目。</p>
+<p><strong>c++代码：</strong>(执行用时8ms，击败53.87%，内存消耗8.1M，击败10.00%）</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">oddCells</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; indices)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//暴力模拟</span></span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//二维vector容器初始化</span></span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">arr</span><span class="params">(n,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(m,<span class="number">0</span>))</span></span>;</span><br><span class="line">        <span class="keyword">int</span> i,j;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;indices.size();++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;m;++j)&#123;</span><br><span class="line">                ++arr[indices[i][<span class="number">0</span>]][j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;++j)&#123;</span><br><span class="line">                ++arr[j][indices[i][<span class="number">1</span>]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;m;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i][j]%<span class="number">2</span>!=<span class="number">0</span>)&#123;</span><br><span class="line">                    ++result;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，自己的解法效率不是太高，题解中还是有一些好的解法的，比如，统计$n$行$m$列矩阵最后出现变动奇数次行的个数$rowNum$，和奇数次列的个数$colNum$，最后的奇数值单元格的数目计算是：$rowNum<em>m+colNum</em>n-rowNum<em>colNum</em>2$。</p>
 ]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
   </entry>
   <entry>
     <title>将每个元素替换为右侧最大元素</title>
@@ -5695,9 +5791,52 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
   <entry>
     <title>查找常用字符</title>
     <url>/2020/11/13/%E6%9F%A5%E6%89%BE%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong>c++代码：</strong>(执行用时8ms，击败96.77%，内存消耗9M，击败75.28%）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">commonChars</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; result;</span><br><span class="line">        <span class="comment">//遍历数组A中的第一个元素中的字符（A.length()&gt;=1），其实遍历A中长度最小的元素比较好</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> i:A[<span class="number">0</span>])&#123;</span><br><span class="line">            <span class="comment">//在其它元素中依次查找A[0]中的字符是否存在</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;A.size();++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(A[j].find(i)!=<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                    <span class="comment">//删除找到的字符</span></span><br><span class="line">                    A[j].erase(A[j].find(i),<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span>(j==A.size()<span class="number">-1</span>)&#123;</span><br><span class="line">                        <span class="comment">//该字符在所有元素中都存在</span></span><br><span class="line">                        <span class="comment">//使用string构造函数把字符i转成字符串</span></span><br><span class="line">                        result.push_back(<span class="built_in">string</span>(<span class="number">1</span>,i));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//若某个元素中没有这个字符则调出循环，即该字符不满足要求</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/flipping-an-image/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定仅有小写字母组成的字符串数组 <code>A</code>，返回列表中的每个字符串中都显示的全部字符（<strong>包括重复字符</strong>）组成的列表。例如，如果一个字符在每个字符串中出现 3 次，但不是 4 次，则需要在最终答案中包含该字符 3 次。</p>
+<p>你可以按任意顺序返回答案。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[&quot;bella&quot;,&quot;label&quot;,&quot;roller&quot;]</span><br><span class="line">输出：[&quot;e&quot;,&quot;l&quot;,&quot;l&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[&quot;cool&quot;,&quot;lock&quot;,&quot;cook&quot;]</span><br><span class="line">输出：[&quot;c&quot;,&quot;o&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 &lt;= A.length &lt;= 100</code></li>
+<li><code>1 &lt;= A[i].length &lt;= 100</code></li>
+<li><code>A[i][j]</code> 是小写字母</li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>就是查找多个字符串中的交集（都有的字符），以一个字符串为主进行遍历，然后依次判断每个字符是否在其它字符串中存在，有则添加到结果中并在其它字符串中删除该字符（防止一个字符匹配多次），否则终止进行下一个字符判断。</p>
+<p><strong>c++代码：</strong>(执行用时8ms，击败96.77%，内存消耗9M，击败75.28%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">commonChars</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; result;</span><br><span class="line">        <span class="comment">//遍历数组A中的第一个元素中的字符（A.length()&gt;=1），其实遍历A中长度最小的元素比较好</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> i:A[<span class="number">0</span>])&#123;</span><br><span class="line">            <span class="comment">//在其它元素中依次查找A[0]中的字符是否存在</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;A.size();++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(A[j].find(i)!=<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                    <span class="comment">//删除找到的字符</span></span><br><span class="line">                    A[j].erase(A[j].find(i),<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span>(j==A.size()<span class="number">-1</span>)&#123;</span><br><span class="line">                        <span class="comment">//该字符在所有元素中都存在</span></span><br><span class="line">                        <span class="comment">//把字符i转成字符串</span></span><br><span class="line">                        result.push_back(<span class="built_in">string</span>(<span class="number">1</span>,i));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//若某个元素中没有这个字符则跳出循环，即该字符不满足要求</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/find-common-characters/solution/cha-zhao-chang-yong-zi-fu-by-leetcode-solution/">官方题解</a>:</h6><p><strong>方法一：计数</strong></p>
+<p><strong>思路与算法</strong></p>
+<p>根据题目的要求，如果字符 cc 在所有字符串中均出现了 $k$ 次及以上，那么最终答案中需要包含 $k$ 个 $c$。因此，我们可以使用 $\textit{minfreq}[c]$ 存储字符 $c$ 在所有字符串中出现次数的最小值。</p>
+<p>我们可以依次遍历每一个字符串。当我们遍历到字符串 $s$ 时，我们使用 $\textit{freq}[c]$ 统计 ss 中每一个字符 $c$ 出现的次数。在统计完成之后，我们再将每一个 $\textit{minfreq}[c]$ 更新为其本身与 $\textit{freq}[c]$ 的较小值。这样一来，当我们遍历完所有字符串后，$\textit{minfreq}[c]$ 就存储了字符 $c$ 在所有字符串中出现次数的最小值。</p>
+<p>由于题目保证了所有的字符均为小写字母，因此我们可以用长度为 $26$ 的数组分别表示 $\textit{minfreq}$ 以及 $\textit{freq}$。</p>
+<p>在构造最终的答案时，我们遍历所有的小写字母 $c$，并将 $\textit{minfreq}[c]$个 $c$ 添加进答案数组即可。</p>
+<p><strong>c++代码：</strong>(执行用时12ms，击败76.58%，内存消耗9.1M，击败51.59%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">commonChars</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">minfreq</span><span class="params">(<span class="number">26</span>, INT_MAX)</span></span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">freq</span><span class="params">(<span class="number">26</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> <span class="built_in">string</span>&amp; word: A) &#123;</span><br><span class="line">            fill(freq.begin(), freq.end(), <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> ch: word) &#123;</span><br><span class="line">                ++freq[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) &#123;</span><br><span class="line">                minfreq[i] = min(minfreq[i], freq[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; minfreq[i]; ++j) &#123;</span><br><span class="line">                ans.emplace_back(<span class="number">1</span>, i + <span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<p>时间复杂度：$O(n(m+|\Sigma|))$，其中 $n$ 是数组 $A$的长度（即字符串的数目），$m$是字符串的平均长度，$\Sigma$ 为字符集，在本题中字符集为所有小写字母，$|\Sigma|=26$。</p>
+<p>遍历所有字符串并计算 $\textit{freq}$的时间复杂度为 $O(nm)$；<br>使用 $\textit{freq}$ 更新 $\textit{minfreq}$ 的时间复杂度为 $O(n|\Sigma|)$；<br>由于最终答案包含的字符个数不会超过最短的字符串长度，因此构造最终答案的时间复杂度为 $O(m+|\Sigma|)$。这一项在渐进意义上小于前二者，可以忽略。<br>空间复杂度：$O(|\Sigma|)$，这里只计算存储答案之外的空间。我们使用了数组 $\textit{freq}$freq 和 $\textit{minfreq}$，它们的长度均为 $|\Sigma|$。</p>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解使用的又是计数法，遇到好多题都有计数法，我倒是没用过计数法🤣，还是比较喜欢用最直观的解法，效率也不错。</p>
 ]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
   </entry>
   <entry>
     <title>最外层的括号</title>
@@ -5802,9 +5941,49 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
   <entry>
     <title>自除数</title>
     <url>/2020/11/13/%E8%87%AA%E9%99%A4%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong>c++代码：</strong>(执行用时0ms，击败100%，内存消耗6.9M，击败8.06%）</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/self-dividing-numbers/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>自除数 是指可以被它包含的每一位数除尽的数。</p>
+<p>例如，128 是一个自除数，因为 <code>128 % 1 == 0</code>，<code>128 % 2 == 0</code>，<code>128 % 8 == 0</code>。</p>
+<p>还有，自除数不允许包含 0 。</p>
+<p>给定上边界和下边界数字，输出一个列表，列表的元素是边界（含边界）内所有的自除数。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入： </span><br><span class="line">上边界left &#x3D; 1, 下边界right &#x3D; 22</span><br><span class="line">输出： [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
+<ul>
+<li>每个输入参数的边界满足 <code>1 &lt;= left &lt;= right &lt;= 10000</code>。</li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>直接遍历给定范围内的数，依次判断是否为自除数。不为自除数的情况有两种，一种是某位数为0，一种是不能被某个位数除尽，直接模拟。</p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100%，内存消耗6.9M，击败8.06%）</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">selfDividingNumbers</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=left;i&lt;=right;++i)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp=i;</span><br><span class="line">            <span class="keyword">while</span>(tmp)&#123;</span><br><span class="line">                <span class="comment">//某位数为0或者不能被该位数除尽，不是自除数</span></span><br><span class="line">                <span class="keyword">if</span>(tmp%<span class="number">10</span>==<span class="number">0</span> || i%(tmp%<span class="number">10</span>)!=<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tmp/<span class="number">10</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="comment">//最后一位数了,满足自除数条件</span></span><br><span class="line">                    result.push_back(i);</span><br><span class="line">                &#125;</span><br><span class="line">                tmp/=<span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/self-dividing-numbers/solution/zi-chu-shu-by-leetcode/">官方题解</a>:</h6><p><strong>方法一：暴力法</strong></p>
+<p><strong>算法：</strong></p>
+<p>对于给定范围内的每个数，我们将直接判断该数是否为自除数。<br>根据定义，我们先判断数字是否非零，若数字非零再判断是否能够被该数除尽。例如，对于 128，我们要判断 <code>d != 0 &amp;&amp; 128 % d == 0</code>，且 <code>d = 1, 2, 8</code>。<br>解决这个问题的一个简单方法是将数字转换成一个字符数组（python 中的字符串），然后在检查 <code>n%d==0</code> 时转换回整数执行模运算。<br>我们还可以不断地把数字除以 <code>10</code>，取整数的最后一个数字。在代码中为注释的部分。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">selfDividingNumbers</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; ans = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> n = left; n &lt;= right; ++n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (selfDividing(n)) ans.add(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">selfDividing</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c: String.valueOf(n).toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;0&#x27;</span> || (n % (c - <span class="string">&#x27;0&#x27;</span>) &gt; <span class="number">0</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Alternate implementation of selfDividing:</span></span><br><span class="line"><span class="comment">    public boolean selfDividing(int n) &#123;</span></span><br><span class="line"><span class="comment">        int x = n;</span></span><br><span class="line"><span class="comment">        while (x &gt; 0) &#123;</span></span><br><span class="line"><span class="comment">            int d = x % 10;</span></span><br><span class="line"><span class="comment">            x /= 10;</span></span><br><span class="line"><span class="comment">            if (d == 0 || (n % d) &gt; 0) return false;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        return true;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(D)$。$D$是在区间 $[L, R]$ 里的整数数。</li>
+<li>空间复杂度：$O(D)$，使用了一个数组来存放结果。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>思路基本一样，题解给出了Python和Java两个版本的代码，没啥可分析的。</p>
 ]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
   </entry>
   <entry>
     <title>翻转图像</title>
@@ -5944,8 +6123,276 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
   <entry>
     <title>通过翻转子数组使两个数组相等</title>
     <url>/2020/11/13/%E9%80%9A%E8%BF%87%E7%BF%BB%E8%BD%AC%E5%AD%90%E6%95%B0%E7%BB%84%E4%BD%BF%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9B%B8%E7%AD%89/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong>c++代码：</strong>(执行用时36ms，击败49.21%，内存消耗14M，击败64.22%）</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/make-two-arrays-equal-by-reversing-sub-arrays/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你两个长度相同的整数数组 <code>target</code> 和 <code>arr</code> 。</p>
+<p>每一步中，你可以选择 <code>arr</code> 的任意 <strong>非空子数组</strong> 并将它翻转。你可以执行此过程任意次。</p>
+<p>如果你能让 <code>arr</code> 变得与 <code>target</code> 相同，返回 True；否则，返回 False 。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：target &#x3D; [1,2,3,4], arr &#x3D; [2,4,1,3]</span><br><span class="line">输出：true</span><br><span class="line">解释：你可以按照如下步骤使 arr 变成 target：</span><br><span class="line">1- 翻转子数组 [2,4,1] ，arr 变成 [1,4,2,3]</span><br><span class="line">2- 翻转子数组 [4,2] ，arr 变成 [1,2,4,3]</span><br><span class="line">3- 翻转子数组 [4,3] ，arr 变成 [1,2,3,4]</span><br><span class="line">上述方法并不是唯一的，还存在多种将 arr 变成 target 的方法。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：target &#x3D; [7], arr &#x3D; [7]</span><br><span class="line">输出：true</span><br><span class="line">解释：arr 不需要做任何翻转已经与 target 相等。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：target &#x3D; [1,12], arr &#x3D; [12,1]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：target &#x3D; [3,7,9], arr &#x3D; [3,7,11]</span><br><span class="line">输出：false</span><br><span class="line">解释：arr 没有数字 9 ，所以无论如何也无法变成 target 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例5：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：target &#x3D; [1,1,1,1,1], arr &#x3D; [1,1,1,1,1]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>target.length == arr.length</code></li>
+<li><code>1 &lt;= target.length &lt;= 1000</code></li>
+<li><code>1 &lt;= target[i] &lt;= 1000</code></li>
+<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>题目要求对整数数组arr进行子数组反转，如果最后可以使arr变得和target相同返回true，其实也就是数组arr中的任何两个元素都可以进行交换，所以只要target中的元素与arr中的一样（无序），就返回true，否则返回false。</p>
+<p><strong>c++代码：</strong>(执行用时36ms，击败49.21%，内存消耗14M，击败64.22%）</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canBeEqual</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//遍历查找target中的元素是否都在arr中存在</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;target.size();++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>((it=find(arr.begin(),arr.end(),target[i]))==arr.end())&#123;</span><br><span class="line">                <span class="comment">//target中的元素在arr中没有找到</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//找到了则从arr中删除掉这个元素</span></span><br><span class="line">                arr.erase(it);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，其实思路也挺清晰的。看了一些题解后，更明白地讲就是只需判断两个数组排序后是否相等即可，使用sort函数排序，3行代码就搞定。</p>
 ]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>上升下降字符串</title>
+    <url>/2020/11/17/%E4%B8%8A%E5%8D%87%E4%B8%8B%E9%99%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/increasing-decreasing-string/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个字符串 s ，请你根据下面的算法重新构造字符串：</p>
+<p>从 s 中选出 最小 的字符，将它 接在 结果字符串的后面。<br>从 s 剩余字符中选出 最小 的字符，且该字符比上一个添加的字符大，将它 接在 结果字符串后面。<br>重复步骤 2 ，直到你没法从 s 中选择字符。<br>从 s 中选出 最大 的字符，将它 接在 结果字符串的后面。<br>从 s 剩余字符中选出 最大 的字符，且该字符比上一个添加的字符小，将它 接在 结果字符串后面。<br>重复步骤 5 ，直到你没法从 s 中选择字符。<br>重复步骤 1 到 6 ，直到 s 中所有字符都已经被选过。<br>在任何一步中，如果最小或者最大字符不止一个 ，你可以选择其中任意一个，并将其添加到结果字符串。</p>
+<p>请你返回将 s 中字符重新排序后的 结果字符串 。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [[1,1,0],[1,0,1],[0,0,0]]</span><br><span class="line">输出: [[1,0,0],[0,1,0],[1,1,1]]</span><br><span class="line">解释: 首先翻转每一行: [[0,1,1],[1,0,1],[0,0,0]]；</span><br><span class="line">     然后反转图片: [[1,0,0],[0,1,0],[1,1,1]]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]</span><br><span class="line">输出: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</span><br><span class="line">解释: 首先翻转每一行: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]]；</span><br><span class="line">     然后反转图片: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</span><br></pre></td></tr></table></figure>
+<p><strong>说明:</strong></p>
+<ul>
+<li><code>1 &lt;= A.length = A[0].length &lt;= 20</code></li>
+<li><code>0 &lt;= A[i][j] &lt;= 1</code></li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>遍历每一行，然后对每一行中的元素翻转交换元素的值（swap函数），再反转元素的值，注意特殊情况，矩阵行数为奇数时中间元素要特殊处理反转一次。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string sortString(string s) &#123;</span><br><span class="line">        string result&#x3D;&quot;&quot;;</span><br><span class="line">        &#x2F;&#x2F;对字符串s中的字符进行升序排序</span><br><span class="line">        sort(s.begin(),s.end());</span><br><span class="line">        int n&#x3D;s.length();</span><br><span class="line">        int i;</span><br><span class="line">        while(n)&#123;</span><br><span class="line">            char tmp&#x3D;s[0];</span><br><span class="line">            result+&#x3D;tmp;</span><br><span class="line">            for(i&#x3D;1;i&lt;n;++i)&#123;</span><br><span class="line">                if(s[i]&gt;tmp)&#123;</span><br><span class="line">                    result+&#x3D;s[i];</span><br><span class="line">                    tmp&#x3D;s[i];</span><br><span class="line">                    &#x2F;&#x2F;删除字符</span><br><span class="line">                    s.erase(i,1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;</span><br><span class="line">            n&#x3D;s.length();</span><br><span class="line">            tmp&#x3D;s[n-1];</span><br><span class="line">            result+&#x3D;tmp;</span><br><span class="line">            for(i&#x3D;n-2;i&gt;&#x3D;0;--i)&#123;</span><br><span class="line">                if(s[i]&lt;tmp)&#123;</span><br><span class="line">                    result+&#x3D;s[i];</span><br><span class="line">                    tmp&#x3D;s[i];</span><br><span class="line">                    s.erase(i,1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            n&#x3D;s.length();</span><br><span class="line">        &#125;</span><br><span class="line">    return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>c++代码：</strong>(执行用时4ms，击败97.33%，内存消耗8.7M，击败28.26%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">flipAndInvertImage</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//遍历矩阵</span></span><br><span class="line">        <span class="keyword">int</span> n=A.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;(n+<span class="number">1</span>)/<span class="number">2</span>;++j)&#123;</span><br><span class="line">                <span class="comment">//翻转，交换两个元素的值</span></span><br><span class="line">                swap(A[i][j],A[i][n-j<span class="number">-1</span>]);</span><br><span class="line">                <span class="comment">//反转，与1异或</span></span><br><span class="line">                A[i][j]^=<span class="number">1</span>;</span><br><span class="line">                <span class="comment">//n是奇数时，中间的元素只能反转一次。</span></span><br><span class="line">                <span class="keyword">if</span>(j!=(n-j<span class="number">-1</span>))&#123;</span><br><span class="line">                    A[i][n-j<span class="number">-1</span>]^=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/flipping-an-image/solution/fan-zhuan-tu-xiang-by-leetcode/">官方题解</a>:</h6><p><strong>方法一： 模拟</strong></p>
+<p>我们可以不使用额外的（非常数）空间来完成翻转和反转操作。对于 <code>A[i][j]​</code>，我们将它和 <code>A[i][c - j - 1]​</code> 进行交换（即翻转），其中 <code>c</code> 是数组 <code>A</code> 的列数。在交换的同时，我们可以将这两个数进行反转。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] flipAndInvertImage(<span class="keyword">int</span>[][] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> C = A[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row: A)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (C + <span class="number">1</span>) / <span class="number">2</span>; ++i) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = row[i] ^ <span class="number">1</span>;</span><br><span class="line">                row[i] = row[C - <span class="number">1</span> - i] ^ <span class="number">1</span>;</span><br><span class="line">                row[C - <span class="number">1</span> - i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(M*N)$，其中 $M$ 和 $N$ 分别为数组 <code>A</code> 的行数和列数。</li>
+<li>空间复杂度：$O(1)$。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解和我的思路一样，不过对于特殊情况比我处理的好，也不算特殊情况吧，只是我自己把它当作特殊情况处理了，主要在于我使用了vector容器中的swap成员函数来交换两个元素，这样必须反转后覆盖原值，对于奇数行数矩阵的每行中间元素反转了两次，而采用tmp辅助变量来进行交换两个元素值不涉及到覆盖问题。其实就是太执着于STL模板库中的成员函数了，自己实现交换元素的功能也挺好，相当于对源码根据实际情况进行了改进，这样才能更灵活地处理问题。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>反转字符串</title>
+    <url>/2020/11/17/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/height-checker/submissions/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 <code>char[]</code> 的形式给出。</p>
+<p>不要给另外的数组分配额外的空间，你必须原地<strong>修改输入数组</strong>、使用 O(1) 的额外空间解决这一问题。</p>
+<p>你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span><br><span class="line">输出：[&quot;o&quot;,&quot;l&quot;,&quot;l&quot;,&quot;e&quot;,&quot;h&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[&quot;H&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;h&quot;]</span><br><span class="line">输出：[&quot;h&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;H&quot;]</span><br></pre></td></tr></table></figure>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>遍历字符串（只需遍历前一半），使用swap函数交换前后两个字符。</p>
+<p><strong>c++代码：</strong>(执行用时32ms，击败99.67%，内存消耗23.2M，击败5.18%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=s.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n/<span class="number">2</span>;++i)&#123;</span><br><span class="line">            swap(s[i],s[n-i<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/reverse-string/solution/fan-zhuan-zi-fu-chuan-by-leetcode-solution/">官方题解</a>:</h6><p><strong>方法一：双指针</strong></p>
+<p><strong>思路与算法</strong></p>
+<p>对于长度为 <code>N</code> 的待被反转的字符数组，我们可以观察反转前后下标的变化，假设反转前字符数组为 <code>s[0] s[1] s[2] ... s[N - 1]</code>，那么反转后字符数组为 <code>s[N - 1] s[N - 2] ... s[0]</code>。比较反转前后下标变化很容易得出 <code>s[i]</code> 的字符与 <code>s[N - 1 - i]</code> 的字符发生了交换的规律，因此我们可以得出如下双指针的解法：</p>
+<ul>
+<li><p>将 <code>left</code> 指向字符数组首元素，<code>right</code> 指向字符数组尾元素。</p>
+</li>
+<li><p>当 <code>left &lt; right</code>：</p>
+<ul>
+<li><p>交换 <code>s[left]</code> 和 <code>s[right]</code>；</p>
+</li>
+<li><p><code>left</code> 指针右移一位，即 <code>left = left + 1</code>；</p>
+</li>
+<li><code>right</code> 指针左移一位，即 <code>right = right - 1</code>。</li>
+</ul>
+</li>
+<li><p>当 <code>left &gt;= right</code>，反转结束，返回字符数组即可。</p>
+</li>
+</ul>
+<p><img src="/2020/11/17/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/344_fig1.png" alt="fig1"></p>
+<p><strong>c++代码：</strong>(执行用时40ms，击败96.82%，内存消耗23M，击败17.48%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>; left &lt; right; ++left, --right) &#123;</span><br><span class="line">            swap(s[left], s[right]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N)$，其中 $N$ 为字符数组的长度。一共执行了 $N/2$ 次的交换。</li>
+<li>空间复杂度：$O(1)$。只使用了常数空间来存放若干变量。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>和官方题解思路一样，代码也是一致的思路，有些许差别。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最大数值</title>
+    <url>/2020/11/17/%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/maximum-lcci/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>编写一个方法，找出两个数字<code>a</code>和<code>b</code>中最大的那一个。不得使用if-else或其他比较运算符。</p>
+<a id="more"></a>
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入： a &#x3D; 1, b &#x3D; 2</span><br><span class="line">输出： 2</span><br></pre></td></tr></table></figure>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>使用三目运算符，不知道可以吗？</p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗6.2M，击败6.42%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，题目要求不能使用比较运算符，三目运算符中也包含比较了，应该也是不满足题意的。通过看题解，总结如下：</p>
+<p>返回两个数的最大值，两种情况：</p>
+<ul>
+<li>$a&gt;b$，那么返回$\frac{a+b+a-b}{2}$</li>
+<li>$a&lt;b$，那么返回$\frac{b+a+b-a}{2}$</li>
+</ul>
+<p>两种情况综合一下就是要返回$\frac{a+b+|a-b|}{2}$</p>
+<p>nice😊，注意a、b要强制转换成long进行计算，否则会溢出。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>有序数组的平方</title>
+    <url>/2020/11/16/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/submissions/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定一个按非递减顺序排序的整数数组 <code>A</code>，返回每个数字的平方组成的新数组，要求也按非递减顺序排序。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[-4,-1,0,3,10]</span><br><span class="line">输出：[0,1,9,16,100]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[-7,-3,2,3,11]</span><br><span class="line">输出：[4,9,9,49,121]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 &lt;= A.length &lt;= 10000</code></li>
+<li><code>-10000 &lt;= A[i] &lt;= 10000</code></li>
+<li><code>A</code> 已按非递减顺序排序。</li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>遍历每一行，然后对每一行中的元素翻转交换元素的值（swap函数），再反转元素的值，注意特殊情况，矩阵行数为奇数时中间元素要特殊处理反转一次。</p>
+<p><strong>c++代码：</strong>(执行用时136ms，击败27.35%，内存消耗24.9M，击败41.18%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;A.size();++i)&#123;</span><br><span class="line">            A[i]=<span class="built_in">pow</span>(A[i],<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//对新数组非递减排序</span></span><br><span class="line">        sort(A.begin(),A.end());</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/solution/you-xu-shu-zu-de-ping-fang-by-leetcode-solution/">官方题解</a>:</h6><p><strong>方法一： 模拟</strong></p>
+<p>我们可以不使用额外的（非常数）空间来完成翻转和反转操作。对于 <code>A[i][j]​</code>，我们将它和 <code>A[i][c - j - 1]​</code> 进行交换（即翻转），其中 <code>c</code> 是数组 <code>A</code> 的列数。在交换的同时，我们可以将这两个数进行反转。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] flipAndInvertImage(<span class="keyword">int</span>[][] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> C = A[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row: A)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (C + <span class="number">1</span>) / <span class="number">2</span>; ++i) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = row[i] ^ <span class="number">1</span>;</span><br><span class="line">                row[i] = row[C - <span class="number">1</span> - i] ^ <span class="number">1</span>;</span><br><span class="line">                row[C - <span class="number">1</span> - i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(M*N)$，其中 $M$ 和 $N$ 分别为数组 <code>A</code> 的行数和列数。</li>
+<li>空间复杂度：$O(1)$。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解和我的思路一样，不过对于特殊情况比我处理的好，也不算特殊情况吧，只是我自己把它当作特殊情况处理了，主要在于我使用了vector容器中的swap成员函数来交换两个元素，这样必须反转后覆盖原值，对于奇数行数矩阵的每行中间元素反转了两次，而采用tmp辅助变量来进行交换两个元素值不涉及到覆盖问题。其实就是太执着于STL模板库中的成员函数了，自己实现交换元素的功能也挺好，相当于对源码根据实际情况进行了改进，这样才能更灵活地处理问题。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高度检查器</title>
+    <url>/2020/11/16/%E9%AB%98%E5%BA%A6%E6%A3%80%E6%9F%A5%E5%99%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/height-checker/submissions/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>学校在拍年度纪念照时，一般要求学生按照 <strong>非递减</strong> 的高度顺序排列。</p>
+<p>请你返回能让所有学生以 <strong>非递减</strong> 高度排列的最小必要移动人数。</p>
+<p>注意，当一组学生被选中时，他们之间可以以任何可能的方式重新排序，而未被选中的学生应该保持不动。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：heights &#x3D; [1,1,4,2,1,3]</span><br><span class="line">输出：3 </span><br><span class="line">解释：</span><br><span class="line">当前数组：[1,1,4,2,1,3]</span><br><span class="line">目标数组：[1,1,1,2,3,4]</span><br><span class="line">在下标 2 处（从 0 开始计数）出现 4 vs 1 ，所以我们必须移动这名学生。</span><br><span class="line">在下标 4 处（从 0 开始计数）出现 1 vs 3 ，所以我们必须移动这名学生。</span><br><span class="line">在下标 5 处（从 0 开始计数）出现 3 vs 4 ，所以我们必须移动这名学生。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：heights &#x3D; [5,1,2,3,4]</span><br><span class="line">输出：5</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：heights &#x3D; [1,2,3,4,5]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 &lt;= heights.length &lt;= 100</code></li>
+<li><code>1 &lt;= heights[i] &lt;= 100</code></li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>当前数组和排序后的数组进行比较，元素不相同时则表示当前位置学生要移动，统计不同的元素个数。</p>
+<p><strong>c++代码：</strong>(执行用时4ms，击败85.51%，内存消耗8.4M，击败10.90%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">heightChecker</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">        tmp=heights;</span><br><span class="line">        sort(heights.begin(),heights.end());</span><br><span class="line">        <span class="comment">//当前数组和排序后的数组进行比较，元素不相同时则表示当前位置学生要移动</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;heights.size();++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp[i]!=heights[i])&#123;</span><br><span class="line">                ++result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，也比较简单。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
   </entry>
 </search>

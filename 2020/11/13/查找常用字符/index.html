@@ -22,16 +22,18 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="c++代码：(执行用时8ms，击败96.77%，内存消耗9M，击败75.28%） 12345678910111213141516171819202122232425class Solution &amp;#123;public:    vector&lt;string&gt; commonChars(vector&lt;string&gt;&amp; A) &amp;#123;        vector&lt;">
+  <meta name="description" content="题目地址 难度：⭐ 题目描述：给定仅有小写字母组成的字符串数组 A，返回列表中的每个字符串中都显示的全部字符（包括重复字符）组成的列表。例如，如果一个字符在每个字符串中出现 3 次，但不是 4 次，则需要在最终答案中包含该字符 3 次。 你可以按任意顺序返回答案。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="查找常用字符">
 <meta property="og:url" content="http://example.com/2020/11/13/%E6%9F%A5%E6%89%BE%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6/index.html">
 <meta property="og:site_name" content="CTF of Z2BNS">
-<meta property="og:description" content="c++代码：(执行用时8ms，击败96.77%，内存消耗9M，击败75.28%） 12345678910111213141516171819202122232425class Solution &amp;#123;public:    vector&lt;string&gt; commonChars(vector&lt;string&gt;&amp; A) &amp;#123;        vector&lt;">
+<meta property="og:description" content="题目地址 难度：⭐ 题目描述：给定仅有小写字母组成的字符串数组 A，返回列表中的每个字符串中都显示的全部字符（包括重复字符）组成的列表。例如，如果一个字符在每个字符串中出现 3 次，但不是 4 次，则需要在最终答案中包含该字符 3 次。 你可以按任意顺序返回答案。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-13T14:38:21.000Z">
-<meta property="article:modified_time" content="2020-11-13T14:41:53.217Z">
+<meta property="article:modified_time" content="2020-11-17T12:23:47.358Z">
 <meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="简单">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2020/11/13/%E6%9F%A5%E6%89%BE%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6/">
@@ -231,9 +233,28 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-13 22:38:21 / 修改时间：22:41:53" itemprop="dateCreated datePublished" datetime="2020-11-13T22:38:21+08:00">2020-11-13</time>
+              <time title="创建时间：2020-11-13 22:38:21" itemprop="dateCreated datePublished" datetime="2020-11-13T22:38:21+08:00">2020-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-17 20:23:47" itemprop="dateModified" datetime="2020-11-17T20:23:47+08:00">2020-11-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
             </span>
 
           
@@ -263,14 +284,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>595</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -282,8 +303,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>c++代码：</strong>(执行用时8ms，击败96.77%，内存消耗9M，击败75.28%）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">commonChars</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; result;</span><br><span class="line">        <span class="comment">//遍历数组A中的第一个元素中的字符（A.length()&gt;=1），其实遍历A中长度最小的元素比较好</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> i:A[<span class="number">0</span>])&#123;</span><br><span class="line">            <span class="comment">//在其它元素中依次查找A[0]中的字符是否存在</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;A.size();++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(A[j].find(i)!=<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                    <span class="comment">//删除找到的字符</span></span><br><span class="line">                    A[j].erase(A[j].find(i),<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span>(j==A.size()<span class="number">-1</span>)&#123;</span><br><span class="line">                        <span class="comment">//该字符在所有元素中都存在</span></span><br><span class="line">                        <span class="comment">//使用string构造函数把字符i转成字符串</span></span><br><span class="line">                        result.push_back(<span class="built_in">string</span>(<span class="number">1</span>,i));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//若某个元素中没有这个字符则调出循环，即该字符不满足要求</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p><strong><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flipping-an-image/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定仅有小写字母组成的字符串数组 <code>A</code>，返回列表中的每个字符串中都显示的全部字符（<strong>包括重复字符</strong>）组成的列表。例如，如果一个字符在每个字符串中出现 3 次，但不是 4 次，则需要在最终答案中包含该字符 3 次。</p>
+<p>你可以按任意顺序返回答案。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[&quot;bella&quot;,&quot;label&quot;,&quot;roller&quot;]</span><br><span class="line">输出：[&quot;e&quot;,&quot;l&quot;,&quot;l&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[&quot;cool&quot;,&quot;lock&quot;,&quot;cook&quot;]</span><br><span class="line">输出：[&quot;c&quot;,&quot;o&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 &lt;= A.length &lt;= 100</code></li>
+<li><code>1 &lt;= A[i].length &lt;= 100</code></li>
+<li><code>A[i][j]</code> 是小写字母</li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>就是查找多个字符串中的交集（都有的字符），以一个字符串为主进行遍历，然后依次判断每个字符是否在其它字符串中存在，有则添加到结果中并在其它字符串中删除该字符（防止一个字符匹配多次），否则终止进行下一个字符判断。</p>
+<p><strong>c++代码：</strong>(执行用时8ms，击败96.77%，内存消耗9M，击败75.28%）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">commonChars</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; result;</span><br><span class="line">        <span class="comment">//遍历数组A中的第一个元素中的字符（A.length()&gt;=1），其实遍历A中长度最小的元素比较好</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> i:A[<span class="number">0</span>])&#123;</span><br><span class="line">            <span class="comment">//在其它元素中依次查找A[0]中的字符是否存在</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;A.size();++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(A[j].find(i)!=<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                    <span class="comment">//删除找到的字符</span></span><br><span class="line">                    A[j].erase(A[j].find(i),<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span>(j==A.size()<span class="number">-1</span>)&#123;</span><br><span class="line">                        <span class="comment">//该字符在所有元素中都存在</span></span><br><span class="line">                        <span class="comment">//把字符i转成字符串</span></span><br><span class="line">                        result.push_back(<span class="built_in">string</span>(<span class="number">1</span>,i));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//若某个元素中没有这个字符则跳出循环，即该字符不满足要求</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-common-characters/solution/cha-zhao-chang-yong-zi-fu-by-leetcode-solution/">官方题解</a>:</h6><p><strong>方法一：计数</strong></p>
+<p><strong>思路与算法</strong></p>
+<p>根据题目的要求，如果字符 cc 在所有字符串中均出现了 $k$ 次及以上，那么最终答案中需要包含 $k$ 个 $c$。因此，我们可以使用 $\textit{minfreq}[c]$ 存储字符 $c$ 在所有字符串中出现次数的最小值。</p>
+<p>我们可以依次遍历每一个字符串。当我们遍历到字符串 $s$ 时，我们使用 $\textit{freq}[c]$ 统计 ss 中每一个字符 $c$ 出现的次数。在统计完成之后，我们再将每一个 $\textit{minfreq}[c]$ 更新为其本身与 $\textit{freq}[c]$ 的较小值。这样一来，当我们遍历完所有字符串后，$\textit{minfreq}[c]$ 就存储了字符 $c$ 在所有字符串中出现次数的最小值。</p>
+<p>由于题目保证了所有的字符均为小写字母，因此我们可以用长度为 $26$ 的数组分别表示 $\textit{minfreq}$ 以及 $\textit{freq}$。</p>
+<p>在构造最终的答案时，我们遍历所有的小写字母 $c$，并将 $\textit{minfreq}[c]$个 $c$ 添加进答案数组即可。</p>
+<p><strong>c++代码：</strong>(执行用时12ms，击败76.58%，内存消耗9.1M，击败51.59%）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">commonChars</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">minfreq</span><span class="params">(<span class="number">26</span>, INT_MAX)</span></span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">freq</span><span class="params">(<span class="number">26</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> <span class="built_in">string</span>&amp; word: A) &#123;</span><br><span class="line">            fill(freq.begin(), freq.end(), <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> ch: word) &#123;</span><br><span class="line">                ++freq[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) &#123;</span><br><span class="line">                minfreq[i] = min(minfreq[i], freq[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; minfreq[i]; ++j) &#123;</span><br><span class="line">                ans.emplace_back(<span class="number">1</span>, i + <span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<p>时间复杂度：$O(n(m+|\Sigma|))$，其中 $n$ 是数组 $A$的长度（即字符串的数目），$m$是字符串的平均长度，$\Sigma$ 为字符集，在本题中字符集为所有小写字母，$|\Sigma|=26$。</p>
+<p>遍历所有字符串并计算 $\textit{freq}$的时间复杂度为 $O(nm)$；<br>使用 $\textit{freq}$ 更新 $\textit{minfreq}$ 的时间复杂度为 $O(n|\Sigma|)$；<br>由于最终答案包含的字符个数不会超过最短的字符串长度，因此构造最终答案的时间复杂度为 $O(m+|\Sigma|)$。这一项在渐进意义上小于前二者，可以忽略。<br>空间复杂度：$O(|\Sigma|)$，这里只计算存储答案之外的空间。我们使用了数组 $\textit{freq}$freq 和 $\textit{minfreq}$，它们的长度均为 $|\Sigma|$。</p>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解使用的又是计数法，遇到好多题都有计数法，我倒是没用过计数法🤣，还是比较喜欢用最直观的解法，效率也不错。</p>
 
     </div>
 
@@ -324,6 +380,11 @@
 	  </div>
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+              <a href="/tags/%E7%AE%80%E5%8D%95/" rel="tag"><i class="fa fa-tag"></i> 简单</a>
+          </div>
 
         
 
@@ -397,6 +458,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">解题过程：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E9%A2%98%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">官方题解:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">总结：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -412,7 +474,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -594,6 +656,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

@@ -22,16 +22,18 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="c++代码：(执行用时36ms，击败49.21%，内存消耗14M，击败64.22%） 1234567891011121314151617class Solution &amp;#123;public:    bool canBeEqual(vector&lt;int&gt;&amp; target, vector&lt;int&gt;&amp; arr) &amp;#123;        &#x2F;&#x2F;遍历查找targe">
+  <meta name="description" content="题目地址 难度：⭐ 题目描述：给你两个长度相同的整数数组 target 和 arr 。 每一步中，你可以选择 arr 的任意 非空子数组 并将它翻转。你可以执行此过程任意次。 如果你能让 arr 变得与 target 相同，返回 True；否则，返回 False 。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过翻转子数组使两个数组相等">
 <meta property="og:url" content="http://example.com/2020/11/13/%E9%80%9A%E8%BF%87%E7%BF%BB%E8%BD%AC%E5%AD%90%E6%95%B0%E7%BB%84%E4%BD%BF%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9B%B8%E7%AD%89/index.html">
 <meta property="og:site_name" content="CTF of Z2BNS">
-<meta property="og:description" content="c++代码：(执行用时36ms，击败49.21%，内存消耗14M，击败64.22%） 1234567891011121314151617class Solution &amp;#123;public:    bool canBeEqual(vector&lt;int&gt;&amp; target, vector&lt;int&gt;&amp; arr) &amp;#123;        &#x2F;&#x2F;遍历查找targe">
+<meta property="og:description" content="题目地址 难度：⭐ 题目描述：给你两个长度相同的整数数组 target 和 arr 。 每一步中，你可以选择 arr 的任意 非空子数组 并将它翻转。你可以执行此过程任意次。 如果你能让 arr 变得与 target 相同，返回 True；否则，返回 False 。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-13T14:38:41.000Z">
-<meta property="article:modified_time" content="2020-11-13T14:39:28.341Z">
+<meta property="article:modified_time" content="2020-11-17T11:31:00.652Z">
 <meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="简单">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2020/11/13/%E9%80%9A%E8%BF%87%E7%BF%BB%E8%BD%AC%E5%AD%90%E6%95%B0%E7%BB%84%E4%BD%BF%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9B%B8%E7%AD%89/">
@@ -231,9 +233,28 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-13 22:38:41 / 修改时间：22:39:28" itemprop="dateCreated datePublished" datetime="2020-11-13T22:38:41+08:00">2020-11-13</time>
+              <time title="创建时间：2020-11-13 22:38:41" itemprop="dateCreated datePublished" datetime="2020-11-13T22:38:41+08:00">2020-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-17 19:31:00" itemprop="dateModified" datetime="2020-11-17T19:31:00+08:00">2020-11-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
             </span>
 
           
@@ -263,7 +284,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>445</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -282,8 +303,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>c++代码：</strong>(执行用时36ms，击败49.21%，内存消耗14M，击败64.22%）</p>
+        <p><strong><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/make-two-arrays-equal-by-reversing-sub-arrays/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你两个长度相同的整数数组 <code>target</code> 和 <code>arr</code> 。</p>
+<p>每一步中，你可以选择 <code>arr</code> 的任意 <strong>非空子数组</strong> 并将它翻转。你可以执行此过程任意次。</p>
+<p>如果你能让 <code>arr</code> 变得与 <code>target</code> 相同，返回 True；否则，返回 False 。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：target &#x3D; [1,2,3,4], arr &#x3D; [2,4,1,3]</span><br><span class="line">输出：true</span><br><span class="line">解释：你可以按照如下步骤使 arr 变成 target：</span><br><span class="line">1- 翻转子数组 [2,4,1] ，arr 变成 [1,4,2,3]</span><br><span class="line">2- 翻转子数组 [4,2] ，arr 变成 [1,2,4,3]</span><br><span class="line">3- 翻转子数组 [4,3] ，arr 变成 [1,2,3,4]</span><br><span class="line">上述方法并不是唯一的，还存在多种将 arr 变成 target 的方法。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：target &#x3D; [7], arr &#x3D; [7]</span><br><span class="line">输出：true</span><br><span class="line">解释：arr 不需要做任何翻转已经与 target 相等。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：target &#x3D; [1,12], arr &#x3D; [12,1]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：target &#x3D; [3,7,9], arr &#x3D; [3,7,11]</span><br><span class="line">输出：false</span><br><span class="line">解释：arr 没有数字 9 ，所以无论如何也无法变成 target 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例5：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：target &#x3D; [1,1,1,1,1], arr &#x3D; [1,1,1,1,1]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>target.length == arr.length</code></li>
+<li><code>1 &lt;= target.length &lt;= 1000</code></li>
+<li><code>1 &lt;= target[i] &lt;= 1000</code></li>
+<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>题目要求对整数数组arr进行子数组反转，如果最后可以使arr变得和target相同返回true，其实也就是数组arr中的任何两个元素都可以进行交换，所以只要target中的元素与arr中的一样（无序），就返回true，否则返回false。</p>
+<p><strong>c++代码：</strong>(执行用时36ms，击败49.21%，内存消耗14M，击败64.22%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canBeEqual</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//遍历查找target中的元素是否都在arr中存在</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;target.size();++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>((it=find(arr.begin(),arr.end(),target[i]))==arr.end())&#123;</span><br><span class="line">                <span class="comment">//target中的元素在arr中没有找到</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//找到了则从arr中删除掉这个元素</span></span><br><span class="line">                arr.erase(it);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，其实思路也挺清晰的。看了一些题解后，更明白地讲就是只需判断两个数组排序后是否相等即可，使用sort函数排序，3行代码就搞定。</p>
 
     </div>
 
@@ -324,6 +375,11 @@
 	  </div>
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+              <a href="/tags/%E7%AE%80%E5%8D%95/" rel="tag"><i class="fa fa-tag"></i> 简单</a>
+          </div>
 
         
 
@@ -397,6 +453,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">解题过程：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">总结：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -412,7 +469,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -594,6 +651,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
