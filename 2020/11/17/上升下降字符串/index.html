@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目地址 难度：⭐ 题目描述：给你一个字符串 s ，请你根据下面的算法重新构造字符串： 从 s 中选出 最小 的字符，将它 接在 结果字符串的后面。从 s 剩余字符中选出 最小 的字符，且该字符比上一个添加的字符大，将它 接在 结果字符串后面。重复步骤 2 ，直到你没法从 s 中选择字符。从 s 中选出 最大 的字符，将它 接在 结果字符串的后面。从 s 剩余字符中选出 最大 的字符，且该字符比上">
+  <meta name="description" content="题目地址 难度：⭐ 题目描述：给你一个字符串 s ，请你根据下面的算法重新构造字符串：  从 s 中选出 最小 的字符，将它 接在 结果字符串的后面。 从 s 剩余字符中选出 最小 的字符，且该字符比上一个添加的字符大，将它 接在 结果字符串后面。 重复步骤 2 ，直到你没法从 s 中选择字符。 从 s 中选出 最大 的字符，将它 接在 结果字符串的后面。 从 s 剩余字符中选出 最大 的字符，且">
 <meta property="og:type" content="article">
 <meta property="og:title" content="上升下降字符串">
 <meta property="og:url" content="http://example.com/2020/11/17/%E4%B8%8A%E5%8D%87%E4%B8%8B%E9%99%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
 <meta property="og:site_name" content="CTF of Z2BNS">
-<meta property="og:description" content="题目地址 难度：⭐ 题目描述：给你一个字符串 s ，请你根据下面的算法重新构造字符串： 从 s 中选出 最小 的字符，将它 接在 结果字符串的后面。从 s 剩余字符中选出 最小 的字符，且该字符比上一个添加的字符大，将它 接在 结果字符串后面。重复步骤 2 ，直到你没法从 s 中选择字符。从 s 中选出 最大 的字符，将它 接在 结果字符串的后面。从 s 剩余字符中选出 最大 的字符，且该字符比上">
+<meta property="og:description" content="题目地址 难度：⭐ 题目描述：给你一个字符串 s ，请你根据下面的算法重新构造字符串：  从 s 中选出 最小 的字符，将它 接在 结果字符串的后面。 从 s 剩余字符中选出 最小 的字符，且该字符比上一个添加的字符大，将它 接在 结果字符串后面。 重复步骤 2 ，直到你没法从 s 中选择字符。 从 s 中选出 最大 的字符，将它 接在 结果字符串的后面。 从 s 剩余字符中选出 最大 的字符，且">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-17T09:04:45.000Z">
-<meta property="article:modified_time" content="2020-11-17T13:16:23.750Z">
+<meta property="article:modified_time" content="2020-11-18T02:56:29.912Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="简单">
@@ -233,10 +233,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-17 17:04:45 / 修改时间：21:16:23" itemprop="dateCreated datePublished" datetime="2020-11-17T17:04:45+08:00">2020-11-17</time>
+              <time title="创建时间：2020-11-17 17:04:45" itemprop="dateCreated datePublished" datetime="2020-11-17T17:04:45+08:00">2020-11-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-18 10:56:29" itemprop="dateModified" datetime="2020-11-18T10:56:29+08:00">2020-11-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -278,14 +284,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -299,40 +305,57 @@
       
         <p><strong><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/increasing-decreasing-string/">题目地址</a></strong></p>
 <p><strong>难度：</strong>⭐</p>
-<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个字符串 s ，请你根据下面的算法重新构造字符串：</p>
-<p>从 s 中选出 最小 的字符，将它 接在 结果字符串的后面。<br>从 s 剩余字符中选出 最小 的字符，且该字符比上一个添加的字符大，将它 接在 结果字符串后面。<br>重复步骤 2 ，直到你没法从 s 中选择字符。<br>从 s 中选出 最大 的字符，将它 接在 结果字符串的后面。<br>从 s 剩余字符中选出 最大 的字符，且该字符比上一个添加的字符小，将它 接在 结果字符串后面。<br>重复步骤 5 ，直到你没法从 s 中选择字符。<br>重复步骤 1 到 6 ，直到 s 中所有字符都已经被选过。<br>在任何一步中，如果最小或者最大字符不止一个 ，你可以选择其中任意一个，并将其添加到结果字符串。</p>
-<p>请你返回将 s 中字符重新排序后的 结果字符串 。</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个字符串 <code>s</code> ，请你根据下面的算法重新构造字符串：</p>
+<ol>
+<li>从 <code>s</code> 中选出 <strong>最小</strong> 的字符，将它 <strong>接在</strong> 结果字符串的后面。</li>
+<li>从 <code>s</code> 剩余字符中选出 <strong>最小</strong> 的字符，且该字符比上一个添加的字符大，将它 接在 结果字符串后面。</li>
+<li>重复步骤 2 ，直到你没法从 <code>s</code> 中选择字符。</li>
+<li>从 <code>s</code> 中选出 <strong>最大</strong> 的字符，将它 <strong>接在</strong> 结果字符串的后面。</li>
+<li>从 <code>s</code> 剩余字符中选出 <strong>最大</strong> 的字符，且该字符比上一个添加的字符小，将它 接在 结果字符串后面。</li>
+<li>重复步骤 5 ，直到你没法从 <code>s</code> 中选择字符。</li>
+<li>重复步骤 1 到 6 ，直到 <code>s</code> 中所有字符都已经被选过。</li>
+</ol>
+<p>在任何一步中，如果最小或者最大字符不止一个 ，你可以选择其中任意一个，并将其添加到结果字符串。</p>
+<p>请你返回将 <code>s</code> 中字符重新排序后的 <strong>结果字符串</strong> 。</p>
 <a id="more"></a>
 <p><strong>示例1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: [[1,1,0],[1,0,1],[0,0,0]]</span><br><span class="line">输出: [[1,0,0],[0,1,0],[1,1,1]]</span><br><span class="line">解释: 首先翻转每一行: [[0,1,1],[1,0,1],[0,0,0]]；</span><br><span class="line">     然后反转图片: [[1,0,0],[0,1,0],[1,1,1]]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;aaaabbbbcccc&quot;</span><br><span class="line">输出：&quot;abccbaabccba&quot;</span><br><span class="line">解释：第一轮的步骤 1，2，3 后，结果字符串为 result &#x3D; &quot;abc&quot;</span><br><span class="line">第一轮的步骤 4，5，6 后，结果字符串为 result &#x3D; &quot;abccba&quot;</span><br><span class="line">第一轮结束，现在 s &#x3D; &quot;aabbcc&quot; ，我们再次回到步骤 1</span><br><span class="line">第二轮的步骤 1，2，3 后，结果字符串为 result &#x3D; &quot;abccbaabc&quot;</span><br><span class="line">第二轮的步骤 4，5，6 后，结果字符串为 result &#x3D; &quot;abccbaabccba&quot;</span><br></pre></td></tr></table></figure>
 <p><strong>示例2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]</span><br><span class="line">输出: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</span><br><span class="line">解释: 首先翻转每一行: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]]；</span><br><span class="line">     然后反转图片: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</span><br></pre></td></tr></table></figure>
-<p><strong>说明:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;rat&quot;</span><br><span class="line">输出：&quot;art&quot;</span><br><span class="line">解释：单词 &quot;rat&quot; 在上述算法重排序以后变成 &quot;art&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;leetcode&quot;</span><br><span class="line">输出：&quot;cdelotee&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;ggggggg&quot;</span><br><span class="line">输出：&quot;ggggggg&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>示例5：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;spo&quot;</span><br><span class="line">输出：&quot;ops&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
 <ul>
-<li><code>1 &lt;= A.length = A[0].length &lt;= 20</code></li>
-<li><code>0 &lt;= A[i][j] &lt;= 1</code></li>
+<li><code>1 &lt;= s.length &lt;= 500</code></li>
+<li><code>s</code> 只包含小写英文字母。</li>
 </ul>
 <center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
 
 <h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
-<p>遍历每一行，然后对每一行中的元素翻转交换元素的值（swap函数），再反转元素的值，注意特殊情况，矩阵行数为奇数时中间元素要特殊处理反转一次。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string sortString(string s) &#123;</span><br><span class="line">        string result&#x3D;&quot;&quot;;</span><br><span class="line">        &#x2F;&#x2F;对字符串s中的字符进行升序排序</span><br><span class="line">        sort(s.begin(),s.end());</span><br><span class="line">        int n&#x3D;s.length();</span><br><span class="line">        int i;</span><br><span class="line">        while(n)&#123;</span><br><span class="line">            char tmp&#x3D;s[0];</span><br><span class="line">            result+&#x3D;tmp;</span><br><span class="line">            for(i&#x3D;1;i&lt;n;++i)&#123;</span><br><span class="line">                if(s[i]&gt;tmp)&#123;</span><br><span class="line">                    result+&#x3D;s[i];</span><br><span class="line">                    tmp&#x3D;s[i];</span><br><span class="line">                    &#x2F;&#x2F;删除字符</span><br><span class="line">                    s.erase(i,1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;</span><br><span class="line">            n&#x3D;s.length();</span><br><span class="line">            tmp&#x3D;s[n-1];</span><br><span class="line">            result+&#x3D;tmp;</span><br><span class="line">            for(i&#x3D;n-2;i&gt;&#x3D;0;--i)&#123;</span><br><span class="line">                if(s[i]&lt;tmp)&#123;</span><br><span class="line">                    result+&#x3D;s[i];</span><br><span class="line">                    tmp&#x3D;s[i];</span><br><span class="line">                    s.erase(i,1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            n&#x3D;s.length();</span><br><span class="line">        &#125;</span><br><span class="line">    return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>c++代码：</strong>(执行用时4ms，击败97.33%，内存消耗8.7M，击败28.26%）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">flipAndInvertImage</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//遍历矩阵</span></span><br><span class="line">        <span class="keyword">int</span> n=A.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;(n+<span class="number">1</span>)/<span class="number">2</span>;++j)&#123;</span><br><span class="line">                <span class="comment">//翻转，交换两个元素的值</span></span><br><span class="line">                swap(A[i][j],A[i][n-j<span class="number">-1</span>]);</span><br><span class="line">                <span class="comment">//反转，与1异或</span></span><br><span class="line">                A[i][j]^=<span class="number">1</span>;</span><br><span class="line">                <span class="comment">//n是奇数时，中间的元素只能反转一次。</span></span><br><span class="line">                <span class="keyword">if</span>(j!=(n-j<span class="number">-1</span>))&#123;</span><br><span class="line">                    A[i][n-j<span class="number">-1</span>]^=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>一开始尝试使用暴力模拟，先给字符串字符sort非递减排序。第一轮正向遍历求出一串升序字符串，反向遍历求出一串降序字符串然后循环直到所有字符都已被选过。运行超出时间限制了，意料之中遍历太慢了。</p>
+<p>重新思考，注意到提示中s只包含小写英文字母，想到了从没用过的计数法，使用大小为26的数组存储字符串中字符出现的个数，然后正向将出现的字母依次放入结果字符串中，放入字母后，该字母的数量应该减1，然后再反向遍历放入字母，直到数组中元素的值为0即所有字符都已被选过。</p>
+<p><strong>c++代码：</strong>(执行用时12ms，击败56.24%，内存消耗7.9M，击败26.54%）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string sortString(string s) &#123;</span><br><span class="line">        &#x2F;&#x2F;计数法</span><br><span class="line">        string result&#x3D;&quot;&quot;;</span><br><span class="line">        &#x2F;&#x2F;因为s只包含小写英文字母,用数组存储每个字母的个数</span><br><span class="line">        vector&lt;int&gt; num(26,0);</span><br><span class="line">        int i;</span><br><span class="line">        for(i&#x3D;0;i&lt;s.length();++i)&#123;</span><br><span class="line">            ++num[s[i]-&#39;a&#39;];</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;数组num中元素最大值大于零就表示还有字符没有选过</span><br><span class="line">        while(*max_element(num.begin(),num.end())&gt;0)&#123;</span><br><span class="line">            &#x2F;&#x2F;从前往后遍历，选出最小字符</span><br><span class="line">            for(i&#x3D;0;i&lt;26;++i)&#123;</span><br><span class="line">                if(num[i]!&#x3D;0)&#123;</span><br><span class="line">                    result+&#x3D;i+&#39;a&#39;;</span><br><span class="line">                    &#x2F;&#x2F;当前字符数量减一</span><br><span class="line">                    --num[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;从后往前遍历，选出最大字符</span><br><span class="line">            for(i&#x3D;25;i&gt;&#x3D;0;--i)&#123;</span><br><span class="line">                if(num[i]!&#x3D;0)&#123;</span><br><span class="line">                    result+&#x3D;i+&#39;a&#39;;</span><br><span class="line">                    --num[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;      </span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br></pre></td></tr></table></figure>
 <center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
 
-<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flipping-an-image/solution/fan-zhuan-tu-xiang-by-leetcode/">官方题解</a>:</h6><p><strong>方法一： 模拟</strong></p>
-<p>我们可以不使用额外的（非常数）空间来完成翻转和反转操作。对于 <code>A[i][j]​</code>，我们将它和 <code>A[i][c - j - 1]​</code> 进行交换（即翻转），其中 <code>c</code> 是数组 <code>A</code> 的列数。在交换的同时，我们可以将这两个数进行反转。</p>
-<p><strong>Java代码：</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] flipAndInvertImage(<span class="keyword">int</span>[][] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> C = A[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row: A)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (C + <span class="number">1</span>) / <span class="number">2</span>; ++i) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = row[i] ^ <span class="number">1</span>;</span><br><span class="line">                row[i] = row[C - <span class="number">1</span> - i] ^ <span class="number">1</span>;</span><br><span class="line">                row[C - <span class="number">1</span> - i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/increasing-decreasing-string/solution/shang-sheng-xia-jiang-zi-fu-chuan-by-leetcode-solu/">官方题解</a>:</h6><p><strong>方法一：桶记数</strong></p>
+<p><strong>思路</strong></p>
+<p>我们可以开一个长度为 26 的数组表示 26 个桶，每个桶里存放一种字母。先用 $O(|s|)$ 的时间扫描一遍字符串（其中 $|s|$代表字符串的长度），统计每个字母出现的次数。然后我们只要不停地扫描这里的「桶序列」——先从小到大扫，再从大到小扫，每次发现一个桶当中计数值不为 0 的时候，就把这个桶对应的字母添加到结果字符串的最后方，然后对计数值减一。</p>
+<p>具体地，开一个长度为 26 的数组 <code>h[]</code>，作为用来计数的「桶」。<code>haveChar</code> 的功能是在每次循环开始执行之前判断是否还有未使用的字符。<code>appendChar</code> 的功能是检测当前位置的桶是否计数值为 0，如果不为 0 则修改目标串和计数值。</p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗7.8M，击败28.96%）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> h[<span class="number">26</span>];</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">haveChar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (h[i]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">sortString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;c: s) ++h[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line"></span><br><span class="line">        <span class="built_in">string</span> ret;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">auto</span> appendChar = [&amp;] (<span class="keyword">int</span> p) &#123;</span><br><span class="line">            <span class="keyword">if</span> (h[p]) &#123;</span><br><span class="line">                --h[p];</span><br><span class="line">                ret.push_back(p + <span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!haveChar()) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) appendChar(i);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">25</span>; i &gt;= <span class="number">0</span>; --i) appendChar(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>复杂度分析</strong></p>
 <ul>
-<li>时间复杂度：$O(M*N)$，其中 $M$ 和 $N$ 分别为数组 <code>A</code> 的行数和列数。</li>
-<li>空间复杂度：$O(1)$。</li>
+<li>时间复杂度：考虑最坏情况下字符串 $s$ 中 $|s|$ 个字符全部是同一个字母，最外层的 <code>while</code> 循环就要执行 $\lceil \frac{|s|}{2} \rceil$ 次（其中 $\lceil x \rceil$表示 $x$向上取整），每次执行中又包含 3 个执行 26 次的循环，故这里的渐进时间复杂度为 $O(3 \times 26 \times |s|) = O(|s|)$。</li>
+<li>空间复杂度：这里使用了长度为 26 的数组作为辅助空间，故渐进空间复杂度为 $O(26)$。</li>
 </ul>
 <center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
 
-<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解和我的思路一样，不过对于特殊情况比我处理的好，也不算特殊情况吧，只是我自己把它当作特殊情况处理了，主要在于我使用了vector容器中的swap成员函数来交换两个元素，这样必须反转后覆盖原值，对于奇数行数矩阵的每行中间元素反转了两次，而采用tmp辅助变量来进行交换两个元素值不涉及到覆盖问题。其实就是太执着于STL模板库中的成员函数了，自己实现交换元素的功能也挺好，相当于对源码根据实际情况进行了改进，这样才能更灵活地处理问题。</p>
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解也是用的计数法，还改了个名字叫桶计数🤣，嗯，简单题不难，只要努力去做都会做出来的。</p>
 
     </div>
 
@@ -467,7 +490,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,7 +503,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
