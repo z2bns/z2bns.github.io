@@ -288,14 +288,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>225</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -307,12 +307,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/task/answer?type=crypto&number=5&grade=1&id=5452&page=2">题目地址</a></p>
+        <p><a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=5452&amp;page=2">题目地址</a></p>
 <p>题目名称：RSA_gcd</p>
 <p>题目描述：暂无</p>
 <p>题目附件：<a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/media/task/attachments/f1217fd42e8b43558077180e98c757d7.zip">附件1</a></p>
 <a id="more"></a>
-
 <p><strong>解题思路：</strong></p>
 <p>下载附件，解压得到两个文件</p>
 <p><img src="/2020/10/13/RSA-gcd/image-20201013093744652.png" alt="image-20201013093744652"></p>
@@ -320,14 +319,13 @@
 <p><img src="/2020/10/13/RSA-gcd/image-20201013093813299.png" alt="image-20201013093813299"></p>
 <p>给出了模数n、公钥指数e、密文c，就是常规的RSA解密，属于常规破解模数，直接用脚本解密就好了。</p>
 <p><strong>解题过程：</strong></p>
-<p>登录网站<a target="_blank" rel="noopener" href="http://factordb.com/,%E5%88%86%E5%88%AB%E8%A7%A3%E5%87%BAp%E5%92%8Cq%EF%BC%8C%E5%A6%82%E4%B8%8B">http://factordb.com/,分别解出p和q，如下</a></p>
+<p>登录网站<a target="_blank" rel="noopener" href="http://factordb.com/,分别解出p和q，如下">http://factordb.com/,分别解出p和q，如下</a></p>
 <p>attach1.txt：</p>
 <p><img src="/2020/10/13/RSA-gcd/image-20201013094252764.png" alt="image-20201013094252764"></p>
 <p>attach2.txt：</p>
 <p><img src="/2020/10/13/RSA-gcd/image-20201013094215298.png" alt="image-20201013094215298"></p>
 <p>python3脚本解密：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: cp936 -*-</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">egcd</span>(<span class="params">a,b</span>):</span></span><br><span class="line">    <span class="keyword">if</span> a==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> (b,<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        g,y,x=egcd(b%a,a)</span><br><span class="line">        <span class="keyword">return</span> (g,x-(b//a)*y,y)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">modinv</span>(<span class="params">a,m</span>):</span></span><br><span class="line">    g,x,y=egcd(a,m)</span><br><span class="line">    <span class="keyword">if</span> g!=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">&#x27;modular inverse does not exist&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> x%m</span><br><span class="line">p1 = <span class="number">138376604533530412400239558340424700312412702699022481119357799054715877829291635290832719835033140580690053865677079316241919169166375123691917675235979462772103681398725285808551041924624882840901583892858174270714471366531758975241868470938138238307005782651296179579961869801841395682782645916848523771439</span></span><br><span class="line">q1 = <span class="number">167807411649676462546661119644113081915542378755778327057156191284453150887662343414908916953154897183613548083558919410359642450001343644814021159828724844730881111955050992398535063409828169462180970629537792676998647880110463527555034040871485964361418080481113059959410616446772218038141157051007091689351</span> </span><br><span class="line">n1 = p1*q1</span><br><span class="line"></span><br><span class="line">p2=  <span class="number">138376604533530412400239558340424700312412702699022481119357799054715877829291635290832719835033140580690053865677079316241919169166375123691917675235979462772103681398725285808551041924624882840901583892858174270714471366531758975241868470938138238307005782651296179579961869801841395682782645916848523771439</span></span><br><span class="line">q2=  <span class="number">163631266233712837481823088378337134151021871060275887871338250274359922218053543333532579728777813509956261662615493179160669715503833949420308311581736674332268131534602581626817039237393599222688271607325131529790640375765697832746614700483681658911753936520482383592478743093233261371451718844275762094649</span></span><br><span class="line">n2=p2*q2</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">d1=modinv(e,(p1<span class="number">-1</span>)*(q1<span class="number">-1</span>))<span class="comment">#RSA私钥</span></span><br><span class="line">d2=modinv(e,(p2<span class="number">-1</span>)*(q2<span class="number">-1</span>))<span class="comment">#RSA私钥</span></span><br><span class="line"></span><br><span class="line">c1=<span class="number">9700614748413503291260966231863562117502096284616216707445276355274869086619796527618473213422509996843430296526594113572675840559345077344419098900818709577642324900405582499683604786981144099878021784567540654040833912063141709913653416394888766281465200682852378794478801329251224801006820925858507273130504236563822120838520746270280731121442839412258397191963036040553539697846535038841541209050503061001070909725806574230090246041891486506980939294245537252610944799573920844235221096956391095716111629998594075762507345430945523492775915790828078000453705320783486744734994213028476446922815870053311973844961</span></span><br><span class="line">c2=<span class="number">20513108670823938405207629835395350087127287494963553421797351726233221750526355985253069487753150978011340115173042210284965521215128799369083065796356395285905154260709263197195828765397189267866348946188652752076472172155755940282615212228370367042435203584159326078238921502151083768908742480756781277358357734545694917591921150127540286087770229112383605858821811640935475859936319249757754722093551370392083736485637225052738864742947137890363135709796410008845576985297696922681043649916650599349320818901512835007050425460872675857974069927846620905981374869166202896905600343223640296138423898703137236463508</span></span><br><span class="line"><span class="comment">#解出明文</span></span><br><span class="line">m1=pow(c1,d1,n1)<span class="comment">#得到的是10进制数据</span></span><br><span class="line">m2=pow(c2,d2,n2)<span class="comment">#得到的是10进制数据</span></span><br><span class="line"></span><br><span class="line">hex1=hex(m1)<span class="comment">#得到16进制数据，最后转字符串就行了</span></span><br><span class="line">hex2=hex(m2)<span class="comment">#得到16进制数据，最后转字符串就行了</span></span><br><span class="line">hex=hex1+hex2[<span class="number">2</span>:]</span><br><span class="line">print(hex)<span class="comment">#输出16进制数据</span></span><br><span class="line">flag=base64.b16decode(hex[<span class="number">2</span>:].upper())</span><br><span class="line">print(flag)<span class="comment">#输出解码后的字符串</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>解密结果：</p>
 <p><img src="/2020/10/13/RSA-gcd/image-20201013094534794.png" alt="image-20201013094534794"></p>
 <p>得到flag{336BB5172ADE227FE68BAA44FDA73F3B}</p>
@@ -538,13 +536,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">2:34</span>
 </div>
 
 

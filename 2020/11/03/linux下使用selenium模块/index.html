@@ -283,7 +283,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -304,7 +304,6 @@
       
         <h6 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h6><p>因为要在linux服务器上使用selenium模块实现“自动信息上报”的需求，在把python代码部署到linux服务器上的时候出现了一些环境配置上的问题，在一台服务器上摸索了好久也没成功问题一个接一个，难受😫，然后我就又重新缕清头绪在另一台服务器上重新部署了一下，成功了以后仅此记录一下，其他linux系统以后再摸索摸索吧😛</p>
 <a id="more"></a>
-
 <p><strong>查看linux版本</strong></p>
 <p>我的系统是Red Hat 4.8.5。</p>
 <p>命令：<code>cat /proc/version</code></p>
@@ -334,7 +333,6 @@
 <p><strong>selenium代码测试</strong></p>
 <p>在服务器上新建一个python文件，写入以下代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">ch_options = webdriver.ChromeOptions()</span><br><span class="line"><span class="comment">#为Chrome配置无头模式</span></span><br><span class="line">ch_options.add_argument(<span class="string">&quot;--headless&quot;</span>)  </span><br><span class="line">ch_options.add_argument(<span class="string">&#x27;--no-sandbox&#x27;</span>)</span><br><span class="line">ch_options.add_argument(<span class="string">&#x27;--disable-gpu&#x27;</span>)</span><br><span class="line">ch_options.add_argument(<span class="string">&#x27;--disable-dev-shm-usage&#x27;</span>)</span><br><span class="line"><span class="comment"># 在启动浏览器时加入配置</span></span><br><span class="line">dr = webdriver.Chrome(options=ch_options)</span><br><span class="line"><span class="comment">#这是测试网站</span></span><br><span class="line">url = <span class="string">&quot;https://www.baidu.com&quot;</span></span><br><span class="line">dr.get(url)</span><br><span class="line"><span class="comment">#打印源码</span></span><br><span class="line">print(dr.page_source)</span><br></pre></td></tr></table></figure>
-
 <p>然后python执行这个py文件，结果打印出了源码，即selenium模块环境配置成功。</p>
 
     </div>
@@ -544,13 +542,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">2:34</span>
 </div>
 
 

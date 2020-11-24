@@ -285,14 +285,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>315</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -304,12 +304,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/task/answer?type=crypto&number=5&grade=1&id=5450&page=2">题目地址</a></p>
+        <p><a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=5450&amp;page=2">题目地址</a></p>
 <p>题目名称：best_rsa</p>
 <p>题目描述：暂无</p>
 <p>题目附件：<a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/media/task/attachments/c2d6e7158d7b4cd6a747774f0bdc5f72.zip">附件1</a></p>
 <a id="more"></a>
-
 <p>WriteUp：</p>
 <p>解题思路：</p>
 <p>下载附件，解压后打开文件夹，包含4个文件</p>
@@ -320,10 +319,8 @@
 <p><strong>解题过程:</strong></p>
 <p>判断e1和e2是否互质的python3脚本如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: cp936 -*-</span></span><br><span class="line"><span class="comment">#判断两个数是否互素</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcd</span>(<span class="params">a, b</span>):</span>  <span class="comment"># 判断来两个数是否互素,辗转相除法</span></span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>):</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> gcd(b, a % b)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    x = <span class="number">117</span>  <span class="comment"># x,y的值根据需要修改即可</span></span><br><span class="line">    y = <span class="number">65537</span></span><br><span class="line">    <span class="keyword">if</span> gcd(x, y) == <span class="number">1</span>:  <span class="comment"># 如果两个数的最大公约数是1，那么两数互素。</span></span><br><span class="line">        print(str(x) + <span class="string">&quot; &quot;</span> + str(y) + <span class="string">&quot;  两个数互素&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(str(x) + <span class="string">&quot; &quot;</span> + str(y) + <span class="string">&quot; 两个数不互素&quot;</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
 <p>共模攻击python3解密脚本如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: cp936 -*-</span></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line"><span class="comment">#若给出公钥文件，从公钥文件中分解出n和e</span></span><br><span class="line">public_key1 = RSA.importKey(open(<span class="string">r&quot;G:\ctf\CTF题目\c2d6e7158d7b4cd6a747774f0bdc5f72\publickey1.pem&quot;</span>,<span class="string">&#x27;rb&#x27;</span>).read())</span><br><span class="line">public_key2 = RSA.importKey(open(<span class="string">r&quot;G:\ctf\CTF题目\c2d6e7158d7b4cd6a747774f0bdc5f72\publickey2.pem&quot;</span>,<span class="string">&#x27;rb&#x27;</span>).read())</span><br><span class="line"><span class="comment">#int型</span></span><br><span class="line">n1 = public_key1.n</span><br><span class="line">e1 = public_key1.e</span><br><span class="line">n2 = public_key2.n</span><br><span class="line">e2 = public_key2.e</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> n1==n2</span><br><span class="line">n=n1</span><br><span class="line"></span><br><span class="line"><span class="comment">#若直接给出e1、e2、n</span></span><br><span class="line"><span class="comment"># e1 = 117</span></span><br><span class="line"><span class="comment"># e2 = 65537</span></span><br><span class="line"><span class="comment"># n =0x67755F890795644EC27E68892B94042C78334C34F9A6D8B6AA488D9B424D64A8B9B2DCC91B1D098A09D7AC4F9A06A4B5267F88F8968B4BAD29235D9A80330845F126B9A865F44C7A77DF72F763F553E99020745F40C8D97F0AB906154FBB1020B588F441F712B2377505B644FE36A78743EE4995B42C7B17B8DF4782EBB595097EE1BE74143261893C4EE2C140DC469E32B17F8AB30E25F07164506B4E79C6B4E3AF5BEA0268427FFB1134FB90A5122729C4EEF17B6D0B12CFBA4E7F14E27AA3C2B4F978E75163242EBD5CBD73829336F9A120E86E25D69CAE0229FDCCEB5B35DC630187B0EEF1532EEC546F4037A6EAB0D0207199B9566011A52F8E9ACD7261</span></span><br><span class="line"></span><br><span class="line">c1=bytes_to_long(open(<span class="string">r&#x27;G:\ctf\CTF题目\c2d6e7158d7b4cd6a747774f0bdc5f72\cipher1.txt&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>).read())  </span><br><span class="line">c2=bytes_to_long(open(<span class="string">r&#x27;G:\ctf\CTF题目\c2d6e7158d7b4cd6a747774f0bdc5f72\cipher2.txt&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>).read()) </span><br><span class="line"></span><br><span class="line">_, r, s = gmpy2.gcdext(e1, e2)</span><br><span class="line"></span><br><span class="line">m = pow(c1, r, n) * pow(c2, s, n) % n</span><br><span class="line">print(long_to_bytes(m))</span><br></pre></td></tr></table></figure>
-
 <p>运行结果：</p>
 <p><img src="/2020/10/12/best-rsa/image-20201012112318371.png" alt="image-20201012112318371"></p>
 <p>得到flag为：flag{interesting_rsa}</p>
@@ -534,13 +531,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">2:34</span>
 </div>
 
 

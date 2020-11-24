@@ -291,14 +291,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -310,20 +310,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/task/answer?type=crypto&number=5&grade=1&id=5485&page=2">题目地址</a></p>
+        <p><a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=5485&amp;page=2">题目地址</a></p>
 <p>题目名称：RSA256</p>
 <p>题目描述：</p>
 <p>被潘汉年按时来到上海百老汇大厦（今上海大厦），叩开了袁殊临时下榻处的房门。袁殊说明自己当前身份和处境后，突然话锋一转，问潘汉年：“你到我这里来，恐怕已经被日本特务注意到了。我应该怎么向他们解释呢？”潘汉年说：“你就将计就计在敌伪内部站住脚，取得合法地位。同时搜集敌伪情报向我提供。”“要是岩井要求我将你介绍给他怎么办？”“那我就用胡越明的化名同岩井见面，就说我愿意和你在香港合作搞情报。”时隔不久，潘汉年接到袁殊通知，通知内容为：RSA256.tar.gz，要他在上海虹口区一家日本人开的餐馆里，和岩井会见。 请以暗号形式告知我方人员前往保护潘汉年的安全。(答案为flag{XXX}形式)</p>
 <p>题目附件：<a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/media/task/attachments/8eec4a4af1e14eb08648c8fda7660a0f.gz">附件1</a></p>
 <a id="more"></a>
-
 <p>WriteUp：</p>
 <p><strong>解题思路：</strong></p>
 <p>下载附件，解压得到RSA256文件夹，里面有两个文件fllllllag.txt和gy.key</p>
 <p><img src="/2020/10/10/RSA256/image-20201009220928493.png" alt="image-20201009220928493"></p>
 <p>给出了公钥文件gy.key和密文文件fllllllag.txt，就是常规的RSA解密，有多种方法</p>
 <p><strong>方法一：利用RsaCtfTool工具（kali虚拟机中）</strong></p>
-<p>已知公钥（自动求私钥）–publickey,密文–uncipherfile</p>
+<p>已知公钥（自动求私钥）—publickey,密文—uncipherfile</p>
 <p>命令：<code>python3 RsaCtfTool.py --publickey 公钥文件 --uncipherfile 加密的文件</code></p>
 <p><img src="/2020/10/10/RSA256/image-20201010112318322-1602320676468.png" alt="image-20201010112318322"></p>
 <p>直接解出明文</p>
@@ -336,7 +335,6 @@
 <p>方式2：</p>
 <p>用脚本从公钥文件中解出n、e</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: cp936 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line"><span class="comment">#1.从公钥文件中分解n和e</span></span><br><span class="line">public_key = RSA.importKey(open(<span class="string">r&quot;G:\ctf\CTF题目\8eec4a4af1e14eb08648c8fda7660a0f\8eec4a4af1e14eb08648c8fda7660a0f\RSA256\gy.key&quot;</span>,<span class="string">&#x27;rb&#x27;</span>).read())</span><br><span class="line">n = public_key.n</span><br><span class="line">e = public_key.e</span><br><span class="line">print(<span class="string">&#x27;N:&#x27;</span>,n)</span><br><span class="line">print(<span class="string">&#x27;E:&#x27;</span>,e)</span><br></pre></td></tr></table></figure>
-
 <p>运行结果</p>
 <p><img src="/2020/10/10/RSA256/image-20201010115012461.png" alt="image-20201010115012461"></p>
 <p><strong>2、</strong>e为65537，n还比较短，用python先转换成10进制</p>
@@ -355,7 +353,6 @@
 <p>e=65537</p>
 <p><strong>3、</strong>使用python3代码解出明文</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: cp936 -*-</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">egcd</span>(<span class="params">a,b</span>):</span></span><br><span class="line">    <span class="keyword">if</span> a==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> (b,<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        g,y,x=egcd(b%a,a)</span><br><span class="line">        <span class="keyword">return</span> (g,x-(b//a)*y,y)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">modinv</span>(<span class="params">a,m</span>):</span></span><br><span class="line">    g,x,y=egcd(a,m)</span><br><span class="line">    <span class="keyword">if</span> g!=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">&#x27;modular inverse does not exist&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> x%m</span><br><span class="line">p = <span class="number">273821108020968288372911424519201044333</span>  </span><br><span class="line">q = <span class="number">280385007186315115828483000867559983517</span> </span><br><span class="line">n = p*q</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">d=modinv(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))<span class="comment">#RSA私钥</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">r&quot;fllllllag.txt&quot;</span> , <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">	s=f.read().hex()<span class="comment">#bytes转16进制字符串</span></span><br><span class="line">c=int(s,<span class="number">16</span>);<span class="comment">#密文，16进制转成int型</span></span><br><span class="line"><span class="comment">#解出明文</span></span><br><span class="line">m=pow(c,d,n)<span class="comment">#得到的是10进制数据</span></span><br><span class="line">hex=hex(m)<span class="comment">#得到16进制数据，最后转字符串就行了</span></span><br><span class="line">print(hex)<span class="comment">#输出16进制数据</span></span><br><span class="line"><span class="comment">#因为base16编码后的字母组成是[0-9A-F],所以要转成大写，否则会提示“Non-base16 digit found”</span></span><br><span class="line"><span class="comment">#还可以写成flag=base64.b16decode(hex[2:],True)或者修改python库base64源码里的b16decode()函数第二个参数为True</span></span><br><span class="line">flag=base64.b16decode(hex[<span class="number">2</span>:].upper())</span><br><span class="line">print(flag)<span class="comment">#输出解码后的字符串</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>运行结果如下：</p>
 <p><img src="/2020/10/10/RSA256/image-20201013095638702.png" alt="image-20201013095638702"></p>
 <p>可以看出flag字符串16进制标识，直接base16解码得到flag：</p>
@@ -568,13 +565,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">2:34</span>
 </div>
 
 

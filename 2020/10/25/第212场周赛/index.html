@@ -289,14 +289,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.1k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -321,7 +321,6 @@
 <li>排名第 99、199、299 名的参赛者可获「幸运奖」；</li>
 </ul>
 <a id="more"></a>
-
 <p><strong>重要提示</strong></p>
 <ol>
 <li><p>请注意，每个错误提交的惩罚时间已经从 <strong>10分钟</strong> 改变为了 <strong>5分钟</strong> 。</p>
@@ -334,12 +333,9 @@
 </li>
 <li><p>通过不正当的方式将部分或全部测试用例的答案直接贴到代码里的</p>
 </li>
-<li><p>多账号提交雷同代码（抄袭）</p>
-</li>
-<li><p>使用不正当手段影响他人竞赛的</p>
-</li>
-<li><p>竞赛结束前在讨论区发布答案的</p>
-</li>
+<li>多账号提交雷同代码（抄袭）</li>
+<li>使用不正当手段影响他人竞赛的</li>
+<li>竞赛结束前在讨论区发布答案的</li>
 </ul>
 </li>
 <li><p>如被发现违规行为，我们将会严格按照以下处罚规则执行：</p>
@@ -359,7 +355,8 @@
 </ul>
 </li>
 </ol>
-<h6 id="题目列表"><a href="#题目列表" class="headerlink" title="题目列表"></a>题目列表</h6><table>
+<h6 id="题目列表"><a href="#题目列表" class="headerlink" title="题目列表"></a>题目列表</h6><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>题目</th>
@@ -367,7 +364,8 @@
 <th>得分</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/slowest-key/">按键持续时间最长的键</a></td>
 <td>简单</td>
 <td>3</td>
@@ -387,7 +385,9 @@
 <td>困难</td>
 <td>7</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h6 id="按键持续时间最长的键"><a href="#按键持续时间最长的键" class="headerlink" title="按键持续时间最长的键"></a>按键持续时间最长的键</h6><p><strong>题目描述：</strong></p>
 <p>LeetCode 设计了一款新式键盘，正在测试其可用性。测试人员将会点击一系列键（总计 n 个），每次一个。</p>
 <p>给你一个长度为 n 的字符串 <code>keysPressed</code> ，其中 <code>keysPressed[i]</code> 表示测试序列中第 i 个被按下的键。<code>releaseTimes</code> 是一个升序排列的列表，其中 <code>releaseTimes[i]</code> 表示松开第 i 个键的时间。字符串和数组的 <strong>下标都从 0 开始</strong> 。第 <code>0</code> 个键在时间为 <code>0</code> 时被按下，接下来每个键都 <strong>恰好</strong> 在前一个键松开时被按下。</p>
@@ -396,10 +396,8 @@
 <p>请返回按键 <strong>持续时间最长</strong> 的键，如果有多个这样的键，则返回 <strong>按字母顺序排列最大</strong> 的那个键。</p>
 <p><strong>示例1：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入：releaseTimes &#x3D; [9,29,49,50], keysPressed &#x3D; &quot;cbcd&quot;</span><br><span class="line">输出：&quot;c&quot;</span><br><span class="line">解释：按键顺序和持续时间如下：</span><br><span class="line">按下 &#39;c&#39; ，持续时间 9（时间 0 按下，时间 9 松开）</span><br><span class="line">按下 &#39;b&#39; ，持续时间 29 - 9 &#x3D; 20（松开上一个键的时间 9 按下，时间 29 松开）</span><br><span class="line">按下 &#39;c&#39; ，持续时间 49 - 29 &#x3D; 20（松开上一个键的时间 29 按下，时间 49 松开）</span><br><span class="line">按下 &#39;d&#39; ，持续时间 50 - 49 &#x3D; 1（松开上一个键的时间 49 按下，时间 50 松开）</span><br><span class="line">按键持续时间最长的键是 &#39;b&#39; 和 &#39;c&#39;（第二次按下时），持续时间都是 20</span><br><span class="line">&#39;c&#39; 按字母顺序排列比 &#39;b&#39; 大，所以答案是 &#39;c&#39;</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例2：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入：releaseTimes &#x3D; [12,23,36,46,62], keysPressed &#x3D; &quot;spuda&quot;</span><br><span class="line">输出：&quot;a&quot;</span><br><span class="line">解释：按键顺序和持续时间如下：</span><br><span class="line">按下 &#39;s&#39; ，持续时间 12</span><br><span class="line">按下 &#39;p&#39; ，持续时间 23 - 12 &#x3D; 11</span><br><span class="line">按下 &#39;u&#39; ，持续时间 36 - 23 &#x3D; 13</span><br><span class="line">按下 &#39;d&#39; ，持续时间 46 - 36 &#x3D; 10</span><br><span class="line">按下 &#39;a&#39; ，持续时间 62 - 46 &#x3D; 16</span><br><span class="line">按键持续时间最长的键是 &#39;a&#39; ，持续时间 16</span><br></pre></td></tr></table></figure>
-
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>releaseTimes.length == n</code></li>
@@ -413,25 +411,18 @@
 <p>用一个变量存储最长的持续时间，然后依次遍历releaseTimes计算每个键的持续时间（第1个键特殊处理），比较持续时间若相同比较字母顺序。</p>
 <p><strong>提交的代码：</strong>（运行时间16ms，内存消耗10.7M）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">slowestKey</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; releaseTimes, <span class="built_in">string</span> keysPressed)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//先把releaseTimes转换成每个键的持续时间，从后面开始</span></span><br><span class="line">        <span class="keyword">int</span> key_time=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=releaseTimes.size()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="comment">//计算持续时间，第一个键例外</span></span><br><span class="line">            <span class="keyword">if</span>(i!=<span class="number">0</span>)&#123;</span><br><span class="line">                releaseTimes[i]=releaseTimes[i]-releaseTimes[i<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(releaseTimes[i]&gt;key_time)&#123;</span><br><span class="line">                <span class="comment">//持续时间最长的键</span></span><br><span class="line">                key_time=releaseTimes[i];</span><br><span class="line">                c=keysPressed[i];</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(releaseTimes[i]==key_time)&#123;</span><br><span class="line">                <span class="comment">//相同持续时间比较字母顺序</span></span><br><span class="line">                <span class="keyword">if</span>(keysPressed[i]&gt;c)&#123;</span><br><span class="line">                    c=keysPressed[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
 <h6 id="等差子数组"><a href="#等差子数组" class="headerlink" title="等差子数组"></a>等差子数组</h6><p><strong>题目描述：</strong></p>
 <p>如果一个数列由至少两个元素组成，且每两个连续元素之间的差值都相同，那么这个序列就是 等差数列 。更正式地，数列 <code>s</code> 是等差数列，只需要满足：对于每个有效的 <code>i</code> ， s[i+1] - s[i] == s[1] - s[0] 都成立。</p>
 <p>例如，下面这些都是 <strong>等差数列</strong> ：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1, 3, 5, 7, 9</span><br><span class="line">7, 7, 7, 7</span><br><span class="line">3, -1, -5, -9</span><br></pre></td></tr></table></figure>
-
 <p>下面的数列 <strong>不是等差数列</strong> ：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1, 1, 2, 5, 7</span><br></pre></td></tr></table></figure>
-
 <p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code>，和两个由 <code>m</code> 个整数组成的数组 <code>l</code> 和 <code>r</code>，后两个数组表示 <code>m</code> 组范围查询，其中第 <code>i</code> 个查询对应范围 <code>[l[i], r[i]]</code> 。所有数组的下标都是 <strong>从 0 开始</strong> 的。</p>
 <p>返回 <code>boolean</code> 元素构成的答案列表 <code>answer</code> 。如果子数组 <code>nums[l[i]], nums[l[i]+1], ... , nums[r[i]]</code> 可以 <strong>重新排列</strong> 形成 <strong>等差数列</strong> ，<code>answer[i]</code> 的值就是 <code>true</code>；否则<code>answer[i]</code> 的值就是 <code>false</code> 。</p>
 <p> <strong>示例1：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">4</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">7</span>], l = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>], r = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">输出：[<span class="literal">true</span>,<span class="literal">false</span>,<span class="literal">true</span>]</span><br><span class="line">解释：</span><br><span class="line">第 <span class="number">0</span> 个查询，对应子数组 [<span class="number">4</span>,<span class="number">6</span>,<span class="number">5</span>] 。可以重新排列为等差数列 [<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>] 。</span><br><span class="line">第 <span class="number">1</span> 个查询，对应子数组 [<span class="number">4</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">9</span>] 。无法重新排列形成等差数列。</span><br><span class="line">第 <span class="number">2</span> 个查询，对应子数组 [<span class="number">5</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">7</span>] 。可以重新排列为等差数列 [<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>] 。</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例2：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">-12</span>,<span class="number">-9</span>,<span class="number">-3</span>,<span class="number">-12</span>,<span class="number">-6</span>,<span class="number">15</span>,<span class="number">20</span>,<span class="number">-25</span>,<span class="number">-20</span>,<span class="number">-15</span>,<span class="number">-10</span>], l = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">7</span>], r = [<span class="number">4</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">10</span>]</span><br><span class="line">输出：[<span class="literal">false</span>,<span class="literal">true</span>,<span class="literal">false</span>,<span class="literal">false</span>,<span class="literal">true</span>,<span class="literal">true</span>]</span><br></pre></td></tr></table></figure>
-
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>n == nums.length</code></li>
@@ -446,7 +437,6 @@
 <p>用vector容器存储返回结果，默认值为true。m次循环（m是数组l的长度），在每次循环中得到相对应的范围数组，然后判断数组是否是等差数列，如果不是则修改结果容器对应元素为false</p>
 <p><strong>代码：</strong>（执行用时204ms，击败47.38%，内存20.9M，击败83.18%）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">checkArithmeticSubarrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; l, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; r)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义布尔类型返回向量容器，默认值是true</span></span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">result</span><span class="params">(l.size(),<span class="literal">true</span>)</span></span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">        <span class="keyword">int</span> d=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//得到结果</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l.size();i++)&#123;</span><br><span class="line">            <span class="comment">//数组元素清空</span></span><br><span class="line">            tmp.clear();</span><br><span class="line">            <span class="keyword">for</span>(j=l[i];j&lt;=r[i];j++)&#123;</span><br><span class="line">                <span class="comment">//存储获取到的范围数组</span></span><br><span class="line">                tmp.push_back(nums[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//重新排序</span></span><br><span class="line">            sort(tmp.begin(),tmp.end());</span><br><span class="line">            <span class="comment">//判断子数组是否是等差数组</span></span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;tmp.size()<span class="number">-1</span>;j++)&#123;</span><br><span class="line">                    <span class="comment">//求公差</span></span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">0</span>)&#123;</span><br><span class="line">                        d=tmp[j+<span class="number">1</span>]-tmp[j];</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        <span class="comment">//差不等于公差d</span></span><br><span class="line">                        <span class="keyword">if</span>(tmp[j+<span class="number">1</span>]-tmp[j]!=d)&#123;</span><br><span class="line">                            result[i]=<span class="literal">false</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            tmp.clear();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <h6 id="最小体力消耗路径"><a href="#最小体力消耗路径" class="headerlink" title="最小体力消耗路径"></a>最小体力消耗路径</h6><p><strong>题目描述：</strong></p>
 <p>你准备参加一场远足活动。给你一个二维 <code>rows x columns</code> 的地图 <code>heights</code> ，其中 <code>heights[row][col]</code> 表示格子 <code>(row, col)</code> 的高度。一开始你在最左上角的格子 <code>(0, 0)</code> ，且你希望去最右下角的格子 <code>(rows-1, columns-1)</code> （注意下标从 <strong>0</strong> 开始编号）。你每次可以往 <strong>上，下，左，右</strong> 四个方向之一移动，你想要找到耗费 <strong>体力</strong> 最小的一条路径。</p>
 <p>一条路径耗费的 <strong>体力值</strong> 是路径上相邻格子之间 <strong>高度差绝对值</strong> 的 <strong>最大值</strong> 决定的。</p>
@@ -454,15 +444,12 @@
 <p><strong>示例1：</strong></p>
 <p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex1.png" alt="img"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：heights = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">8</span>,<span class="number">2</span>],[<span class="number">5</span>,<span class="number">3</span>,<span class="number">5</span>]]</span><br><span class="line">输出：<span class="number">2</span></span><br><span class="line">解释：路径 [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">5</span>] 连续格子的差值绝对值最大为 <span class="number">2</span> 。</span><br><span class="line">这条路径比路径 [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">5</span>] 更优，因为另一条路劲差值最大值为 <span class="number">3</span> 。</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例2：</strong></p>
 <p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex2.png" alt="img"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：heights = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">8</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">3</span>,<span class="number">5</span>]]</span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">解释：路径 [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>] 的相邻格子差值绝对值最大为 <span class="number">1</span> ，比路径 [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">5</span>] 更优。</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例3：</strong></p>
 <p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/ex3.png" alt="img"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：heights = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]]</span><br><span class="line">输出：<span class="number">0</span></span><br><span class="line">解释：上图所示路径不需要消耗任何体力。</span><br></pre></td></tr></table></figure>
-
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>rows == heights.length</code></li>
@@ -491,19 +478,15 @@
 <p><strong>示例1：</strong></p>
 <p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank1.jpg" alt="img"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]]</span><br><span class="line">输出：[[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">解释：</span><br><span class="line">matrix[<span class="number">0</span>][<span class="number">0</span>] 的秩为 <span class="number">1</span> ，因为它是所在行和列的最小整数。</span><br><span class="line">matrix[<span class="number">0</span>][<span class="number">1</span>] 的秩为 <span class="number">2</span> ，因为 matrix[<span class="number">0</span>][<span class="number">1</span>] &gt; matrix[<span class="number">0</span>][<span class="number">0</span>] 且 matrix[<span class="number">0</span>][<span class="number">0</span>] 的秩为 <span class="number">1</span> 。</span><br><span class="line">matrix[<span class="number">1</span>][<span class="number">0</span>] 的秩为 <span class="number">2</span> ，因为 matrix[<span class="number">1</span>][<span class="number">0</span>] &gt; matrix[<span class="number">0</span>][<span class="number">0</span>] 且 matrix[<span class="number">0</span>][<span class="number">0</span>] 的秩为 <span class="number">1</span> 。</span><br><span class="line">matrix[<span class="number">1</span>][<span class="number">1</span>] 的秩为 <span class="number">3</span> ，因为 matrix[<span class="number">1</span>][<span class="number">1</span>] &gt; matrix[<span class="number">0</span>][<span class="number">1</span>]， matrix[<span class="number">1</span>][<span class="number">1</span>] &gt; matrix[<span class="number">1</span>][<span class="number">0</span>] 且 matrix[<span class="number">0</span>][<span class="number">1</span>] 和 matrix[<span class="number">1</span>][<span class="number">0</span>] 的秩都为 <span class="number">2</span> 。</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例2：</strong></p>
 <p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank2.jpg" alt="img"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">7</span>,<span class="number">7</span>],[<span class="number">7</span>,<span class="number">7</span>]]</span><br><span class="line">输出：[[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例3：</strong></p>
 <p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank3.jpg" alt="img"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">20</span>,<span class="number">-21</span>,<span class="number">14</span>],[<span class="number">-19</span>,<span class="number">4</span>,<span class="number">19</span>],[<span class="number">22</span>,<span class="number">-47</span>,<span class="number">24</span>],[<span class="number">-19</span>,<span class="number">4</span>,<span class="number">19</span>]]</span><br><span class="line">输出：[[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">1</span>,<span class="number">6</span>],[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>]]</span><br></pre></td></tr></table></figure>
-
 <p><strong>示例4：</strong></p>
 <p><img src="/2020/10/25/%E7%AC%AC212%E5%9C%BA%E5%91%A8%E8%B5%9B/rank4.jpg" alt="img"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">7</span>,<span class="number">3</span>,<span class="number">6</span>],[<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">9</span>,<span class="number">8</span>,<span class="number">2</span>]]</span><br><span class="line">输出：[[<span class="number">5</span>,<span class="number">1</span>,<span class="number">4</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">6</span>,<span class="number">3</span>,<span class="number">1</span>]]</span><br></pre></td></tr></table></figure>
-
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>m == matrix.length</code></li>
@@ -723,13 +706,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">2:34</span>
 </div>
 
 

