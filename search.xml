@@ -7501,4 +7501,202 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
         <tag>简单</tag>
       </tags>
   </entry>
+  <entry>
+    <title>LeetCode问题</title>
+    <url>/2020/11/24/LeetCode%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>记录一些LeetCode刷题时暂时未完全解决官方题解的题目，以便以后返回解决</p>
+<a id="more"></a>
+<p><a href="https://z2bns.github.io/2020/11/24/%E8%B7%9D%E7%A6%BB%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E7%9F%A9%E9%98%B5%E5%8D%95%E5%85%83%E6%A0%BC/">距离顺序排列矩阵单元格</a></p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>删除某些元素后的数组均值</title>
+    <url>/2020/11/24/%E5%88%A0%E9%99%A4%E6%9F%90%E4%BA%9B%E5%85%83%E7%B4%A0%E5%90%8E%E7%9A%84%E6%95%B0%E7%BB%84%E5%9D%87%E5%80%BC/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/mean-of-array-after-removing-some-elements/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个整数数组 <code>arr</code> ，请你删除最小 <code>5%</code> 的数字和最大 <code>5%</code> 的数字后，剩余数字的平均值。</p>
+<p>与 <strong>标准答案</strong> 误差在 <code>10^-5</code> 的结果都被视为正确结果。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：arr &#x3D; [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3]</span><br><span class="line">输出：2.00000</span><br><span class="line">解释：删除数组中最大和最小的元素后，所有元素都等于 2，所以平均值为 2 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：arr &#x3D; [6,2,7,5,1,2,0,3,10,2,5,0,5,5,0,8,7,6,8,0]</span><br><span class="line">输出：4.00000</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：arr &#x3D; [6,0,7,0,7,5,7,8,3,4,0,7,8,1,6,8,1,1,2,4,8,1,9,5,4,3,8,5,10,8,6,6,1,0,6,10,8,2,3,4]</span><br><span class="line">输出：4.77778</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：arr &#x3D; [9,7,8,7,7,8,4,4,6,8,8,7,6,8,8,9,2,6,0,0,1,10,8,6,3,3,5,1,10,9,0,7,10,0,10,4,1,10,6,9,3,6,0,0,2,7,0,6,7,2,9,7,7,3,0,1,6,1,10,3]</span><br><span class="line">输出：5.27778</span><br></pre></td></tr></table></figure>
+<p><strong>示例5：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：arr &#x3D; [4,8,4,10,0,7,1,3,7,8,8,3,4,1,6,2,1,1,8,0,9,8,0,3,9,10,3,10,1,10,7,3,2,1,4,9,10,7,6,4,0,8,5,1,2,1,6,2,5,0,7,10,9,10,3,7,10,5,8,5,7,6,7,6,10,9,5,10,5,5,7,2,10,7,7,8,2,0,1,1]</span><br><span class="line">输出：5.29167</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>20 &lt;= arr.length &lt;= 1000</code></li>
+<li><code>arr.length</code> 是 <code>20</code> 的 <strong>倍数</strong> </li>
+<li><code>0 &lt;= arr[i] &lt;= 105</code></li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>刚开始看题目没看懂，以为是只删除一个最大值和一个最小值，看了一眼题解才知道要删除数组总个数%5的最小值和%5的最大值，提示里也说了arr.length是20的倍数保证要删除的个数是个整数。那就很好做了。</p>
+<p>对数组arr非递减排序，然后遍历arr数组%5-95%这一部分中间的元素累加求和，最后返回平均值。</p>
+<p><strong>c++代码：</strong>(执行用时20ms，击败62.70%，内存消耗9.6M，击败39.18%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">trimMean</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">        sort(arr.begin(),arr.end());</span><br><span class="line">        <span class="keyword">int</span> n=<span class="keyword">int</span>(arr.size()*<span class="number">0.05</span>);</span><br><span class="line">        <span class="keyword">double</span> result;</span><br><span class="line">        <span class="keyword">double</span> tmp=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">auto</span> it=arr.begin()+n;</span><br><span class="line">        <span class="keyword">while</span>(it&lt;arr.end()-n)&#123;</span><br><span class="line">            tmp+=*it;</span><br><span class="line">            ++it;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> tmp*<span class="number">1.0</span>/(arr.size()<span class="number">-2</span>*n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，读懂了题目之后就比较简单了。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>按奇偶排序数组II</title>
+    <url>/2020/11/24/%E6%8C%89%E5%A5%87%E5%81%B6%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84II/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/sort-array-by-parity-ii/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定一个非负整数数组 <code>A</code>， <code>A</code> 中一半整数是奇数，一半整数是偶数。</p>
+<p>对数组进行排序，以便当 <code>A[i]</code> 为奇数时，<code>i</code> 也是奇数；当 <code>A[i]</code> 为偶数时， <code>i</code> 也是偶数。</p>
+<p>你可以返回任何满足上述条件的数组作为答案。</p>
+<a id="more"></a>
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[4,2,5,7]</span><br><span class="line">输出：[4,5,2,7]</span><br><span class="line">解释：[4,7,2,5]，[2,5,4,7]，[2,7,4,5] 也会被接受。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>2 &lt;= A.length &lt;= 20000</code></li>
+<li><code>A.length % 2 == 0</code></li>
+<li><code>0 &lt;= A[i] &lt;= 1000</code></li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>再定义一个vector数组result存储排序后的序列，遍历数组A，根据元素的奇偶性存储到result相应的索引位置上，然后索引值加2指向下一个奇/偶位置。</p>
+<p><strong>c++代码：</strong>(执行用时48ms，击败50.89%，内存消耗20.5M，击败46.55%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sortArrayByParityII</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=A.size();</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">result</span><span class="params">(n,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> even=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> odd=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i]%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                result[even]=A[i];</span><br><span class="line">                even+=<span class="number">2</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                result[odd]=A[i];</span><br><span class="line">                odd+=<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/sort-array-by-parity-ii/solution/an-qi-ou-pai-xu-shu-zu-ii-by-leetcode-solution/">官方题解</a>:</h6><p><strong>方法一： 两次遍历</strong></p>
+<p><strong>思路和算法</strong></p>
+<p>遍历一遍数组把所有的偶数放进 <code>ans[0]</code>，<code>ans[2]</code>，<code>ans[4]</code>，依次类推。</p>
+<p>再遍历一遍数组把所有的奇数依次放进 <code>ans[1]</code>，<code>ans[3]</code>，<code>ans[5]</code>，依次类推。</p>
+<p><strong>c++代码：</strong>(执行用时60ms，击败15.13%，内存消耗20.5M，击败40.97%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sortArrayByParityII</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = A.size();</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ans</span><span class="params">(n)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x: A) &#123;</span><br><span class="line">            <span class="keyword">if</span> (x % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                ans[i] = x;</span><br><span class="line">                i += <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x: A) &#123;</span><br><span class="line">            <span class="keyword">if</span> (x % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                ans[i] = x;</span><br><span class="line">                i += <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N)$，其中 N是数组 <code>A</code> 的长度。</li>
+<li>空间复杂度：$O(1)$。注意在这里我们不考虑输出数组的空间占用。</li>
+</ul>
+<p><strong>方法二： 双指针</strong></p>
+<p><strong>思路与算法</strong></p>
+<p>如果原数组可以修改，则可以使用就地算法求解。</p>
+<p>为数组的偶数下标部分和奇数下标部分分别维护指针 $i, j$。随后，在每一步中，如果 $A[i]$为奇数，则不断地向前移动 $j$（每次移动两个单位），直到遇见下一个偶数。此时，可以直接将 $A[i]$ 与 $A[j]$交换。我们不断进行这样的过程，最终能够将所有的整数放在正确的位置上。</p>
+<p><strong>c++代码：</strong>(执行用时44ms，击败72.18%，内存消耗20.4M，击败72.28%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sortArrayByParityII</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = A.size();</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">while</span> (A[j] % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                    j += <span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                swap(A[i], A[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N)$，其中 N是数组 <code>A</code> 的长度。</li>
+<li>空间复杂度：$O(1)$。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解第一个方法其实两次遍历可以优化成我这样一次遍历，第二种方法双指针也比较好，理解起来也不难，两种方法效率都差不多，可能双指针在原数组上进行修改空间上会好一些。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>距离顺序排列矩阵单元格</title>
+    <url>/2020/11/24/%E8%B7%9D%E7%A6%BB%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E7%9F%A9%E9%98%B5%E5%8D%95%E5%85%83%E6%A0%BC/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/flipping-an-image/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给出 <code>R</code> 行 <code>C</code> 列的矩阵，其中的单元格的整数坐标为 <code>(r, c)</code>，满足 <code>0 &lt;= r &lt; R</code> 且 <code>0 &lt;= c &lt; C</code>。</p>
+<p>另外，我们在该矩阵中给出了一个坐标为 <code>(r0, c0)</code> 的单元格。</p>
+<p>返回矩阵中的所有单元格的坐标，并按到 <code>(r0, c0)</code> 的距离从最小到最大的顺序排，其中，两单元格<code>(r1, c1)</code> 和 <code>(r2, c2)</code> 之间的距离是曼哈顿距离，<code>|r1 - r2| + |c1 - c2|</code>。（你可以按任何满足此条件的顺序返回答案。）</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：R &#x3D; 1, C &#x3D; 2, r0 &#x3D; 0, c0 &#x3D; 0</span><br><span class="line">输出：[[0,0],[0,1]]</span><br><span class="line">解释：从 (r0, c0) 到其他单元格的距离为：[0,1]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：R &#x3D; 2, C &#x3D; 2, r0 &#x3D; 0, c0 &#x3D; 1</span><br><span class="line">输出：[[0,1],[0,0],[1,1],[1,0]]</span><br><span class="line">解释：从 (r0, c0) 到其他单元格的距离为：[0,1,1,2]</span><br><span class="line">[[0,1],[1,1],[0,0],[1,0]] 也会被视作正确答案。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：R &#x3D; 2, C &#x3D; 3, r0 &#x3D; 1, c0 &#x3D; 2</span><br><span class="line">输出：[[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]</span><br><span class="line">解释：从 (r0, c0) 到其他单元格的距离为：[0,1,1,2,2,3]</span><br><span class="line">其他满足题目要求的答案也会被视为正确，例如 [[1,2],[1,1],[0,2],[1,0],[0,1],[0,0]]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 &lt;= R &lt;= 100</code></li>
+<li><code>1 &lt;= C &lt;= 100</code></li>
+<li><code>0 &lt;= r0 &lt; R</code></li>
+<li><code>0 &lt;= c0 &lt; C</code></li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>遍历矩阵，计算每个单元格与（r0，c0）的曼哈顿距离d，然后d作为键，单元格的坐标作为值存到multimap容器中，利用multimap容器的特性：容器中元素按关键字排序，并且允许多个关键字相同。遍历完成得到按曼哈顿距离升序排序的multimap容器，遍历multimap把值依次放到结果中，最后返回。</p>
+<p><strong>c++代码：</strong>(执行用时176ms，击败17.98%，内存消耗29M，击败15.48%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">allCellsDistOrder</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> C, <span class="keyword">int</span> r0, <span class="keyword">int</span> c0)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">        <span class="built_in">multimap</span>&lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; m;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">        <span class="keyword">int</span> d;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;R;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;C;++j)&#123;</span><br><span class="line">                v.clear();</span><br><span class="line">                v.emplace_back(i);</span><br><span class="line">                v.emplace_back(j);</span><br><span class="line">                d=<span class="built_in">abs</span>(r0-i)+<span class="built_in">abs</span>(c0-j);</span><br><span class="line">                <span class="comment">//map可以用m[d]=v赋值，multimap不能</span></span><br><span class="line">                m.insert(<span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(d,v));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> tmp:m)&#123;</span><br><span class="line">            result.emplace_back(tmp.second);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/matrix-cells-in-distance-order/solution/ju-chi-shun-xu-pai-lie-ju-zhen-dan-yuan-ge-by-leet/">官方题解</a>:</h6><p><strong>方法一：直接排序</strong></p>
+<p><strong>思路及解法</strong></p>
+<p>最容易想到的方法是首先存储矩阵内所有的点，然后将其按照哈曼顿距离直接排序。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">allCellsDistOrder</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> C, <span class="keyword">int</span> r0, <span class="keyword">int</span> c0)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; R; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; C; j++) &#123;</span><br><span class="line">                ret.push_back(&#123;i, j&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(ret.begin(), ret.end(), [=](<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; a, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; b) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">abs</span>(a[<span class="number">0</span>] - r0) + <span class="built_in">abs</span>(a[<span class="number">1</span>] - c0) &lt; <span class="built_in">abs</span>(b[<span class="number">0</span>] - r0) + <span class="built_in">abs</span>(b[<span class="number">1</span>] - c0);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(RC \log(RC))$，存储所有点时间复杂度 $O(RC)$，排序时间复杂度 $O(RC \log(RC))$。</p>
+</li>
+<li><p>空间复杂度：$O(log(RC))$，即为排序需要使用的栈空间，不考虑返回值的空间占用。</p>
+</li>
+</ul>
+<p><strong>方法二：桶排序</strong></p>
+<p><strong>思路及解法</strong></p>
+<p>注意到方法一中排序的时间复杂度太高。实际在枚举所有点时，我们可以直接按照哈曼顿距离分桶。这样我们就可以实现线性的桶排序。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dist</span><span class="params">(<span class="keyword">int</span> r1, <span class="keyword">int</span> c1, <span class="keyword">int</span> r2, <span class="keyword">int</span> c2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">abs</span>(r1 - r2) + <span class="built_in">abs</span>(c1 - c2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">allCellsDistOrder</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> C, <span class="keyword">int</span> r0, <span class="keyword">int</span> c0)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxDist = max(r0, R - <span class="number">1</span> - r0) + max(c0, C - <span class="number">1</span> - c0);</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&gt; <span class="title">bucket</span><span class="params">(maxDist + <span class="number">1</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; R; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; C; j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> d = dist(i, j, r0, c0);</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp = &#123;i, j&#125;;</span><br><span class="line">                bucket[d].push_back(move(tmp));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= maxDist; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;it : bucket[i]) &#123;</span><br><span class="line">                ret.push_back(it);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(RC)$，存储所有点时间复杂度 $O(RC)$，桶排序时间复杂度 $O(RC)$。</p>
+</li>
+<li><p>空间复杂度：$O(RC)$，需要存储矩阵内所有点。</p>
+</li>
+</ul>
+<p><strong>方法三：几何法</strong></p>
+<p><strong>思路及解法</strong></p>
+<p>我们也可以直接变换枚举矩阵的顺序，直接按照曼哈顿距离遍历该矩形即可。</p>
+<p>注意到曼哈顿距离相同的位置恰好构成一个斜着的正方形边框，因此我们可以从小到大枚举曼哈顿距离，并使用循环来直接枚举该距离对应的边框。我们每次从该正方形边框的上顶点出发，依次经过右顶点、下顶点和左顶点，最后回到上顶点。这样即可完成当前层的遍历。</p>
+<p><img src="/2020/11/24/%E8%B7%9D%E7%A6%BB%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E7%9F%A9%E9%98%B5%E5%8D%95%E5%85%83%E6%A0%BC/1.png" alt="fig1"></p>
+<p>注意正方形边框中的部分点不一定落在矩阵中，所以我们需要做好边界判断。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> dr[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> dc[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">allCellsDistOrder</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> C, <span class="keyword">int</span> r0, <span class="keyword">int</span> c0)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxDist = max(r0, R - <span class="number">1</span> - r0) + max(c0, C - <span class="number">1</span> - c0);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">int</span> row = r0, col = c0;</span><br><span class="line">        ret.push_back(&#123;row, col&#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> dist = <span class="number">1</span>; dist &lt;= maxDist; dist++) &#123;</span><br><span class="line">            row--;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">while</span> ((i % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; row != r0) || (i % <span class="number">2</span> != <span class="number">0</span> &amp;&amp; col != c0)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (row &gt;= <span class="number">0</span> &amp;&amp; row &lt; R &amp;&amp; col &gt;= <span class="number">0</span> &amp;&amp; col &lt; C) &#123;</span><br><span class="line">                        ret.push_back(&#123;row, col&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    row += dr[i];</span><br><span class="line">                    col += dc[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O\big((R+C)^2\big)$，我们需要遍历矩阵内所有点，同时也会遍历部分超过矩阵部分的点。在最坏情况下，给定的单元格位于矩阵的一个角，例如 $(0,0)$，此时最大的曼哈顿距离为 $R+C-2$，需要遍历的点数为 $2(R+C-2)(R+C-1)+1$，因此时间复杂度为 $O\big((R+C)^2\big)$。</p>
+</li>
+<li><p>空间复杂度：$O(1)$，不考虑返回值的空间占用。</p>
+</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解直接排序自定义sort排序规则遇到好几次了，自己还是不太会，留作以后补充，桶排序方法也比较常见，至于第三种方法说实话没看懂，作为LeetCode官方题解遗留问题，以后回来做补充。</p>
+<p>ps：我要赶紧3道题打完卡去学数学了，啊啊啊😮</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
 </search>
