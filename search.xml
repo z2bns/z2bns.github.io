@@ -7503,4 +7503,197 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
         <tag>notes</tag>
       </tags>
   </entry>
+  <entry>
+    <title>位1的个数</title>
+    <url>/2020/11/25/%E4%BD%8D1%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/number-of-1-bits/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为<a href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E9%87%8D%E9%87%8F">汉明重量</a>）。</p>
+<p>提示：</p>
+<p>请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。<br>在 Java 中，编译器使用<a href="https://baike.baidu.com/item/%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A5%E7%A0%81/5295284">二进制补码</a>记法来表示有符号整数。因此，在上面的 示例 3 中，输入表示有符号整数 -3。</p>
+<p>进阶：</p>
+<p>如果多次调用这个函数，你将如何优化你的算法？</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：00000000000000000000000000001011</span><br><span class="line">输出：3</span><br><span class="line">解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 &#39;1&#39;。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：00000000000000000000000010000000</span><br><span class="line">输出：1</span><br><span class="line">解释：输入的二进制串 00000000000000000000000010000000 中，共有一位为 &#39;1&#39;。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：11111111111111111111111111111101</span><br><span class="line">输出：31</span><br><span class="line">解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 &#39;1&#39;。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li>输入必须是长度为 <code>32</code> 的 <strong>二进制串</strong> 。</li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>这道题和以前做的一道题一样，参考<a href="https://z2bns.github.io/2020/11/10/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/">汉明距离</a>，下面给出三种解法，好歹能证明以前那道题咱好好总结了不是😜</p>
+<p>①整数转二进制：</p>
+<p>题目求二进制表达式中1的个数，我们把整数转二进制，对每位值进行累加。</p>
+<p>②与运算按位统计：</p>
+<p>每次累加最后一位的值，然后n右移一位。</p>
+<p>③与运算1化0：</p>
+<p>n&amp;n-1操作可以每次把最后一个1变成0，然后result加1，直到n为0。</p>
+<p><strong>方法一：</strong></p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗6.1M，击败23.65%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">uint32_t</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            result+=n%<span class="number">2</span>;</span><br><span class="line">            n/=<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>方法二：</strong></p>
+<p><strong>c++代码：</strong>(执行用时8ms，击败44.56%，内存消耗6.2M，击败14.35%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">uint32_t</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            result+=n&amp;<span class="number">1</span>;</span><br><span class="line">            n=n&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>方法三：</strong></p>
+<p><strong>c++代码：</strong>(执行用时4ms，击败44.56%，内存消耗6.3M，击败5.30%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">uint32_t</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            ++result;</span><br><span class="line">            n&amp;=n<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/number-of-1-bits/solution/wei-1de-ge-shu-by-leetcode/">官方题解</a>:</h6><p><strong>方法 1：循环和位移动</strong></p>
+<p><strong>算法</strong></p>
+<p>这个方法比较直接。我们遍历数字的 32 位。如果某一位是 11 ，将计数器加一。</p>
+<p>我们使用 位掩码 来检查数字的第 $i^{th}$位。一开始，掩码 $m=1$因为 $1$的二进制表示是</p>
+<script type="math/tex; mode=display">
+0000\ 0000\ 0000\ 0000\ 0000\ 0000\ 0000\ 0001</script><p>显然，任何数字跟掩码 $1$ 进行逻辑与运算，都可以让我们获得这个数字的最低位。检查下一位时，我们将掩码左移一位。</p>
+<script type="math/tex; mode=display">
+0000\ 0000\ 0000\ 0000\ 0000\ 0000\ 0000\ 0010</script><p>并重复此过程</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> bits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mask = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((n &amp; mask) != <span class="number">0</span>) &#123;</span><br><span class="line">            bits++;</span><br><span class="line">        &#125;</span><br><span class="line">        mask &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> bits;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(1)$ 。运行时间依赖于数字 $n$ 的位数。由于这题中 $n$ 是一个 32 位数，所以运行时间是 $O(1)$ 的。</p>
+</li>
+<li><p>空间复杂度：$O(1)$。没有使用额外空间。</p>
+</li>
+</ul>
+<p><strong>方法 2：位操作的小技巧</strong></p>
+<p><strong>算法</strong></p>
+<p>我们可以把前面的算法进行优化。我们不再检查数字的每一个位，而是不断把数字最后一个 $1$ 反转，并把答案加一。当数字变成 $0$的时候偶，我们就知道它没有 $1$的位了，此时返回答案。</p>
+<p>这里关键的想法是对于任意数字 $n$ ，将 $n$ 和 $n - 1$ 做与运算，会把最后一个 $1$ 的位变成 $0$ 。为什么？考虑 $n$ 和 $n - 1$ 的二进制表示。</p>
+<p><img src="/2020/11/25/%E4%BD%8D1%E7%9A%84%E4%B8%AA%E6%95%B0/abfd6109e7482d70d20cb8fc1d632f90eacf1b5e89dfecb2e523da1bcb562f66-image.png" alt="image.png"></p>
+<script type="math/tex; mode=display">
+图片 1. 将 n和 n-1 做与运算会将最低位的 1 变成 0</script><p>在二进制表示中，数字 $n$ 中最低位的 $1$ 总是对应 $n - 1$ 中的 $0$ 。因此，将 $n$ 和 $n - 1$与运算总是能把 $n$ 中最低位的 $1$ 变成 $0$ ，并保持其他位不变。</p>
+<p>使用这个小技巧，代码变得非常简单。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (n != <span class="number">0</span>) &#123;</span><br><span class="line">        sum++;</span><br><span class="line">        n &amp;= (n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(1)$。运行时间与 $n$ 中位为 $1$ 的有关。在最坏情况下， $n$ 中所有位都是 $1$ 。对于 32 位整数，运行时间是 $O(1)$ 的。</p>
+</li>
+<li><p>空间复杂度：$O(1)$。没有使用额外空间。</p>
+</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解的两种方法，也就是我的后两种方法，只不过是用Java实现的。其实用不上特别复杂、高大上的东西，用整数转二进制的这么一个直观的方法效率比另两种方法还高，所以不必一味追求高大上，实用型要高🙃。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>只出现一次的数字</title>
+    <url>/2020/11/25/%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/single-number/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+<p>说明：</p>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [2,2,1]</span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [4,1,2,1,2]</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>题目描述比较短，就是找出非空整数数组中的只出现一次的元素，其它元素出现了两次，思考了一下有多种解法：</p>
+<p>①暴力解法：对数组nums升序排序，然后遍历数组判断每个元素是否与下个元素相同，相同步长加2，否则返回不相同的那个元素。复杂度比较高，不满足题目线性时间复杂度。</p>
+<p>②桶计数：定义bucket数组存储nums数组中每个元素的出现次数，但是题目没有说明nums中元素的取值范围，也就不知道bucket数组的大小可能需要使用INT_MAX大小，另外也不满足题目的不使用额外空间要求。</p>
+<p>③异或运算：仔细读题，除了某个元素只出现一次以外，其余每个元素均出现两次，要求找出那个只出现一次的元素。发现其余元素出现两次这个重点，如果只要找出出现一次的元素，那么对其他元素的出现次数应当没有要求只要满足大于1次就好，而现在给出均出现两次是一个突破口。容易想到两个相同的数异或运算结果是0，而0和任何数异或结果还是任何数。所以只需要遍历nums数组，对每一个元素进行异或操作，最终结果就是那个只出现了一次的元素。</p>
+<p><strong>c++代码：</strong>(执行用时40ms，击败49.31%，内存消耗16.9M，击败25.73%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:nums)&#123;</span><br><span class="line">            result^=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/single-number/solution/zhi-chu-xian-yi-ci-de-shu-zi-by-leetcode-solution/">官方题解</a>:</h6><p><strong>方法一：位运算</strong><br>如果没有时间复杂度和空间复杂度的限制，这道题有很多种解法，可能的解法有如下几种。</p>
+<ul>
+<li><p>使用集合存储数字。遍历数组中的每个数字，如果集合中没有该数字，则将该数字加入集合，如果集合中已经有该数字，则将该数字从集合中删除，最后剩下的数字就是只出现一次的数字。</p>
+</li>
+<li><p>使用哈希表存储每个数字和该数字出现的次数。遍历数组即可得到每个数字出现的次数，并更新哈希表，最后遍历哈希表，得到只出现一次的数字。</p>
+</li>
+<li><p>使用集合存储数组中出现的所有数字，并计算数组中的元素之和。由于集合保证元素无重复，因此计算集合中的所有元素之和的两倍，即为每个元素出现两次的情况下的元素之和。由于数组中只有一个元素出现一次，其余元素都出现两次，因此用集合中的元素之和的两倍减去数组中的元素之和，剩下的数就是数组中只出现一次的数字。</p>
+</li>
+</ul>
+<p>上述三种解法都需要额外使用 $O(n)$ 的空间，其中 $n$ 是数组长度。如果要求使用线性时间复杂度和常数空间复杂度，上述三种解法显然都不满足要求。那么，如何才能做到线性时间复杂度和常数空间复杂度呢？</p>
+<p>答案是使用位运算。对于这道题，可使用异或运算 $\oplus$。异或运算有以下三个性质。</p>
+<ol>
+<li>任何数和 $0$ 做异或运算，结果仍然是原来的数，即 $a \oplus 0=a$。</li>
+<li>任何数和其自身做异或运算，结果是$0$，即 $a \oplus a=0$。</li>
+<li>异或运算满足交换律和结合律，即 $a \oplus b \oplus a=b \oplus a \oplus a=b \oplus (a \oplus a)=b \oplus0=b$。</li>
+</ol>
+<p><img src="/2020/11/25/%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/3.PNG" alt="img"></p>
+<p>假设数组中有 $2m+1$ 个数，其中有 $m$ 个数各出现两次，一个数出现一次。令 $a_{1}$、$a_{2}$ 、$\ldots…、a_{m}$为出现两次的 $m$ 个数，$a_{m+1}$ 为出现一次的数。根据性质 3，数组中的全部元素的异或运算结果总是可以写成如下形式：</p>
+<script type="math/tex; mode=display">
+(a_{1} \oplus a_{1}) \oplus (a_{2} \oplus a_{2}) \oplus \cdots \oplus (a_{m} \oplus a_{m}) \oplus a_{m+1}</script><p>根据性质 2 和性质 1，上式可化简和计算得到如下结果：</p>
+<script type="math/tex; mode=display">
+0 \oplus 0 \oplus \cdots \oplus 0 \oplus a_{m+1}=a_{m+1}</script><p>因此，数组中的全部元素的异或运算结果即为数组中只出现一次的数字。</p>
+<p><strong>c++代码：</strong>(执行用时40ms，击败49.31%，内存消耗16.9M，击败25.73%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> e: nums) ret ^= e;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(n)$，其中 $n$ 是数组长度。只需要对数组遍历一次。</li>
+<li>空间复杂度：$O(1)$。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解有视频题解，上面我只记录了文字题解，没啥说的好吧，已经越来越好了，和官方题解采用一样的方法（也许只有这一种满足条件的方法），😕。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>按照频率将数组升序排序</title>
+    <url>/2020/11/25/%E6%8C%89%E7%85%A7%E9%A2%91%E7%8E%87%E5%B0%86%E6%95%B0%E7%BB%84%E5%8D%87%E5%BA%8F%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/sort-array-by-increasing-frequency/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个整数数组 <code>nums</code> ，请你将数组按照每个值的频率 <strong>升序</strong> 排序。如果有多个值的频率相同，请你按照数值本身将它们 <strong>降序</strong> 排序。 </p>
+<p>请你返回排序后的数组。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：nums &#x3D; [1,1,2,2,2,3]</span><br><span class="line">输出：[3,1,1,2,2,2]</span><br><span class="line">解释：&#39;3&#39; 频率为 1，&#39;1&#39; 频率为 2，&#39;2&#39; 频率为 3 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：nums &#x3D; [2,3,1,3,2]</span><br><span class="line">输出：[1,3,3,2,2]</span><br><span class="line">解释：&#39;2&#39; 和 &#39;3&#39; 频率都为 2 ，所以它们之间按照数值本身降序排序。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：nums &#x3D; [-1,1,-6,4,5,-6,1,4,1]</span><br><span class="line">输出：[5,-1,4,4,-6,-6,1,1,1]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 100</code></li>
+<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>使用桶排序，定义一个大小为201的bucket数组初始化为0，桶中第i个元素的值是nums中值为i的元素个数，也就是说nums数组中有多少个取值，bucket数组大小就为多少，注意<code>-100&lt;=nums[i]&lt;=100</code>,所以桶的大小是201。接下来修改sort排序规则，对nums数组按照值得频率升序、数值本身降序排序。</p>
+<p><strong>c++代码：</strong>(执行用时16ms，击败71.08%，内存消耗11.2M，击败92.67%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">frequencySort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//桶排序</span></span><br><span class="line">        <span class="keyword">int</span> bucket[<span class="number">201</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:nums)&#123;</span><br><span class="line">            ++bucket[<span class="number">100</span>+i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//修改排序规则，第三个表达式是Lambda表达式，可以作为inline函数使用</span></span><br><span class="line">        sort(nums.begin(), nums.end(), [=](<span class="keyword">int</span> &amp; a, <span class="keyword">int</span> &amp; b) &#123;</span><br><span class="line">            <span class="keyword">return</span> (bucket[<span class="number">100</span>+a]&lt;bucket[<span class="number">100</span>+b] || bucket[<span class="number">100</span>+a]== bucket[<span class="number">100</span>+b] &amp;&amp; a&gt;b);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，我觉得我这个应该差不多是最优解法了吧，效率还挺高的。昨天正在看《C++标准库 第二版》这本书，刚好看完Lambda表达式，今天就用上了😛，真好，以前遇到sort自定义规则排序的我都没好好看，现在已经会使用了。赶快把《C++标准库 第二版》还有《STL源码剖析》这两本书给看完，看完以后对中等题和难题也有信心了😊。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
 </search>
