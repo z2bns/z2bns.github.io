@@ -4889,7 +4889,7 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
 <h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/flipping-an-image/solution/fan-zhuan-tu-xiang-by-leetcode/">官方题解</a>:</h6><p><strong>方法一： 模拟</strong></p>
 <p>我们可以不使用额外的（非常数）空间来完成翻转和反转操作。对于 <code>A[i][j]​</code>，我们将它和 <code>A[i][c - j - 1]​</code> 进行交换（即翻转），其中 <code>c</code> 是数组 <code>A</code> 的列数。在交换的同时，我们可以将这两个数进行反转。</p>
 <p><strong>Java代码：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] flipAndInvertImage(<span class="keyword">int</span>[][] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> C = A[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row: A)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (C + <span class="number">1</span>) / <span class="number">2</span>; ++i) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = row[i] ^ <span class="number">1</span>;</span><br><span class="line">                row[i] = row[C - <span class="number">1</span> - i] ^ <span class="number">1</span>;</span><br><span class="line">                row[C - <span class="number">1</span> - i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] flipAndInvertImage(<span class="keyword">int</span>[][] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> C = A[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] row: A)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (C + <span class="number">1</span>) / <span class="number">2</span>; ++i) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = row[i] ^ <span class="number">1</span>;</span><br><span class="line">                row[i] = row[C - <span class="number">1</span> - i] ^ <span class="number">1</span>;</span><br><span class="line">                row[C - <span class="number">1</span> - i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>复杂度分析</strong></p>
 <ul>
 <li>时间复杂度：$O(M*N)$，其中 $M$ 和 $N$ 分别为数组 <code>A</code> 的行数和列数。</li>
@@ -7686,6 +7686,220 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
 <center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
 
 <h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，我觉得我这个应该差不多是最优解法了吧，效率还挺高的。昨天正在看《C++标准库 第二版》这本书，刚好看完Lambda表达式，今天就用上了😛，真好，以前遇到sort自定义规则排序的我都没好好看，现在已经会使用了。赶快把《C++标准库 第二版》还有《STL源码剖析》这两本书给看完，看完以后对中等题和难题也有信心了😊。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>山脉数组的峰顶索引</title>
+    <url>/2020/11/26/%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E7%9A%84%E5%B3%B0%E9%A1%B6%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>我们把符合下列属性的数组 A 称作山脉：</p>
+<ul>
+<li><code>A.length &gt;= 3</code></li>
+<li>存在 <code>0 &lt; i &lt; A.length - 1</code> 使得<code>A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code></li>
+</ul>
+<p>给定一个确定为山脉的数组，返回任何满足 <code>A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code> 的 <code>i</code> 的值。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[0,1,0]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[0,2,1,0]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>3 &lt;= A.length &lt;= 10000</code></li>
+<li>0 &lt;= A[i] &lt;= 10^6</li>
+<li>A 是如上定义的山脉</li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>山脉数组前半部分是递增的后半部分是递减的，就是要求出中间的那个最大的元素下标。</p>
+<p>遍历数组，返回第一个元素值大于下个元素值的元素的下标。</p>
+<p><strong>c++代码：</strong>(执行用时20ms，击败86.50%，内存消耗11.8M，击败6.80%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">peakIndexInMountainArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=arr.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i]&gt;arr[i+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//其实根据题目要求输入一定是山脉数组，所以for循环中一定会会返回i，但是对整个程序而言有其它输入（不满足题意）会导致for循环不返回，所以要用下面return语句保证编译通过（保证返回一个整数）。</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/solution/shan-mai-shu-zu-de-feng-ding-suo-yin-by-leetcode/">官方题解</a>:</h6><p><strong>方法一：线性扫描</strong></p>
+<p><strong>思路和算法</strong></p>
+<p>从左往右扫描直到山的高度不再增长为止，停止增长点就是峰顶。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peakIndexInMountainArray</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (A[i] &lt; A[i+<span class="number">1</span>]) i++;</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N)$，其中 N是 <code>A</code> 的长度。</li>
+<li>空间复杂度：$O(1)$。</li>
+</ul>
+<p><strong>方法二：二分查找</strong></p>
+<p><strong>思路和算法</strong></p>
+<p>将山脉数组中所有满足 <code>A[i] &lt; A[i+1]</code> 的 <code>i</code> 点标记为 <code>True</code>，不满足的点标记为 <code>False</code>。则一个山脉数组可以标记为：<code>[True, True, True, ..., True, False, False, ..., False]</code>。例如山脉数组 <code>[1, 2, 3, 4, 1]</code> 可以标记为 <code>True, True, True, False</code>。</p>
+<p>在山脉数组上使用二分查找，找出满足 <code>A[i] &lt; A[i+1]</code> 的最大 <code>i</code>。更多关于 二分查找 的知识，请访问 <a href="https://leetcode-cn.com/explore/learn/card/binary-search/">Leetcode 探索</a>。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peakIndexInMountainArray</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lo = <span class="number">0</span>, hi = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (lo &lt; hi) &#123;</span><br><span class="line">            <span class="keyword">int</span> mi = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (A[mi] &lt; A[mi + <span class="number">1</span>])</span><br><span class="line">                lo = mi + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                hi = mi;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(\log N)$，其中 $N$ 是 <code>A</code> 的长度。</li>
+<li>空间复杂度：$O(1)$。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解提供了线性扫描和二分查找两种思路，线性扫描效率要高一些，二分查找也不失为一种方法。注意有的时候where循环比for循环更合适，注意where循环、for循环乃至do…while循环的使用条件。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最长特殊序列I</title>
+    <url>/2020/11/26/%E6%9C%80%E9%95%BF%E7%89%B9%E6%AE%8A%E5%BA%8F%E5%88%97I/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/longest-uncommon-subsequence-i/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你两个字符串，请你从这两个字符串中找出最长的特殊序列。</p>
+<p>「最长特殊序列」定义如下：该序列为某字符串独有的最长子序列（即不能是其他字符串的子序列）。</p>
+<p><strong>子序列</strong> 可以通过删去字符串中的某些字符实现，但不能改变剩余字符的相对顺序。空序列为所有字符串的子序列，任何字符串为其自身的子序列。</p>
+<p>输入为两个字符串，输出最长特殊序列的长度。如果不存在，则返回 -1。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: &quot;aba&quot;, &quot;cdc&quot;</span><br><span class="line">输出: 3</span><br><span class="line">解释: 最长特殊序列可为 &quot;aba&quot; (或 &quot;cdc&quot;)，两者均为自身的子序列且不是对方的子序列。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：a &#x3D; &quot;aaa&quot;, b &#x3D; &quot;bbb&quot;</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：a &#x3D; &quot;aaa&quot;, b &#x3D; &quot;aaa&quot;</span><br><span class="line">输出：-1</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li>两个字符串长度均处于区间 <code>[1 - 100]</code> 。</li>
+<li>字符串中的字符仅含有 <code>&#39;a&#39;~&#39;z&#39;</code> 。</li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>求两个最长特殊序列的长度，乍一看好像有点难。其实仔细分析一下也挺简单的：</p>
+<p>两个字符串长度分别为la,lb</p>
+<ul>
+<li>若la\==lb,再判断字符串a是否等于b，若a\==b不存在特殊序列返回-1；若a!=b则两个字符串自身就是特殊序列，返回la。</li>
+<li>若la!=lb，则长度最大的那个字符串本身就是特殊序列且长度最长，返回max(la,lb)。</li>
+</ul>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗6.4M，击败17.49%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findLUSlength</span><span class="params">(<span class="built_in">string</span> a, <span class="built_in">string</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> la=a.length(),lb=b.length();</span><br><span class="line">        <span class="keyword">if</span>(la==lb)&#123;</span><br><span class="line">            <span class="keyword">return</span> a==b?<span class="number">-1</span>:la;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> la&gt;lb?la:lb;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/longest-uncommon-subsequence-i/solution/zui-chang-te-shu-xu-lie-i-by-leetcode/">官方题解</a>:</h6><p><strong>方法一：暴力解法 【超出时间限制】</strong><br>暴力解法中，生成两个字符串所有的子序列共 $2^n$ 个，将其存储在 hashmap 中，并记录每个子序列出现的次数。然后找出出现次数为 $1$ 的最长子序列。如果不存在这样的子序列，返回 $-1$</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findLUSlength</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        HashMap &lt; String, Integer &gt; map = <span class="keyword">new</span> HashMap &lt; &gt; ();</span><br><span class="line">        <span class="keyword">for</span> (String s: <span class="keyword">new</span> String[] &#123;a, b&#125;) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; s.length()); i++) &#123;</span><br><span class="line">                String t = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; s.length(); j++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (((i &gt;&gt; j) &amp; <span class="number">1</span>) != <span class="number">0</span>)</span><br><span class="line">                        t += s.charAt(j);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(t))</span><br><span class="line">                    map.put(t, map.get(t) + <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    map.put(t, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (String s: map.keySet()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (map.get(s) == <span class="number">1</span>)</span><br><span class="line">                res = Math.max(res, s.length());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(2^x+2^y)$，其中 x和 y 是字符串 a 和 b 的长度，子序列的数量为 $2^x+2^y$ 。</p>
+</li>
+<li><p>空间复杂度：$O(2^x+2^y)$，共生成 $2^x+2^y$个子序列。</p>
+</li>
+</ul>
+<p><strong>方法二：简单解法 【通过】</strong></p>
+<p><strong>算法</strong></p>
+<p>字符串 $a$ 和 $b$ 共有 3 种情况：</p>
+<ul>
+<li><p>$a=b$。如果两个字符串相同，则没有特殊子序列，返回 -1。</p>
+</li>
+<li><p>$length(a)=length(b)$且 $a \ne b$。例如：$abc$ 和 $abd$。这种情况下，一个字符串一定不会是另外一个字符串的子序列，因此可以将任意一个字符串看作是特殊子序列，返回 $length(a)$ 或 $length(b)$。</p>
+</li>
+<li><p>$length(a) \ne length(b)$。例如：$abcd$ 和 $abc$。这种情况下，长的字符串一定不会是短字符串的子序列，因此可以将长字符串看作是特殊子序列，返回 $max(length(a),length(b))$。</p>
+</li>
+</ul>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findLUSlength</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a.equals(b))</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.max(a.length(), b.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(min(x,y))$，其中 $x$ 和 $y$ 是字符串 a 和 b 的长度。方法 equals 的时间复杂度为 min(x,y)。</p>
+</li>
+<li><p>空间复杂度：O(1)，无需额外空间。</p>
+</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解方法二和我的思路一样，方法一暴力求解没戏。题目也比较简单，只是注意要考虑好所有的情况。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>特殊等价字符串组</title>
+    <url>/2020/11/26/%E7%89%B9%E6%AE%8A%E7%AD%89%E4%BB%B7%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BB%84/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/groups-of-special-equivalent-strings/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>你将得到一个字符串数组 <code>A</code>。</p>
+<p>每次移动都可以交换 S 的任意两个偶数下标的字符或任意两个奇数下标的字符。</p>
+<p>如果经过任意次数的移动，S == T，那么两个字符串 <code>S</code> 和 <code>T</code> 是 特殊等价 的。</p>
+<p>例如，<code>S = &quot;zzxy&quot;</code> 和 <code>T = &quot;xyzz&quot;</code> 是一对特殊等价字符串，因为可以先交换 <code>S[0]</code> 和 <code>S[2]</code>，然后交换 <code>S[1]</code> 和 <code>S[3]</code>，使得 <code>&quot;zzxy&quot; -&gt; &quot;xzzy&quot; -&gt; &quot;xyzz&quot;</code> 。</p>
+<p>现在规定，<code>A</code> 的 <strong>一组特殊等价字符串</strong> 就是 <code>A</code> 的一个同时满足下述条件的非空子集：</p>
+<ol>
+<li>该组中的每一对字符串都是 <strong>特殊等价</strong> 的</li>
+<li>该组字符串已经涵盖了该类别中的所有特殊等价字符串，容量达到理论上的最大值（也就是说，如果一个字符串不在该组中，那么这个字符串就 <strong>不会</strong> 与该组内任何字符串特殊等价）<br>返回 <code>A</code> 中特殊等价字符串组的数量。</li>
+</ol>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[&quot;abcd&quot;,&quot;cdab&quot;,&quot;cbad&quot;,&quot;xyzz&quot;,&quot;zzxy&quot;,&quot;zzyx&quot;]</span><br><span class="line">输出：3</span><br><span class="line">解释：</span><br><span class="line">其中一组为 [&quot;abcd&quot;, &quot;cdab&quot;, &quot;cbad&quot;]，因为它们是成对的特殊等价字符串，且没有其他字符串与这些字符串特殊等价。</span><br><span class="line">另外两组分别是 [&quot;xyzz&quot;, &quot;zzxy&quot;] 和 [&quot;zzyx&quot;]。特别需要注意的是，&quot;zzxy&quot; 不与 &quot;zzyx&quot; 特殊等价。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[&quot;abc&quot;,&quot;acb&quot;,&quot;bac&quot;,&quot;bca&quot;,&quot;cab&quot;,&quot;cba&quot;]</span><br><span class="line">输出：3</span><br><span class="line">解释：3 组 [&quot;abc&quot;,&quot;cba&quot;]，[&quot;acb&quot;,&quot;bca&quot;]，[&quot;bac&quot;,&quot;cab&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= A.length &lt;= 1000</code></li>
+<li><code>1 &lt;= A[i].length &lt;= 20</code></li>
+<li>所有 <code>A[i]</code> 都具有相同的长度。</li>
+<li>所有 <code>A[i]</code> 都只由小写字母组成。</li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>读完题目后觉得这道题还挺难的，就在脑子里多想一想，还是被我想到了，哈哈哈😁</p>
+<p>要求字符串数组A中特殊等价字符串组的数量，注意到一组特殊等价字符串是交换偶数下标字符和奇数下标字符得到的，那么他们都可以转换成同一个字符串，只要对数组A中的每个字符串分别按奇数下标、偶数下标排序，然后再求它们找那个不同字符串的数量就好了，最后一步可以利用set集合无序不可重复的特性。现在就变成怎么把字符串分别按照奇数下标和偶数下标排序。</p>
+<p>sort()函数好像没有步长，不能自定义排序规则，所以需要自己实现了，对字符串考虑把偶数位置的元素放在前面，奇数位置的元素放在后面，然后调用sort函数对前半部分和后半部分分别排序，排序后的字符串就是特殊等价字符串，放入set集合中，最后返回set集合的长度（一组特殊等价字符串只存储了一个，所以长度就是特殊等价字符串组的数量）。</p>
+<p>也可以分别把字符串中的偶数位置、奇数位置字符提取出来然后排序最后拼接放入到set集合中。</p>
+<p><strong>c++代码：</strong>(执行用时12ms，击败95.61%，内存消耗8.7M，击败35.84%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numSpecialEquivGroups</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n=A[<span class="number">0</span>].length();</span><br><span class="line">        <span class="comment">//set集合无序不可重复,存储A的特殊等价字符串</span></span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; equal_s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">string</span> s:A)&#123;</span><br><span class="line">            <span class="comment">//双指针排序</span></span><br><span class="line">            <span class="comment">//前半部分索引i表示，后半部分索引tmp，把前半部分奇数下标位置和后半部分偶数下标部分交换</span></span><br><span class="line">            <span class="keyword">int</span> tmp=(n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">            <span class="comment">//若后半部分开始索引是奇数，则tmp加1得到开始的偶数下标</span></span><br><span class="line">            <span class="keyword">if</span>(tmp%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                ++tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;(n+<span class="number">1</span>)/<span class="number">2</span>;i+=<span class="number">2</span>)&#123;</span><br><span class="line">                <span class="comment">//奇偶位置分别排序，偶数位置元素在前</span></span><br><span class="line">                swap(s[i],s[tmp]);</span><br><span class="line">                tmp+=<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//对前半部分（偶数位置元素）排序</span></span><br><span class="line">            sort(s.begin(),s.begin()+(n+<span class="number">1</span>)/<span class="number">2</span>);</span><br><span class="line">            <span class="comment">//对后半部分（奇数位置元素）排序</span></span><br><span class="line">            sort(s.begin()+(n+<span class="number">1</span>)/<span class="number">2</span>,s.end());</span><br><span class="line">            equal_s.insert(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> equal_s.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/groups-of-special-equivalent-strings/solution/te-shu-deng-jie-zi-fu-chuan-zu-by-leetcode/">官方题解</a>:</h6><p><strong>方法：计数</strong></p>
+<p><strong>思路和算法</strong></p>
+<p>让我们试着表述一个特殊等价的字符串 $S$，通过找到函数 $\mathcal{C}$ 使得 $S \equiv T \iff \mathcal{C}(S) = \mathcal{C}(T)$。</p>
+<p>通过交换，我们可以排列偶数索引字母和奇数索引字母。这些排列的特征在于字母的数量：所有这样的排列都有相同的数量，不同的数量会产生不同的排列。</p>
+<p>因此，函数 $\mathcal{C}(S) =$（S 中偶数索引字母的数量，其后是 S 中奇数索引字母的数量）成功地刻画了这一等价关系。</p>
+<p>然后，我们统计出满足 $S \in A$ 的 $\mathcal{C}(S)$ 的数量。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numSpecialEquivGroups</span><span class="params">(String[] A)</span> </span>&#123;</span><br><span class="line">        Set&lt;String&gt; seen = <span class="keyword">new</span> HashSet();</span><br><span class="line">        <span class="keyword">for</span> (String S: A) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">52</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; S.length(); ++i)</span><br><span class="line">                count[S.charAt(i) - <span class="string">&#x27;a&#x27;</span> + <span class="number">26</span> * (i % <span class="number">2</span>)]++;</span><br><span class="line">            seen.add(Arrays.toString(count));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> seen.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(\sum\limits_{i} (A_i)\text{.length})$。</p>
+</li>
+<li><p>空间复杂度：$O(N)$，其中 $N$ 是 <code>A</code> 的长度。</p>
+</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解虽然和我的思路不太一样，但本质是一样的都是找到一组等价字符串的等价关系，然后转换成一致的最后统计数量。等价字符串是通过交换偶数下标字符或奇数下标字符得到的，我是采用了一组等价字符串中的每个字符串必然可以通过排序转换成一个相同的字符串形式，也就是奇数下标、偶数下标字符分别排序，以下列输入为例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[&quot;abcd&quot;,&quot;cdab&quot;,&quot;cbad&quot;,&quot;xyzz&quot;,&quot;zzxy&quot;,&quot;zzyx&quot;]</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
+<p>每个字符串通过排序可以转换成如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">“abcd”&#x3D;》“acbd”</span><br><span class="line"></span><br><span class="line">“cdab”&#x3D;》“acbd”</span><br><span class="line"></span><br><span class="line">“cbad”&#x3D;》“acbd”</span><br><span class="line"></span><br><span class="line">“xyzz”&#x3D;》“xzyz”</span><br><span class="line"></span><br><span class="line">“zzxy”&#x3D;》“xzyz”</span><br><span class="line"></span><br><span class="line">“zzyx“&#x3D;》”yzxz“</span><br></pre></td></tr></table></figure>
+<p>根据转换后的结果可以看到前三个字符串相同是一组特殊等价字符串、中间两个一组、最后一个一组所以特殊等价字符串的数量为3，即输出为3。</p>
+<p><strong>计数法：</strong></p>
+<p>其实不通过奇数位置、偶数位置分别排序也可以求解，<strong>奇数位置、偶数位置排序后字符串相等《=》原字符串奇数位置各字母数量、偶数位置各字母数量相等</strong>，这两者是等价的。官方题解就是通过这个等价的转换求解的。对字符串数组A中的每个字符串用大小为52的int数组count存储该字符串的奇偶位置字母数量，前26个存储偶数下标字母数量、后26个存储奇数下标字母数量，最后数组转成字符串放入set集合中，因为一组特殊等价字符串中的字符串有字母数量转换后的字符串相等，所以最后set集合的大小就是A中特殊等价字符串组的数量。</p>
+<p>这道题还挺好的，不是那么简单，还行😌</p>
 ]]></content>
       <categories>
         <category>ACM</category>
