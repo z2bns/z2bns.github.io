@@ -312,6 +312,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>记录一些LeetCode刷题时暂时未完全解决官方题解的题目，以便以后返回解决</p>
 <a id="more"></a>
 <p><a href="https://z2bns.github.io/2020/11/24/%E8%B7%9D%E7%A6%BB%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E7%9F%A9%E9%98%B5%E5%8D%95%E5%85%83%E6%A0%BC/">距离顺序排列矩阵单元格</a></p>
+<p><a href>和为s的连续正数序列</a></p>
 ]]></content>
       <categories>
         <category>其他</category>
@@ -7900,6 +7901,245 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
 <p><strong>计数法：</strong></p>
 <p>其实不通过奇数位置、偶数位置分别排序也可以求解，<strong>奇数位置、偶数位置排序后字符串相等《=》原字符串奇数位置各字母数量、偶数位置各字母数量相等</strong>，这两者是等价的。官方题解就是通过这个等价的转换求解的。对字符串数组A中的每个字符串用大小为52的int数组count存储该字符串的奇偶位置字母数量，前26个存储偶数下标字母数量、后26个存储奇数下标字母数量，最后数组转成字符串放入set集合中，因为一组特殊等价字符串中的字符串有字母数量转换后的字符串相等，所以最后set集合的大小就是A中特殊等价字符串组的数量。</p>
 <p>这道题还挺好的，不是那么简单，还行😌</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>和为s的连续正数序列</title>
+    <url>/2020/11/27/%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>输入一个正整数 <code>target</code> ，输出所有和为 <code>target</code> 的连续正整数序列（至少含有两个数）。</p>
+<p>序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：target &#x3D; 9</span><br><span class="line">输出：[[2,3,4],[4,5]]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：target &#x3D; 15</span><br><span class="line">输出：[[1,2,3,4,5],[4,5,6],[7,8]]</span><br></pre></td></tr></table></figure>
+<p><strong>限制：</strong></p>
+<ul>
+<li><code>1 &lt;= target &lt;= 10^5</code></li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>遍历所有可能的首个数字i，首数字范围是$[1，\frac{target}{2}]$,对每个首数字开始的连续正整数序列累加判断能否找到和为target的。如果存在则形成以数字i开始的和为target的连续正整数序列并存到结果集中。</p>
+<p><strong>c++代码：</strong>(执行用时4ms，击败66.56%，内存消耗7M，击败23.15%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">findContinuousSequence</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">        <span class="comment">//遍历所有可能的首个数字</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=target/<span class="number">2</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">int</span> j=i;</span><br><span class="line">            <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(sum&lt;target)&#123;</span><br><span class="line">                sum+=j;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(sum==target)&#123;</span><br><span class="line">                tmp.clear();</span><br><span class="line">                <span class="comment">//形成和为target的连续正整数序列</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=i;k&lt;j;++k)&#123;</span><br><span class="line">                    tmp.emplace_back(k);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//放入结果集中</span></span><br><span class="line">                result.emplace_back(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/solution/mian-shi-ti-57-ii-he-wei-sde-lian-xu-zheng-shu-x-2/">官方题解</a>:</h6><p><strong>方法一：枚举 + 暴力</strong><br>枚举每个正整数为起点，判断以它为起点的序列和 $\textit{sum}$ 是否等于 $\textit{target}$即可，由于题目要求序列长度至少大于 $2$，所以枚举的上界为 $\lfloor\frac{\textit{target}}{2}\rfloor$。</p>
+<p><strong>c++代码：</strong>(执行用时8ms，击败27.15%，内存消耗6.9M，击败35.41%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">findContinuousSequence</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; vec;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>, limit = (target - <span class="number">1</span>) / <span class="number">2</span>; <span class="comment">// (target - 1) / 2 等效于 target / 2 下取整</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= limit; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i;; ++j) &#123;</span><br><span class="line">                sum += j;</span><br><span class="line">                <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                    sum = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sum == target) &#123;</span><br><span class="line">                    res.clear();</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> k = i; k &lt;= j; ++k) &#123;</span><br><span class="line">                        res.emplace_back(k);</span><br><span class="line">                    &#125;</span><br><span class="line">                    vec.emplace_back(res);</span><br><span class="line">                    sum = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> vec;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：外层需要枚举 $\lfloor\frac{\textit{target}}{2}\rfloor$次，内层判断最多不会超过 $O(\sqrt{\textit{target}})$ 的时间复杂度，因为我们考虑从 $1$ 开始累加到 $\sqrt{\textit{target}}$ ，由求和公式可以得</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{(1+\sqrt{\textit{target}})*(\sqrt{\textit{target}})}{2}=\textit{target}+\frac{\sqrt{\textit{target}}}{2}> \textit{target}</script><p>​       而如果累加到 $\sqrt{\textit{target}}-1$ ，由求和公式可以得</p>
+<script type="math/tex; mode=display">
+\frac{(1+\sqrt{\textit{target}}-1)*(\sqrt{\textit{target}}-1)}{2}=\textit{target}-\frac{\sqrt{\textit{target}}}{2}< \textit{target}</script><p>​       所以最多累加到 $\sqrt{\textit{target}}$ ，而以后从 $2,3,\cdots$ 开始的数累加的长度必然也不会超过 $O(\sqrt{\textit{target}})$的       时间复杂度。最后总时间复杂度为内外层循环复杂度相             乘，即 $O(\textit{target}\sqrt{\textit{target}})$</p>
+<ul>
+<li>空间复杂度：$O(1)$ ，除了答案数组只需要常数的空间存放若干变量。</li>
+</ul>
+<p><strong>方法二：枚举 + 数学优化</strong><br>方法一在枚举每个正整数为起点判断的时候是暴力从起点开始累加 $\textit{sum}$ 和判断是否等于 $\textit{target}$。但注意到，如果我们知道起点 $x$ 和终点 $y$ ，那么 $x$ 累加到 $y$ 的和由求和公式可以知道是 $\frac{(x+y)*(y-x+1)}{2}$  ，那么问题就转化为了是否存在一个正整数 $y(y&gt;x)$ ，满足等式</p>
+<script type="math/tex; mode=display">
+\frac{(x+y)*(y-x+1)}{2}=\textit{target}</script><p>转化一下变成</p>
+<script type="math/tex; mode=display">
+y^2+y-x^2+x-2*\textit{target}=0</script><p>这是一个关于 $y$ 的一元二次方程，其中 $a=1,b=1,c=-x^2+x-2*\textit{target}$直接套用求根公式即可 $O(1)$解得 $y$ ，判断是否整数解需要满足两个条件：</p>
+<ul>
+<li>判别式 $b^2-4ac$ 开根需要为整数</li>
+<li>最后的求根公式的分子需要为偶数，因为分母为 $2$</li>
+</ul>
+<p><strong>c++代码：</strong>(执行用时4ms，击败66.56%，内存消耗7M，击败23.15%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">findContinuousSequence</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; vec;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>, limit = (target - <span class="number">1</span>) / <span class="number">2</span>; <span class="comment">// (target - 1) / 2 等效于 target / 2 下取整</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt;= limit; ++x) &#123;</span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> delta = <span class="number">1</span> - <span class="number">4</span> * (x - <span class="number">1l</span>l * x * x - <span class="number">2</span> * target);</span><br><span class="line">            <span class="keyword">if</span> (delta &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> delta_sqrt = (<span class="keyword">int</span>)<span class="built_in">sqrt</span>(delta + <span class="number">0.5</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="number">1l</span>l * delta_sqrt * delta_sqrt == delta &amp;&amp; (delta_sqrt - <span class="number">1</span>) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> y = (<span class="number">-1</span> + delta_sqrt) / <span class="number">2</span>; <span class="comment">// 另一个解(-1-delta_sqrt)/2必然小于0，不用考虑</span></span><br><span class="line">                <span class="keyword">if</span> (x &lt; y) &#123;</span><br><span class="line">                    res.clear();</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i &lt;= y; ++i) &#123;</span><br><span class="line">                        res.emplace_back(i);</span><br><span class="line">                    &#125;</span><br><span class="line">                    vec.emplace_back(res);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> vec;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：由于枚举以后只需要 $O(1)$ 的时间判断，所以时间复杂度为枚举起点的复杂度$O(\textit{target})$ 。</p>
+</li>
+<li><p>空间复杂度：$O(1)$ ，除了答案数组只需要常数的空间存放若干变量。</p>
+</li>
+</ul>
+<p><strong>方法三：双指针</strong><br>我们用两个指针 $l$ 和 $r$ 表示当前枚举到的以 $l$为起点到 $r$ 的区间，$\textit{sum}$ 表示 $[l,r]$ 的区间和，由求和公式可 $O(1)$求得为 $\textit{sum}=\frac{(l+r)*(r-l+1)}{2}$，起始 $l=1,r=2$。</p>
+<p>一共有三种情况：</p>
+<ul>
+<li>如果 $\textit{sum}&lt;\textit{target}$ 则说明指针 $r$ 还可以向右拓展使得 $sum$ 增大，此时指针 $r$ 向右移动，即 <code>r+=1</code></li>
+<li>如果 $sum&gt;target$则说明以 $l$ 为起点不存在一个 $r$使得 $sum=target$ ，此时要枚举下一个起点，指针 $l$ 向右移动，即<code>l+=1</code></li>
+<li>如果 $\textit{sum}==\textit{target}$ 则说明我们找到了以 $l$为起点得合法解 $[l,r]$ ，我们需要将 $[l,r]$ 的序列放进答案数组，且我们知道以 ll 为起点的合法解最多只有一个，所以需要枚举下一个起点，指针 $l$ 向右移动，即 <code>l+=1</code></li>
+</ul>
+<p>终止条件即为 $l&gt;=r$的时候，这种情况的发生指针 $r$ 移动到了$\lfloor\frac{\textit{target}}{2}\rfloor+1$的位置，导致 $l&lt;r$ 的时候区间和始终大于 $target$ 。</p>
+<p>此方法其实是对方法一的优化，因为方法一是没有考虑区间与区间的信息可以复用，只是单纯的枚举起点，然后从起点开始累加，而该方法就是考虑到了如果已知 $[l,r]$ 的区间和等于 $\textit{target}$ ，那么枚举下一个起点的时候，区间 $[l+1,r]$ 的和必然小于 $\textit{target}$，我们就不需要再从 $l+1$再开始重复枚举，而是从 $r+1$开始枚举，充分的利用了已知的信息来优化时间复杂度。</p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗7M，击败16.98%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">findContinuousSequence</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;vec;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">2</span>; l &lt; r;)&#123;</span><br><span class="line">            <span class="keyword">int</span> sum = (l + r) * (r - l + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (sum == target) &#123;</span><br><span class="line">                res.clear();</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; ++i) &#123;</span><br><span class="line">                    res.emplace_back(i);</span><br><span class="line">                &#125;</span><br><span class="line">                vec.emplace_back(res);</span><br><span class="line">                l++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sum &lt; target) &#123;</span><br><span class="line">                r++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> vec;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：由于两个指针移动均单调不减，且最多移动 $\lfloor\frac{\textit{target}}{2}\rfloor$次，即方法一提到的枚举的上界，所以时间复杂度为 $O(\textit{target})$。</p>
+</li>
+<li><p>空间复杂度：$O(1)$ ，除了答案数组只需要常数的空间存放若干变量。</p>
+</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解提供了多种解法，我用的是方法一枚举加暴力解法，方法三用双指针表示区间这个方法比较巧妙，值得学习。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>按奇偶排序数组</title>
+    <url>/2020/11/26/%E6%8C%89%E5%A5%87%E5%81%B6%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/sort-array-by-parity/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定一个非负整数数组 <code>A</code>，返回一个数组，在该数组中， <code>A</code> 的所有偶数元素之后跟着所有奇数元素。</p>
+<p>你可以返回满足此条件的任何数组作为答案。</p>
+<a id="more"></a>
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[3,1,2,4]</span><br><span class="line">输出：[2,4,3,1]</span><br><span class="line">输出 [4,2,3,1]，[2,4,1,3] 和 [4,2,1,3] 也会被接受。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 &lt;= A.length &lt;= 5000</code></li>
+<li><code>0 &lt;= A[i] &lt;= 5000</code></li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>已经做过一道类似的题目了<a href="https://z2bns.github.io/2020/11/24/%E6%8C%89%E5%A5%87%E5%81%B6%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84II/">按奇偶排序数组II</a>，这道题的进阶版反而被我先做了🤣，下面给出两种方法</p>
+<p>①遍历：定义一个数组result存储排序后的结果，遍历数组A，对偶数元素从左往右存储到result中，对奇数元素从右往左存储到result中。</p>
+<p>②双指针：一个指针i指向数组A开头，指针j指向第一个奇数元素，然后遍历A，如果指针i指的是奇数元素就从j开始找到一个偶数元素和i指针元素交换，这里指针其实就是数组下标。</p>
+<p><strong>方法一：遍历</strong></p>
+<p><strong>c++代码：</strong>(执行用时16ms，击败83.57%，内存消耗16M，击败34.25%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sortArrayByParity</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">result</span><span class="params">(A)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> odd=A.size()<span class="number">-1</span>,even=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:A)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                result[even]=i;</span><br><span class="line">                ++even;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                result[odd]=i;</span><br><span class="line">                --odd;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>方法二：双指针</strong></p>
+<p><strong>c++代码：</strong>(执行用时16ms，击败83.66%，内存消耗16M，击败29.77%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sortArrayByParity</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=A.size();</span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//其实只需要遍历偶数的个数次，但是次数未知所以遍历n次</span></span><br><span class="line">        <span class="comment">//找出第一个奇数下标</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i]%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                j=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="comment">//如果当前元素是奇数，从后面找到一个偶数进行交换</span></span><br><span class="line">            <span class="comment">//注意，找到了一个奇数后面不一定有偶数进行交换</span></span><br><span class="line">            <span class="keyword">if</span>(A[i]%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">//j=i;</span></span><br><span class="line">                <span class="keyword">while</span>(j&lt;n &amp;&amp; A[j]%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                    ++j;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(j&lt;n)&#123;</span><br><span class="line">                    swap(A[i],A[j]);</span><br><span class="line">                    ++j;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/sort-array-by-parity/solution/an-qi-ou-pai-xu-shu-zu-by-leetcode/">官方题解</a>:</h6><p><strong>方法 1：排序</strong></p>
+<p><strong>想法和算法</strong></p>
+<p>使用排序算法，按照模 2 的结果排序。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArrayByParity(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        Integer[] B = <span class="keyword">new</span> Integer[A.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; A.length; ++t)</span><br><span class="line">            B[t] = A[t];</span><br><span class="line"></span><br><span class="line">        Arrays.sort(B, (a, b) -&gt; Integer.compare(a%<span class="number">2</span>, b%<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; A.length; ++t)</span><br><span class="line">            A[t] = B[t];</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Alternative:</span></span><br><span class="line"><span class="comment">        return Arrays.stream(A)</span></span><br><span class="line"><span class="comment">                     .boxed()</span></span><br><span class="line"><span class="comment">                     .sorted((a, b) -&gt; Integer.compare(a%2, b%2))</span></span><br><span class="line"><span class="comment">                     .mapToInt(i -&gt; i)</span></span><br><span class="line"><span class="comment">                     .toArray();</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N\log N)$，其中 N 是 <code>A</code> 的长度。</li>
+<li>空间复杂度：排序空间为 $O(N)$，取决于内置的 <code>sort</code> 函数实现。</li>
+</ul>
+<p><strong>方法 2：两边扫描</strong></p>
+<p><strong>想法和算法</strong></p>
+<p>第一遍输出偶数，第二遍输出奇数。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArrayByParity(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[A.length];</span><br><span class="line">        <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; ++i)</span><br><span class="line">            <span class="keyword">if</span> (A[i] % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">                ans[t++] = A[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; ++i)</span><br><span class="line">            <span class="keyword">if</span> (A[i] % <span class="number">2</span> == <span class="number">1</span>)</span><br><span class="line">                ans[t++] = A[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N)$，其中 $N$ 是 <code>A</code> 的长度。</li>
+<li>空间复杂度：$O(N)$，存储结果的数组。</li>
+</ul>
+<p><strong>方法 3：原地算法</strong></p>
+<p><strong>想法</strong></p>
+<p>如果希望原地排序，可以使用快排，一个经典的算法。</p>
+<p><strong>算法</strong></p>
+<p>维护两个指针 <code>i</code> 和 <code>j</code>，循环保证每刻小于 i 的变量都是偶数（也就是 <code>A[k] % 2 == 0</code> 当 <code>k &lt; i</code>），所有大于 <code>j</code> 的都是奇数。</p>
+<p>所以， 4 种情况针对 <code>(A[i] % 2, A[j] % 2)</code>：</p>
+<ul>
+<li>如果是 <code>(0, 1)</code>，那么万事大吉 <code>i++</code> 并且 <code>j--</code>。</li>
+<li>如果是 <code>(1, 0)</code>，那么交换两个元素，然后继续。</li>
+<li>如果是 <code>(0, 0)</code>，那么说明 i 位置是正确的，只能 <code>i++</code>。</li>
+<li>如果是 <code>(1, 1)</code>，那么说明 j 位置是正确的，只能 <code>j--</code>。</li>
+</ul>
+<p>通过这 4 种情况，循环不变量得以维护，并且 <code>j-i</code> 不断变小。最终就可以得到奇偶有序的数组。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArrayByParity(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] % <span class="number">2</span> &gt; A[j] % <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = A[i];</span><br><span class="line">                A[i] = A[j];</span><br><span class="line">                A[j] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (A[i] % <span class="number">2</span> == <span class="number">0</span>) i++;</span><br><span class="line">            <span class="keyword">if</span> (A[j] % <span class="number">2</span> == <span class="number">1</span>) j--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N)$，其中 $N$ 是 <code>A</code> 的长度。循环的每一步都让 <code>j-i</code> 至少减少了一。（注意虽然快排的复杂度是 $O(N\log N)$，但是我们只需要一轮扫描就可以了）。</li>
+<li>空间复杂度：$O(1)$，不需要额外空间。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解给出了3种解法，第一种排序就是根据模2的结果排序（偶数是0，奇数是1）；第二种方法优化一下遍历一次就是我第一种方法；第三种方法原地算法其实就是双指针，只不过比我的要更简便一些，我是没有想到第二个指针从右边开始遍历，最后结束条件是两个指针i和j做比较，我是两个指针都有它们各自的遍历范围，没想到两个指针比较作为结束条件，双指针解法还是挺灵活的。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>键盘行</title>
+    <url>/2020/11/27/%E9%94%AE%E7%9B%98%E8%A1%8C/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/flipping-an-image/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定一个单词列表，只返回可以使用在键盘同一行的字母打印出来的单词。键盘如下图所示。</p>
+<a id="more"></a>
+<p><img src="/2020/11/27/%E9%94%AE%E7%9B%98%E8%A1%8C/keyboard.png" alt="American keyboard"></p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [&quot;Hello&quot;, &quot;Alaska&quot;, &quot;Dad&quot;, &quot;Peace&quot;]</span><br><span class="line">输出: [&quot;Alaska&quot;, &quot;Dad&quot;]</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
+<ol>
+<li>你可以重复使用键盘上同一字符。</li>
+<li>你可以假设输入的字符串将只包含字母。</li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>定义一个map集合，存储字母到数字的映射，键盘第一行字母对应1，第二行对应2，第三行对应3。遍历单词列表，遍历每一个单词字母，判断字母（转成小写）在map中的值是否相等，若不相等break继续下一个单词，若单词字母都在同一行就存储到结果集中。</p>
+<p><strong>c++代码：</strong>(执行用时4ms，击败45.62%，内存消耗7.3M，击败23.05%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">findWords</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; result;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; m;</span><br><span class="line">        <span class="built_in">string</span> line1=<span class="string">&quot;qwertyuiop&quot;</span>;</span><br><span class="line">        <span class="built_in">string</span> line2=<span class="string">&quot;asdfghjkl&quot;</span>;</span><br><span class="line">        <span class="built_in">string</span> line3=<span class="string">&quot;zxcvbnm&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c1:line1)&#123;</span><br><span class="line">            m[c1]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c2:line2)&#123;</span><br><span class="line">            m[c2]=<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c3:line3)&#123;</span><br><span class="line">            m[c3]=<span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">char</span> tmp1,tmp2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">string</span> word:words)&#123;</span><br><span class="line">            <span class="keyword">int</span> n=word.length();</span><br><span class="line">            <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;++i)&#123;</span><br><span class="line">                <span class="comment">//将字母转换成小写</span></span><br><span class="line">                tmp1=word[i]|<span class="number">32</span>;</span><br><span class="line">                tmp2=word[i+<span class="number">1</span>]|<span class="number">32</span>;</span><br><span class="line">                <span class="keyword">if</span>(m[tmp1]!=m[tmp2])&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//使用键盘同一行字母打印的单词</span></span><br><span class="line">            <span class="keyword">if</span>(i==n<span class="number">-1</span>)&#123;</span><br><span class="line">                result.emplace_back(word);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，虽然代码长了些，但也还行吧🙄。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数字的补数</title>
+    <url>/2020/11/27/%E6%95%B0%E5%AD%97%E7%9A%84%E8%A1%A5%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/number-complement/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定一个正整数，输出它的补数。补数是对该数的二进制表示取反。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: 5</span><br><span class="line">输出: 2</span><br><span class="line">解释: 5 的二进制表示为 101（没有前导零位），其补数为 010。所以你需要输出 2 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: 1</span><br><span class="line">输出: 0</span><br><span class="line">解释: 1 的二进制表示为 1（没有前导零位），其补数为 0。所以你需要输出 0 。</span><br></pre></td></tr></table></figure>
+<p><strong>注意:</strong></p>
+<ul>
+<li>给定的整数保证在 32 位带符号整数的范围内。</li>
+<li>你可以假定二进制数不包含前导零位。</li>
+<li>本题与 1009 <a href="https://leetcode-cn.com/problems/complement-of-base-10-integer/">https://leetcode-cn.com/problems/complement-of-base-10-integer/</a> 相同</li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>对正整数二进制表示取反，取反就是和1异或运算，这样1\^1=0;0\^1=1。所以只要计算出没有前导零位时二进制表示位数全为1时的数值，例如5二进制表示为101（3位），计算出111（3位）对应的数值为7，返回5^7=2。</p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗6.2M，击败23.56%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findComplement</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> n=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> tmp=num;</span><br><span class="line">        <span class="keyword">while</span>(tmp)&#123;</span><br><span class="line">            n*=<span class="number">2</span>;</span><br><span class="line">            tmp/=<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num^((<span class="keyword">int</span>)(n<span class="number">-1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，也没有总结，就是这么任性😎。</p>
 ]]></content>
       <categories>
         <category>ACM</category>
