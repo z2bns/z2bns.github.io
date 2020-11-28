@@ -8150,4 +8150,166 @@ y^2+y-x^2+x-2*\textit{target}=0</script><p>这是一个关于 $y$ 的一元二�
         <tag>简单</tag>
       </tags>
   </entry>
+  <entry>
+    <title>字符的最短距离</title>
+    <url>/2020/11/28/%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/shortest-distance-to-a-character/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定一个字符串 <code>S</code> 和一个字符 <code>C</code>。返回一个代表字符串 <code>S</code> 中每个字符到字符串 <code>S</code> 中的字符 <code>C</code> 的最短距离的数组。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: S &#x3D; &quot;loveleetcode&quot;, C &#x3D; &#39;e&#39;</span><br><span class="line">输出: [3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0]</span><br></pre></td></tr></table></figure>
+<p><strong>说明:</strong></p>
+<ol>
+<li>字符串 <code>S</code> 的长度范围为 <code>[1, 10000]</code>。</li>
+<li><code>C</code> 是一个单字符，且保证是字符串 <code>S</code> 里的字符。</li>
+<li><code>S</code> 和 <code>C</code> 中的所有字母均为小写字母。</li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>定义结果数组result初始化为0（默认最短距离为0），遍历字符串S，对每一个字符先判断是否是指定字符C，若是则继续遍历下个字符，从0开始判断与当前字符左右距离为dis的字符是否是C，若是则把距离存到result数组中，然后继续遍历下个字符。</p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗6.9M，击败39.62%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">shortestToChar</span><span class="params">(<span class="built_in">string</span> S, <span class="keyword">char</span> C)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=S.length();</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">result</span><span class="params">(n,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">            <span class="comment">//当前字符是C,跳出本次循环</span></span><br><span class="line">            <span class="keyword">if</span>(S[i]==C)&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> dis=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">                ++dis;</span><br><span class="line">                <span class="comment">//判断左右两边距离为dis时是否存在C</span></span><br><span class="line">                <span class="keyword">if</span>(i-dis&gt;=<span class="number">0</span>&amp;&amp;S[i-dis]==C || i+dis&lt;n&amp;&amp;S[i+dis]==C)&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            result[i]=dis;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/shortest-distance-to-a-character/solution/zi-fu-de-zui-duan-ju-chi-by-leetcode/">官方题解</a>:</h6><p><strong>方法 1：最小数组</strong><br><strong>想法</strong></p>
+<p>对于每个字符 <code>S[i]</code>，试图找出距离向左或者向右下一个字符 <code>C</code> 的距离。答案就是这两个值的较小值。</p>
+<p><strong>算法</strong></p>
+<p>从左向右遍历，记录上一个字符 <code>C</code> 出现的位置 <code>prev</code>，那么答案就是 <code>i - prev</code>。</p>
+<p>从右向左遍历，记录上一个字符 <code>C</code> 出现的位置 <code>prev</code>，那么答案就是 <code>prev - i</code>。</p>
+<p>这两个值取最小就是答案</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] shortestToChar(String S, <span class="keyword">char</span> C) &#123;</span><br><span class="line">        <span class="keyword">int</span> N = S.length();</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        <span class="keyword">int</span> prev = Integer.MIN_VALUE / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (S.charAt(i) == C) prev = i;</span><br><span class="line">            ans[i] = i - prev;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        prev = Integer.MAX_VALUE / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = N-<span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (S.charAt(i) == C) prev = i;</span><br><span class="line">            ans[i] = Math.min(ans[i], prev - i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N)$，其中 $N$ 是 <code>S</code> 的长度，我们需要遍历字符串两次。</li>
+<li>空间复杂度：$O(N)$，<code>ans</code> 数组的大小</li>
+</ul>
+<p>​         </p>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解比较巧妙，线性时间复杂度，效率比较高。虽然我也想到计算左右两边距离取最小，但是我想到的还是要遍历对每个字符遍历左右两边所有字符直到找到指定字符C，官方题解就巧妙的利用一次遍历线性复杂度就解决了，牛逼🐂</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>拼写单词</title>
+    <url>/2020/11/28/%E6%8B%BC%E5%86%99%E5%8D%95%E8%AF%8D/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/flipping-an-image/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一份『词汇表』（字符串数组） <code>words</code> 和一张『字母表』（字符串） <code>chars</code>。</p>
+<p>假如你可以用 <code>chars</code> 中的『字母』（字符）拼写出 <code>words</code> 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。</p>
+<p>注意：每次拼写（指拼写词汇表中的一个单词）时，<code>chars</code> 中的每个字母都只能用一次。</p>
+<p>返回词汇表 <code>words</code> 中你掌握的所有单词的 长度之和。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：words &#x3D; [&quot;cat&quot;,&quot;bt&quot;,&quot;hat&quot;,&quot;tree&quot;], chars &#x3D; &quot;atach&quot;</span><br><span class="line">输出：6</span><br><span class="line">解释： </span><br><span class="line">可以形成字符串 &quot;cat&quot; 和 &quot;hat&quot;，所以答案是 3 + 3 &#x3D; 6。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：words &#x3D; [&quot;hello&quot;,&quot;world&quot;,&quot;leetcode&quot;], chars &#x3D; &quot;welldonehoneyr&quot;</span><br><span class="line">输出：10</span><br><span class="line">解释：</span><br><span class="line">可以形成字符串 &quot;hello&quot; 和 &quot;world&quot;，所以答案是 5 + 5 &#x3D; 10。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li>`1 &lt;= words.length &lt;= 1000</li>
+<li><code>1 &lt;= words[i].length, chars.length &lt;= 100</code></li>
+<li>所有字符串中都仅包含小写英文字母</li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>定义一个大小为26的数组存储字母表chars字符串中各个字母的个数，遍历字符串数组words对每一个单词字符串先判断长度，如果大于chars长度可定不满足则进行下个字符串的遍历，否则遍历单词字符串，判断字母是否在字母表中存在，若存在则继续若不存在则不满足跳出循环并标记该单词为false，若单词标记为true则把长度累加到结果中。</p>
+<p><strong>c++代码：</strong>(执行用时68ms，击败97.50%，内存消耗16.5M，击败76.81%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countCharacters</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; words, <span class="built_in">string</span> chars)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//计数法</span></span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len_word=<span class="number">0</span>,len_chars=chars.length();</span><br><span class="line">        <span class="keyword">int</span> ch[<span class="number">26</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> tmp[<span class="number">26</span>];</span><br><span class="line">        <span class="comment">//存储chars中每个字母的个数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c1:chars)&#123;</span><br><span class="line">            ++ch[c1<span class="number">-97</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">string</span> word:words)&#123;</span><br><span class="line">            <span class="keyword">bool</span> flag=<span class="literal">true</span>;</span><br><span class="line">            <span class="comment">//每次字母表chars都应该被恢复原值</span></span><br><span class="line">            copy(begin(ch),end(ch),begin(tmp));</span><br><span class="line">            len_word=word.size();</span><br><span class="line">            <span class="comment">//若word长度大于chars长度，肯定不满足条件</span></span><br><span class="line">            <span class="keyword">if</span>(len_word&gt;len_chars)&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">char</span> c2:word)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(tmp[c2<span class="number">-97</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">                        flag=<span class="literal">false</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        --tmp[c2<span class="number">-97</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">                result+=word.length();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/solution/pin-xie-dan-ci-by-leetcode-solution/">官方题解</a>:</h6><p><strong>方法一：哈希表记数</strong></p>
+<p><strong>思路和算法</strong></p>
+<p>显然，对于一个单词 <code>word</code>，只要其中的每个字母的数量都不大于 <code>chars</code> 中对应的字母的数量，那么就可以用 <code>chars</code> 中的字母拼写出 <code>word</code>。所以我们只需要用一个哈希表存储 <code>chars</code> 中每个字母的数量，再用一个哈希表存储 <code>word</code> 中每个字母的数量，最后将这两个哈希表的键值对逐一进行比较即可。</p>
+<p><strong>c++代码：</strong>(执行用时424ms，击败34.93%，内存消耗49.9M，击败30.08%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countCharacters</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; words, <span class="built_in">string</span> chars)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; chars_cnt;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : chars)</span><br><span class="line">            ++chars_cnt[c];</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">string</span> word : words) &#123;</span><br><span class="line">            <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; word_cnt;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : word)</span><br><span class="line">                ++word_cnt[c];</span><br><span class="line">            <span class="keyword">bool</span> is_ans = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : word)</span><br><span class="line">                <span class="keyword">if</span> (chars_cnt[c] &lt; word_cnt[c]) &#123;</span><br><span class="line">                    is_ans = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            <span class="keyword">if</span> (is_ans)</span><br><span class="line">                ans += word.size();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(n)$，其中 $n$ 为所有字符串的长度和。我们需要遍历每个字符串，包括 <code>chars</code> 以及数组 <code>words</code> 中的每个单词。</p>
+</li>
+<li><p>空间复杂度：$O(S)$，其中 $S$ 为字符集大小，在本题中 $S$ 的值为 $26$（所有字符串仅包含小写字母）。程序运行过程中，最多同时存在两个哈希表，使用的空间均不超过字符集大小 $S$，因此空间复杂度为 $O(S)$。</p>
+</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>总的来说官方题解和我的思路还算一致，不过我的更像是直观上的解法，官方题解是经过总结认真思考后的题解简洁明了，题目也比较简单，没想到我提交的代码效率还挺高的，有点意外😏。另外官方题解有视频题解，可以了解一下。官方题解效率反而不是很高，应该要先判断一下单词长度与字母表长度，若是长度不符就应该直接跳过进行下一个单词，而官方题解还是要进行单词字母计数与字母表中的计数进行比较，还有就是官方题解要遍历每一个单词中的所有字符，我的方法是只要遇到不满足条件的字符就终止了，所以比官方题解效率要高一些。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最小差值I</title>
+    <url>/2020/11/28/%E6%9C%80%E5%B0%8F%E5%B7%AE%E5%80%BCI/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/smallest-range-i/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个整数数组 A，请你给数组中的每个元素 A[i] 都加上一个任意数字 x （-K &lt;= x &lt;= K），从而得到一个新数组 B 。</p>
+<p>返回数组 B 的最大值和最小值之间可能存在的最小差值。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1], K &#x3D; 0</span><br><span class="line">输出：0</span><br><span class="line">解释：B &#x3D; [1]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [0,10], K &#x3D; 2</span><br><span class="line">输出：6</span><br><span class="line">解释：B &#x3D; [2,8]</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：A &#x3D; [1,3,6], K &#x3D; 3</span><br><span class="line">输出：0</span><br><span class="line">解释：B &#x3D; [3,3,3] 或 B &#x3D; [4,4,4]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 &lt;= A.length &lt;= 10000</code></li>
+<li><code>0 &lt;= A[i] &lt;= 10000</code></li>
+<li><code>0 &lt;= K &lt;= 10000</code></li>
+</ol>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>分析题目，可以得出数组B的最大值maxB最小值minB一定是可以由数组A中的最大值maxA和最小值minA变化而来，所以只需要求出maxA+x，minA+x（-K&lt;=x&lt;=K）两者之间可能存在的最小差值，两者之间差值的取值范围是[maxA-minA-2K,maxA-minA+2K],注意如果maxA-minA-2K&lt;0的话差值要取0，因为差值是最大值减去最小值必然是非负数且二者之差在2K之内存在两个数使得二者变化后差为0。</p>
+<p><strong>c++代码：</strong>(执行用时40ms，击败48.28%，内存消耗14.9M，击败10.64%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">smallestRangeI</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxA=*max_element(A.begin(),A.end());</span><br><span class="line">        <span class="keyword">int</span> minA=*min_element(A.begin(),A.end());</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>*K&gt;(maxA-minA)?<span class="number">0</span>:<span class="built_in">abs</span>(maxA-minA<span class="number">-2</span>*K);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/smallest-range-i/solution/zui-xiao-chai-zhi-i-by-leetcode/">官方题解</a>:</h6><p><strong>方法 1：数学</strong></p>
+<p><strong>想法和算法</strong></p>
+<p>假设 <code>A</code> 是原始数组，<code>B</code> 是修改后的数组，我们需要最小化 <code>max(B) - min(B)</code>，也就是分别最小化 <code>max(B)</code> 和最大化 <code>min(B)</code>。</p>
+<p><code>max(B)</code> 最小可能为 <code>max(A) - K</code>，因为 <code>max(A)</code> 不可能再变得更小。同样，<code>min(B)</code> 最大可能为 <code>min(A) + K</code>。所以结果 <code>max(B) - min(B)</code> 至少为 <code>ans = (max(A) - K) - (min(A) + K)</code>。</p>
+<p>我们可以用一下修改方式获得结果（如果 <code>ans &gt;= 0</code>）：</p>
+<ul>
+<li>如果 $A[i] \leq \min(A) + K$，那么 $B[i] = \min(A) + K$</li>
+<li>如果 $A[i] \geq \max(A) - K$，那么 $B[i] = \max(A) - K$</li>
+<li>否则 $B[i] = A[i]$。</li>
+</ul>
+<p>如果 <code>ans &lt; 0</code>，最终结果会有 <code>ans = 0</code>，同样利用上面的修改方式。</p>
+<p><strong>Java代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">smallestRangeI</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> min = A[<span class="number">0</span>], max = A[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x: A) &#123;</span><br><span class="line">            min = Math.min(min, x);</span><br><span class="line">            max = Math.max(max, x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(<span class="number">0</span>, max - min - <span class="number">2</span>*K);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N)$，其中 $N$ 是<code>A</code> 的长度。</li>
+<li>空间复杂度：$O(1)$。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解和我的思路叙述不同，但是代码实现方式还是一样的，我是使用了封装好的库\<algorithm>求数组中的最大值和最小值，官方题解是遍历了数组A求出最大值max和最小值min，区别不大。</algorithm></p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+      </tags>
+  </entry>
 </search>
