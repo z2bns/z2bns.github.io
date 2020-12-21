@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Victory won&#39;t come to me unless I go to it！">
+<meta property="og:url" content="http://example.com/2020/12/18/2020-12-18/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-18T02:10:06.000Z">
+<meta property="article:modified_time" content="2020-12-21T01:20:30.736Z">
+<meta property="article:author" content="Z2BNS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/12/18/2020-12-18/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Victory won't come to me unless I go to it！ | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/18/2020-12-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Victory won't come to me unless I go to it！
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-18 10:10:06" itemprop="dateCreated datePublished" datetime="2020-12-18T10:10:06+08:00">2020-12-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-21 09:20:30" itemprop="dateModified" datetime="2020-12-21T09:20:30+08:00">2020-12-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Diary/" itemprop="url" rel="index"><span itemprop="name">Diary</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/18/2020-12-18/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/18/2020-12-18/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>689</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Welcome to my blog, enter password to read.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="e87ad4489f23fc2994b3e1eaa831904ba289a20629a6d37328ec62b87c10aa6c">04b96cf03f1b5d00286d72390b6bf2e0817acbfddb7147d2fcc01912c7f5c0f9713c9c317ba53b9347fde83c930f8c77af411014f8ec84eef7465f6027f6e56361da453a696c51ea2cf726ce74f4d1f870ba487ed6f2d242104af5c0877116b7f14bfb7a90c5973d12ee403d2035f9933239ae2447ed66790333bdf54ffb591262e25fa12dbcf137d44c19a6cd948ebafb15e73fa6eff6dc060b9040f5fe74ceda47dc32b97d576023487f051b3ba548d6ba50e2b500f2040aef18f59839ab6e1e75f19b19b2197541d212a3b8a50be74d4dcb775f19746dc5f65bb1d14038106d809a8f516785e6e320975209525d369518b3e93b5bec268679dda1396e30afe69c8f882a0bd5eacf54f501c1e3d2ec9c798fdc4826f2eb5f6b0f6270424e003936201b2d4cda497799659c6d67810605333475f74a7a5b91d0cd971c22b02db4353eba444ef4b91b1e665195944c995a1cc1ba4f4861e396616a32173e5c69a6ab7023d3c58545776ee9280226cf6de6a5317d6116c8d7eba5be4345274bcff84fd57df579a4165ab8e65a22b30014226fb9ff95ec4d796daeadcaa5397917e308848668cd5c25627de0cae643663caef30234f1b0318a0b979e0c11e1932efcdf891b5b2f9bd7d4d77cf93a4736b959b303b4a5446f957006dc63f1b97a83fa30580d5874cbacc0674fbfaa2dc40c21f02319b11022a618569f94ecabbd9bb610254fc84d39d2df2def9e8d3a2d2e5099dcd287b5588e3983fe5d1fd77d7d05be3351d093c3030e1795d9bbc0c01106dc7e753ed0718f2cbab73a3b053e215a8cab3c58714ed376b63e53dd26aede04c58aca37efb7e301c2e87f1b3e56d0ce3df6a4000057eef661b2bf526ce91d7723447af8466038fe737bfb753a6614ff45c8e990d5c005e067cbf4eaedb49a0fbcdc7c8cb4c0798d30678a5c011010c7a1919726e09c810b42aa53f9ba9ec33c37f973b0d7cd9e286f8a2018933ca131d9bde69a5970b5247a858fcac8e19d6f8d4625a465b9119fe93617294f58db2e03cba01bd2b519d3aa55d81c5d2f91f4909491db51c608058ae375cc2ef6fb3da856e8c9bab32fecf1e6721b639504b94c9ea678b3bb977097db5a1e0525040c3902bd71ffbec09af1699fd79d2b264c53f6f837f59586dcee29682d306f33944a1e002252be4891d176f1adee456f0570594d9588005cd90d6c681e3643e1432a80759a59791784724cfa49b7db93db61280457aa398e2b5860a2d7a8529ec7c7559a1d6b3af63fb34e94faaeb4a94ab849ae28cffd5a66e2fd6caddd36a9824cf720b48c40c544c5329c8eea7366b3e20a561167e69a82ddee27f5e894f76cff80c1676c2d31a11409d0d10fd9fd4fe86050d7c3d9b9786fa7f4388d67ab1f73447e344e860e94bf9d0b4812ce79012ca095caa0fb0c282009e51868b159481c3b3d4ee56b5ee17c2613a3a357302fb3b5be41ac2cb134e3c9f377c2949f7f53127887dd974be24a00377ab806fb4d2d5ae4232fa25ea93cd39456d482e2b4f4bff3eef60f4ea87d037f9be9aadf1b3812486e94338093987a9e00230cb54f3367735089cb3f2c87032e8ef62f3a6f3a14bb8cfbac0e9c0324fd348506aaa60f6847d67bdf94d90c4bab4eb28e2e07034451abf64ae59ed491df4a71f04ca430ae156d9366707b3f2f78c7854ab7397fa990f12118aecec6033fa51025dc7db5f585895d5bb9e1b552867e56b069d450b45a3b812a1f17083d390b479a2af9b54ae6341f2a1eb921733007c3ad75c20b52c2f3e0b38625e0905842bdbe158eb3021550cd28ed54d6ce99f0299fc5768b60aac66fc67e67f26f8ced8ea525e0f079fb7ff996fa686d66f20a1819323f555a8343347f51aa7e9cb40fd4475d5052f6529a9c998f30b017b384a0ae9e0b2d2cdd1bed36ff5e932a2465ef79ec89abef2453b394383a0cecddbd79d66b12b5e91551841306dbb61986a47165707f94817270c708cca994cdbd5cb9a4abe34cddd3d3979c005112f8fb168e9eacc5db6ce25d7c1b807733e05e437239ad10ec2ed625ecc3d021692725d8b8463416ecbf5c4376d2a385742a5c978d2b59cc883c93f7befeef659c4bf84dde6bb2b380a642fe744c336edb2adfa8374516db3538fed3e0ba01c0874dba722350d672ce38df772b8d9cb76d93d428d15ffb71e95423ac2fbaa8aac8a2f3c9dd79d35857208d2d971d92c73a5787ca99ae8ee18b2c8af41b692639fbc83776b9e623d697f3161f5289842c3d72a4a8c251024844c12e43e08cd29f5639f2b68301238abf77c252ad5bd055aeb88952b327761d1e87bdf99730670291a4c95506db8e19b13d6c27bd9843974fabe34920f0779df7acedda6dedb58bcdd5cc5053bb1a9deb4ec42239d3eaf36862ec2733f4e0d5c452709bd8978af55573c25cda56c7f685335a378d41a128061118cedce79c618d01b0840cf9f934f8fec1077533de9dbe29ace0184353949b0240fe2366e2d7fa940ee9db461bb4ad6018794ac3de08bd7302e1c2c3d888ca924eb0c76c557c5a25e35bc708aacdfb447ce7108abbd75b168b9192e2cbb2d7f9be48ce38e2ced8c40e8641e7c81fb9f263aa832d8b2816428a9f0ac80844be0ca89c24d809ab7dcf7cedca64c78afcb660886065a205d2de80c12918f73de1d68e4b294afbffe70a6e9fc47a2d31f145bb5ca50e72d8d76aba0d6f12926e0e8f1a4a3f095fb0f52cb2d984a628d90ea4c593259d692c55800182fdc9ed2f2cb175e3e463c1abbea19ddc6228fcf5097c339b5afee582fce0b08b0b1a31b9e36c3f18dc45a435583da235dca6d006f9ff3d791146104c20ba49416afbfdfa4d7cda2a619e78ae7f329faa9e8c5bd8145aef843f2d1f8a16daf3c6c42b0651c4e68a69464edaa9f5188a311e85a44700927dd2c7f0ff34dc7078c20158741f11de56a041c294d1b03c63c975af9bd452f0a75e7bf3817bf150ba731c91ff8e18c74f150cb43563c1d770d4aaacd3491213353616d05d5a6c73774af32294a4ac59a7261d56286cb44e783a9f3619959a5acc48dd524fa3209fc10b9d08ef8ac875797fc59de5965df9ca7987b7d2df0c9b8ef145419da06793068f34fc7971334462f6c71d72978298faf81620ccf20eb44533128e6867652f3f746af3e663b751a2ca1ef541f58bc303bfdc369827b29f38684b72ea00d33724773fae2b7f75cf471a46dcb79bf9935e6a1f2e4ea980f315bccc7de728709984efd9aad9c3117243efd4035513267ad98f806b0f040867436feb4f2231a5557d2db192eb204fcbf496696a234cbac485c7a895128557e4547dc0c04f61ca748497f36f267c7e8ff6750f0126f513514fbf33ef537dfa77c0a93fe9ee6cec0f132377adb1501ba2cbdba12281c44c96929708a647833356ec4eb27406ac06130ec6e94d1ad71b2ba9e61efecc80289fc895c0bf77fb64509db8d7d0c1d1d568e13ab4901bf1817d92fdc2e97ae7d841af95530703476230b3cdd49b5e1f8b76ebd84dde2f9cd81cb26fa68334775fc62019216ff6b62f31a50ec2ed2424ff582b4ed72ea9d3afef755bdb37e94813121c2746d133fd82fd16da17648317e3c46573d7536172c2f2b617fef02c0fc82e101a1a1e6b19e377a769957a60e906b2a65f660e55785468ec252e8c70afece546354e8b0dfdf6bf9e62896b856ef42d26cb31084d549f5541561bff1c2b11dfbcc717f30dc8378badbf733bc4c30d618149918f9010915a28a5082186ca8179df0bad2b1294b7aa093000695c1db270785b049efbf07b86bbb6c02ce5</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/11/2020-12-11/" rel="prev" title="Achievement provides the only real pleasure in life!">
+      <i class="fa fa-chevron-left"></i> Achievement provides the only real pleasure in life!
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/21/2020-12-21/" rel="next" title="Try your best when you are young.Never regret！">
+      Try your best when you are young.Never regret！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">144</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">loadding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">193k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:56</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
