@@ -9384,9 +9384,9 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
 </ul>
 <h6 id="注册表的工作原理"><a href="#注册表的工作原理" class="headerlink" title="注册表的工作原理"></a>注册表的工作原理</h6><p>用户安装Windows操作系统时，首先启动安装程序扫描电脑的配置，将扫描结果保存在一个容器中，该容器就是注册表，同时会在操作系统所在的分区根目录下生成一个System.1st文件。在注册表中，存储了驱动程序的位置、版本等硬件相关信息，这使操作系统能通过安装的驱动程序对硬件设备进行控制，同样当启动一个应用程序时，会调用注册表中与该应用程序相关的设置。</p>
 <h6 id="注册表的保存位置与逻辑结构"><a href="#注册表的保存位置与逻辑结构" class="headerlink" title="注册表的保存位置与逻辑结构"></a>注册表的保存位置与逻辑结构</h6><p><strong>注册表文件的保存位置：</strong>Windows操作系统的系统配置与用户配置数据存放在系统所在磁盘的Windows\System32\config文件夹目录中</p>
-<p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/Users\lucas\AppData\Roaming\Typora\typora-user-images\image-20201228114213072.png" alt="image-20201228114213072"></p>
+<p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/image-20201228114213072.png" alt="image-20201228114213072"></p>
 <p><strong>注册表的逻辑结构：</strong>在注册表编辑器中，使用树形列表的方式来组织和管理数据信息，这种方式与Windows操作系统中的资源管理器相似，其中数据信息由根键、子键、键值项及键值4部分组成。</p>
-<h6 id="注册表编辑器的结构"><a href="#注册表编辑器的结构" class="headerlink" title="注册表编辑器的结构"></a>注册表编辑器的结构</h6><p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/Users\lucas\AppData\Roaming\Typora\typora-user-images\image-20201228120538565.png" alt="image-20201228120538565"></p>
+<h6 id="注册表编辑器的结构"><a href="#注册表编辑器的结构" class="headerlink" title="注册表编辑器的结构"></a>注册表编辑器的结构</h6><p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/image-20201228120538565.png" alt="image-20201228120538565"></p>
 <p><strong>注册表的根键</strong></p>
 <p>1、HKEY_CLASSES_ROOT：存储了操作系统中所有的应用程序格式文件类型，其子键包括已注册的各类文件的扩展名以及各类文件类型的相关信息两类。</p>
 <p>2、HKEY_CURRENT_USER：存储了当前用户的所有配置信息，包括用户登录名、登录密码、登录权限和预配置信息等，不同用户对电脑的不同个性设置都将在这里体现。</p>
@@ -9396,14 +9396,14 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
 <h6 id="常用的注册表设置"><a href="#常用的注册表设置" class="headerlink" title="常用的注册表设置"></a>常用的注册表设置</h6><p><strong>1、取消快捷方式图标的箭头</strong></p>
 <p>电脑中快捷方式图标只是为了区别其他系统图标或文件，没有实际意义，取消箭头符号可使桌面更美观整洁。</p>
 <p>打开注册表编辑器（win+r=》输入regedit进入），展开HKEY_CLASSES_ROOT\InternetShortcut子键，删除右侧窗格中的IsShortcut键值项。</p>
-<p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/Users\lucas\AppData\Roaming\Typora\typora-user-images\image-20201228115304074.png" alt="image-20201228115304074"></p>
+<p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/image-20201228115304074.png" alt="image-20201228115304074"></p>
 <p><strong>2、在桌面上显示Windows版本标志</strong></p>
 <p>打开注册表编辑器，展开HKEY_CURRENT_USER\Control Panel\Desktop子键，修改右侧窗格中PaintDesktopVersion键值项。</p>
-<p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/Users\lucas\AppData\Roaming\Typora\typora-user-images\image-20201228115631262.png" alt="image-20201228115631262"></p>
+<p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/image-20201228115631262.png" alt="image-20201228115631262"></p>
 <p><strong>3、设置窗口按钮上的文字颜色</strong></p>
 <p>Windows系统的”显示 属性“对话框为用户提供了定制窗口颜色的诸多方案，但如果定义某一个部位的文字颜色就需通过注册表来实现。下面将按钮默认的黑色字体换成红色显示。</p>
 <p>打开注册表编辑器，展开HKEY_CURRENT_USER\Control Panel\Colors子键，修改Button Text键值项的值（颜色的rgb表示）</p>
-<p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/Users\lucas\AppData\Roaming\Typora\typora-user-images\image-20201228120041557.png" alt="image-20201228120041557"></p>
+<p><img src="/2020/12/28/%E7%8E%A9%E8%BD%ACBIOS%E4%B8%8E%E6%B3%A8%E5%86%8C%E8%A1%A8/image-20201228120041557.png" alt="image-20201228120041557"></p>
 <p><strong>注：</strong></p>
 <p>注册表还可以实现其他很多功能，比如”开机显示欢迎窗口“、”设置个性化问候语”等等，鉴于日常很少使用，就不再一 一介绍了。</p>
 ]]></content>
@@ -9412,6 +9412,62 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
       </categories>
       <tags>
         <tag>硬件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>较大分组的位置</title>
+    <url>/2021/01/05/%E8%BE%83%E5%A4%A7%E5%88%86%E7%BB%84%E7%9A%84%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/positions-of-large-groups/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>在一个由小写字母构成的字符串 <code>s</code> 中，包含由一些连续的相同字符所构成的分组。</p>
+<p>例如，在字符串 <code>s = &quot;abbxxxxzyy&quot;</code> 中，就含有 <code>&quot;a&quot;</code>, <code>&quot;bb&quot;</code>, <code>&quot;xxxx&quot;</code>, <code>&quot;z&quot;</code> 和 <code>&quot;yy&quot;</code> 这样的一些分组。</p>
+<p>分组可以用区间 <code>[start, end]</code> 表示，其中 <code>start</code> 和 <code>end</code> 分别表示该分组的起始和终止位置的下标。上例中的 <code>&quot;xxxx&quot;</code> 分组用区间表示为 <code>[3,6]</code> 。</p>
+<p>我们称所有包含大于或等于三个连续字符的分组为 较大分组 。</p>
+<p>找到每一个 较大分组 的区间，按起始位置下标递增顺序排序后，返回结果。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abbxxxxzzy&quot;</span><br><span class="line">输出：[[3,6]]</span><br><span class="line">解释：&quot;xxxx&quot; 是一个起始于 3 且终止于 6 的较大分组。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abc&quot;</span><br><span class="line">输出：[]</span><br><span class="line">解释：&quot;a&quot;,&quot;b&quot; 和 &quot;c&quot; 均不是符合要求的较大分组。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abcdddeeeeaabbbcd&quot;</span><br><span class="line">输出：[[3,5],[6,9],[12,14]]</span><br><span class="line">解释：较大分组为 &quot;ddd&quot;, &quot;eeee&quot; 和 &quot;bbb&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;aba&quot;</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+<li><code>s</code> 仅含小写英文字母</li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>遍历字符串，统计每次连续字符出现的次数若大于等于三次则存储索引到vector数组中。</p>
+<p><strong>c++代码：</strong>(执行用时8ms，击败46.55%，内存消耗7.8M，击败11.37%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">largeGroupPositions</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">char</span> tmp=s[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//给字符串加上辅助字符1，为了解决因为字符串结束而遗漏连续字符。</span></span><br><span class="line">        s+=<span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp==s[i])&#123;</span><br><span class="line">                num++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(num&gt;=<span class="number">3</span>)&#123;</span><br><span class="line">                    v.emplace_back(i-num);</span><br><span class="line">                    v.emplace_back(i<span class="number">-1</span>);</span><br><span class="line">                    result.emplace_back(v);</span><br><span class="line">                    v.clear();</span><br><span class="line">                &#125;</span><br><span class="line">                num=<span class="number">1</span>;</span><br><span class="line">                tmp=s[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/positions-of-large-groups/solution/jiao-da-fen-zu-de-wei-zhi-by-leetcode-so-fi3n/">官方题解</a>:</h6><p><strong>方法一：一次遍历</strong><br><strong>思路及解法</strong></p>
+<p>我们可以遍历该序列，并记录当前分组的长度。如果下一个字符与当前字符不同，或者已经枚举到字符串尾部，就说明当前字符为当前分组的尾部。每次找到当前分组的尾部时，如果该分组长度达到 3，我们就将其加入答案。</p>
+<p><strong>c++代码：</strong>(执行用时8ms，击败46.55%，内存消耗7.6M，击败46.77%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">largeGroupPositions</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == n - <span class="number">1</span> || s[i] != s[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (num &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">                    ret.push_back(&#123;i - num + <span class="number">1</span>, i&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                num = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                num++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li><p>时间复杂度：$O(n)$，其中 $n$是字符串的长度。我们只需要遍历一次该数组。</p>
+</li>
+<li><p>空间复杂度：$O(1)$。我们只需要常数的空间来保存若干变量，注意返回值不计入空间复杂度。</p>
+</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>官方题解和我的方法一样，不过官方题解代码思路更清晰，某些细节比我的要好，比如连续字符终止条件和结果数组的存储，值得学习。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
       </tags>
   </entry>
 </search>
