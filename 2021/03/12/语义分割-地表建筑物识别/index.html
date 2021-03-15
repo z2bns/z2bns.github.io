@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="天池比赛地址  | 文档                  | 格式      || ——————————- | ————- || SS_Data_A_20210201.md | .md(939B) |  赛题背景 赛题以计算机视觉为背景，要求选手使用给定的航拍图像训练模型并完成地表建筑物识别任务。为更好的引导大家入门，我们为本赛题定制了学习方案和学习任务，具体包括语义分割的模型和具体的应用案例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="语义分割-地表建筑物识别">
+<meta property="og:url" content="http://example.com/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="天池比赛地址  | 文档                  | 格式      || ——————————- | ————- || SS_Data_A_20210201.md | .md(939B) |  赛题背景 赛题以计算机视觉为背景，要求选手使用给定的航拍图像训练模型并完成地表建筑物识别任务。为更好的引导大家入门，我们为本赛题定制了学习方案和学习任务，具体包括语义分割的模型和具体的应用案例">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/161218137939445491612181378279.png">
+<meta property="og:image" content="http://example.com/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/image-20210309215312755.png">
+<meta property="og:image" content="file://F:\课题项目\天池\零基础入门语义分割-地表建筑物识别\notes\image-20210309100134328.png?lastModify=1615538546">
+<meta property="article:published_time" content="2021-03-12T08:28:36.000Z">
+<meta property="article:modified_time" content="2021-03-12T08:50:28.804Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="天池">
+<meta property="article:tag" content="计算机视觉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/161218137939445491612181378279.png">
+
+<link rel="canonical" href="http://example.com/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>语义分割-地表建筑物识别 | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          语义分割-地表建筑物识别
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-12 16:28:36 / 修改时间：16:50:28" itemprop="dateCreated datePublished" datetime="2021-03-12T16:28:36+08:00">2021-03-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li><p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/competition/entrance/531872/information">天池比赛地址</a></p>
+</li>
+<li><p>| 文档                  | 格式      |<br>| ——————————- | ————- |<br>| SS_Data_A_20210201.md | .md(939B) |</p>
+</li>
+<li><h5 id="赛题背景"><a href="#赛题背景" class="headerlink" title="赛题背景"></a>赛题背景</h5></li>
+<li><p>赛题以计算机视觉为背景，要求选手使用给定的航拍图像训练模型并完成地表建筑物识别任务。为更好的引导大家入门，我们为本赛题定制了学习方案和学习任务，具体包括语义分割的模型和具体的应用案例。在具体任务中我们将讲解具体工具和使用和完成任务的过程。</p>
+</li>
+<li><p>通过对本方案的完整学习，可以帮助掌握语义分割基本技能。同时我们也将提供专属的视频直播学习通道。</p>
+</li>
+<li><h5 id="赛题描述及数据说明"><a href="#赛题描述及数据说明" class="headerlink" title="赛题描述及数据说明"></a>赛题描述及数据说明</h5></li>
+<li><p>遥感技术已成为获取地表覆盖信息最为行之有效的手段，遥感技术已经成功应用于地表覆盖检测、植被面积检测和建筑物检测任务。本赛题使用航拍数据，需要参赛选手完成地表建筑物识别，将地表航拍图像素划分为有建筑物和无建筑物两类。</p>
+</li>
+<li><p>如下图，左边为原始航拍图，右边为对应的建筑物标注。</p>
+</li>
+</ul>
+<p><img src="/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/161218137939445491612181378279.png" alt="enter image description here"></p>
+<p>赛题数据来源（Inria Aerial Image Labeling），并进行拆分处理。数据集报名后可见并可下载。赛题数据为航拍图，需要参赛选手识别图片中的地表建筑具体像素位置。</p>
+<ul>
+<li><code>train_mask.csv</code>：存储图片的标注的rle编码；</li>
+<li><code>train</code>和<code>test</code>文件夹：存储训练集和测试集图片；</li>
+</ul>
+<p>rle编码的具体的读取代码如下(添加了注释)：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">NumPy(Numerical Python) 是 Python 语言的一个扩展程序库（开源），支持大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">pandas 是基于NumPy 的一种工具，该工具是为解决数据分析任务而创建的。Pandas 纳入了大量库和一些标准的数据模型，提供了高效地操作大型数据集所需的工具</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">CV2指的是OpenCV2，OpenCV是一个基于BSD许可（开源）发行的跨平台计算机视觉库</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将图片编码为rle格式</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rle_encode</span>(<span class="params">im</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    im: numpy array, 1 - mask, 0 - background</span></span><br><span class="line"><span class="string">    Returns run length as string formated</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    pixels = im.flatten(order = <span class="string">&#x27;F&#x27;</span>)</span><br><span class="line">    <span class="comment">#flatten函数：可选order参数，‘C&#x27;(flatten in row-major)，’F‘(flatten in column-major)，’A‘，’K‘,返回flatten后的一维数组</span></span><br><span class="line">    pixels = np.concatenate([[<span class="number">0</span>], pixels, [<span class="number">0</span>]])</span><br><span class="line">   	<span class="comment">#np.concatenate()是用来对数列或矩阵进行合并的，把一维数组首位各加一个0</span></span><br><span class="line">    runs = np.where(pixels[<span class="number">1</span>:] != pixels[:<span class="number">-1</span>])[<span class="number">0</span>] + <span class="number">1</span></span><br><span class="line">    <span class="comment">#np.where():以tuple形式给出满足条件(即非0)的元素的坐标</span></span><br><span class="line">    <span class="comment">#这里runs数组内容为pixels中与前一个数不等的元素的位置</span></span><br><span class="line">    runs[<span class="number">1</span>::<span class="number">2</span>] -= runs[::<span class="number">2</span>]</span><br><span class="line">    <span class="comment">#更改runs中从第一个位置开始间隔为2这些元素的值为与前一个元素值的差</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27; &#x27;</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span> runs)</span><br><span class="line">	<span class="comment">#返回用间隔分割的runs数组元素的字符串</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将rle格式进行解码为图片</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rle_decode</span>(<span class="params">mask_rle, shape=(<span class="params"><span class="number">512</span>, <span class="number">512</span></span>)</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    mask_rle: run-length as string formated (start length)</span></span><br><span class="line"><span class="string">    shape: (height,width) of array to return </span></span><br><span class="line"><span class="string">    Returns numpy array, 1 - mask, 0 - background</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    s = mask_rle.split()</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    str.split(str=&quot;&quot;, num=string.count(str)):通过指定分隔符对字符串进行切片，如果参数 num 有指定值，则分隔 num+1 个子字符串</span></span><br><span class="line"><span class="string">    param参数</span></span><br><span class="line"><span class="string">    str--默认为所有的空字符（空格、换行、制表符等）</span></span><br><span class="line"><span class="string">    num--分割次数，默认为-1，分割所有</span></span><br><span class="line"><span class="string">    return--返回分割后的字符串列表</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    </span><br><span class="line">    starts, lengths = [np.asarray(x, dtype=int) <span class="keyword">for</span> x <span class="keyword">in</span> (s[<span class="number">0</span>:][::<span class="number">2</span>], s[<span class="number">1</span>:][::<span class="number">2</span>])]</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    array和asarray都可以将结构数据转化为ndarray，但是主要区别就是当数据源是ndarray时，array仍然会copy出一个副本，占用新的内存，但asarray不会</span></span><br><span class="line"><span class="string">    starts为列表s中偶数位置元素组成的数组，lengths为列表s中奇数位置元素组成的数组</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    starts -= <span class="number">1</span></span><br><span class="line">    ends = starts + lengths</span><br><span class="line">    img = np.zeros(shape[<span class="number">0</span>]*shape[<span class="number">1</span>], dtype=np.uint8)</span><br><span class="line">    <span class="comment">#uint8是专门用于存储各种图像的（包括RGB，灰度图像等），范围是从0–255</span></span><br><span class="line">    <span class="keyword">for</span> lo, hi <span class="keyword">in</span> zip(starts, ends):</span><br><span class="line">        img[lo:hi] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> img.reshape(shape, order=<span class="string">&#x27;F&#x27;</span>)</span><br><span class="line">	<span class="comment">#reshape():在不改变数据内容的情况下，改变一个数组的格式</span></span><br></pre></td></tr></table></figure>
+<p>读取样例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">train_mask = pd.read_csv(<span class="string">&#x27;train_mask.csv&#x27;</span>, sep=<span class="string">&#x27;\t&#x27;</span>, names=[<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;mask&#x27;</span>])</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">pandas.read_csv(filepath_or_buffer,sep,header,names)</span></span><br><span class="line"><span class="string">filepath_or_buffer--字符串，文件路径名</span></span><br><span class="line"><span class="string">sep--指定分隔符，默认是逗号</span></span><br><span class="line"><span class="string">header--指定行数作为列名，默认为0，否则设置为None</span></span><br><span class="line"><span class="string">names--用于结果的列名列表</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># 读取第一张图，并将对于的rle解码为mask矩阵</span></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;train/&#x27;</span>+ train_mask[<span class="string">&#x27;name&#x27;</span>].iloc[<span class="number">0</span>])</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">cv2.imread(filepath,flags)读入一幅图片</span></span><br><span class="line"><span class="string">filepath--图片路径</span></span><br><span class="line"><span class="string">flags--读入图片的形式默认是读取彩色图片</span></span><br><span class="line"><span class="string">iloc提取指定位置的元素，这里是取出name列的第一行数据，即第一张图片的名称</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">mask = rle_decode(train_mask[<span class="string">&#x27;mask&#x27;</span>].iloc[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">print(rle_encode(mask) == train_mask[<span class="string">&#x27;mask&#x27;</span>].iloc[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># 结果为True</span></span><br></pre></td></tr></table></figure>
+<h5 id="评估标准"><a href="#评估标准" class="headerlink" title="评估标准"></a>评估标准</h5><p>赛题使用Dice coefficient来衡量选手结果与真实标签的差异性，Dice coefficient可以按像素差异性来比较结果的差异性。Dice coefficient的具体计算方式如下：</p>
+<script type="math/tex; mode=display">
+\frac{2 * |X \cap Y|}{|X| + |Y|}∣*X*∣+∣*Y*∣2∗∣*X*∩*Y*∣</script><p>其中X<em>X</em>是预测结果，Y<em>Y</em>为真实标签的结果。当X<em>X</em>与Y<em>Y</em>完全相同时Dice coefficient为1，排行榜使用所有测试集图片的平均Dice coefficient来衡量，分数值越大越好。</p>
+<h5 id="结果提交"><a href="#结果提交" class="headerlink" title="结果提交"></a>结果提交</h5><p>提交前请确保预测结果的格式与<code>test_sample_submit.csv</code>中的格式一致，以及提交文件后缀名为csv。</p>
+<p>注意事项：</p>
+<ul>
+<li>第一列为test图片名称，第二列为rle编码；</li>
+<li>如测试集图没有识别出结果，也需要提交空字符串；</li>
+<li>测试集图片顺序需要与<code>test_sample_submit.csv</code>保持一致；</li>
+</ul>
+<h5 id="比赛规则"><a href="#比赛规则" class="headerlink" title="比赛规则"></a>比赛规则</h5><ol>
+<li>为了比赛公平公正，所有参赛选手<strong>不允许使用任何外部数据集</strong>（如外部航拍数据）。同时所有参赛选手<strong>不允许使用任何非公开的预训练模型，公开的预训练模型</strong>（如ImageNet和COCO）可以使用。</li>
+<li>为了比赛趣味性，不建议选手使用伪标签操作，同时建议选手保存好代码，最终比赛程序代码需要完整复现。</li>
+</ol>
+<h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><p>本来以为可以不用训练，直接用图像二值化方法处理就能得到图像二值化数据，测试训练集一张图片出现失误觉得这种方法可行，最后处理完测试集才发现得到的rle编码太长（包含太多的细节）导致测试集结果文件太大238M而题目要求50M以内，故必须建立模型进行训练了🤣，还以为能走捷径呢，哈哈哈。</p>
+<p><img src="/2021/03/12/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2-%E5%9C%B0%E8%A1%A8%E5%BB%BA%E7%AD%91%E7%89%A9%E8%AF%86%E5%88%AB/image-20210309215312755.png" alt="image-20210309215312755"></p>
+<p>根据题目提示，是要使用DiceLoss损失函数，但问题是怎么构建模型能对图片输出预测值（0-1二值化）呢</p>
+<p>，尝试了很久未果，无奈求助网络，找到了有大佬分享的baseline代码，跑模型如下</p>
+<p>图片rle解码编码测试</p>
+<p><img src="file://F:\课题项目\天池\零基础入门语义分割-地表建筑物识别\notes\image-20210309100134328.png?lastModify=1615538546" alt="image-20210309100134328"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy as np</span><br><span class="line"><span class="keyword">import</span> pandas as pd</span><br><span class="line"><span class="keyword">import</span> pathlib, sys, os, random, time</span><br><span class="line"><span class="keyword">import</span> numba, cv2, gc</span><br><span class="line">from tqdm <span class="keyword">import</span> tqdm_notebook</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line">%matplotlib <span class="keyword">inline</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.filterwarnings(&#x27;ignore&#x27;)</span><br><span class="line"></span><br><span class="line">from tqdm.notebook <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="meta"># albumentations 是一个给予 OpenCV的快速训练数据增强库,拥有非常简单且强大的可以用于多种任务(分割、检测)的接口,易于定制且添加其他框架非常方便</span></span><br><span class="line"><span class="keyword">import</span> albumentations as A</span><br><span class="line">#Rasterio是基于GDAL库二次封装的更加符合Python风格的主要用于空间栅格数据处理的Python库</span><br><span class="line"><span class="keyword">import</span> rasterio</span><br><span class="line">from rasterio.windows <span class="keyword">import</span> Window</span><br><span class="line"></span><br><span class="line"><span class="function">def <span class="title">rle_encode</span><span class="params">(im)</span>:</span></span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    im: numpy <span class="built_in">array</span>, <span class="number">1</span> - mask, <span class="number">0</span> - background</span><br><span class="line">    Returns run length as <span class="built_in">string</span> formated</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">    pixels = im.flatten(order = <span class="string">&#x27;F&#x27;</span>)</span><br><span class="line">    pixels = np.concatenate([[<span class="number">0</span>], pixels, [<span class="number">0</span>]])</span><br><span class="line">    runs = np.where(pixels[<span class="number">1</span>:] != pixels[:<span class="number">-1</span>])[<span class="number">0</span>] + <span class="number">1</span></span><br><span class="line">    runs[<span class="number">1</span>::<span class="number">2</span>] -= runs[::<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27; &#x27;</span>.join(str(x) <span class="keyword">for</span> x in runs)</span><br><span class="line"></span><br><span class="line">def rle_decode(mask_rle, shape=(<span class="number">512</span>, <span class="number">512</span>)):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">    mask_rle: run-length as <span class="built_in">string</span> formated (start length)</span><br><span class="line">    shape: (height,width) of <span class="built_in">array</span> to <span class="keyword">return</span> </span><br><span class="line">    Returns numpy <span class="built_in">array</span>, <span class="number">1</span> - mask, <span class="number">0</span> - background</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">    s = mask_rle.split()</span><br><span class="line">    starts, lengths = [np.asarray(x, dtype=<span class="keyword">int</span>) <span class="keyword">for</span> x in (s[<span class="number">0</span>:][::<span class="number">2</span>], s[<span class="number">1</span>:][::<span class="number">2</span>])]</span><br><span class="line">    starts -= <span class="number">1</span></span><br><span class="line">    ends = starts + lengths</span><br><span class="line">    img = np.zeros(shape[<span class="number">0</span>]*shape[<span class="number">1</span>], dtype=np.uint8)</span><br><span class="line">    <span class="keyword">for</span> lo, hi in zip(starts, ends):</span><br><span class="line">        img[lo:hi] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> img.reshape(shape, order=<span class="string">&#x27;F&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn as nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional as F</span><br><span class="line"><span class="keyword">import</span> torch.utils.data as D</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line">from torchvision <span class="keyword">import</span> transforms as T</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">EPOCHES = <span class="number">20</span></span><br><span class="line">BATCH_SIZE = <span class="number">16</span></span><br><span class="line"># BATCH_SIZE = <span class="number">32</span></span><br><span class="line">IMAGE_SIZE = <span class="number">256</span></span><br><span class="line">DEVICE = &#x27;cuda&#x27; if torch.cuda.is_available() else &#x27;cpu&#x27; </span><br><span class="line"></span><br><span class="line">trfm = A.Compose([</span><br><span class="line">    A.Resize(IMAGE_SIZE, IMAGE_SIZE),</span><br><span class="line">    A.HorizontalFlip(p=<span class="number">0.5</span>),</span><br><span class="line">    A.VerticalFlip(p=<span class="number">0.5</span>),</span><br><span class="line">    A.RandomRotate90(),</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class TianChiDataset(D.Dataset):</span><br><span class="line">    def __init__(self, paths, rles, transform, test_mode=False):</span><br><span class="line">        self.paths = paths</span><br><span class="line">        self.rles = rles</span><br><span class="line">        self.transform = transform</span><br><span class="line">        self.test_mode = test_mode</span><br><span class="line">        </span><br><span class="line">        self.len = len(paths)</span><br><span class="line">        self.as_tensor = T.Compose([</span><br><span class="line">            T.ToPILImage(),</span><br><span class="line">            T.Resize(IMAGE_SIZE),</span><br><span class="line">            T.ToTensor(),</span><br><span class="line">            T.Normalize([<span class="number">0.625</span>, <span class="number">0.448</span>, <span class="number">0.688</span>],</span><br><span class="line">                        [<span class="number">0.131</span>, <span class="number">0.177</span>, <span class="number">0.101</span>]),</span><br><span class="line">        ])</span><br><span class="line">        </span><br><span class="line">    # get data operation</span><br><span class="line">    def __getitem__(self, index):</span><br><span class="line">        img = cv2.imread(self.paths[index])</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.test_mode:</span><br><span class="line">            mask = rle_decode(self.rles[index])</span><br><span class="line">            augments = self.transform(image=img, mask=mask)</span><br><span class="line">            return self.as_tensor(augments[&#x27;image&#x27;]), augments[&#x27;mask&#x27;][None]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            return self.as_tensor(img), &#x27;&#x27;        </span><br><span class="line">    </span><br><span class="line">    def __len__(self):</span><br><span class="line">        <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        Total number of samples in the dataset</span></span><br><span class="line"><span class="string">        &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> self.len</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">train_mask = pd.read_csv(&#x27;./train_mask.csv&#x27;, sep=&#x27;\t&#x27;, names=[&#x27;name&#x27;, &#x27;mask&#x27;])</span><br><span class="line">train_mask[&#x27;name&#x27;] = train_mask[&#x27;name&#x27;].apply(lambda x: &#x27;./train/&#x27; + x)</span><br><span class="line"></span><br><span class="line">img = cv2.imread(train_mask[&#x27;name&#x27;].iloc[0])</span><br><span class="line">mask = rle_decode(train_mask[&#x27;mask&#x27;].iloc[0])</span><br><span class="line"></span><br><span class="line">print(rle_encode(mask) == train_mask[&#x27;mask&#x27;].iloc[0])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dataset = TianChiDataset(</span><br><span class="line">    train_mask[&#x27;name&#x27;].values,</span><br><span class="line">    train_mask[&#x27;mask&#x27;].fillna(&#x27;&#x27;).values,</span><br><span class="line">    trfm, False</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">image, mask = dataset[<span class="number">0</span>]</span><br><span class="line">plt.figure(figsize=(<span class="number">16</span>,<span class="number">8</span>))</span><br><span class="line">plt.subplot(<span class="number">121</span>)</span><br><span class="line">plt.imshow(mask[0], cmap=&#x27;gray&#x27;)</span><br><span class="line">plt.subplot(<span class="number">122</span>)</span><br><span class="line">plt.imshow(image[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">valid_idx, train_idx = [], []</span><br><span class="line"><span class="keyword">for</span> i in range(len(dataset)):</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">7</span> == <span class="number">0</span>:</span><br><span class="line">        valid_idx.append(i)</span><br><span class="line">#     <span class="keyword">else</span>:</span><br><span class="line">    elif i % <span class="number">7</span> == <span class="number">1</span>:</span><br><span class="line">        train_idx.append(i)</span><br><span class="line">        </span><br><span class="line">train_ds = D.Subset(dataset, train_idx)</span><br><span class="line">valid_ds = D.Subset(dataset, valid_idx)</span><br><span class="line"></span><br><span class="line"># define training <span class="keyword">and</span> validation data loaders</span><br><span class="line">loader = D.DataLoader(</span><br><span class="line">    train_ds, batch_size=BATCH_SIZE, shuffle=True, num_workers=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">vloader = D.DataLoader(</span><br><span class="line">    valid_ds, batch_size=BATCH_SIZE, shuffle=False, num_workers=<span class="number">0</span>)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"> def get_model():</span><br><span class="line">    model = torchvision.models.segmentation.fcn_resnet50(True)</span><br><span class="line">    </span><br><span class="line">#     pth = torch.load(<span class="string">&quot;../input/pretrain-coco-weights-pytorch/fcn_resnet50_coco-1167a1af.pth&quot;</span>)</span><br><span class="line">#     <span class="keyword">for</span> key in [<span class="string">&quot;aux_classifier.0.weight&quot;</span>, <span class="string">&quot;aux_classifier.1.weight&quot;</span>, <span class="string">&quot;aux_classifier.1.bias&quot;</span>, <span class="string">&quot;aux_classifier.1.running_mean&quot;</span>, <span class="string">&quot;aux_classifier.1.running_var&quot;</span>, <span class="string">&quot;aux_classifier.1.num_batches_tracked&quot;</span>, <span class="string">&quot;aux_classifier.4.weight&quot;</span>, <span class="string">&quot;aux_classifier.4.bias&quot;</span>]:</span><br><span class="line">#         del pth[key]</span><br><span class="line">    </span><br><span class="line">    model.classifier[<span class="number">4</span>] = nn.Conv2d(<span class="number">512</span>, <span class="number">1</span>, kernel_size=(<span class="number">1</span>, <span class="number">1</span>), stride=(<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> model</span><br><span class="line"></span><br><span class="line">@torch.no_grad()</span><br><span class="line">def validation(model, loader, loss_fn):</span><br><span class="line">    losses = []</span><br><span class="line">    model.eval()</span><br><span class="line">    <span class="keyword">for</span> image, target in loader:</span><br><span class="line">        image, target = image.to(DEVICE), target.<span class="keyword">float</span>().to(DEVICE)</span><br><span class="line">        output = model(image)[&#x27;out&#x27;]</span><br><span class="line">        loss = loss_fn(output, target)</span><br><span class="line">        losses.append(loss.item())</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">array</span>(losses).mean()</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">model = get_model()</span><br><span class="line">model.to(DEVICE);</span><br><span class="line"></span><br><span class="line">optimizer = torch.optim.AdamW(model.parameters(),</span><br><span class="line">                  lr=<span class="number">1e-4</span>, weight_decay=<span class="number">1e-3</span>)</span><br><span class="line"></span><br><span class="line">class SoftDiceLoss(nn.Module):</span><br><span class="line">    def __init__(self, smooth=<span class="number">1.</span>, dims=(<span class="number">-2</span>,<span class="number">-1</span>)):</span><br><span class="line"></span><br><span class="line">        super(SoftDiceLoss, self).__init__()</span><br><span class="line">        self.smooth = smooth</span><br><span class="line">        self.dims = dims</span><br><span class="line">    </span><br><span class="line">    def forward(self, x, y):</span><br><span class="line">        tp = (x * y).sum(self.dims)</span><br><span class="line">        fp = (x * (<span class="number">1</span> - y)).sum(self.dims)</span><br><span class="line">        fn = ((<span class="number">1</span> - x) * y).sum(self.dims)</span><br><span class="line">        </span><br><span class="line">        dc = (<span class="number">2</span> * tp + self.smooth) / (<span class="number">2</span> * tp + fp + fn + self.smooth)</span><br><span class="line">        dc = dc.mean()</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> - dc</span><br><span class="line">    </span><br><span class="line">bce_fn = nn.BCEWithLogitsLoss()</span><br><span class="line">dice_fn = SoftDiceLoss()</span><br><span class="line"></span><br><span class="line">def loss_fn(y_pred, y_true):</span><br><span class="line">    bce = bce_fn(y_pred, y_true)</span><br><span class="line">    dice = dice_fn(y_pred.sigmoid(), y_true)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.8</span>*bce+ <span class="number">0.2</span>*dice</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">header = r<span class="number">&#x27;&#x27;&#x27;</span></span><br><span class="line">        Train | Valid</span><br><span class="line">Epoch |  Loss |  Loss | Time, m</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">#          Epoch         metrics            time</span><br><span class="line">raw_line = &#x27;&#123;:6d&#125;&#x27; + &#x27;\u2502&#123;:7.3f&#125;&#x27;*2 + &#x27;\u2502&#123;:6.2f&#125;&#x27;</span><br><span class="line">print(header)</span><br><span class="line"></span><br><span class="line">EPOCHES = <span class="number">5</span></span><br><span class="line">best_loss = <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> epoch in range(<span class="number">1</span>, EPOCHES+<span class="number">1</span>):</span><br><span class="line">    losses = []</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    model.train()</span><br><span class="line">    <span class="keyword">for</span> image, target in tqdm_notebook(loader):</span><br><span class="line">        </span><br><span class="line">        image, target = image.to(DEVICE), target.<span class="keyword">float</span>().to(DEVICE)</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(image)[&#x27;out&#x27;]</span><br><span class="line">        loss = loss_fn(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        losses.append(loss.item())</span><br><span class="line">        # print(loss.item())</span><br><span class="line">        </span><br><span class="line">    vloss = validation(model, vloader, loss_fn)</span><br><span class="line">    print(raw_line.format(epoch, np.<span class="built_in">array</span>(losses).mean(), vloss,</span><br><span class="line">                              (time.time()-start_time)/<span class="number">60</span>**<span class="number">1</span>))</span><br><span class="line">    losses = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> vloss &lt; best_loss:</span><br><span class="line">        best_loss = vloss</span><br><span class="line">        torch.save(model.state_dict(), &#x27;./model_best.pth&#x27;)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">trfm = T.Compose([</span><br><span class="line">    T.ToPILImage(),</span><br><span class="line">    T.Resize(IMAGE_SIZE),</span><br><span class="line">    T.ToTensor(),</span><br><span class="line">    T.Normalize([<span class="number">0.625</span>, <span class="number">0.448</span>, <span class="number">0.688</span>],</span><br><span class="line">                [<span class="number">0.131</span>, <span class="number">0.177</span>, <span class="number">0.101</span>]),</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">subm = []</span><br><span class="line"></span><br><span class="line">model.load_state_dict(torch.load(<span class="string">&quot;./model_best.pth&quot;</span>))</span><br><span class="line">model.eval()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">test_mask = pd.read_csv(&#x27;./test_a_samplesubmit.csv&#x27;, sep=&#x27;\t&#x27;, names=[&#x27;name&#x27;, &#x27;mask&#x27;])</span><br><span class="line">test_mask[&#x27;name&#x27;] = test_mask[&#x27;name&#x27;].apply(lambda x: &#x27;./test_a/&#x27; + x)</span><br><span class="line"></span><br><span class="line">for idx, name in enumerate(tqdm_notebook(test_mask[&#x27;name&#x27;].iloc[:])):</span><br><span class="line">    image = cv2.imread(name)</span><br><span class="line">    image = trfm(image)</span><br><span class="line">    with torch.no_grad():</span><br><span class="line">        image = image.to(DEVICE)[None]</span><br><span class="line">        score = model(image)[&#x27;out&#x27;][0][0]</span><br><span class="line">        score_sigmoid = score.sigmoid().cpu().numpy()</span><br><span class="line">        score_sigmoid = (score_sigmoid &gt; <span class="number">0.5</span>).astype(np.uint8)</span><br><span class="line">        score_sigmoid = cv2.resize(score_sigmoid, (<span class="number">512</span>, <span class="number">512</span>))</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        # <span class="keyword">break</span></span><br><span class="line">    subm.append([name.split(<span class="string">&#x27;/&#x27;</span>)[<span class="number">-1</span>], rle_encode(score_sigmoid)])</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">subm = pd.DataFrame(subm)</span><br><span class="line">subm.to_csv(&#x27;./tmp.csv&#x27;, index=None, header=None, sep=&#x27;\t&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">16</span>,<span class="number">8</span>))</span><br><span class="line">plt.subplot(<span class="number">121</span>)</span><br><span class="line">plt.imshow(rle_decode(subm[1].fillna(&#x27;&#x27;).iloc[0]), cmap=&#x27;gray&#x27;)</span><br><span class="line">plt.subplot(<span class="number">122</span>)</span><br><span class="line">plt.imshow(cv2.imread(&#x27;./test_a/&#x27; + subm[0].iloc[0]));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A9%E6%B1%A0/" rel="tag"><i class="fa fa-tag"></i> 天池</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" rel="tag"><i class="fa fa-tag"></i> 计算机视觉</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/11/Docker/" rel="prev" title="Docker">
+      <i class="fa fa-chevron-left"></i> Docker
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/15/%E5%A4%A9%E6%B1%A0Docker%E7%BB%83%E4%B9%A0%E5%9C%BA/" rel="next" title="天池Docker练习场">
+      天池Docker练习场 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%9B%E9%A2%98%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">赛题背景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%9B%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%AF%B4%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">赛题描述及数据说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%A0%87%E5%87%86"><span class="nav-number">3.</span> <span class="nav-text">评估标准</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E6%8F%90%E4%BA%A4"><span class="nav-number">4.</span> <span class="nav-text">结果提交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AF%94%E8%B5%9B%E8%A7%84%E5%88%99"><span class="nav-number">5.</span> <span class="nav-text">比赛规则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">6.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">171</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">loadding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">224k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:24</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
