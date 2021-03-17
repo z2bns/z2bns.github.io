@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="安装 ubutun：apt install docker.io 验证安装是否成功：docker info 更多学习资料： 第一口docker的感觉——基本知识https:&#x2F;&#x2F;yq.aliyun.com&#x2F;articles&#x2F;734130第二口docker的感觉 —— Dockerfilehttps:&#x2F;&#x2F;yq.aliyun.com&#x2F;articles&#x2F;735190容器镜像服务快速入门https:&#x2F;&#x2F;hel">
+  <meta name="description" content="安装 ubutun：apt install docker.io 验证安装是否成功：docker info">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="http://example.com/2021/03/11/Docker/index.html">
 <meta property="og:site_name" content="CTF of Z2BNS">
-<meta property="og:description" content="安装 ubutun：apt install docker.io 验证安装是否成功：docker info 更多学习资料： 第一口docker的感觉——基本知识https:&#x2F;&#x2F;yq.aliyun.com&#x2F;articles&#x2F;734130第二口docker的感觉 —— Dockerfilehttps:&#x2F;&#x2F;yq.aliyun.com&#x2F;articles&#x2F;735190容器镜像服务快速入门https:&#x2F;&#x2F;hel">
+<meta property="og:description" content="安装 ubutun：apt install docker.io 验证安装是否成功：docker info">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-11T12:54:35.000Z">
-<meta property="article:modified_time" content="2021-03-11T14:08:41.711Z">
+<meta property="article:modified_time" content="2021-03-15T05:21:15.774Z">
 <meta property="article:author" content="Z2BNS">
 <meta name="twitter:card" content="summary">
 
@@ -222,10 +222,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-11 20:54:35 / 修改时间：22:08:41" itemprop="dateCreated datePublished" datetime="2021-03-11T20:54:35+08:00">2021-03-11</time>
+              <time title="创建时间：2021-03-11 20:54:35" itemprop="dateCreated datePublished" datetime="2021-03-11T20:54:35+08:00">2021-03-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-15 13:21:15" itemprop="dateModified" datetime="2021-03-15T13:21:15+08:00">2021-03-15</time>
+              </span>
 		  <div style="display:inline">
 		   |
 		  <i class="fa fa-eye"></i>
@@ -273,6 +279,7 @@
         <p>安装</p>
 <p>ubutun：<code>apt install docker.io</code></p>
 <p>验证安装是否成功：<code>docker info</code></p>
+<a id="more"></a>
 <p><strong>更多学习资料：</strong></p>
 <p>第一口docker的感觉——基本知识<br><a target="_blank" rel="noopener" href="https://yq.aliyun.com/articles/734130">https://yq.aliyun.com/articles/734130</a><br>第二口docker的感觉 —— Dockerfile<br><a target="_blank" rel="noopener" href="https://yq.aliyun.com/articles/735190">https://yq.aliyun.com/articles/735190</a><br>容器镜像服务快速入门<br><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/60743.html">https://help.aliyun.com/document_detail/60743.html</a><br>Docker学习路线图<br><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/40494">https://developer.aliyun.com/article/40494</a><br>Docker完全自学手册<br><a target="_blank" rel="noopener" href="https://edu.aliyun.com/course/496">https://edu.aliyun.com/course/496</a><br>阿里云容器服务使用教程<br><a target="_blank" rel="noopener" href="https://edu.aliyun.com/course/129">https://edu.aliyun.com/course/129</a><br>云原生技术公开课<br><a target="_blank" rel="noopener" href="https://edu.aliyun.com/roadmap/cloudnative?#all">https://edu.aliyun.com/roadmap/cloudnative?#all</a><br>云原生圈子<br><a target="_blank" rel="noopener" href="https://developer.aliyun.com/group/cloudnative#/?_k=7qpile">https://developer.aliyun.com/group/cloudnative#/?_k=7qpile</a></p>
 
@@ -403,20 +410,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">172</span>
+          <span class="site-state-item-count">175</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -477,13 +484,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">224k</span>
+    <span title="站点总字数">226k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:24</span>
+    <span title="站点阅读时长">3:25</span>
 </div>
 
 
