@@ -10220,4 +10220,60 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
         <tag>论文</tag>
       </tags>
   </entry>
+  <entry>
+    <title>两个相同字符之间的最长子字符串</title>
+    <url>/2021/03/22/%E4%B8%A4%E4%B8%AA%E7%9B%B8%E5%90%8C%E5%AD%97%E7%AC%A6%E4%B9%8B%E9%97%B4%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><a href="https://leetcode-cn.com/problems/largest-substring-between-two-equal-characters/"><strong>题目地址</strong></a></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个字符串 <code>s</code>，请你返回 <strong>两个相同字符之间的最长子字符串的长度</strong> ，计算长度时不含这两个字符。如果不存在这样的子字符串，返回 <code>-1</code> 。</p>
+<p><strong>子字符串</strong> 是字符串中的一个连续字符序列。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;aa&quot;</span><br><span class="line">输出：0</span><br><span class="line">解释：最优的子字符串是两个 &#39;a&#39; 之间的空子字符串。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abca&quot;</span><br><span class="line">输出：2</span><br><span class="line">解释：最优的子字符串是 &quot;bc&quot; 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;cbzxy&quot;</span><br><span class="line">输出：-1</span><br><span class="line">解释：s 中不存在出现出现两次的字符，所以返回 -1 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;cabbac&quot;</span><br><span class="line">输出：4</span><br><span class="line">解释：最优的子字符串是 &quot;abba&quot; ，其他的非最优解包括 &quot;bb&quot; 和 &quot;&quot; 。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 300</code></li>
+<li><code>s</code> 只含小写英文字母</li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong>双重遍历，分别统计以每个字符为首的满足题意的最长子字符串，然后取其中最长的结果返回。</p>
+<p><strong>c++代码：</strong>(执行用时0ms，击败100.00%，内存消耗6.1M，击败87.22%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxLengthBetweenEqualCharacters</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//对每个字符查找最长子字符串长度</span></span><br><span class="line">        <span class="keyword">int</span> n=s.length();</span><br><span class="line">        <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j=n<span class="number">-1</span>;j&gt;i;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(s[i]==s[j])&#123;</span><br><span class="line">                    <span class="comment">//以当前索引i字符开头的最长子字符串</span></span><br><span class="line">                    result=j-i<span class="number">-1</span>&gt;result?j-i<span class="number">-1</span>:result;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//以索引i为起始的子字符串不可能为最长了，break</span></span><br><span class="line">                    <span class="keyword">if</span>(j-i<span class="number">-1</span>&lt;=result)&#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>没有官方题解，还行，就是好像有点绕😃。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>简单</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Don&#39;t worry about the vague future, just strive for the clear present!</title>
+    <url>/2021/03/22/2021-03-21/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Welcome to my blog, enter password to read.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="ea0ba2f9d02cf8c6a618881ecea9cfbd820642820e03b2779c363e2edb59a8f8">04b96cf03f1b5d00286d72390b6bf2e0817acbfddb7147d2fcc01912c7f5c0f9713c9c317ba53b9347fde83c930f8c77af411014f8ec84eef7465f6027f6e56361da453a696c51ea2cf726ce74f4d1f870ba487ed6f2d242104af5c0877116b7f14bfb7a90c5973d12ee403d2035f9933239ae2447ed66790333bdf54ffb591262e25fa12dbcf137d44c19a6cd948ebafb15e73fa6eff6dc060b9040f5fe74ceda47dc32b97d576023487f051b3ba548d6ba50e2b500f2040aef18f59839ab6e1e75f19b19b2197541d212a3b8a50be74d4dcb775f19746dc5f65bb1d14038106d809a8f516785e6e320975209525d369518b3e93b5bec268679dda1396e30afe69c8f882a0bd5eacf54f501c1e3d2ec1f5da0f913213670df08e0d6b80fcb4e40c7e078c4b5b81e6fd716d1dbe623d33238977831206a2c1ffe01a332ef27736968867294fcb724e9f379ef0c48f6d7cf6217c1d576a32385a6a6cc06f785b3a346411ff4cf9cac99639dc03ef92cc7b2957dd6627f4286405484d554799036a40c11aeccfdff942b185ea844a6321f661a0cd81262b494c8f3528a29e1b54e0640e910134550fdf475ee91f360669c2a3d0f8c5539ed15a58734d5364ed68b6d17eeed3a7fb0a1ef3bf6d0aabdc34b401b12fa727a73419171c86e4a8e162839e4198c0a78d6c7a3ebfbaf409fa0116ba606f2da2d9b1bf46a71cff1808fdeffc625d25093d3c6713b151a998a5bdbb5b447225854cc0fdf70d0e2d2d5bfcc8d36de64e1c2ab30d1e2e1d8e67fb628e4e0a4c50b5397ef4ea96ebebec299bf44f7ca440f61f8982a8f32b171aed5f47244353007bd48c8ce1a433727842d9172be32a46a1ce0ddbaeb585f47e2a9afdc0120441bdcc5ab151445802cef6695b728b64575f81b10a2f0c618c08c643b25470a3443c45b008957e1df9d3a9e4748b6f15b2c276bc10c8dcee0afd08747c0cf4ec2b871f7294ddcae21897c1aed854203e2db7012dd9d4c4b5b2a2d6c3c55dd5d78edd33a47e632ef56ef0f9f81c3c17a6ac03c18d44ecea8a7e3eda7778555702de01e2af9b936a29324a37788e18fc14ea728108c36bc96ab15fb0c835f7d1917add99bcffa8e8081e8947dad938f3d2c2e0827bb445dc60db7dd06c66bf39a6bf77eca17e2fafd84ab7e2b1e14bb6acdec726b99b459aaa554a32912c6781a0b912305131c84bcf0d238a5c05cde76bd641b657c5cfe522653ffc90c16d90d159a4876e996d307cb5c6aa42039a431671cd39e9fdfa7e736bfc0598d8ea6e3227ec19c00f25cfc2cf30448189539ec7d49dce2febc03e5c21d0bdf07961167b37702567381e4cc53b5b4609142bb779153666112d8f28916a80b4ce00fd5e18d75ba49400f67874ddc1f69b8c8a535a4045361b69f7e69ce967a5f2016662482dd250174301ed89a448b4d4a1f3f0bbad3e78d4f0892342eac5505fe2ae7e9933f8c1abc1fbb2632dcd7613da6734d07249dbdfa7074095400f242d74e3705ad627ac74e8e0815e47caa1ea8f207b3a0bc80b0c8b8b117923a43709352fbfa7e83bd594be93716dc762736644bd565932fddcaa344429fcb8b153d137a4bc8faf1b1550c50c51b0a3b8f450911a9a752cd275d9d669a303b7a3d1abbf07f5079009e530c8a7608b57ddc3faf74f0304d19d4e8f95ddbba456071ff19163d0a291587ff3286ffce8a3f78e6a79f4f4663cb616265d352a4ebad2e11012b4292aeb03cac9a0e7b7e7652cea9e17d9e62fd4e2778b6a0ed1265f1858f6195062dd7b481145ec9413d600de08986304ac2d148e406832430e09c6d41be1734d703d3a7517767bbff88065247340e675bc12f676b19b341007ae7993b5a6400c30f75e37ec5d16306a1dece14b665085c929174883e13eb9d575a0b379cf6aed915501a9b1e4c3888d20ab8f39f47188196e60d88e69a15cf1bd3f440b377b0891e84424ec020a4b376a65add92a9516a6140aa44beb1c606ca82758d8b43ea93f23c9a470911fbde33bd2d2c1cad4ce1c620d7a2804f47d22c0f5ac457ef41b9d900e4993e3e0a735d463f669803674a6f988759527498b0c565bd6035b909540e0e535b06f7486331cc1932d96a0663f0e77550ea25b4ea8797cac1793e8db341d98558a83357bef536be4d8b94aab180169b431b7db2921592a992ed946807f2f8cf3d81e17b3635cfc1e24a5d97130ce83fcac31208048f0b5ee6a2855c0e1349678ed5d12e9917e05efcd5454eb94bd0690c9d13bdc824ffaa8ce800ed1f30a7813995e30e3720c158460c1e85e3888588bf8c96c797330e3a7f42b6636c5a3f2e111dc8463e53d5c7e7510da5c6e9d77f1d66d3f10a8308c84d5696157e1da70072df2fc4f068670b816cb59662c85b2783e5a5455109749ee1597b64c09d787a05185c53ac7c67aa72670124051d9f4ea0ad800d575217cca51897ec24f4f2e9c0dcfc7d4b47efa143b94ce52fe0f2ba6b12e80c61ebef607a2cc5b6586e56aa8819cb3c63c6409d848941a62d95a59c90b91efa37fb3d731307d03e71541fd087cd4efa259f2dc3ce9707d6cbedf64d8800af0701733dc2bc5e71f285e029d92c147a59b106ac07caf2664a096f9b76ee98c7d8c442f6e3ec55a1699a57bce54a4a13ef2b899640af52a967a2d0092800f5fa2239ca58568d068f5fa7a47432478667671efa7153f01ac5dca07e9d41807542e872615c0262ae90ec3583e9a1487a80fbc46f9b19458827d04e3af823281001fa7c82073b0053302435855682bca11e865804b302586d570cdeb78e883befdb1c31fd9c921e0aee</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+  </entry>
 </search>
