@@ -9861,6 +9861,9 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
 <h6 id="tf-reduce-mean-函数"><a href="#tf-reduce-mean-函数" class="headerlink" title="tf.reduce_mean()函数"></a>tf.reduce_mean()函数</h6><p>tf.reduce_mean 函数用于计算张量tensor沿着指定的数轴（tensor的某一维度）上的的平均值，主要用作降维或者计算tensor（图像）的平均值。</p>
 <p><img src="/2021/03/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210310161921270.png" alt="image-20210310161921270"></p>
 <h5 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h5><p>安装官网：<a href="https://pytorch.org/">https://pytorch.org/</a></p>
+<h5 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h5><h6 id="legend-函数"><a href="#legend-函数" class="headerlink" title="legend()函数"></a>legend()函数</h6><p>是专们为制定个性化的图例而工作的<br>下面这一行是设置图例具体位置</p>
+<p>plt.legend(loc=”upper right”)</p>
+<h6 id="plot-函数"><a href="#plot-函数" class="headerlink" title="plot()函数"></a>plot()函数</h6><p>plt.plot()函数用于对图形进行一些更改。</p>
 <h6 id="sklearn、pytorch和tensorflow的关系"><a href="#sklearn、pytorch和tensorflow的关系" class="headerlink" title="sklearn、pytorch和tensorflow的关系"></a>sklearn、pytorch和tensorflow的关系</h6><p>这三者的关系，简单来说，sklearn是机器学习的包，pytorch和Tensorflow是深度学习的包</p>
 <p><a href="https://blog.csdn.net/youhuakongzhi/article/details/94208335">sklearn和tensorflow的区别</a></p>
 <p><a href="https://xcx.topsage.com/9030.html">pytorch和tensorflow的区别</a></p>
@@ -10328,5 +10331,127 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
       <categories>
         <category>Diary</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Logistic映射</title>
+    <url>/2021/03/23/Logistic%E6%98%A0%E5%B0%84/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><p><strong>Logistic映射</strong>，又称单峰映象，是一个二次多项式映射(递归关系)，经常作为典型范例来说明复杂的混沌现象是如何从非常简单的非线性动力学方程中产生的。生物学家<a href="https://wiki.swarma.org/index.php?title=罗伯特·梅_Robert_May">罗伯特·梅 Robert May</a> <a href="https://wiki.swarma.org/index.php?title=Logistic映射#cite_note-May.2C_Robert_M_1976-1">[1]</a>在1976年的一篇论文中推广了这一映射，<a href="https://wiki.swarma.org/index.php?title=Logistic映射#cite_note-2">[2]</a>它在一定程度上是一个时间离散的人口统计模型，类似于<strong>皮埃尔·弗朗索瓦·韦胡斯特 Pierre Francois Verhulst</strong> 首次提出的方程。</p>
+<a id="more"></a>
+<p>Logistic映射的数学表达式表示为:其中，t为迭代时间步，对于任意的t，x(t)∈[0,1]，μ为一可调参数，为了保证映射得到的x(t)始终位于[0,1]内，则μ∈[0,4]。x(t)为在t时刻种群占最大可能种群规模的比例（即现有人口数与最大可能人口数的比率）。当变化不同的参数μ时，该方程会展现出不同的动力学极限行为（即当t趋于无穷大，x(t)的变化情况），包括：稳定点（即最终x(t)始终为同一个数值）、周期（x(t)会在2个或者多个数值之间跳跃)、以及混沌（x(t)的终态不会重复，而会等概率地取遍某区间）。</p>
+<p>当μμ超过[1,4]时，就会发生混沌现象。该非线性差分方程意在观察两种情形:</p>
+<ul>
+<li><p>当人口规模很小时，人口将以与当前人口成比例的速度增长进行繁殖。</p>
+</li>
+<li><p>饥饿(与密度有关的死亡率) ，其增长率将以与环境的”承受能力”减去当前人口所得值成正比的速度下降</p>
+</li>
+</ul>
+<p>然而，Logistic映射作为一种人口统计模型，存在着一些初始条件和参数值(如μμ &gt;4)为某值时所导致的混沌问题。这个问题在较老的瑞克模型中没有出现，该模型也展示了混沌动力学。</p>
+<h5 id="数值实验"><a href="#数值实验" class="headerlink" title="数值实验"></a>数值实验</h5><h6 id="0-lt-mu-lt-1"><a href="#0-lt-mu-lt-1" class="headerlink" title="$0&lt;=\mu&lt;=1$"></a>$0&lt;=\mu&lt;=1$</h6><p><img src="/2021/03/23/Logistic%E6%98%A0%E5%B0%84/image-20210323161515673.png" alt="image-20210323161515673"></p>
+<p>左图表示的是当μ=0.2，右图表示的是当μ=0.9的时候方程的迭代结果。每张图都有两条曲线（蓝色和黄色），分别表示从初始值x(0)=0.1和x(0)=0.8开始得到的演化轨迹。可以看出系统趋向于0时候的速度，显然当x(0)=0.1的时候，速度更快。</p>
+<p>可以观察到无论系统从何初值开始，也无论μ取什么值，系统最终都会渐进地趋近于0。因此，当0&lt;μ&lt;1时，系统的极限行为趋于0这个固定值。</p>
+<p><strong>python代码如下：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x=np.arange(<span class="number">0</span>,<span class="number">100</span>,<span class="number">1</span>)</span><br><span class="line">x0=<span class="number">0.1</span></span><br><span class="line">x1=<span class="number">0.8</span></span><br><span class="line">x2=<span class="number">0.1</span></span><br><span class="line">x3=<span class="number">0.8</span></span><br><span class="line">u1=<span class="number">0.2</span></span><br><span class="line">u2=<span class="number">0.9</span></span><br><span class="line"></span><br><span class="line">y=[]</span><br><span class="line">y1=[]</span><br><span class="line">y2=[]</span><br><span class="line">y3=[]</span><br><span class="line">y.append(x0)</span><br><span class="line">y1.append(x1)</span><br><span class="line">y2.append(x2)</span><br><span class="line">y3.append(x3)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">99</span>):</span><br><span class="line">    y.append(u1*x0*(<span class="number">1</span>-x0))</span><br><span class="line">    x0=u1*x0*(<span class="number">1</span>-x0)</span><br><span class="line">    y1.append(u1*x1*(<span class="number">1</span>-x1))</span><br><span class="line">    x1=u1*x1*(<span class="number">1</span>-x1)</span><br><span class="line"></span><br><span class="line">    y2.append(u2*x2*(<span class="number">1</span>-x2))</span><br><span class="line">    x2=u2*x2*(<span class="number">1</span>-x2)</span><br><span class="line">    y3.append(u2*x3*(<span class="number">1</span>-x3))</span><br><span class="line">    x3=u2*x3*(<span class="number">1</span>-x3)</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 中文乱码</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span>  <span class="comment"># 正负号</span></span><br><span class="line">plt.figure(<span class="number">1</span>)</span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;u=&#x27;</span>+str(u1))</span><br><span class="line">plt.xlabel(<span class="string">&quot;t&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;x(t)&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x,y,label=<span class="string">&#x27;x0=0.1&#x27;</span>)</span><br><span class="line">plt.plot(x,y1,label=<span class="string">&quot;x0=0.8&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;u=&#x27;</span>+str(u2))</span><br><span class="line">plt.xlabel(<span class="string">&quot;t&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;x(t)&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x,y2,label=<span class="string">&#x27;x0=0.1&#x27;</span>)</span><br><span class="line">plt.plot(x,y3,label=<span class="string">&quot;x0=0.8&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h6 id="1-lt-mu-lt-3"><a href="#1-lt-mu-lt-3" class="headerlink" title="$1&lt;\mu&lt;3$"></a>$1&lt;\mu&lt;3$</h6><p><img src="/2021/03/23/Logistic%E6%98%A0%E5%B0%84/image-20210323161844852.png" alt="image-20210323161844852"></p>
+<p>左图展示的是μ=1.2，右图表示的是μ=2.7的时候方程的迭代结果，我们看到，两种情况下，方程的迭代结果仍然收敛于固定值，分别是0.18和0.63。也就是说，这个稳定值可以随着μ发生变化。</p>
+<p>从图中得知：</p>
+<ul>
+<li>当μ在1到2之间，种群数量会很快接近$\frac{μ−1}{μ}$,不论最初种群为何值</li>
+<li>当μ在2到3之间，人口数在经历一段时间的波动后会趋于稳定值$\frac{μ−1}{μ}$,其收敛速度满足线性变化。但当μ=3时，比线性收敛还要缓慢。</li>
+</ul>
+<p>事实上，只要$μ&lt;3$，系统都会收敛到一个不动点，而这个不动点的数值可以通过求解下列方程而得到：</p>
+<script type="math/tex; mode=display">
+x^*=\mu x^*(1-x^*)​</script><p>得到解为：</p>
+<script type="math/tex; mode=display">
+x^*_1=0,x^*_2=\frac{\mu -1}{\mu}</script><p>其中，$x_1^∗=0$对应的是$μ<1$时候的不动点，$x_2^∗=\frac{μ−1}{μ}$对应的是$μ>1$时候的不动点。</1$时候的不动点，$x_2^∗=\frac{μ−1}{μ}$对应的是$μ></p>
+<p>所谓的迭代不动点，也就是：一旦出现某一个$T$使得$x(T)=x_1^∗,x_2*∗$，则对任意的t&gt;T都会有：$x(t)=x_1^∗,x_2^∗$。</p>
+<p>这就是上述两种情况。方程会收敛到不动点，并不会再产生新的$x(t)$值。</p>
+<h6 id="3-lt-mu-lt-3-6"><a href="#3-lt-mu-lt-3-6" class="headerlink" title="$3&lt;\mu&lt;3.6$"></a>$3&lt;\mu&lt;3.6$</h6><p><img src="/2021/03/23/Logistic%E6%98%A0%E5%B0%84/image-20210323164156856.png" alt="image-20210323164156856"></p>
+<ul>
+<li>当μ在3到$1+\sqrt{6} ≈ 3.44949$，在所有的初始条件下，人口数会持续在两个依赖μ的值之间近似永久振荡</li>
+</ul>
+<p>这个时候，方程的迭代会出现周期行为。随着μ的增大，周期的长度也会相应地增加。如图所示两种情况，左侧的</p>
+<p>周期为2，右侧的周期为4。</p>
+<p>当μ为3.2的时候，图形呈现锯齿状，表明x(t)在两个值之间：0.5和0.8上下徘徊。虽然从不同的初始值开始（蓝线</p>
+<p>和紫线），系统演化的轨迹并不一样，但是它们的终值却始终是0.5和0.8。</p>
+<ul>
+<li>当μ大约在3.44949和3.54409之间，在所有的初始条件下，人口数将在四个值之间近似永久振荡。后一个数字是一个12次多项式的根。</li>
+</ul>
+<p>右图展示了当μ=3.5的时候，系统在4个值上下反复跳动即0.87—&gt;0.4—&gt;0.82—&gt;0.5。蓝色的轨迹和紫色的轨迹在初</p>
+<p>始略有不同，但是最终收敛到了一起。如果进一步增加μ值，系统还会呈现出更多的周期，包括8周期、16周期……</p>
+<h6 id="mu-3-6"><a href="#mu-3-6" class="headerlink" title="$\mu=3.6$"></a>$\mu=3.6$</h6><p><img src="/2021/03/23/Logistic%E6%98%A0%E5%B0%84/image-20210323165046849.png" alt="image-20210323165046849"></p>
+<p>事实上，从μ&gt;3.54以后，系统震荡的周期就变得越来越长。</p>
+<ul>
+<li><p>当μ≈ 3.56995,出现混沌现象，在倍周期级联的末端。在所有的初始条件下，不再观察到有限周期内的振动。 随着时间的推移，初始种群数的微小变化会产生明显不同的结果，这是混沌的主要特征。</p>
+</li>
+<li><p>3.56995以上的μ值大多表现出混沌行为，但仍有一定的孤立范围表现出非混沌行为;这些岛屿有时被称为稳定岛。例如，从$1 +\sqrt{8}$(约3.82843)开始， 有一个参数μ的范围，在3个值之间显示μ振荡，在6个值之间显示稍高的μ振荡，然后在12个值之间显示稍高的μ振荡，等等。</p>
+</li>
+</ul>
+<p>直到大概3.6的时候，周期长度趋向于无穷大，此时，系统开始了混沌状态。随着系统的演化，x(t)的值会一直在0.3到0.9之间徘徊，没有固定的周期，而且行为很随机。不同的初始状态演化的轨迹也不重合。</p>
+<p>由此可见，这个时候迭代系统表现出随机性，然而整个迭代方程都是确定性的，因此认为产生了确定性的混沌。</p>
+<h6 id="3-6-lt-mu-lt-4"><a href="#3-6-lt-mu-lt-4" class="headerlink" title="$3.6&lt;\mu&lt;4$"></a>$3.6&lt;\mu&lt;4$</h6><p>当参数μ从大约3.56995变化到3.82843时，Logistic映射的混沌行为的发展过程有时被称为the Pomeau–Manneville scenario，其特征是周期性(层流)阶段被非周期性行为突然打断。</p>
+<p>当μ持续增大的时候，迭代运行的轨道就会在周期类型和混沌类型之间来回切换。直到μ=4，系统处于完全混沌的状态，最终的长期行为会在[0,1]区间上均匀分布。</p>
+<h6 id="mu-4"><a href="#mu-4" class="headerlink" title="$\mu=4$"></a>$\mu=4$</h6><p> $\mu$ 4的特殊之处与μ= 2相同，其可以获得精确的解，虽然，一般情况只能通过统计来预测。</p>
+<p>当μ = 4 时，</p>
+<script type="math/tex; mode=display">
+x_n=sin^2(2^n\theta\pi)</script><p>给出初始参数 $\theta$:</p>
+<script type="math/tex; mode=display">
+\theta=\frac{1}{\pi}sin^{-1}(\sqrt{x_0})</script><p>针对有理数的θ，有限次数的迭代后$x_t$就会变成一个周期性的数列。不过几乎所有的θ都是无理数，此时$x_t$不会重复，因此没有周期解。此解可以清楚的看出混沌的二个重要特征：拉伸及折叠。系数$2^t$表示拉伸的指数增长，因此造成<a href="https://wiki.swarma.org/index.php?title=蝴蝶效应">蝴蝶效应</a>，也就是对初始值的高度依赖性，而解中包括正弦函数的平方，使解折叠在[0,1]的范围内。</p>
+<p>对于μ= 4，用复数代替三角函数的等价解为：</p>
+<script type="math/tex; mode=display">
+x_t=\frac{-\alpha^{2^t}-\alpha^{-2^t}+2}{4}</script><p>$\alpha$也是复数</p>
+<p>其模量为1，正如就像三角函数中的平方正弦函数不会导致点集的缩小或扩大，在后者的解决方案中，可通过α的单位模量来实现该种结果。</p>
+<p>相比之下，μ =2的解为：</p>
+<script type="math/tex; mode=display">
+x_t=\frac{1}{2}-\frac{1}{2}(1-2x_0)^{2^t}</script><p>对于$x_0∈[0,1)$。此解没有混沌的特性。由于对不包括不稳定的不动点点0在内的$x_0$，当t趋近无限大时，$(1-2x_0)^{2^t}$会趋近于零，因此xt会趋近稳定的不动点$\frac{1}{2}$。</p>
+<p> $\mu=4$时，几乎所有的初值都会使Logistic映射出现混沌特性，不过也存在无限个初值会使Logistic映射最后呈周期性变化。而且对于所有正整数，都存在一初值使Logistic映射的周期为正整数。可以利用 Logistic映射和移位映射 Dyadic transformation之间的关系来找出任何周期的循环。若x依照Logistic映射 $x_{t+1}=4x_t(1-x_t)$，而y依照移位映射</p>
+<script type="math/tex; mode=display">
+y_{t+1}=
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        2y_t & 0 \leq y_t<0.5, & \\
+        2y_t-1 & 0.5\leq y_t<1,
+        \end{array}
+    \right .
+\end{equation}</script><p>则二个变量的关系如下:</p>
+<script type="math/tex; mode=display">
+x_t=sin^2(2\pi y_t)</script><p>当y以二进制表示时，映射会将二进制的数字左移一位（若左边的二进制点为1，则这个1会变为0），该种映射也称为<strong>二元转换</strong>或<strong>移位映射</strong>。例如，如果迭代的二进制扩展中有一个3位重复序列(并不是一个1位重复序列)，则会发生长度为3的循环。迭代001001001…映射到010010010…，映射到100100100…，反过来又映射成原来的001001001…;这是一个3循环的移位图。循环节为010, 011, 100, 101, 110 时也会有类似情形。</p>
+<p>另外三个二值展开重复序列给出了三次循环110110110…→101101101…→011011011…→110110110。这些循环小数都可以转换为对应的分数，第一个给定的周期为3的循环小数若以分数表示则为：1/7 → 2/7 → 4/7 → 1/7。</p>
+<p>将其转换到μ=4的Logistic映射后，所得到的逻辑循环为611260467… → 950484434… → 188255099… → 611260467…。其他周期为3的循环也可以转换为Logistic映射。同样地，任何长度为k的循环都可以在移位映射中找到，然后转换成相应的Logistic映射。</p>
+<p>对于μ=4的Logistic映射，此时对应μ= 2的帐篷映射 Tent map。（最小）长度k = 1，2，3，…的循环数是一个已知的整数序列（OEIS中的序列A001037）：2，1 ，2、3、6、9、18、30、56、99、186、335、630、1161…这告诉我们，μ=4的Logistic映射具有2个不动点点，长度为2时的周期为1，长度为3时的周期为2，依此类推。对于素数k有序列：$2\frac{2^{k-1}-1}{k}$ 例如：$2\frac{2^{13-1}-1}{13}$ 是长度为13的循环数。在所有初始条件下，映射都是混乱的，所以这些有限长度的循环都是不稳定的。</p>
+<h6 id="不同参数-mu-下的极限行为"><a href="#不同参数-mu-下的极限行为" class="headerlink" title="不同参数 $\mu$下的极限行为"></a>不同参数 $\mu$下的极限行为</h6><p>不论μ取任意值，最多有一个稳定的周期。 如果存在一个稳定的周期，那么它是全局稳定的，吸引了几乎所有的点。一些具有周期稳定循环的μ在某些时候会有无穷多个不同周期的不稳定循环。</p>
+<p>为了概括上述各种数值模拟试验的结果，我们用下面的相图来表示不同μ值对应的极限行为</p>
+<p><img src="/2021/03/23/Logistic%E6%98%A0%E5%B0%84/Figure_1.png" alt="Figure_1"></p>
+<p>如图显示的每一个参数μ所对应的迭代的极限行为。</p>
+<p>下面动画是在相同的参数下，通过从不同的初始值（共有500个）开始迭代足够多的次数（T=100次），记录下这些数据点对应的x(T)值的变化过程。</p>
+<p><img src="/2021/03/23/Logistic%E6%98%A0%E5%B0%84/chaos.gif" alt="chaos"></p>
+<p><strong>python代码如下：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#不同参数u下的极限行为</span></span><br><span class="line"><span class="comment">#横轴为u，纵轴为不同初始条件下的x(t)（迭代T次后的最终结果，不是函数关系而是一个u对应1000个x(t)）</span></span><br><span class="line">xt=np.arange(<span class="number">0.01</span>,<span class="number">1.01</span>,<span class="number">0.01</span>)</span><br><span class="line"><span class="comment">#初始值x0个数</span></span><br><span class="line">m=<span class="number">500</span></span><br><span class="line"><span class="comment">#迭代次数</span></span><br><span class="line">T=<span class="number">100</span></span><br><span class="line"><span class="comment">#参数u个数</span></span><br><span class="line">u_num=<span class="number">100</span></span><br><span class="line">u=np.arange(<span class="number">1</span>/u_num,<span class="number">4</span>+<span class="number">1</span>/u_num,<span class="number">1</span>/u_num)</span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 中文乱码</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">1</span>,T+<span class="number">1</span>):</span><br><span class="line">  <span class="comment">#第t次迭代，共T次</span></span><br><span class="line">  <span class="comment">#初始化横、纵坐标</span></span><br><span class="line">  x=np.array([])</span><br><span class="line">  y=np.array([])</span><br><span class="line">  plt.cla()</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> u:</span><br><span class="line">    <span class="comment">#对不同的u，设置不同的初始条件</span></span><br><span class="line">    xt=np.arange(<span class="number">1</span>/m,<span class="number">1</span>+<span class="number">1</span>/m,<span class="number">1</span>/m)</span><br><span class="line">    <span class="comment">#得到经过n次迭代的结果</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(t):</span><br><span class="line">      xt=xt*i*(<span class="number">1</span>-xt)</span><br><span class="line">    <span class="comment">#横坐标为当前的u，m个</span></span><br><span class="line">    x=np.append(x,np.ones((m,))*i)</span><br><span class="line">    <span class="comment">#纵坐标为不同的初始条件得到的n次迭代的结果</span></span><br><span class="line">    y=np.append(y,xt)</span><br><span class="line">  <span class="comment">#绘制第t次迭代后的图像</span></span><br><span class="line">  plt.scatter(x,y,s=<span class="number">1</span>,marker=<span class="string">&#x27;.&#x27;</span>,label=<span class="string">&#x27;Logistic map:$x(t+1)=\\mu x(t) (1-x(t))$&#x27;</span>)</span><br><span class="line">  <span class="comment">#设置横、纵坐标轴的刻度</span></span><br><span class="line">  plt.xlim(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line">  plt.ylim(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">  plt.xlabel(<span class="string">&#x27;$\\mu$\n不同初始条件下关于$\\mu$的函数&#x27;</span>)</span><br><span class="line">  plt.ylabel(<span class="string">&#x27;x(t)&#x27;</span>)</span><br><span class="line">  plt.xlim(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line">  plt.ylim(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;t=&#x27;</span>+str(t))</span><br><span class="line">  <span class="comment">#scatter()绘制散点，plot()绘制经过点的曲线</span></span><br><span class="line">  <span class="comment">#legend添加图例(放到scatter画图操作之后)：展示数据的信息</span></span><br><span class="line">  plt.legend()</span><br><span class="line">  <span class="comment"># plt.plot(x,y)</span></span><br><span class="line">  plt.pause(<span class="number">0.01</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h5 id="混沌与Logistic映射"><a href="#混沌与Logistic映射" class="headerlink" title="混沌与Logistic映射"></a>混沌与Logistic映射</h5><h6 id="庞加莱映射"><a href="#庞加莱映射" class="headerlink" title="庞加莱映射"></a>庞加莱映射</h6><p>为了更清楚地了解运动的形态，庞加莱对连续运动的轨迹用一个截面叫庞加莱截面将其横截，那么根据轨迹在截面上穿过的情况就可以简洁地判断运动的形态，由此所得图像叫庞加莱映像。在截面图上轨迹下一次穿过截面的点X(n+1)可以看成前一次穿过的点X(n)的一种映射：X(n+1)=f(X(n))n=0,1,2,…这个映射就叫庞加莱映射。它把一个连续的运动化为简洁的离散映射来研究，在庞加莱映射中的不动点反映了相空间的周期运动；如果运动是二倍周期的则庞加莱映射是两个不动点；四倍周期则有四个不动点等。绘制庞加莱映射是在普通的相平面上进行，它不是像画相轨道那样随时间变化连续地画出相点，而是每隔一个外激励周期T=2π/ω取一个点，例如取样的时刻可以是t=0,T,2T…，相应的相点记为P0(x0,y0) P1(x1,y1) P2(x2,y2)…，这些离散相点就构成了庞加莱映射。</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://wiki.swarma.org/index.php?title=Logistic%E6%98%A0%E5%B0%84#.5Bmath.5D.5Cdisplaystyle.7B_0.E2.89.A4.CE.BC.E2.89.A41_.7D.5B.2Fmath.5D">Logistic映射</a></p>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>图像加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>An image encryption apporach based on chaotic</title>
+    <url>/2021/03/23/An-image-encryption-apporach-based-on-chaotic/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><a href="http://refhub.elsevier.com/S0165-1684(19">【论文地址】</a>30218-X/sbref0004)</p>
+<h5 id="Logistic映射"><a href="#Logistic映射" class="headerlink" title="Logistic映射"></a>Logistic映射</h5><h5 id="混沌方法的数字图像加密实现"><a href="#混沌方法的数字图像加密实现" class="headerlink" title="混沌方法的数字图像加密实现"></a>混沌方法的数字图像加密实现</h5><h6 id="虫口模型-Logistic混沌映射"><a href="#虫口模型-Logistic混沌映射" class="headerlink" title="虫口模型-Logistic混沌映射"></a>虫口模型-Logistic混沌映射</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#不同参数u下的极限行为</span></span><br><span class="line"><span class="comment">#横轴为u，纵轴为不同初始条件下的x(t)（迭代T次后的最终结果，不是函数关系而是一个u对应1000个x(t)）</span></span><br><span class="line">xt=np.arange(<span class="number">0.01</span>,<span class="number">1.01</span>,<span class="number">0.01</span>)</span><br><span class="line"><span class="comment">#初始值x0个数</span></span><br><span class="line">m=<span class="number">500</span></span><br><span class="line"><span class="comment">#迭代次数</span></span><br><span class="line">T=<span class="number">100</span></span><br><span class="line"><span class="comment">#参数u个数</span></span><br><span class="line">u_num=<span class="number">100</span></span><br><span class="line">u=np.arange(<span class="number">1</span>/u_num,<span class="number">4</span>+<span class="number">1</span>/u_num,<span class="number">1</span>/u_num)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>,T+<span class="number">1</span>):</span><br><span class="line">  <span class="comment">#第n次迭代，共T次</span></span><br><span class="line">  <span class="comment">#初始化横、纵坐标</span></span><br><span class="line">  x=np.array([])</span><br><span class="line">  y=np.array([])</span><br><span class="line">  plt.cla()</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> u:</span><br><span class="line">    <span class="comment">#对不同的u，设置不同的初始条件</span></span><br><span class="line">    xt=np.arange(<span class="number">1</span>/m,<span class="number">1</span>+<span class="number">1</span>/m,<span class="number">1</span>/m)</span><br><span class="line">    <span class="comment">#得到经过n次迭代的结果</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">      xt=xt*i*(<span class="number">1</span>-xt)</span><br><span class="line">    <span class="comment">#横坐标为当前的u，m个</span></span><br><span class="line">    x=np.append(x,np.ones((m,))*i)</span><br><span class="line">    <span class="comment">#纵坐标为不同的初始条件得到的n次迭代的结果</span></span><br><span class="line">    y=np.append(y,xt)</span><br><span class="line">  <span class="comment">#绘制第n次迭代后的图像</span></span><br><span class="line">  <span class="comment">#设置横、纵坐标轴的刻度</span></span><br><span class="line">  plt.xlim(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line">  plt.ylim(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">  plt.xlabel(<span class="string">&#x27;u&#x27;</span>)</span><br><span class="line">  plt.ylabel(<span class="string">&#x27;x(t)&#x27;</span>)</span><br><span class="line">  plt.xlim(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line">  plt.ylim(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;Logistic map:$x_&#123;n+1&#125;=\\mu x_n (1-x_n)$\n n=&#x27;</span>+str(n))</span><br><span class="line">  <span class="comment">#legend添加图例：展示数据的信息</span></span><br><span class="line">  plt.legend()</span><br><span class="line">  <span class="comment">#scatter()绘制散点，plot()绘制经过点的曲线</span></span><br><span class="line">  plt.scatter(x,y,s=<span class="number">1</span>,marker=<span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">  <span class="comment"># plt.plot(x,y)</span></span><br><span class="line">  plt.pause(<span class="number">0.01</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/23/An-image-encryption-apporach-based-on-chaotic/chaos.gif" alt="chaos"></p>
+<h6 id="像素灰度值替换"><a href="#像素灰度值替换" class="headerlink" title="像素灰度值替换"></a>像素灰度值替换</h6><h5 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h5><p><a href="https://wiki.swarma.org/index.php?title=Logistic%E6%98%A0%E5%B0%84#.5Bmath.5D.5Cdisplaystyle.7B_0.E2.89.A4.CE.BC.E2.89.A41_.7D.5B.2Fmath.5D">Logistic映射</a></p>
+<p><a href="https://blog.csdn.net/hlx371240/article/details/45604095/">混沌方法的数字图像加密</a></p>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>图像加密</tag>
+        <tag>论文</tag>
+      </tags>
   </entry>
 </search>
