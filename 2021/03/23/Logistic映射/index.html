@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="概念Logistic映射，又称单峰映象，是一个二次多项式映射(递归关系)，经常作为典型范例来说明复杂的混沌现象是如何从非常简单的非线性动力学方程中产生的。生物学家罗伯特·梅 Robert May [1]在1976年的一篇论文中推广了这一映射，[2]它在一定程度上是一个时间离散的人口统计模型，类似于皮埃尔·弗朗索瓦·韦胡斯特 Pierre Francois Verhulst 首次提出的方程。">
+  <meta name="description" content="概念Logistic映射，又称单峰映象，是一个二次多项式映射(递归关系)，经常作为典型范例来说明复杂的混沌现象是如何从非常简单的非线性动力学方程中产生的。生物学家罗伯特·梅 Robert May [1]在1976年的一篇论文中推广了这一映射，它在一定程度上是一个时间离散的人口统计模型，类似于皮埃尔·弗朗索瓦·韦胡斯特 Pierre Francois Verhulst 首次提出的方程。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Logistic映射">
 <meta property="og:url" content="http://example.com/2021/03/23/Logistic%E6%98%A0%E5%B0%84/index.html">
 <meta property="og:site_name" content="CTF of Z2BNS">
-<meta property="og:description" content="概念Logistic映射，又称单峰映象，是一个二次多项式映射(递归关系)，经常作为典型范例来说明复杂的混沌现象是如何从非常简单的非线性动力学方程中产生的。生物学家罗伯特·梅 Robert May [1]在1976年的一篇论文中推广了这一映射，[2]它在一定程度上是一个时间离散的人口统计模型，类似于皮埃尔·弗朗索瓦·韦胡斯特 Pierre Francois Verhulst 首次提出的方程。">
+<meta property="og:description" content="概念Logistic映射，又称单峰映象，是一个二次多项式映射(递归关系)，经常作为典型范例来说明复杂的混沌现象是如何从非常简单的非线性动力学方程中产生的。生物学家罗伯特·梅 Robert May [1]在1976年的一篇论文中推广了这一映射，它在一定程度上是一个时间离散的人口统计模型，类似于皮埃尔·弗朗索瓦·韦胡斯特 Pierre Francois Verhulst 首次提出的方程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/03/23/Logistic%E6%98%A0%E5%B0%84/image-20210323161515673.png">
 <meta property="og:image" content="http://example.com/2021/03/23/Logistic%E6%98%A0%E5%B0%84/image-20210323161844852.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://example.com/2021/03/23/Logistic%E6%98%A0%E5%B0%84/Figure_1.png">
 <meta property="og:image" content="http://example.com/2021/03/23/Logistic%E6%98%A0%E5%B0%84/chaos.gif">
 <meta property="article:published_time" content="2021-03-23T07:34:42.000Z">
-<meta property="article:modified_time" content="2021-03-26T08:19:18.480Z">
+<meta property="article:modified_time" content="2021-03-26T08:27:06.573Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="图像加密">
 <meta property="article:tag" content="混沌模型">
@@ -239,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-26 16:19:18" itemprop="dateModified" datetime="2021-03-26T16:19:18+08:00">2021-03-26</time>
+                <time title="修改时间：2021-03-26 16:27:06" itemprop="dateModified" datetime="2021-03-26T16:27:06+08:00">2021-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -294,7 +294,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><p><strong>Logistic映射</strong>，又称单峰映象，是一个二次多项式映射(递归关系)，经常作为典型范例来说明复杂的混沌现象是如何从非常简单的非线性动力学方程中产生的。生物学家<a target="_blank" rel="noopener" href="https://wiki.swarma.org/index.php?title=罗伯特·梅_Robert_May">罗伯特·梅 Robert May</a> <a target="_blank" rel="noopener" href="https://wiki.swarma.org/index.php?title=Logistic映射#cite_note-May.2C_Robert_M_1976-1">[1]</a>在1976年的一篇论文中推广了这一映射，<a target="_blank" rel="noopener" href="https://wiki.swarma.org/index.php?title=Logistic映射#cite_note-2">[2]</a>它在一定程度上是一个时间离散的人口统计模型，类似于<strong>皮埃尔·弗朗索瓦·韦胡斯特 Pierre Francois Verhulst</strong> 首次提出的方程。</p>
+        <h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><p><strong>Logistic映射</strong>，又称单峰映象，是一个二次多项式映射(递归关系)，经常作为典型范例来说明复杂的混沌现象是如何从非常简单的非线性动力学方程中产生的。生物学家<a target="_blank" rel="noopener" href="https://wiki.swarma.org/index.php?title=罗伯特·梅_Robert_May">罗伯特·梅 Robert May</a> <a target="_blank" rel="noopener" href="https://wiki.swarma.org/index.php?title=Logistic映射#cite_note-May.2C_Robert_M_1976-1">[1]</a>在1976年的一篇论文中推广了这一映射，它在一定程度上是一个时间离散的人口统计模型，类似于<strong>皮埃尔·弗朗索瓦·韦胡斯特 Pierre Francois Verhulst</strong> 首次提出的方程。</p>
 <a id="more"></a>
 <p>Logistic映射的数学表达式表示为:其中，t为迭代时间步，对于任意的t，x(t)∈[0,1]，μ为一可调参数，为了保证映射得到的x(t)始终位于[0,1]内，则μ∈[0,4]。x(t)为在t时刻种群占最大可能种群规模的比例（即现有人口数与最大可能人口数的比率）。当变化不同的参数μ时，该方程会展现出不同的动力学极限行为（即当t趋于无穷大，x(t)的变化情况），包括：稳定点（即最终x(t)始终为同一个数值）、周期（x(t)会在2个或者多个数值之间跳跃)、以及混沌（x(t)的终态不会重复，而会等概率地取遍某区间）。</p>
 <p>当μμ超过[1,4]时，就会发生混沌现象。该非线性差分方程意在观察两种情形:</p>
@@ -387,7 +387,9 @@ x_t=sin^2(2\pi y_t)</script><p>当y以二进制表示时，映射会将二进制
 <p><strong>python代码如下：</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#不同参数u下的极限行为</span></span><br><span class="line"><span class="comment">#横轴为u，纵轴为不同初始条件下的x(t)（迭代T次后的最终结果，不是函数关系而是一个u对应1000个x(t)）</span></span><br><span class="line">xt=np.arange(<span class="number">0.01</span>,<span class="number">1.01</span>,<span class="number">0.01</span>)</span><br><span class="line"><span class="comment">#初始值x0个数</span></span><br><span class="line">m=<span class="number">500</span></span><br><span class="line"><span class="comment">#迭代次数</span></span><br><span class="line">T=<span class="number">100</span></span><br><span class="line"><span class="comment">#参数u个数</span></span><br><span class="line">u_num=<span class="number">100</span></span><br><span class="line">u=np.arange(<span class="number">1</span>/u_num,<span class="number">4</span>+<span class="number">1</span>/u_num,<span class="number">1</span>/u_num)</span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 中文乱码</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">1</span>,T+<span class="number">1</span>):</span><br><span class="line">  <span class="comment">#第t次迭代，共T次</span></span><br><span class="line">  <span class="comment">#初始化横、纵坐标</span></span><br><span class="line">  x=np.array([])</span><br><span class="line">  y=np.array([])</span><br><span class="line">  plt.cla()</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> u:</span><br><span class="line">    <span class="comment">#对不同的u，设置不同的初始条件</span></span><br><span class="line">    xt=np.arange(<span class="number">1</span>/m,<span class="number">1</span>+<span class="number">1</span>/m,<span class="number">1</span>/m)</span><br><span class="line">    <span class="comment">#得到经过n次迭代的结果</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(t):</span><br><span class="line">      xt=xt*i*(<span class="number">1</span>-xt)</span><br><span class="line">    <span class="comment">#横坐标为当前的u，m个</span></span><br><span class="line">    x=np.append(x,np.ones((m,))*i)</span><br><span class="line">    <span class="comment">#纵坐标为不同的初始条件得到的n次迭代的结果</span></span><br><span class="line">    y=np.append(y,xt)</span><br><span class="line">  <span class="comment">#绘制第t次迭代后的图像</span></span><br><span class="line">  plt.scatter(x,y,s=<span class="number">1</span>,marker=<span class="string">&#x27;.&#x27;</span>,label=<span class="string">&#x27;Logistic map:$x(t+1)=\\mu x(t) (1-x(t))$&#x27;</span>)</span><br><span class="line">  <span class="comment">#设置横、纵坐标轴的刻度</span></span><br><span class="line">  plt.xlim(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line">  plt.ylim(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">  <span class="comment">#设置横纵坐标轴标签</span></span><br><span class="line">  plt.xlabel(<span class="string">&#x27;$\\mu$\n不同初始条件下关于$\\mu$的函数&#x27;</span>)</span><br><span class="line">  plt.ylabel(<span class="string">&#x27;x(t)&#x27;</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;t=&#x27;</span>+str(t))</span><br><span class="line">  <span class="comment">#scatter()绘制散点，plot()绘制经过点的曲线</span></span><br><span class="line">  <span class="comment">#legend添加图例(放到scatter画图操作之后)：展示数据的信息</span></span><br><span class="line">  plt.legend()</span><br><span class="line">  <span class="comment"># plt.plot(x,y)</span></span><br><span class="line">  plt.pause(<span class="number">0.01</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <h5 id="混沌与Logistic映射"><a href="#混沌与Logistic映射" class="headerlink" title="混沌与Logistic映射"></a>混沌与Logistic映射</h5><h6 id="庞加莱映射"><a href="#庞加莱映射" class="headerlink" title="庞加莱映射"></a>庞加莱映射</h6><p>为了更清楚地了解运动的形态，庞加莱对连续运动的轨迹用一个截面叫庞加莱截面将其横截，那么根据轨迹在截面上穿过的情况就可以简洁地判断运动的形态，由此所得图像叫庞加莱映像。在截面图上轨迹下一次穿过截面的点X(n+1)可以看成前一次穿过的点X(n)的一种映射：X(n+1)=f(X(n))n=0,1,2,…这个映射就叫庞加莱映射。它把一个连续的运动化为简洁的离散映射来研究，在庞加莱映射中的不动点反映了相空间的周期运动；如果运动是二倍周期的则庞加莱映射是两个不动点；四倍周期则有四个不动点等。绘制庞加莱映射是在普通的相平面上进行，它不是像画相轨道那样随时间变化连续地画出相点，而是每隔一个外激励周期T=2π/ω取一个点，例如取样的时刻可以是t=0,T,2T…，相应的相点记为P0(x0,y0) P1(x1,y1) P2(x2,y2)…，这些离散相点就构成了庞加莱映射。</p>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a target="_blank" rel="noopener" href="https://wiki.swarma.org/index.php?title=Logistic%E6%98%A0%E5%B0%84#.5Bmath.5D.5Cdisplaystyle.7B_0.E2.89.A4.CE.BC.E2.89.A41_.7D.5B.2Fmath.5D">Logistic映射</a></p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.swarma.org/index.php?title=Logistic%E6%98%A0%E5%B0%84#.5Bmath.5D.5Cdisplaystyle.7B_0.E2.89.A4.CE.BC.E2.89.A41_.7D.5B.2Fmath.5D">Logistic映射</a></li>
+</ul>
 
     </div>
 
@@ -522,7 +524,7 @@ x_t=sin^2(2\pi y_t)</script><p>当y以二进制表示时，映射会将二进制
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">182</span>
+          <span class="site-state-item-count">184</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -596,13 +598,13 @@ x_t=sin^2(2\pi y_t)</script><p>当y以二进制表示时，映射会将二进制
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">234k</span>
+    <span title="站点总字数">236k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:33</span>
+    <span title="站点阅读时长">3:34</span>
 </div>
 
 
