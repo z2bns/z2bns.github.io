@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="混沌是非线性动力系统的固有特性，是非线性系统普遍存在的现象。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chen模型">
+<meta property="og:url" content="http://example.com/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="混沌是非线性动力系统的固有特性，是非线性系统普遍存在的现象。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/chen.png">
+<meta property="og:image" content="http://example.com/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/Chen1.png">
+<meta property="article:published_time" content="2021-03-27T08:46:52.000Z">
+<meta property="article:modified_time" content="2021-03-27T09:59:43.631Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="图像加密">
+<meta property="article:tag" content="混沌模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/chen.png">
+
+<link rel="canonical" href="http://example.com/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Chen模型 | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Chen模型
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-27 16:46:52 / 修改时间：17:59:43" itemprop="dateCreated datePublished" datetime="2021-03-27T16:46:52+08:00">2021-03-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>464</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>混沌是非线性动力系统的固有特性，是非线性系统普遍存在的现象。</p>
+<a id="more"></a>
+<h6 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h6><p>1999年，美国休斯顿大学陈关荣教授发现了一个新的混沌吸引子——Chen系统，即陈氏混沌系统，它与Lorenz系统类似，但不拓扑等价而且更复杂。Chen系统描述如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        \dot{x} =a(y-x)  \\
+        \dot{y}=(c-a) x-xz+cy \\
+        \dot{z}=xy-bz
+        \end{array}
+    \right .
+\end{equation}</script><p>陈氏混沌系统(Chen)为典型的混沌系统，当a=35,b=3,c=28时，系统呈现混沌状态。</p>
+<h6 id="混沌图像"><a href="#混沌图像" class="headerlink" title="混沌图像"></a>混沌图像</h6><p>陈氏混沌吸引子如图所示</p>
+<p><img src="/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/chen.png" alt="chen"></p>
+<p>由图可见，经过长时间运行后，系统只在三维空间的一个有限区域内运动，系统在此区域中的运动是混沌状态。我们从两个靠的很近的初值条件出发（yt只相差0.001）给出了x(t)轨道的演化图如下</p>
+<p><img src="/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/Chen1.png" alt="Chen1"></p>
+<p>由图可见，随着时间的演化，可以看到原本靠得很近的轨道迅速地分开，最后两条轨道变得毫无关联。</p>
+<h6 id="实验代码-python"><a href="#实验代码-python" class="headerlink" title="实验代码(python)"></a>实验代码(python)</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment">#绘制三维图像</span></span><br><span class="line"><span class="keyword">import</span> mpl_toolkits.mplot3d <span class="keyword">as</span> p3d</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Chen吸引子生成函数</span></span><br><span class="line"><span class="string">参数为三个初始坐标，三个初始参数,迭代次数</span></span><br><span class="line"><span class="string">返回三个一维数组(坐标)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Chen</span>(<span class="params">xt,yt,zt,a,b,c,T</span>):</span></span><br><span class="line">  h=<span class="number">0.0001</span></span><br><span class="line">  x=np.array([])</span><br><span class="line">  y=np.array([])</span><br><span class="line">  z=np.array([])</span><br><span class="line">  <span class="keyword">for</span> t <span class="keyword">in</span> range(T):</span><br><span class="line">    a1=a*(yt-xt)</span><br><span class="line">    b1=(c-a)*xt-xt*zt+c*yt</span><br><span class="line">    c1=xt*yt-b*zt</span><br><span class="line"></span><br><span class="line">    a2=a*((yt+h/<span class="number">2</span>*b1)-(xt+h/<span class="number">2</span>*a1))</span><br><span class="line">    b2=(c-a)*(xt+h/<span class="number">2</span>*a1)-(xt+h/<span class="number">2</span>*a1)*(zt+h/<span class="number">2</span>*c1)+c*(yt+h/<span class="number">2</span>*b1)</span><br><span class="line">    c2=(xt+h/<span class="number">2</span>*a1)*(yt+h/<span class="number">2</span>*b1)-(zt+h/<span class="number">2</span>*c1)*b</span><br><span class="line"></span><br><span class="line">    a3=a*((yt+h/<span class="number">2</span>*b2)-(xt+h/<span class="number">2</span>*a1))</span><br><span class="line">    b3=(c-a)*(xt+h/<span class="number">2</span>*a2)-(xt+h/<span class="number">2</span>*a2)*(zt+h/<span class="number">2</span>*c2)+c*(yt+h/<span class="number">2</span>*b2)</span><br><span class="line">    c3=(xt+h/<span class="number">2</span>*a2)*(yt+h/<span class="number">2</span>*b2)-(zt+h/<span class="number">2</span>*c2)*b</span><br><span class="line"></span><br><span class="line">    <span class="comment">#换成h/2就不行了，真是神奇</span></span><br><span class="line">    a4=a*((yt+h*b3)-(xt+h*a3))</span><br><span class="line">    b4=(c-a)*(xt+h*a3)-(xt+h*a3)*(zt+h*c3)+c*(yt+h*b3)</span><br><span class="line">    c4=(xt+h*a3)*(yt+h*b3)-(zt+h*c3)*b</span><br><span class="line"></span><br><span class="line">    <span class="comment">#xt、yt、zt统一更新</span></span><br><span class="line">    xt=xt+h/<span class="number">6</span>*(a1+<span class="number">2</span>*a2+<span class="number">2</span>*a3+a4)</span><br><span class="line">    yt=yt+h/<span class="number">6</span>*(b1+<span class="number">2</span>*b2+<span class="number">2</span>*b3+b4)</span><br><span class="line">    zt=zt+h/<span class="number">6</span>*(c1+<span class="number">2</span>*c2+<span class="number">2</span>*c3+c4)</span><br><span class="line">    x=np.append(x,xt)</span><br><span class="line">    y=np.append(y,yt)</span><br><span class="line">    z=np.append(z,zt)</span><br><span class="line">  <span class="keyword">return</span> x,y,z</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">三维图像展示，参数三个一维数组</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show3D</span>(<span class="params">x,y,z</span>):</span></span><br><span class="line">  fig=plt.figure()</span><br><span class="line">  ax=p3d.Axes3D(fig)</span><br><span class="line">  ax.scatter(x,y,z,s=<span class="number">5</span>)</span><br><span class="line">  ax.set_xlabel(<span class="string">&#x27;x(t)&#x27;</span>)</span><br><span class="line">  ax.set_ylabel(<span class="string">&#x27;y(t)&#x27;</span>)</span><br><span class="line">  ax.set_zlabel(<span class="string">&#x27;z(t)&#x27;</span>)</span><br><span class="line">  <span class="comment"># plt.axis(&#x27;off&#x27;)</span></span><br><span class="line">  <span class="comment">#消除网格</span></span><br><span class="line">  ax.grid(<span class="literal">False</span>)</span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  <span class="comment">#设定参数</span></span><br><span class="line">  a=<span class="number">35</span></span><br><span class="line">  b=<span class="number">3</span></span><br><span class="line">  c=<span class="number">28</span></span><br><span class="line">  <span class="comment">#迭代次数</span></span><br><span class="line">  T=<span class="number">100000</span></span><br><span class="line">  <span class="comment">#设初值</span></span><br><span class="line">  xt=<span class="number">0</span></span><br><span class="line">  yt=<span class="number">1</span></span><br><span class="line">  zt=<span class="number">0</span></span><br><span class="line">  <span class="comment"># fig=plt.figure()</span></span><br><span class="line">  <span class="comment"># ax=p3d.Axes3D(fig)</span></span><br><span class="line">  x,y,z=Chen(xt,yt,zt,a,b,c,T)</span><br><span class="line">  ax=plt.subplot(<span class="number">121</span>,projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line">  ax.scatter(x,y,z,s=<span class="number">5</span>)</span><br><span class="line">  ax.set_xlabel(<span class="string">&#x27;x(t)&#x27;</span>)</span><br><span class="line">  ax.set_ylabel(<span class="string">&#x27;y(t)&#x27;</span>)</span><br><span class="line">  ax.set_zlabel(<span class="string">&#x27;z(t)&#x27;</span>)</span><br><span class="line">  ax.set_title(<span class="string">&#x27;xt=&#123;0&#125; yt=&#123;1&#125; zt=&#123;2&#125;&#x27;</span>.format(xt,yt,zt))</span><br><span class="line">  <span class="comment"># plt.axis(&#x27;off&#x27;)</span></span><br><span class="line">  <span class="comment">#消除网格</span></span><br><span class="line"></span><br><span class="line">  ax.grid(<span class="literal">False</span>)</span><br><span class="line">  <span class="comment">#初值微小的变化</span></span><br><span class="line">  xt=<span class="number">0</span></span><br><span class="line">  yt=<span class="number">1.001</span></span><br><span class="line">  zt=<span class="number">0</span></span><br><span class="line">  xx,yy,zz=Chen(xt,yt,zt,a,b,c,T)</span><br><span class="line">  ax=plt.subplot(<span class="number">122</span>,projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line">  ax.scatter(xx,yy,zz,s=<span class="number">5</span>)</span><br><span class="line">  ax.set_xlabel(<span class="string">&#x27;x(t)&#x27;</span>)</span><br><span class="line">  ax.set_ylabel(<span class="string">&#x27;y(t)&#x27;</span>)</span><br><span class="line">  ax.set_zlabel(<span class="string">&#x27;z(t)&#x27;</span>)</span><br><span class="line">  ax.set_title(<span class="string">&#x27;xt=&#123;0&#125; yt=&#123;1&#125; zt=&#123;2&#125;&#x27;</span>.format(xt,yt,zt))</span><br><span class="line">  ax.grid(<span class="literal">False</span>)</span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line">  t=np.arange(<span class="number">0</span>,T)</span><br><span class="line">  plt.scatter(t,x,s=<span class="number">1</span>)</span><br><span class="line">  plt.scatter(t,xx,s=<span class="number">1</span>)</span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><p><a target="_blank" rel="noopener" href="https://z2bns.github.io/2021/03/26/Lorenz%E6%A8%A1%E5%9E%8B/">Lorenz模型</a></p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%99%88%E6%B0%8F%E6%B7%B7%E6%B2%8C%E7%B3%BB%E7%BB%9F/20942130?fr=aladdin">陈氏混沌系统</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" rel="tag"><i class="fa fa-tag"></i> 图像加密</a>
+              <a href="/tags/%E6%B7%B7%E6%B2%8C%E6%A8%A1%E5%9E%8B/" rel="tag"><i class="fa fa-tag"></i> 混沌模型</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/27/A-color-image-encryption-technique-using-exclusive-OR-with-DNA-complementary-rules-based-on-chaos-theory-and-SHA-2/" rel="prev" title="A color image encryption technique using exclusive-OR with DNA complementary rules based on chaos theory and SHA-2">
+      <i class="fa fa-chevron-left"></i> A color image encryption technique using exclusive-OR with DNA complementary rules based on chaos theory and SHA-2
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B7%B7%E6%B2%8C%E5%9B%BE%E5%83%8F"><span class="nav-number">2.</span> <span class="nav-text">混沌图像</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81-python"><span class="nav-number">3.</span> <span class="nav-text">实验代码(python)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">loadding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">237k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:36</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
