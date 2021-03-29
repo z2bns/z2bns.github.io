@@ -10632,8 +10632,502 @@ I(i,j)=(I'(i,j)-((r_1(i,j)+r_2(i,j))\oplus r_3(i,j))) mod 256</script><p>解密�
 <p>【<a href="https://www.sciencedirect.com/science/article/pii/S0030402618300755">论文地址</a>】</p>
 <a id="more"></a>
 <h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>本研究使用SHA-256哈希函数修改混沌系统的初始条件和控制参数，将彩色图像的三个通道排列成一维矢量，并根据分段线性混沌映射产生的混沌序列进行排序。然后这个排列阵列被分成三个部分，每个部分代表一个颜色通道，并再次使用洛伦兹的混沌系统独立排列。该算法的新颖之处在于，通道的每个像素都被DNA互补规则的异或操作所取代。多重DNA规则被用来在一个序列中重复这个操作到一些随机的次数。这个操作迭代循环进行。这种循环操作开始的DNA选择规则和操作的延续依赖于Chen的混沌序列。大量的模拟实验结果表明，该算法仅在一次加密中就获得了良好的加密效果。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>如今，人们可以通过网络方便地传输各种多媒体信息。数字图像是多媒体通信的重要信息载体，如何保护图像信息是人们高度关注的问题，传统的分组加密方法(如DES、IDEA和AES)适用于图像加密，但对图像在传输过程中可能产生的传输噪声没有抵抗能力。因此，迫切需要研究新的图像加密算法。</p>
+<p>由于数字图像在空间域中具有体积大、相关性强等固有特征，需要有一个独特的伪随机数生成器。混沌系统是一种很好的伪随机数生成器，因为它对种子和控制参数具有很高敏感性，而且计算量小，这标志着系统的有效性。</p>
+<p>本文提出了一种新的彩色图像加密算法。利用SHA-256哈希函数修改PWLCM、Lorenz和Chen的混沌系统的初始条件和控制参数，以避免选择性明文攻击。为了打破彩色图像通道间的相关性，设计了双重置换。将红、绿、蓝通道组合成单个阵列，并按PWLCM序列排序。排列矢量被分解成代表三个通道的三个部分，并使用Lorenz混沌序列重新独立排序。然后将彩色图像的每个像素独立编码到DNA碱基中，DNA规则的选择是混乱的。通过与DNA规则的异或运算，提出了一种新的像素级混淆机制，增强了DNA互补规则的使用。这个过程是循环的，它有异或操作的起点，然后继续随机次数。著名的Chen超混沌序列被用来选择一个起始DNA规则和上限来继续异或操作替换一个像素。最后将替换的DNA碱基转化为数字格式，得到加密图像。</p>
+<h5 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h5><p>在该算法中，采用了三个不同维数的混沌系统来增加复杂性，每个混沌系统都有自己的特点。</p>
+<h6 id="PWLCM"><a href="#PWLCM" class="headerlink" title="PWLCM"></a>PWLCM</h6><p>分段线性混沌映射(Piecewise Linear Chaotic Map)公式如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    a_{i+1}=
+    \left\{
+        \begin{array}{lr}
+        a_i/p_0  \\
+        (a_i-p_0)/(0.5-p_0) \\
+        (1-a_i)
+        \end{array}
+    \right .
+\end{equation}</script><h6 id="Chen’s-hyper-chaotic-system"><a href="#Chen’s-hyper-chaotic-system" class="headerlink" title="Chen’s hyper-chaotic system"></a>Chen’s hyper-chaotic system</h6><p>Chen超混沌系统对初值和控制参数高度敏感,公式如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        \dot{u} =a(v-u)  \\
+        \dot{v}=-uw+du+cu-x \\
+        \dot{w}=uv-bw \\
+        \dot{x}=u+k
+        \end{array}
+    \right .
+\end{equation}</script><p>a, b, c, d, k为系统参数，当a = 36, b = 3, c = 28, d = 16，−0.7≤k≤0.7时，陈氏超混沌系统处于混沌状态，可以产生4个混沌序列。本文使用参数k = 0.2来生成Chen混沌序列，本文采用四阶龙格-库塔法求解方程组，得到序列U、V、W和X，然后序列组合成一个数组。</p>
+<h6 id="Lorenz’s-system"><a href="#Lorenz’s-system" class="headerlink" title="Lorenz’s system"></a>Lorenz’s system</h6><p>Lorenz系统是天气预报的数学模型，公式如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        \dot{y} =-fy+fz  \\
+        \dot{z}=ry-z-yq \\
+        \dot{q}=-gq+yz
+        \end{array}
+    \right .
+\end{equation}</script><p>上述方程是一个具有两个非线性的动态非线性系统:yq,yz。输入f、g、r为气流的常量物理特性，y为空气槽内对流电流的幅值，z为上升和下降电流的温差，q为空气槽内温度与常温的偏差。该非线性方程组不存在解析解，首先将其转化为迭代形式，然后计算数值解。数值解表明，当0 &lt; r &lt; 1时，系统整体具有稳定响应，当1 &lt; r &lt; 24时，系统也具有稳定的周期响应，当r为&gt; 24,f = 10, g = 8/3时，系统产生混沌响应。</p>
+<h6 id="DNA-complementary-rules-and-algebraic-operations"><a href="#DNA-complementary-rules-and-algebraic-operations" class="headerlink" title="DNA complementary rules and algebraic operations"></a>DNA complementary rules and algebraic operations</h6><p>脱氧核糖核酸或简称DNA是一种存在于几乎所有生物体内的遗传物质。在人体中，DNA以A, G, C和</p>
+<p>T是成对的。这些碱基分别是腺嘌呤(A)、胞嘧啶(C)、鸟嘌呤(G)和胸腺嘧啶(T)。1953年，Watson和Crick在《自然》杂志上发表了一篇文章，定义了互补碱基配对的原理[28]，也被称为互补规则。根据互补规则，每一对DNA碱基必须是互补的，就像A和T是互补的，C和G是互补的。二进制数字系统只由两个数字组成;0和1相互对立或互补。同理，00和11是互补的，01和10也是互补的。用上面讨论的A、C、G、T四个基来表示二进制序列00、11、10、01。DNA转化规则共有24种，但只有8种符合所示的Watson-Crick互补规则，如下表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00-A</td>
+<td>00-C</td>
+<td>00-G</td>
+<td>00-T</td>
+<td>00-C</td>
+<td>00-A</td>
+<td>00-T</td>
+<td>00-G</td>
+</tr>
+<tr>
+<td>01-C</td>
+<td>01-A</td>
+<td>01-T</td>
+<td>01-C</td>
+<td>01-T</td>
+<td>01-G</td>
+<td>01-G</td>
+<td>01-A</td>
+</tr>
+<tr>
+<td>10-G</td>
+<td>10-T</td>
+<td>10-A</td>
+<td>10-G</td>
+<td>10-A</td>
+<td>10-C</td>
+<td>10-C</td>
+<td>10-T</td>
+</tr>
+<tr>
+<td>11-T</td>
+<td>11-G</td>
+<td>11-C</td>
+<td>11-A</td>
+<td>11-G</td>
+<td>11-T</td>
+<td>11-A</td>
+<td>11-C</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>一幅数字图像的像素强度在0到255之间，所以将8位像素强度值表示到DNA域只需要4个DNA碱基。例如，如果像素强度值为93，则其二进制值为“01 01 11 01”，93的DNA转化值取决于DNA编码规则的选择，如果采用DNA编码规则8，它将成为“AACA”。利用相同的DNA规则8将“AACA”转换为数字格式，得到相同的强度值93。但如果我们选择另一条DNA规则解码，如规则1，那么“AACA”将是‘00 00 01 00’，像素的强度值将是2。这是DNA编码/解码方法。</p>
+<p>DNA碱基存在加法(+)、减法(-)等代数运算和异或(XOR)。下表只展示了XOR运算，将在本文的方案中应用。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>XOR</th>
+<th>A</th>
+<th>G</th>
+<th>C</th>
+<th>T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>A</td>
+<td>G</td>
+<td>C</td>
+<td>T</td>
+</tr>
+<tr>
+<td>G</td>
+<td>G</td>
+<td>A</td>
+<td>T</td>
+<td>C</td>
+</tr>
+<tr>
+<td>C</td>
+<td>C</td>
+<td>T</td>
+<td>A</td>
+<td>G</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>C</td>
+<td>G</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="本文方案"><a href="#本文方案" class="headerlink" title="本文方案"></a>本文方案</h5><h6 id="生成初始条件"><a href="#生成初始条件" class="headerlink" title="生成初始条件"></a>生成初始条件</h6><p>SHA-256生成256位的摘要，而不管输入的大小。如果两个输入之间有一个比特的差异，它们的消息摘要将完全不同。因此，这可以用来生成要加密的彩色图像的摘要，然后消息摘要分为两组十六进制值。第一组分为大小相同的8块，其值分别为 $m_j,j=1,2…,8$。;每个块包含7个十六进制数字，通过公式将其转换为浮点小数$m_j∈(0, 0.0156)$</p>
+<script type="math/tex; mode=display">
+m_j = hex2dec(m_1,..., m_8)/2^{34}</script><p>第二部分直接转成浮点数 $d∈(0, 0.0156)$。</p>
+<script type="math/tex; mode=display">
+d = hex2dec(d)/2^{38}</script><p>PWLCM初值为</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        a'_0=a_0+m_1+CK  \\
+        p'_0=p_0 + m_2 +CK \\
+        \end{array}
+    \right .
+    mod\ 1
+\end{equation}</script><p>Chen 系统新的初值为：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        u'_0=u_0 + m_3 + CK  \\
+        v'_0=v_0 + m_4 +CK \\
+        w'_0=w_0 + m_5 + CK  \\
+        x'_0=x_0 + m_6 +CK \\
+        \end{array}
+    \right .
+    mod\ 1
+\end{equation}</script><p>Lorenz 超混沌系统初值为：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        y'_0=y_0 + m_7 + CK  \\
+        z'_0=z_0 + m_8 +CK \\
+        q'_0=q_0 + d + CK 
+        \end{array}
+    \right .
+    mod\ 1
+\end{equation}</script><p>在上述方程中，CK是生成的通用密钥，如下所示</p>
+<script type="math/tex; mode=display">
+CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像的依赖性确保了每次输入都会改变，因此使得加密图像更加安全。</p>
+<h6 id="扩散"><a href="#扩散" class="headerlink" title="扩散"></a>扩散</h6><p>本文提出的彩色图像的扩散方法分两次进行，第一次是采用PWLCM迭代3MN次得到的混沌序列A，将图像I的所有三个通道合并成一个1*3MN大小的一维数组，然后根据混沌序列A进行排序。</p>
+<p>$A={a_i,a_{i+1},…,a_{3MN}}$</p>
+<p>$[valA,idxA]=sort(A)$</p>
+<p>$I’=I(idxA)$</p>
+<p>之后，I’被分成3个1*MN大小的R、G、B通道</p>
+<p>$R=[I’(1),I’(2),…I’(MN)]$</p>
+<p>$G=[I’(MN+1),I’(MN+2),…,I’(2MN)]$</p>
+<p>$B=[I’(2MN+1),I’(2MN+2),…,I’(3MN)]$</p>
+<p>第二次排列分别在上述通道R、G和B上进行。用初值为$y’_0,z’_0,q’_0$的Lorenz系统生成大小为t+MN的三个伪随机序列Y、Z、Q去混淆三个通道的像素。为了避免瞬态效应，丢弃序列的前t个值，三个序列排序如下：</p>
+<p>$[valY,idxY]=sort(Y)$</p>
+<p>$[valZ,idxZ]=sort(Z)$</p>
+<p>$[valQ,idxQ]=sort(Q)$</p>
+<p>其中idxY、idxZ、idxQ为已排序的Y、Z、Q的索引值，根据idxY、idxZ、idxQ对R、G、B中的元素进行重新排列，得到排列后的图像，如下式所示:</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        R'(i) = R(idxY(i))  \\
+        G'(i) = G(idxZ(i))  \\
+        B'(i) = B(idxQ(i))  \\
+        \end{array}
+    \right .
+\end{equation}</script><h6 id="DNA编码"><a href="#DNA编码" class="headerlink" title="DNA编码"></a>DNA编码</h6><p>将图像编码到DNA碱基很简单,对R、G、B通道的编码采用四种DNA规则，如下表。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>S#</th>
+<th>Chaotic intervals</th>
+<th>Encoding</th>
+<th>Decoding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.001-0.05, 0.20-0.25, 0.40-0.45, 0.50-0.55, 0.95-0.99</td>
+<td>“AGCT”</td>
+<td>“GTAC”</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.05-0.10, 0.30-0.35, 0.60-0.65, 0.070-0.75, 0.85-0.90</td>
+<td>“ACGT”</td>
+<td>“TGCA”</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.10-0.15, 0.35-0.40, 0.55-0.60, 0.65-0.70, 0.80-0.85</td>
+<td>“GATC”</td>
+<td>“CTAG”</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.15-0.20, 0.25-0.30, 0.45-0.50, 0.75-0.80, 0.90-0.95</td>
+<td>“CATG”</td>
+<td>“TCGA”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>把每个通道的像素转成二进制，用初始密钥 $u’_0,v’_0,w’_0$和 $x’_0$的Chen超混沌系统迭代（t+MN<em>3）次得到四个伪随机混沌序列U,V,W和X。为了消除瞬态效应，消除前t个元素。U的元素被分成三个大小为M\</em>N的向量;</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left \{
+        \begin{array}{lr}
+        U_1=[U(1),U(2),...,U(MN)] \\
+        U_2=[U(MN+1),U(MN+2),...,U(2MN)] \\
+        U_3=[U(2MN+1),U(2MN+2),...,U(3MN)]
+        \end{array}\ 
+    \right .
+\end{equation}</script><p>现在，应用新的DNA编码模型去独立地编码每个通道，每个DNA碱基数组大小为1*4MN</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        R\_DNA=Encode(R'(i),U_1) \\
+        G\_DNA=Encode(G'(i),U_2) \\
+        B\_DNA=Encode(B'(i),U_3)
+        \end{array}\
+     \right .
+    \end{equation}</script><h6 id="混淆-置换"><a href="#混淆-置换" class="headerlink" title="混淆/置换"></a>混淆/置换</h6><p>对彩色图像的三个通道进行编码，以一种新颖的方式对每个像素进行异或运算，并使用DNA规则本身。该方法需要两个确定性随机数数组，一个混沌序列用于选择DNA规则，另一个混沌序列用于决定重复时间，以继续与后续的DNA规则进行异或操作。利用上述Chen系统生成的随机序列V和W，将其转换为start{0,1,2,3,4,5,6,7}和times{0,1,2,3,4,5,6,7}，</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left \{
+        \begin{array}{lr}
+        start =(V(i) × 10^{12})mod\ 8\\
+        times=(W(i)×10^{12})mod\ 8
+        \end{array}\ 
+        i=1,2,...,3MN
+    \right .
+\end{equation}</script><p>把<strong>start</strong>和<strong>times</strong>分割成三个大小为MN的子数组，如下式：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        start_R=[start(1),start(2),...,start(MN)] \\
+        start_G=[start(MN+1),start(MN+2),...,start(2MN)] \\
+        start_B=[start(2MN+1),start(2MN+2),...,start(3MN)]
+        \end{array}
+    \right .
+    \end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        times_R=[times(1),times(2),...,times(MN)] \\
+        times_G=[times(MN+1),times(MN+2),...,times(2MN)] \\
+        times_B=[times(2MN+1),times(2MN+2),...,times(3MN)]
+        \end{array}
+    \right .
+    \end{equation}</script><p>使用start_R和times_R替换排列和编码红色通道的像素伪代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for i &#x3D;1 to MN </span><br><span class="line">pixel &#x3D; R_DNA(i,∀) </span><br><span class="line">s&#x3D;start_R(i) </span><br><span class="line">for k&#x3D;1 to times_R(i) </span><br><span class="line">pixel&#x3D;pixel ⊗ Rule(s) </span><br><span class="line">s&#x3D;(s+1) mod 8 </span><br><span class="line">end </span><br><span class="line">RED(i)&#x3D;pixel</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>上述伪代码将执行MN次，用适当的变量替换R_DNA，start_R，times_R，得到三个替换通道。在上面的伪代码中，∀表示一个像素的四个DNA碱基。</p>
+<h6 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h6><p>基于大小为3MN的伪随机数组X，从DNA编码表中随机选取4条DNA rules，实现对红、绿、蓝通道的解码。在编码过程中生成的数组仍然可以自由使用，将向量X分成三个数组，如下所示:</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        x_1=E[X(1),X(2),...,X(MN)] \\
+        x_2=[X(MN+1),X(MN+2),...,X(2MN)] \\
+           X_3=[X(2MN+1),X(2MN+2),...,X(3MN)]
+        \end{array}\
+     \right .
+    \end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        Cipher\_RED=Decode(RED(i),X_1) \\
+        Cipher\_GREEN=Decode(GREEN(i),X_2) \\
+        Cipher\_BLUE=Decode(BLUE(i),X_3)
+        \end{array}\
+     \right .
+    \end{equation}</script><h6 id="置换过程说明"><a href="#置换过程说明" class="headerlink" title="置换过程说明"></a>置换过程说明</h6><p>假设红通道的一个像素由DNA碱基{A, C, T, T}组成，start_R={4}，times_R={6}，则{A, C, T，</p>
+<p>T}将与规则GTAC异或，然后是ACGT, TCGA, CATG, AGCT和GATC</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>s#</th>
+<th>Selection Value</th>
+<th>DNA Rules for XOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</td>
+<td>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7</td>
+<td>AGCT<br>GATC<br>CTAG<br>TGCA<br>GTAC<br>ACGT<br>TC GA<br>CATG</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>结果将在每次迭代时生成</p>
+<ol>
+<li>{G, G, T, G} = {A, C, T, T}⊗{G, T, A, C} or Rule 4</li>
+<li>{G, T, C, C} = {G, G, T, G}⊗{A, C, G, T} or Rule 5 </li>
+<li>{C, G, T, C} = {G, T, C, C}⊗{T, C, G, A} or Rule 6 </li>
+<li>{A, G, A, T} = {C, G, T, C}⊗{C, A, T, G} or Rule 7 </li>
+<li>{A, A, C, A} = {A, G, A, T}⊗{A, G, C, T} or Rule 0 </li>
+<li>{G, A, G, C} = {A, A, C, A}⊗{G, A, T, C} or Rule 1</li>
+</ol>
+<p>最终的输出是{G, A, G, C}。DNA规则{4,5,6,7,0,1}在序列中是互斥的。</p>
+<h6 id="图像加密步骤"><a href="#图像加密步骤" class="headerlink" title="图像加密步骤"></a>图像加密步骤</h6><p>假设原始彩色图像I的大小为M × N × 3，完整的加密过程包括以下步骤。</p>
+<p><strong>输入：</strong>图像I，常见的初始条件和控制参数$a_0, p_0, u_0, v_0, w_0, x_0, y_0, z_0, q_0,$ PWLCM, Chen’s和</p>
+<p>洛伦Lorenz’s系统。</p>
+<p><strong>输出：</strong>加密后的镜像。</p>
+<p><strong>步骤1：</strong>计算明文图像的SHA-256哈希值，生成新的初始条件</p>
+<p><strong>步骤2：</strong>转换彩色图像I为3MN的1维数组然后用新的 $a’_0,p’_0$初值得到混沌序列A。之后重新排列一维数组然后分成三个大小为1*MN的R、G、B分量。</p>
+<p><strong>步骤3：</strong>迭代初值为$y’_0,z’_0$和 $q’_0$的混沌系统得到三个大小为1*MN的序列，重新排序R，G，B三个独立通道。</p>
+<p><strong>步骤4：</strong>迭代初值为 $u’_0,v’_0,w’_0$和 $x’_0$的Chen混沌系统得到四个大小为1*3MN的伪随机序列U,V,W和X。把U分割成三个子向量 $U_1,U_2$和 $U_3$，这些子向量被用来选择DNA编码规则去转换每个颜色通道的像素为DNA碱基。</p>
+<p><strong>步骤5：</strong>对每个像素的混淆，序列V和W被转成0-7的十进制值，被称为start和times并且每个都可以分成三个子数组start_R,start_G,start_B,times_R,times_G,times_B。</p>
+<p><strong>步骤6：</strong>在每个通道上使用上述伪代码实现通道替换。</p>
+<p><strong>步骤7：</strong>将X分成三个子向量X1、X2、X3，根据DNA编码表选择解码规则将每个颜色通道的每个像素转成数字格式。</p>
+<p><strong>步骤8：</strong>结合三个解码通道得到加密彩色图像</p>
+<h6 id="解密过程"><a href="#解密过程" class="headerlink" title="解密过程"></a>解密过程</h6><p>在上面的例子中，start_R={4}，times_R={6}，在加密过程中，应用DNA规则{4,5,6,7,0,1}，但解密时，必须反向应用DNA规则才能得到明文的像素。所以(4 + 6)−1 = 9 mod 8 = 1所以，DNA规则</p>
+<p>应用{1,0,7,6,5,4}。解密的伪代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for i &#x3D;1 to MN </span><br><span class="line">pixel &#x3D; R_DNA(i,∀) </span><br><span class="line">s&#x3D;&#123;[start_R(i)+times_R(i)]-1&#125;mod 8 </span><br><span class="line">for k&#x3D;1 to times_R(i) </span><br><span class="line">pixel&#x3D;pixel ⊗ Rule(s) </span><br><span class="line">s&#x3D;(s-1) mod 8 </span><br><span class="line">end </span><br><span class="line">RED(i)&#x3D;pixel</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><h6 id="初始条件"><a href="#初始条件" class="headerlink" title="初始条件"></a>初始条件</h6><p>PWLCM映射初始值为：$a_0=0.123456789010,p_0=0.234578900$。</p>
+<p>Chen超混沌系统初始值：$u_0=0.3456789012,v_0= 0.245789012,w_0=0.4567890124,x_0=0.5678901234$。</p>
+<p>Lorenz系统初始值：$y_0=0.6789012346,z_0=0.7890123456,q_0=0.6890123450$</p>
+<p>密钥集：$\gamma_0 = [a’_0, p’_0, u’_0, v’_0, w’_0, x’_0, y’_0, z’_0, q’_0].$</p>
+<p>Chen系统控制参数：$a=36,b=3,c=28,d=16,k=0.2$</p>
+<p>Lorenz系统控制参数：$f=10,g=8/3,r=28$</p>
+<p>用Lean作为明文图片对所提出的加密方案进行评价和测试</p>
 <h5 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h5><p>NPCR</p>
 <p>像素数变化率(NPCR)和统一平均变化强度(UACI)。NPCR和UACI分别表示两张加密图像之间的变化像素数和两张加密图像之间的平均变化强度数。NPCR和UACI的理想值为99.61%和33.46% </p>
+<h5 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h5><p>仔细阅读论文并进行实验时，发现了一些问题（不排除是自己理解错了🙄）</p>
+<h6 id="Table1-八种碱基配对规则？？？"><a href="#Table1-八种碱基配对规则？？？" class="headerlink" title="Table1 八种碱基配对规则？？？"></a>Table1 八种碱基配对规则？？？</h6><p>感觉这个表有点不太对，它这样八种规则不是一样吗？？？不都是00-A;01-C;10-G;11-T吗？？？我照着论文还能复现出实验吗？？？</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00-A</td>
+<td>01-C</td>
+<td>10-G</td>
+<td>11-T</td>
+<td>01-C</td>
+<td>00-A</td>
+<td>11-T</td>
+<td>10-G</td>
+</tr>
+<tr>
+<td>01-C</td>
+<td>00-A</td>
+<td>11-T</td>
+<td>01-C</td>
+<td>11-T</td>
+<td>10-G</td>
+<td>10-G</td>
+<td>00-A</td>
+</tr>
+<tr>
+<td>10-G</td>
+<td>11-T</td>
+<td>00-A</td>
+<td>10-G</td>
+<td>00-A</td>
+<td>01-C</td>
+<td>01-C</td>
+<td>11-T</td>
+</tr>
+<tr>
+<td>11-T</td>
+<td>10-G</td>
+<td>01-C</td>
+<td>00-A</td>
+<td>10-G</td>
+<td>11-T</td>
+<td>00-A</td>
+<td>01-C</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>我认为正确的八种规则如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00-A</td>
+<td>00-C</td>
+<td>00-G</td>
+<td>00-T</td>
+<td>00-C</td>
+<td>00-A</td>
+<td>00-T</td>
+<td>00-G</td>
+</tr>
+<tr>
+<td>01-C</td>
+<td>01-A</td>
+<td>01-T</td>
+<td>01-C</td>
+<td>01-T</td>
+<td>01-G</td>
+<td>01-G</td>
+<td>01-A</td>
+</tr>
+<tr>
+<td>10-G</td>
+<td>10-T</td>
+<td>10-A</td>
+<td>10-G</td>
+<td>10-A</td>
+<td>10-C</td>
+<td>10-C</td>
+<td>10-T</td>
+</tr>
+<tr>
+<td>11-T</td>
+<td>11-G</td>
+<td>11-C</td>
+<td>11-A</td>
+<td>11-G</td>
+<td>11-T</td>
+<td>11-A</td>
+<td>11-C</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="生成初始值—SHA-256？？？"><a href="#生成初始值—SHA-256？？？" class="headerlink" title="生成初始值—SHA-256？？？"></a>生成初始值—SHA-256？？？</h6><p>使用SHA-256算法这样修改初始条件和控制参数的依据是什么？且用词和公式存在一定的问题。</p>
+<p>如：</p>
+<p><code>The message digest is divided into two groups of hexadecimal values. The first group is divided into mj blocks of equal size where j = 1, 2,· · ·, 8.</code></p>
+<p>如此表达让人费解，应该为：消息摘要分成两部分，第一部分应该是分成大小相等的8块，其值分别为 $m_j,j=1,2…,8$。</p>
+<p>还有：<code>The second group is directly converted into floating point value d(0, 0.0156)</code> </p>
+<p>$d = hex2dec(d)/2^{42}$</p>
+<p>我觉得这个公式除数的幂不对，应为38即$d = hex2dec(d)/2^{38}$</p>
+<p>因为SHA-256消息摘要256位，第一部分分8块，每块7个16进制数，也就是每块28bits转换成浮点小数 $m_j∈(0, 0.0156)$ 公式 $m_j = hex2dec(m_1,…, m_8)/2^{34}$ 这是没错的（每块最大数字为 $2^{28},2^{28}/2^{34}=0.015625$ ）；那么第二部分剩下8个16进制数，也就是32位，虽然比第一部分的块多了一个16进制数，但一个十六进制数是4bits，所以转成小数公式应为$d = hex2dec(d)/2^{38}$。</p>
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5>]]></content>
       <categories>
         <category>复杂网络与图像加密</category>
@@ -10676,5 +11170,21 @@ I(i,j)=(I'(i,j)-((r_1(i,j)+r_2(i,j))\oplus r_3(i,j))) mod 256</script><p>解密�
         <tag>图像加密</tag>
         <tag>混沌模型</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Custom makes all things easy!</title>
+    <url>/2021/03/29/2021-03-28/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Welcome to my blog, enter password to read.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="ce3e14ef49ae5131a17f67e37b1006cd461d3bdd2f3f69bdaed4a53d744e4747">04b96cf03f1b5d00286d72390b6bf2e0817acbfddb7147d2fcc01912c7f5c0f9713c9c317ba53b9347fde83c930f8c77af411014f8ec84eef7465f6027f6e56361da453a696c51ea2cf726ce74f4d1f870ba487ed6f2d242104af5c0877116b7f14bfb7a90c5973d12ee403d2035f9933239ae2447ed66790333bdf54ffb591262e25fa12dbcf137d44c19a6cd948ebafb15e73fa6eff6dc060b9040f5fe74ceda47dc32b97d576023487f051b3ba548d6ba50e2b500f2040aef18f59839ab6e1e75f19b19b2197541d212a3b8a50be74d4dcb775f19746dc5f65bb1d14038106d809a8f516785e6e320975209525d369518b3e93b5bec268679dda1396e30afe69c8f882a0bd5eacf54f501c1e3d2ec1f5da0f913213670df08e0d6b80fcb4e29ca1ca33e27978ba10300aacf73830e57f36695bf585a9fa20c1c755aae387c6d9d50bc981234a634ef22c6b952fd838eab40223a1a4408067a85c1617cfcc50e79c2b859107d83af46f7e45ed3094aca20a17bf4a900fffebb33b7d85dfbcae54541f119aa64e5dd2d6adbe3553fc0f96110493c8f2784ed3dff7f7165b52331f94d999be10dd9e3c84e5ab46b91194fd7cef698dd94f51bfb73bc9c0bd991643a0ba7e085930e6091510c15cfa00da19337d6f7f0e71bc57c25ed50add0b1949312734b5b5623968923d3aa334702865a6302fe90fb481caa4a624c04c11cec9ece79905977d5c8dbec2a1c77d7791b7fa69e77a00bc15a6022f852e509141ca157bbd9e1530c7eee49f3ba2766ff289705ba2478d3288c1a40b33f4a7ad1150f7fed81553331bdfd2fd28638a1109ff4867629d8bce39b1769fb2820120b5513827ab357ed670f70b4d38e10f478da8554efb79a44a29d2f310a6ec517b368f39f6ed9a3419617de5c64b31a1cd12ee2afc48f28d99d151c15b0d5681d1a32b2667153f0ae0ca6f6f62044027f22935017af6f0b517079bb3356ce51e630c55588192668d7b220f73145d142a9c05cd1107bc8c748bf3ddd4396398b6bacaa59df360f338b0e0c0452912c83f5d8691caa1eb1261afd817ceb6eeb306cab25b78aabda914ccdf1b79a65a1b176b3c4986a1c73d4d8c9db762fe6a77362abfe1cceeeb50c2b4cc7d27339892b343212b1da76bd67b344cf74f175c7a3700d9f589071d53187df9306bbf8c07f2eaf0a2cb06c03b58552b8149d4720c4d50383f2e9f7acf0d8742c7a1cfb95b2a90793130edcfd2c930ff9f23d88d4b2e916a1058bccd41f216d3e1d20e53ddbb51e09b5933a88550f7bf24678869ac8f9381b77a02f7a07f1fc9db2a1da906e74364a46dd3a5b9b9172efee47d3cdc952f9f36a564d08bc70175a271674d559104136d2daf13212387e14101ec8d796223316885a6cf537162ee86128671acf773b1aad4d0403a3d1aea9294201d98d94829febadc0e8415c576ff58eab8957de41e24e061acaf10fbbe8859e340e6c620c3f07af7b75ed04b46caa328e1fb2cd04d6fcb1e420071c077371d79090a4841ca88de3a28d7a52ae5b8b208eab0edd53b1b075bd961edacd975b67090dcdfa754052d1c0cbdf5fa4bb0d6d6179fb5390cf1db525319d844df0567c35a2c1b9c7145fb32d35eb75c28697a0e679d2339f24366bb6db87844fd964348026cdfaea720ac58d3f2d52235f73c1a9a08dbb4f37128427d0e5bcc4690d64df72fd9348e14f45afabdf7020788836c89024289a</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
   </entry>
 </search>
