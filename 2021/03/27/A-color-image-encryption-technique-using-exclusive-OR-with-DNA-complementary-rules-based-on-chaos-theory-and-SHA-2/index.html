@@ -30,7 +30,7 @@
 <meta property="og:description" content="使用基于混沌理论和SHA-2的异或与DNA互补规则的彩色图像加密技术  【论文地址】">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-27T01:43:16.000Z">
-<meta property="article:modified_time" content="2021-03-29T13:31:46.837Z">
+<meta property="article:modified_time" content="2021-04-02T10:16:34.542Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="图像加密">
 <meta property="article:tag" content="论文">
@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-29 21:31:46" itemprop="dateModified" datetime="2021-03-29T21:31:46+08:00">2021-03-29</time>
+                <time title="修改时间：2021-04-02 18:16:34" itemprop="dateModified" datetime="2021-04-02T18:16:34+08:00">2021-04-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -476,7 +476,7 @@ d = hex2dec(d)/2^{38}</script><p>PWLCM初值为</p>
 \end{equation}</script><p>在上述方程中，CK是生成的通用密钥，如下所示</p>
 <script type="math/tex; mode=display">
 CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像的依赖性确保了每次输入都会改变，因此使得加密图像更加安全。</p>
-<h6 id="扩散"><a href="#扩散" class="headerlink" title="扩散"></a>扩散</h6><p>本文提出的彩色图像的扩散方法分两次进行，第一次是采用PWLCM迭代3MN次得到的混沌序列A，将图像I的所有三个通道合并成一个1*3MN大小的一维数组，然后根据混沌序列A进行排序。</p>
+<h6 id="置乱"><a href="#置乱" class="headerlink" title="置乱"></a>置乱</h6><p>本文提出的彩色图像的置乱方法分两次进行，第一次是采用PWLCM迭代3MN次得到的混沌序列A，将图像I的所有三个通道合并成一个1*3MN大小的一维数组，然后根据混沌序列A进行排序。</p>
 <p>$A={a_i,a_{i+1},…,a_{3MN}}$</p>
 <p>$[valA,idxA]=sort(A)$</p>
 <p>$I’=I(idxA)$</p>
@@ -557,7 +557,7 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
         B\_DNA=Encode(B'(i),U_3)
         \end{array}\
      \right .
-    \end{equation}</script><h6 id="混淆-置换"><a href="#混淆-置换" class="headerlink" title="混淆/置换"></a>混淆/置换</h6><p>对彩色图像的三个通道进行编码，以一种新颖的方式对每个像素进行异或运算，并使用DNA规则本身。该方法需要两个确定性随机数数组，一个混沌序列用于选择DNA规则，另一个混沌序列用于决定重复时间，以继续与后续的DNA规则进行异或操作。利用上述Chen系统生成的随机序列V和W，将其转换为start{0,1,2,3,4,5,6,7}和times{0,1,2,3,4,5,6,7}，</p>
+    \end{equation}</script><h6 id="混淆-扩散"><a href="#混淆-扩散" class="headerlink" title="混淆/扩散"></a>混淆/扩散</h6><p>对彩色图像的三个通道进行编码，以一种新颖的方式对每个像素进行异或运算，并使用DNA规则本身。该方法需要两个确定性随机数数组，一个混沌序列用于选择DNA规则，另一个混沌序列用于决定重复时间，以继续与后续的DNA规则进行异或操作。利用上述Chen系统生成的随机序列V和W，将其转换为start{0,1,2,3,4,5,6,7}和times{0,1,2,3,4,5,6,7}，</p>
 <script type="math/tex; mode=display">
 \begin{equation}
     \left \{
@@ -594,8 +594,8 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
 \begin{equation}
     \left\{
         \begin{array}{lr}
-        x_1=E[X(1),X(2),...,X(MN)] \\
-        x_2=[X(MN+1),X(MN+2),...,X(2MN)] \\
+        X_1=E[X(1),X(2),...,X(MN)] \\
+        X_2=[X(MN+1),X(MN+2),...,X(2MN)] \\
            X_3=[X(2MN+1),X(2MN+2),...,X(3MN)]
         \end{array}\
      \right .
@@ -608,7 +608,7 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
         Cipher\_BLUE=Decode(BLUE(i),X_3)
         \end{array}\
      \right .
-    \end{equation}</script><h6 id="置换过程说明"><a href="#置换过程说明" class="headerlink" title="置换过程说明"></a>置换过程说明</h6><p>假设红通道的一个像素由DNA碱基{A, C, T, T}组成，start_R={4}，times_R={6}，则{A, C, T，</p>
+    \end{equation}</script><h6 id="扩散过程说明"><a href="#扩散过程说明" class="headerlink" title="扩散过程说明"></a>扩散过程说明</h6><p>假设红通道的一个像素由DNA碱基{A, C, T, T}组成，start_R={4}，times_R={6}，则{A, C, T，</p>
 <p>T}将与规则GTAC异或，然后是ACGT, TCGA, CATG, AGCT和GATC</p>
 <div class="table-container">
 <table>
@@ -788,7 +788,9 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
 <p>$d = hex2dec(d)/2^{42}$</p>
 <p>我觉得这个公式除数的幂不对，应为38即$d = hex2dec(d)/2^{38}$</p>
 <p>因为SHA-256消息摘要256位，第一部分分8块，每块7个16进制数，也就是每块28bits转换成浮点小数 $m_j∈(0, 0.0156)$ 公式 $m_j = hex2dec(m_1,…, m_8)/2^{34}$ 这是没错的（每块最大数字为 $2^{28},2^{28}/2^{34}=0.015625$ ）；那么第二部分剩下8个16进制数，也就是32位，虽然比第一部分的块多了一个16进制数，但一个十六进制数是4bits，所以转成小数公式应为$d = hex2dec(d)/2^{38}$。</p>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5>
+<h6 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h6><p>在加密图像过程中使用SHA-256算法修改了混沌系统的初始条件和控制参数，增强了加密过程和明文图像的相关性，提高了安全性。但是这就产生了一个问题，安全性太高了，搞得加密图像自己也难以解密了，因为无法根据加密后的图像得知修改后的混沌系统的初始值，原论文有问题？？？</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30967115/article/details/85053415">Python读取图像并显示灰度图</a></p>
+
     </div>
 
     
@@ -907,7 +909,7 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">2.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">相关工作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#PWLCM"><span class="nav-number">3.1.</span> <span class="nav-text">PWLCM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Chen%E2%80%99s-hyper-chaotic-system"><span class="nav-number">3.2.</span> <span class="nav-text">Chen’s hyper-chaotic system</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Lorenz%E2%80%99s-system"><span class="nav-number">3.3.</span> <span class="nav-text">Lorenz’s system</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#DNA-complementary-rules-and-algebraic-operations"><span class="nav-number">3.4.</span> <span class="nav-text">DNA complementary rules and algebraic operations</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">本文方案</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">生成初始条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%89%A9%E6%95%A3"><span class="nav-number">4.2.</span> <span class="nav-text">扩散</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#DNA%E7%BC%96%E7%A0%81"><span class="nav-number">4.3.</span> <span class="nav-text">DNA编码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B7%B7%E6%B7%86-%E7%BD%AE%E6%8D%A2"><span class="nav-number">4.4.</span> <span class="nav-text">混淆&#x2F;置换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E7%A0%81"><span class="nav-number">4.5.</span> <span class="nav-text">解码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BD%AE%E6%8D%A2%E8%BF%87%E7%A8%8B%E8%AF%B4%E6%98%8E"><span class="nav-number">4.6.</span> <span class="nav-text">置换过程说明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.7.</span> <span class="nav-text">图像加密步骤</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E8%BF%87%E7%A8%8B"><span class="nav-number">4.8.</span> <span class="nav-text">解密过程</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6"><span class="nav-number">5.1.</span> <span class="nav-text">初始条件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">6.</span> <span class="nav-text">扩展</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%96%91%E9%97%AE"><span class="nav-number">7.</span> <span class="nav-text">疑问</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Table1-%E5%85%AB%E7%A7%8D%E7%A2%B1%E5%9F%BA%E9%85%8D%E5%AF%B9%E8%A7%84%E5%88%99%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">7.1.</span> <span class="nav-text">Table1 八种碱基配对规则？？？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%88%9D%E5%A7%8B%E5%80%BC%E2%80%94SHA-256%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">7.2.</span> <span class="nav-text">生成初始值—SHA-256？？？</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">2.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">相关工作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#PWLCM"><span class="nav-number">3.1.</span> <span class="nav-text">PWLCM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Chen%E2%80%99s-hyper-chaotic-system"><span class="nav-number">3.2.</span> <span class="nav-text">Chen’s hyper-chaotic system</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Lorenz%E2%80%99s-system"><span class="nav-number">3.3.</span> <span class="nav-text">Lorenz’s system</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#DNA-complementary-rules-and-algebraic-operations"><span class="nav-number">3.4.</span> <span class="nav-text">DNA complementary rules and algebraic operations</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">本文方案</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">生成初始条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BD%AE%E4%B9%B1"><span class="nav-number">4.2.</span> <span class="nav-text">置乱</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#DNA%E7%BC%96%E7%A0%81"><span class="nav-number">4.3.</span> <span class="nav-text">DNA编码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B7%B7%E6%B7%86-%E6%89%A9%E6%95%A3"><span class="nav-number">4.4.</span> <span class="nav-text">混淆&#x2F;扩散</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E7%A0%81"><span class="nav-number">4.5.</span> <span class="nav-text">解码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%89%A9%E6%95%A3%E8%BF%87%E7%A8%8B%E8%AF%B4%E6%98%8E"><span class="nav-number">4.6.</span> <span class="nav-text">扩散过程说明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.7.</span> <span class="nav-text">图像加密步骤</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E8%BF%87%E7%A8%8B"><span class="nav-number">4.8.</span> <span class="nav-text">解密过程</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6"><span class="nav-number">5.1.</span> <span class="nav-text">初始条件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">6.</span> <span class="nav-text">扩展</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%96%91%E9%97%AE"><span class="nav-number">7.</span> <span class="nav-text">疑问</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Table1-%E5%85%AB%E7%A7%8D%E7%A2%B1%E5%9F%BA%E9%85%8D%E5%AF%B9%E8%A7%84%E5%88%99%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">7.1.</span> <span class="nav-text">Table1 八种碱基配对规则？？？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%88%9D%E5%A7%8B%E5%80%BC%E2%80%94SHA-256%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">7.2.</span> <span class="nav-text">生成初始值—SHA-256？？？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86"><span class="nav-number">7.3.</span> <span class="nav-text">解密</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -997,7 +999,7 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">238k</span>
+    <span title="站点总字数">239k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

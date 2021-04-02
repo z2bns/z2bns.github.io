@@ -10301,7 +10301,11 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
 <p>基于安全性分析和实验仿真，该算法能够抵抗蛮力攻击，并具有良好的加密性能。</p>
 <p>【A novel hybrid color image encryption algorithm using two complex chaotic systems】</p>
 <h5 id="使用进化方法的彩色图像加密"><a href="#使用进化方法的彩色图像加密" class="headerlink" title="使用进化方法的彩色图像加密"></a>使用进化方法的彩色图像加密</h5><h5 id="基于频域的彩色图像加密"><a href="#基于频域的彩色图像加密" class="headerlink" title="基于频域的彩色图像加密"></a>基于频域的彩色图像加密</h5><h6 id="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"><a href="#利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密" class="headerlink" title="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"></a>利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密</h6><p>【Color image encryption by using Arnold transform and color-blend operation in discrete cosine transform domains】</p>
-<h5 id="光学彩色图像加密"><a href="#光学彩色图像加密" class="headerlink" title="光学彩色图像加密"></a>光学彩色图像加密</h5><h5 id="利用置乱变换对彩色图像进行加密"><a href="#利用置乱变换对彩色图像进行加密" class="headerlink" title="利用置乱变换对彩色图像进行加密"></a>利用置乱变换对彩色图像进行加密</h5><h5 id="彩色图像加密使用排列"><a href="#彩色图像加密使用排列" class="headerlink" title="彩色图像加密使用排列"></a>彩色图像加密使用排列</h5><h5 id="基于哈希的彩色图像加密"><a href="#基于哈希的彩色图像加密" class="headerlink" title="基于哈希的彩色图像加密"></a>基于哈希的彩色图像加密</h5><h5 id="基于DNA的彩色图像加密"><a href="#基于DNA的彩色图像加密" class="headerlink" title="基于DNA的彩色图像加密"></a>基于DNA的彩色图像加密</h5><h5 id="彩色图像的双-多-图像加密"><a href="#彩色图像的双-多-图像加密" class="headerlink" title="彩色图像的双(多)图像加密"></a>彩色图像的双(多)图像加密</h5><h5 id="使用通道分解的彩色图像加密"><a href="#使用通道分解的彩色图像加密" class="headerlink" title="使用通道分解的彩色图像加密"></a>使用通道分解的彩色图像加密</h5><h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://baike.baidu.com/item/%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%BC%8F/10209468?fr=aladdin">色彩模式</a></p>
+<h5 id="光学彩色图像加密"><a href="#光学彩色图像加密" class="headerlink" title="光学彩色图像加密"></a>光学彩色图像加密</h5><h6 id="利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密"><a href="#利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密" class="headerlink" title="利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密"></a>利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密</h6><p>【Optical color image encryption without information disclosure usingphase-truncated Fresnel transform and a random amplitude mask】</p>
+<h6 id="彩色图像加密利用hartley变换域旋转彩色向量"><a href="#彩色图像加密利用hartley变换域旋转彩色向量" class="headerlink" title="彩色图像加密利用hartley变换域旋转彩色向量"></a>彩色图像加密利用hartley变换域旋转彩色向量</h6><p>【Color image encryption by using the rotation of color vector in Hartley transform domains】</p>
+<h5 id="利用置乱变换对彩色图像进行加密"><a href="#利用置乱变换对彩色图像进行加密" class="headerlink" title="利用置乱变换对彩色图像进行加密"></a>利用置乱变换对彩色图像进行加密</h5><h6 id="一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法"><a href="#一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法" class="headerlink" title="一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法"></a>一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法</h6><p>【An image encryption algorithm based on the memristive hyperchaotic system, cellular automata and DNA sequence operations】</p>
+<h5 id="彩色图像加密使用排列"><a href="#彩色图像加密使用排列" class="headerlink" title="彩色图像加密使用排列"></a>彩色图像加密使用排列</h5><h5 id="基于哈希的彩色图像加密"><a href="#基于哈希的彩色图像加密" class="headerlink" title="基于哈希的彩色图像加密"></a>基于哈希的彩色图像加密</h5><h5 id="基于DNA的彩色图像加密"><a href="#基于DNA的彩色图像加密" class="headerlink" title="基于DNA的彩色图像加密"></a>基于DNA的彩色图像加密</h5><h6 id="使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密"><a href="#使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密" class="headerlink" title="使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密"></a>使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密</h6><p>【Color image DNA encryption using NCA map-based CML and one-time keys】</p>
+<h5 id="彩色图像的双-多-图像加密"><a href="#彩色图像的双-多-图像加密" class="headerlink" title="彩色图像的双(多)图像加密"></a>彩色图像的双(多)图像加密</h5><h5 id="使用通道分解的彩色图像加密"><a href="#使用通道分解的彩色图像加密" class="headerlink" title="使用通道分解的彩色图像加密"></a>使用通道分解的彩色图像加密</h5><h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://baike.baidu.com/item/%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%BC%8F/10209468?fr=aladdin">色彩模式</a></p>
 ]]></content>
       <categories>
         <category>复杂网络与图像加密</category>
@@ -10566,9 +10570,9 @@ I(i,j)=(I'(i,j)-((r_1(i,j)+r_2(i,j))\oplus r_3(i,j))) mod 256</script><p>解密�
 \begin{equation}
     \left\{
         \begin{array}{lr}
-        \dot{x} =\sigma(y-x)  \\
-        \dot{y}=\rho x -y -xz \\
-        \dot{z}=xy-\beta z
+        \frac{dx}{dt} =\sigma(y-x)  \\
+        \frac{dy}{dt}=\rho x -y -xz \\
+        \frac{dz}{dt}=xy-\beta z
         \end{array}
     \right .
 \end{equation}</script><p>其中，三个参数分别为：$\sigma$为普朗特数，$\rho$是瑞利数，$\beta$是方向比。</p>
@@ -10601,9 +10605,9 @@ I(i,j)=(I'(i,j)-((r_1(i,j)+r_2(i,j))\oplus r_3(i,j))) mod 256</script><p>解密�
 \begin{equation}
     \left\{
         \begin{array}{lr}
-        \dot{x} =-\omega y-z  \\
-        \dot{y}=\omega x+\alpha y \\
-        \dot{z}=\beta +z(x-\gamma)
+        \frac{dx}{dt} =-\omega y-z  \\
+        \frac{dy}{dt}=\omega x+\alpha y \\
+        \frac{dz}{dt}=\beta +z(x-\gamma)
         \end{array}
     \right .
 \end{equation}</script><p>其中，$\omega,\alpha,\beta,\gamma$为系统的参数。我们称 $\omega$为自然频率，是表征系统在没有外界干扰时转动快慢的量。</p>
@@ -10816,7 +10820,7 @@ d = hex2dec(d)/2^{38}</script><p>PWLCM初值为</p>
 \end{equation}</script><p>在上述方程中，CK是生成的通用密钥，如下所示</p>
 <script type="math/tex; mode=display">
 CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像的依赖性确保了每次输入都会改变，因此使得加密图像更加安全。</p>
-<h6 id="扩散"><a href="#扩散" class="headerlink" title="扩散"></a>扩散</h6><p>本文提出的彩色图像的扩散方法分两次进行，第一次是采用PWLCM迭代3MN次得到的混沌序列A，将图像I的所有三个通道合并成一个1*3MN大小的一维数组，然后根据混沌序列A进行排序。</p>
+<h6 id="置乱"><a href="#置乱" class="headerlink" title="置乱"></a>置乱</h6><p>本文提出的彩色图像的置乱方法分两次进行，第一次是采用PWLCM迭代3MN次得到的混沌序列A，将图像I的所有三个通道合并成一个1*3MN大小的一维数组，然后根据混沌序列A进行排序。</p>
 <p>$A={a_i,a_{i+1},…,a_{3MN}}$</p>
 <p>$[valA,idxA]=sort(A)$</p>
 <p>$I’=I(idxA)$</p>
@@ -10897,7 +10901,7 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
         B\_DNA=Encode(B'(i),U_3)
         \end{array}\
      \right .
-    \end{equation}</script><h6 id="混淆-置换"><a href="#混淆-置换" class="headerlink" title="混淆/置换"></a>混淆/置换</h6><p>对彩色图像的三个通道进行编码，以一种新颖的方式对每个像素进行异或运算，并使用DNA规则本身。该方法需要两个确定性随机数数组，一个混沌序列用于选择DNA规则，另一个混沌序列用于决定重复时间，以继续与后续的DNA规则进行异或操作。利用上述Chen系统生成的随机序列V和W，将其转换为start{0,1,2,3,4,5,6,7}和times{0,1,2,3,4,5,6,7}，</p>
+    \end{equation}</script><h6 id="混淆-扩散"><a href="#混淆-扩散" class="headerlink" title="混淆/扩散"></a>混淆/扩散</h6><p>对彩色图像的三个通道进行编码，以一种新颖的方式对每个像素进行异或运算，并使用DNA规则本身。该方法需要两个确定性随机数数组，一个混沌序列用于选择DNA规则，另一个混沌序列用于决定重复时间，以继续与后续的DNA规则进行异或操作。利用上述Chen系统生成的随机序列V和W，将其转换为start{0,1,2,3,4,5,6,7}和times{0,1,2,3,4,5,6,7}，</p>
 <script type="math/tex; mode=display">
 \begin{equation}
     \left \{
@@ -10934,8 +10938,8 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
 \begin{equation}
     \left\{
         \begin{array}{lr}
-        x_1=E[X(1),X(2),...,X(MN)] \\
-        x_2=[X(MN+1),X(MN+2),...,X(2MN)] \\
+        X_1=E[X(1),X(2),...,X(MN)] \\
+        X_2=[X(MN+1),X(MN+2),...,X(2MN)] \\
            X_3=[X(2MN+1),X(2MN+2),...,X(3MN)]
         \end{array}\
      \right .
@@ -10948,7 +10952,7 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
         Cipher\_BLUE=Decode(BLUE(i),X_3)
         \end{array}\
      \right .
-    \end{equation}</script><h6 id="置换过程说明"><a href="#置换过程说明" class="headerlink" title="置换过程说明"></a>置换过程说明</h6><p>假设红通道的一个像素由DNA碱基{A, C, T, T}组成，start_R={4}，times_R={6}，则{A, C, T，</p>
+    \end{equation}</script><h6 id="扩散过程说明"><a href="#扩散过程说明" class="headerlink" title="扩散过程说明"></a>扩散过程说明</h6><p>假设红通道的一个像素由DNA碱基{A, C, T, T}组成，start_R={4}，times_R={6}，则{A, C, T，</p>
 <p>T}将与规则GTAC异或，然后是ACGT, TCGA, CATG, AGCT和GATC</p>
 <div class="table-container">
 <table>
@@ -11128,7 +11132,9 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
 <p>$d = hex2dec(d)/2^{42}$</p>
 <p>我觉得这个公式除数的幂不对，应为38即$d = hex2dec(d)/2^{38}$</p>
 <p>因为SHA-256消息摘要256位，第一部分分8块，每块7个16进制数，也就是每块28bits转换成浮点小数 $m_j∈(0, 0.0156)$ 公式 $m_j = hex2dec(m_1,…, m_8)/2^{34}$ 这是没错的（每块最大数字为 $2^{28},2^{28}/2^{34}=0.015625$ ）；那么第二部分剩下8个16进制数，也就是32位，虽然比第一部分的块多了一个16进制数，但一个十六进制数是4bits，所以转成小数公式应为$d = hex2dec(d)/2^{38}$。</p>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5>]]></content>
+<h6 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h6><p>在加密图像过程中使用SHA-256算法修改了混沌系统的初始条件和控制参数，增强了加密过程和明文图像的相关性，提高了安全性。但是这就产生了一个问题，安全性太高了，搞得加密图像自己也难以解密了，因为无法根据加密后的图像得知修改后的混沌系统的初始值，原论文有问题？？？</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://blog.csdn.net/qq_30967115/article/details/85053415">Python读取图像并显示灰度图</a></p>
+]]></content>
       <categories>
         <category>复杂网络与图像加密</category>
       </categories>
@@ -11148,9 +11154,9 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
 \begin{equation}
     \left\{
         \begin{array}{lr}
-        \dot{x} =a(y-x)  \\
-        \dot{y}=(c-a) x-xz+cy \\
-        \dot{z}=xy-bz
+        \frac{dx}{dt} =a(y-x)  \\
+        \frac{dy}{dt}=(c-a) x-xz+cy \\
+        \frac{dz}{dt}=xy-bz
         \end{array}
     \right .
 \end{equation}</script><p>陈氏混沌系统(Chen)为典型的混沌系统，当a=35,b=3,c=28时，系统呈现混沌状态。</p>
