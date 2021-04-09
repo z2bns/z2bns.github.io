@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/03/27/A-color-image-encryption-technique-using-exclusive-OR-with-DNA-complementary-rules-based-on-chaos-theory-and-SHA-2/DNA.png">
 <meta property="article:published_time" content="2021-03-27T01:43:16.000Z">
-<meta property="article:modified_time" content="2021-04-07T10:33:29.508Z">
+<meta property="article:modified_time" content="2021-04-09T03:42:15.679Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="图像加密">
 <meta property="article:tag" content="论文">
@@ -235,7 +235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-07 18:33:29" itemprop="dateModified" datetime="2021-04-07T18:33:29+08:00">2021-04-07</time>
+                <time title="修改时间：2021-04-09 11:42:15" itemprop="dateModified" datetime="2021-04-09T11:42:15+08:00">2021-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -793,6 +793,7 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
 <p>我觉得这个公式除数的幂不对，应为38即$d = hex2dec(d)/2^{38}$</p>
 <p>因为SHA-256消息摘要256位，第一部分分8块，每块7个16进制数，也就是每块28bits转换成浮点小数 $m_j∈(0, 0.0156)$ 公式 $m_j = hex2dec(m_1,…, m_8)/2^{34}$ 这是没错的（每块最大数字为 $2^{28},2^{28}/2^{34}=0.015625$ ）；那么第二部分剩下8个16进制数，也就是32位，虽然比第一部分的块多了一个16进制数，但一个十六进制数是4bits，所以转成小数公式应为$d = hex2dec(d)/2^{38}$。</p>
 <h6 id="解密？？？"><a href="#解密？？？" class="headerlink" title="解密？？？"></a>解密？？？</h6><p>在加密图像过程中使用SHA-256算法修改了混沌系统的初始条件和控制参数，增强了加密过程和明文图像的相关性，提高了安全性。但是这就产生了一个问题，安全性太高了，搞得加密图像自己也难以解密了，因为无法根据加密后的图像得知修改后的混沌系统的初始值，原论文有问题？？？也许是加密图像传输过程中密钥也一起传输，这样不是更不安全吗？？？</p>
+<p>答：通过长时间思考以及询问，密钥应该是在传输过程中随密文一起传输的，至于怎么传输就不在本研究范围内了。😜</p>
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30967115/article/details/85053415">Python读取图像并显示灰度图</a></p>
 
     </div>
@@ -929,7 +930,7 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">189</span>
+          <span class="site-state-item-count">190</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1003,13 +1004,13 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">240k</span>
+    <span title="站点总字数">245k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:39</span>
+    <span title="站点阅读时长">3:42</span>
 </div>
 
 

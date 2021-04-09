@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="性能评价指标主要是用于评估加密算法的性能，本文展示了所有常见的性能指标，并分别对每个指标进行了详细描述和代码实现。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见图像加密性能评价指标">
+<meta property="og:url" content="http://example.com/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="性能评价指标主要是用于评估加密算法的性能，本文展示了所有常见的性能指标，并分别对每个指标进行了详细描述和代码实现。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/Lena-1617878204463.png">
+<meta property="og:image" content="http://example.com/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/hist_lena.png">
+<meta property="og:image" content="http://example.com/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/hist_lena_encrypt1.png">
+<meta property="article:published_time" content="2021-04-08T02:59:27.000Z">
+<meta property="article:modified_time" content="2021-04-09T03:42:36.988Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="图像加密">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/Lena-1617878204463.png">
+
+<link rel="canonical" href="http://example.com/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>常见图像加密性能评价指标 | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          常见图像加密性能评价指标
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-08 10:59:27" itemprop="dateCreated datePublished" datetime="2021-04-08T10:59:27+08:00">2021-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-09 11:42:36" itemprop="dateModified" datetime="2021-04-09T11:42:36+08:00">2021-04-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>性能评价指标主要是用于评估加密算法的性能，本文展示了所有常见的性能指标，并分别对每个指标进行了详细描述和代码实现。</p>
+<a id="more"></a>
+<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><h6 id="本文目的"><a href="#本文目的" class="headerlink" title="本文目的"></a>本文目的</h6><p>介绍一些常见的用于图像加密的评价指标并予以代码实现，方便以后做实验时参考查阅。</p>
+<h6 id="实验示例图片下载"><a href="#实验示例图片下载" class="headerlink" title="实验示例图片下载"></a>实验示例图片下载</h6><p><a target="_blank" rel="noopener" href="https://z2bns.github.io/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/Lena.png">Lena.png</a>，<a target="_blank" rel="noopener" href="https://z2bns.github.io/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/Lena_encrypt1.png">Lena_encrypt1.png</a>，<a target="_blank" rel="noopener" href="https://z2bns.github.io/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/Lena_encrypt2.png">Lena_encrypt2.png</a></p>
+<p><img src="/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/Lena-1617878204463.png" alt="Lena"></p>
+<p>注：Lena.png为原图像，Lena_encrypt1.png、Lena_encrypt2.png为使用不同密钥加密的图像。</p>
+<p>加密过程参见<a target="_blank" rel="noopener" href="https://z2bns.github.io/2021/03/27/A-color-image-encryption-technique-using-exclusive-OR-with-DNA-complementary-rules-based-on-chaos-theory-and-SHA-2/">【使用基于混沌理论和SHA-2的异或与DNA互补规则的彩色图像加密技术】</a></p>
+<h5 id="密钥空间分析"><a href="#密钥空间分析" class="headerlink" title="密钥空间分析"></a>密钥空间分析</h5><p>密钥空间指能够用于生成密钥的所有可能密钥的集合，密钥空间的大小取决于安全密钥的长度，它是决定密码系统强度的最重要特性之一。对于长度为 L 的二进制安全密钥，其密钥空间大小为2 𝐿，即攻击者想要通过暴力攻击的手 段攻击加密系统，理论上需要计算2𝐿次才能保证一定能攻击成功。以现阶段计 算机的计算能力来看，当安全密钥长度 L = 128, 即密钥空间大小为$2^128$时，使用现代高性能计算机检查所有可能的密钥需要大约 1021 年，因此，加密算法能抵御任何形式的暴力攻击。</p>
+<h5 id="密钥敏感性分析"><a href="#密钥敏感性分析" class="headerlink" title="密钥敏感性分析"></a>密钥敏感性分析</h5><h6 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h6><p>理想的多媒体加密应该对密钥敏感，即密钥中一个比特的变化应该产生一个完全不同的加密结果，称为密钥敏感性。一般来说，混沌密码的密钥灵敏度是指混沌映射的初始状态的灵敏度和控制参数的灵敏度。灵敏度的评估使用两个参数:像素数变化率(NPCR)和统一平均变化强度(UACI)。NPCR和UACI分别表示两张加密图像之间的变化像素数和两张加密图像之间的平均变化强度数。它们相应的理想值分别为 NPCR=99.6094％，UACI=33.4635%，计算公式如下：</p>
+<script type="math/tex; mode=display">
+NPCR=\frac{\Sigma_{i,j}D(i,j)}{M*N}*100\%</script><p>式中，M和N分别为两幅随机图像的宽度和高度，定义D (i, j)如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    D(i,j)=f(x)=\left\{
+        \begin{array}{lr}
+        1,\ C_1(i,j)\neq C_2(i,j) \\
+        0,\ otherwise \\
+        \end{array}
+    \right .
+\end{equation}</script><p>相应地，UACI可以用来测量颜色分量对比度强度的平均值，计算公式如下：</p>
+<script type="math/tex; mode=display">
+UACI=\frac{1}{M*N}\frac{\Sigma(C_1(i,j)-C_2(i,j))}{255}*100\%</script><p>密钥敏感度测试可以通过修改密钥 K 中的某一位得到 K’，利用 K 和 K’ 加密同一张图像得到$𝐶_1$和$𝐶_2$，采用像素改变率 NPCR 和像素平均改变强度 UACI 量化两张密文图像的差别。NPCR 和 UACI 越接近理想值，加密算法对安全密钥 的敏感度越强，加密算法越安全。</p>
+<h6 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h6><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>PSNR</th>
+<th>UACI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R</td>
+<td>99.5686%</td>
+<td>33.4380%</td>
+</tr>
+<tr>
+<td>G</td>
+<td>99.6098%</td>
+<td>33.4592%</td>
+</tr>
+<tr>
+<td>B</td>
+<td>99.6178%</td>
+<td>33.4337%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">计算像素数变化率</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">NPCR</span>(<span class="params">img1,img2</span>):</span></span><br><span class="line">  <span class="comment">#opencv颜色通道顺序为BGR</span></span><br><span class="line">  img1=cv2.imread(img1)</span><br><span class="line">  img2=cv2.imread(img2)</span><br><span class="line">  w,h,_=img1.shape</span><br><span class="line"></span><br><span class="line">  <span class="comment">#图像通道拆分</span></span><br><span class="line">  B1,G1,R1=cv2.split(img1)</span><br><span class="line">  B2,G2,R2=cv2.split(img2)</span><br><span class="line">  <span class="comment">#返回数组的排序后的唯一元素和每个元素重复的次数</span></span><br><span class="line">  ar,num=np.unique((R1!=R2),return_counts=<span class="literal">True</span>)</span><br><span class="line">  R_npcr=(num[<span class="number">0</span>] <span class="keyword">if</span> ar[<span class="number">0</span>]==<span class="literal">True</span> <span class="keyword">else</span> num[<span class="number">1</span>])/(w*h)</span><br><span class="line">  ar,num=np.unique((G1!=G2),return_counts=<span class="literal">True</span>)</span><br><span class="line">  G_npcr=(num[<span class="number">0</span>] <span class="keyword">if</span> ar[<span class="number">0</span>]==<span class="literal">True</span> <span class="keyword">else</span> num[<span class="number">1</span>])/(w*h)</span><br><span class="line">  ar,num=np.unique((B1!=B2),return_counts=<span class="literal">True</span>)</span><br><span class="line">  B_npcr=(num[<span class="number">0</span>] <span class="keyword">if</span> ar[<span class="number">0</span>]==<span class="literal">True</span> <span class="keyword">else</span> num[<span class="number">1</span>])/(w*h)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> R_npcr,G_npcr,B_npcr</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">两张图像之间的平均变化强度</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">UACI</span>(<span class="params">img1,img2</span>):</span></span><br><span class="line">  img1=cv2.imread(img1)</span><br><span class="line">  img2=cv2.imread(img2)</span><br><span class="line">  w,h,_=img1.shape</span><br><span class="line">  <span class="comment">#图像通道拆分</span></span><br><span class="line">  B1,G1,R1=cv2.split(img1)</span><br><span class="line">  B2,G2,R2=cv2.split(img2)</span><br><span class="line">  <span class="comment">#元素为uint8类型取值范围：0到255</span></span><br><span class="line">  <span class="comment"># print(R1.dtype)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#强制转换元素类型，为了运算</span></span><br><span class="line">  R1=R1.astype(np.int16)</span><br><span class="line">  R2=R2.astype(np.int16)</span><br><span class="line">  G1=G1.astype(np.int16)</span><br><span class="line">  G2=G2.astype(np.int16)</span><br><span class="line">  B1=B1.astype(np.int16)</span><br><span class="line">  B2=B2.astype(np.int16)</span><br><span class="line"></span><br><span class="line">  sumR=np.sum(abs(R1-R2))</span><br><span class="line">  sumG=np.sum(abs(G1-G2))</span><br><span class="line">  sumB=np.sum(abs(B1-B2))</span><br><span class="line">  R_uaci=sumR/<span class="number">255</span>/(w*h)</span><br><span class="line">  G_uaci=sumG/<span class="number">255</span>/(w*h)</span><br><span class="line">  B_uaci=sumB/<span class="number">255</span>/(w*h)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> R_uaci,G_uaci,B_uaci</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  <span class="comment">#img=&#x27;./lena.png&#x27;</span></span><br><span class="line">  img1=<span class="string">&#x27;./lena_encrypt1.png&#x27;</span></span><br><span class="line">  img2=<span class="string">&#x27;./lena_encrypt2.png&#x27;</span></span><br><span class="line"></span><br><span class="line">  R_npcr,G_npcr,B_npcr=NPCR(img1,img2)</span><br><span class="line">  print(<span class="string">&#x27;*********PSNR*********&#x27;</span>)</span><br><span class="line">  <span class="comment">#百分数表示，保留小数点后4位</span></span><br><span class="line">  print(<span class="string">&#x27;Red  :&#123;:.4%&#125;&#x27;</span>.format(R_npcr))</span><br><span class="line">  print(<span class="string">&#x27;Green:&#123;:.4%&#125;&#x27;</span>.format(G_npcr))</span><br><span class="line">  print(<span class="string">&#x27;Blue :&#123;:.4%&#125;&#x27;</span>.format(B_npcr))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  R_uaci,G_uaci,B_uaci=UACI(img1,img2)</span><br><span class="line">  print(<span class="string">&#x27;*********UACI*********&#x27;</span>)</span><br><span class="line">  <span class="comment">#百分数表示，保留小数点后4位</span></span><br><span class="line">  print(<span class="string">&#x27;Red  :&#123;:.4%&#125;&#x27;</span>.format(R_uaci))</span><br><span class="line">  print(<span class="string">&#x27;Green:&#123;:.4%&#125;&#x27;</span>.format(G_uaci))</span><br><span class="line">  print(<span class="string">&#x27;Blue :&#123;:.4%&#125;&#x27;</span>.format(B_uaci))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<h5 id="灰度直方图分析"><a href="#灰度直方图分析" class="headerlink" title="灰度直方图分析"></a>灰度直方图分析</h5><h6 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h6><p>直方图显示图像的统计信息，直观地反映了图像中各个灰度值的分布情况。明文图像的直方图表现出明显的统计规律，针对统计规律的攻击方案被称为统计分析攻击。统计分析攻击是指攻击者通过分析密文和明文的统计规律来破译密码。攻击者对截获 的密文图像进行统计分析，总结出其间的统计规律，并与明文的统计规律进行 比较，从中提取明文图像和密文图像之间的变换关系, 以达到攻击加密方案的目的。为了抵抗统计攻击，加密图像的直方图必须是均匀的，并且完全不同于明文图像的直方图。直方图的方差能有效量化加密算法抵御统计分析攻击能力。方差越小，说明像素 分布越均匀，图像显示的统计信息就越少，图像加密方案就越安全。</p>
+<h6 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h6><p>原图像Lena.png的灰度直方图如下：</p>
+<p><img src="/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/hist_lena.png" alt="hist"></p>
+<p>加密图像Lena_encrypt1.png的灰度直方图如下：</p>
+<p><img src="/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/hist_lena_encrypt1.png" alt="hist_lena_encrypt1"></p>
+<h6 id="实验代码-1"><a href="#实验代码-1" class="headerlink" title="实验代码"></a>实验代码</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">绘制灰度直方图</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hist</span>(<span class="params">img</span>):</span></span><br><span class="line">  img=cv2.imread(img)</span><br><span class="line">  B,G,R=cv2.split(img)</span><br><span class="line">  <span class="comment">#转成一维</span></span><br><span class="line">  R=R.flatten(order=<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line">  G=G.flatten(order=<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line">  B=B.flatten(order=<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">#结果展示</span></span><br><span class="line">  plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 中文乱码</span></span><br><span class="line">  plt.subplot(<span class="number">232</span>)</span><br><span class="line">  <span class="comment"># plt.imshow(img[:,:,(2,1,0)])</span></span><br><span class="line">  plt.hist(img.flatten(order=<span class="string">&#x27;C&#x27;</span>),bins=range(<span class="number">256</span>),color=<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;原图像&#x27;</span>)</span><br><span class="line">  <span class="comment">#子图2，通道R</span></span><br><span class="line">  plt.subplot(<span class="number">234</span>)</span><br><span class="line">  <span class="comment">#imshow()对图像进行处理，画出图像，show()进行图像显示</span></span><br><span class="line">  plt.hist(R,bins=range(<span class="number">256</span>),color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;通道R&#x27;</span>)</span><br><span class="line">  <span class="comment"># plt.show()</span></span><br><span class="line">  <span class="comment">#不显示坐标轴</span></span><br><span class="line">  <span class="comment"># plt.axis(&#x27;off&#x27;)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图3，通道G</span></span><br><span class="line">  plt.subplot(<span class="number">235</span>)</span><br><span class="line">  plt.hist(G,bins=range(<span class="number">256</span>),color=<span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;通道G&#x27;</span>)</span><br><span class="line">  <span class="comment"># plt.show()</span></span><br><span class="line">  <span class="comment"># plt.axis(&#x27;off&#x27;)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图4，通道B</span></span><br><span class="line">  plt.subplot(<span class="number">236</span>)</span><br><span class="line">  plt.hist(B,bins=range(<span class="number">256</span>),color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;通道B&#x27;</span>)</span><br><span class="line">  <span class="comment"># plt.axis(&#x27;off&#x27;)</span></span><br><span class="line">  <span class="comment"># #设置子图默认的间距</span></span><br><span class="line">  plt.tight_layout()</span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  img=<span class="string">&#x27;./lena.png&#x27;</span></span><br><span class="line">  <span class="comment">#图像lean的灰度直方图</span></span><br><span class="line">  hist(img)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<h5 id="相邻像素相关性分析"><a href="#相邻像素相关性分析" class="headerlink" title="相邻像素相关性分析"></a>相邻像素相关性分析</h5><p>相关性分析是指对两个或多个具备相关性的变量元素进行分析，从而衡量变量之间的相关密切程度。由于图像相邻像素之间存在着很高的相关性，一个像素往往会泄露其周边像素的信息，攻击者往往可以利用该特性推理预测出下一个像素的灰度值,，从而实现对整个明文图像的恢复。数字图像中的相邻像素具有相似的强度;因此具有很强的相关性，这些强相关性必须被打破，以避免统计攻击。相关系数在水平、垂直和对角线方向的计算公式如下：</p>
+<script type="math/tex; mode=display">
+R_{xy}=\frac{cov(x,y)}{\sqrt{D(x)}\sqrt{D(y)}}</script><script type="math/tex; mode=display">
+E(x)=\frac{1}{N}\sum_{i=1}^{N}{x_i}</script><script type="math/tex; mode=display">
+D(x)=\frac{1}{N}\sum_{i=1}^{N}{(x_i-E(x))^2}</script><script type="math/tex; mode=display">
+cov(x,y)=\frac{1}{N}\sum_{i=1}^{N}{(x_i-E(x))(y_i-E(y))}</script><p>上述式子中，y为x的相邻像素，N为M × N幅图像中像素的总数，$R_{xy}$即为两相邻像素的相关性,cov(x, y)是x和y两个像素点处的协方差，$\sqrt{D(x)}$是标准差，D(x)是方差，E(x)是均值。通常，明文图像相邻像素的相关性接近 1，而密文图像相邻像素的相关 性应该接近于 0。</p>
+<h5 id="信息熵分析"><a href="#信息熵分析" class="headerlink" title="信息熵分析"></a>信息熵分析</h5><h6 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h6><p>熵常用来描述事物的复杂性，信源的信息熵是度量信息随机性的一个重要 参考指标。信息论之父克劳德·香农给出的信息熵的三个性质：单调性，发生 概率越高的事件其携带的信息量越低；非负性，信息熵作为一种广度量，非负 性是一种合理的必然；累加性，多随机事件同时发生存在的总不确定性的量度是可以表示为各事件不确定性的量度之和。</p>
+<p>信息熵是对信号源随机程度的一种定量度量。也就是说，信息熵可以用来衡量图像的随机性，它计算每个颜色通道的每个灰度级的像素的扩散。如果均匀分布更好，那么它对统计攻击的抵抗就会更强。对于彩色图像强度在0-255之间的R、G、B通道，加密消息的理想熵值为8，值越高，分布越均匀。</p>
+<p>信息熵计算公式如下：</p>
+<script type="math/tex; mode=display">
+H(x)=-\sum_{i=1}^{L}{P(x_i)\log_{2}{P(x_i)}}</script><p>其中，$x_i$是灰度值，$P(x_i)$是灰度级$x_i$的概率。</p>
+<h6 id="实验结果-2"><a href="#实验结果-2" class="headerlink" title="实验结果"></a>实验结果</h6><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>信息熵计算</th>
+<th>原Lena图像</th>
+<th>加密图像1</th>
+<th>加密图像2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R</td>
+<td>6.879</td>
+<td>7.999</td>
+<td>7.999</td>
+</tr>
+<tr>
+<td>G</td>
+<td>6.926</td>
+<td>7.999</td>
+<td>7.999</td>
+</tr>
+<tr>
+<td>B</td>
+<td>6.968</td>
+<td>7.999</td>
+<td>7.999</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="实验代码-2"><a href="#实验代码-2" class="headerlink" title="实验代码"></a>实验代码</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">计算图像的信息熵</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">entropy</span>(<span class="params">img</span>):</span></span><br><span class="line">  img=cv2.imread(img)</span><br><span class="line">  w,h,_=img.shape</span><br><span class="line">  B,G,R=cv2.split(img)</span><br><span class="line">  gray,num1=np.unique(R,return_counts=<span class="literal">True</span>)</span><br><span class="line">  gray,num2=np.unique(G,return_counts=<span class="literal">True</span>)</span><br><span class="line">  gray,num3=np.unique(B,return_counts=<span class="literal">True</span>)</span><br><span class="line">  R_entropy=<span class="number">0</span></span><br><span class="line">  G_entropy=<span class="number">0</span></span><br><span class="line">  B_entropy=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(len(gray)):</span><br><span class="line">    p1=num1[i]/(w*h)</span><br><span class="line">    p2=num2[i]/(w*h)</span><br><span class="line">    p3=num3[i]/(w*h)</span><br><span class="line">    R_entropy-=p1*(math.log(p1,<span class="number">2</span>))</span><br><span class="line">    G_entropy-=p2*(math.log(p2,<span class="number">2</span>))</span><br><span class="line">    B_entropy-=p3*(math.log(p3,<span class="number">2</span>))</span><br><span class="line">  <span class="keyword">return</span> R_entropy,G_entropy,B_entropy</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  img=<span class="string">&#x27;./lena.png&#x27;</span></span><br><span class="line">  img1=<span class="string">&#x27;./lena_encrypt1.png&#x27;</span></span><br><span class="line">  img2=<span class="string">&#x27;./lena_encrypt2.png&#x27;</span></span><br><span class="line">  <span class="comment">#图像lena的熵</span></span><br><span class="line">  R_entropy,G_entropy,B_entropy=entropy(img)</span><br><span class="line">  print(<span class="string">&#x27;***********信息熵*********&#x27;</span>)</span><br><span class="line">  print(<span class="string">&#x27;通道R:&#123;:.4&#125;&#x27;</span>.format(R_entropy))</span><br><span class="line">  print(<span class="string">&#x27;通道G:&#123;:.4&#125;&#x27;</span>.format(G_entropy))</span><br><span class="line">  print(<span class="string">&#x27;通道B:&#123;:.4&#125;&#x27;</span>.format(B_entropy))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<h5 id="峰值信噪比（PSNR）"><a href="#峰值信噪比（PSNR）" class="headerlink" title="峰值信噪比（PSNR）"></a>峰值信噪比（PSNR）</h5><h6 id="概念-3"><a href="#概念-3" class="headerlink" title="概念"></a>概念</h6><p>峰值信噪比主要考察对应像素点之间的误差。给定大小为M*N的加密图像X和原图像Y，均方误差（MSE）定义为：</p>
+<script type="math/tex; mode=display">
+MSE=\frac{1}{M*N}\sum_{i=1}^{M}\sum_{j=1}^{N}{(X(i,j)-Y(i,j))^2}</script><p>PSNR计算公式如下：</p>
+<script type="math/tex; mode=display">
+PSNR=10\log_{10}{\frac{(2^n-1)^2}{MSE}}</script><p>其中，M、N分别表示图像的宽高，n为像素位数；PSNR值越大，表示失真越小，两张图片差距越小，加密效果越差。</p>
+<h6 id="实验结果-3"><a href="#实验结果-3" class="headerlink" title="实验结果"></a>实验结果</h6><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>PSNR</th>
+<th>原图-加密图像1</th>
+<th>原图-加密图像2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R</td>
+<td>7.895</td>
+<td>7.890</td>
+</tr>
+<tr>
+<td>G</td>
+<td>8.562</td>
+<td>8.548</td>
+</tr>
+<tr>
+<td>B</td>
+<td>9.603</td>
+<td>9.612</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="实验代码-3"><a href="#实验代码-3" class="headerlink" title="实验代码"></a>实验代码</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">PSNR</span>(<span class="params">img1,img2</span>):</span></span><br><span class="line">  img1=cv2.imread(img1)</span><br><span class="line">  img2=cv2.imread(img2)</span><br><span class="line">  w,h,_=img1.shape</span><br><span class="line">  B1,G1,R1=cv2.split(img1)</span><br><span class="line">  B2,G2,R2=cv2.split(img2)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#强制转换元素类型，为了运算</span></span><br><span class="line">  R1=R1.astype(np.int32)</span><br><span class="line">  R2=R2.astype(np.int32)</span><br><span class="line">  G1=G1.astype(np.int32)</span><br><span class="line">  G2=G2.astype(np.int32)</span><br><span class="line">  B1=B1.astype(np.int32)</span><br><span class="line">  B2=B2.astype(np.int32)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#计算均方误差,初始化64位无符号整型，防止累加中溢出</span></span><br><span class="line">  R_mse=np.uint64(<span class="number">0</span>)</span><br><span class="line">  G_mse=np.uint64(<span class="number">0</span>)</span><br><span class="line">  B_mse=np.uint64(<span class="number">0</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(w):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(h):</span><br><span class="line">      R_mse+=(R1[i][j]-R2[i][j])**<span class="number">2</span></span><br><span class="line">      G_mse+=(G1[i][j]-G2[i][j])**<span class="number">2</span></span><br><span class="line">      B_mse+=(B1[i][j]-B2[i][j])**<span class="number">2</span></span><br><span class="line">  R_mse/=(w*h)</span><br><span class="line">  G_mse/=(w*h)</span><br><span class="line">  B_mse/=(w*h)</span><br><span class="line">  R_psnr=<span class="number">10</span>*math.log((<span class="number">255</span>**<span class="number">2</span>)/R_mse,<span class="number">10</span>)</span><br><span class="line">  G_psnr=<span class="number">10</span>*math.log((<span class="number">255</span>**<span class="number">2</span>)/G_mse,<span class="number">10</span>)</span><br><span class="line">  B_psnr=<span class="number">10</span>*math.log((<span class="number">255</span>**<span class="number">2</span>)/B_mse,<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> R_psnr,G_psnr,B_psnr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  img=<span class="string">&#x27;./lena.png&#x27;</span></span><br><span class="line">  img1=<span class="string">&#x27;./lena_encrypt1.png&#x27;</span></span><br><span class="line">  img2=<span class="string">&#x27;./lena_encrypt2.png&#x27;</span></span><br><span class="line">  <span class="comment">#计算PSNR</span></span><br><span class="line">  R_psnr,G_psnr,B_psnr=PSNR(img,img1)</span><br><span class="line">  print(<span class="string">&#x27;***********峰值信噪比*********&#x27;</span>)</span><br><span class="line">  print(R_psnr,G_psnr,B_psnr)</span><br><span class="line">  print(<span class="string">&#x27;通道R:&#123;:.4&#125;&#x27;</span>.format(R_psnr))</span><br><span class="line">  print(<span class="string">&#x27;通道G:&#123;:.4&#125;&#x27;</span>.format(G_psnr))</span><br><span class="line">  print(<span class="string">&#x27;通道B:&#123;:.4&#125;&#x27;</span>.format(B_psnr))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="GVD"><a href="#GVD" class="headerlink" title="GVD"></a>GVD</h5><h6 id="概念-4"><a href="#概念-4" class="headerlink" title="概念"></a>概念</h6><p>灰度差度是比较原始图像和加密图像的随机性的另一种统计度量，可由下式定义：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    GN(x,y)=\frac{\sum{[G(x,y)-G(x',y')]^2}}{4}here(x',y')=\left\{
+        \begin{array}{lr}
+        (x-1,y) \\
+        (x+1,y) \\
+        (x,y+1) \\
+        (x,y-1)
+        \end{array}
+    \right .
+\end{equation}</script><p>其中G(x, y)表示位置(x, y)处的灰度值。整幅图像的平均邻域灰度差可以用下式子计算：</p>
+<script type="math/tex; mode=display">
+GVD=\frac{AN'[GN(x,y)]-AN[GN(x,y)]}{AN'[GN(x,y)]+AN[GN(x,y)]}</script><script type="math/tex; mode=display">
+AN[GN(x,y)]=\frac{\sum_{x=2}^{M-1}{\sum_{y=2}^{N-1}{GN(x,y)}}}{(M-2)(N-2)}</script><p>在上两个式子中，AN和AN’代表平均邻域灰度值，但前者表示加密前，后者表示加密后。上述方程的最终结果称为GVD评分，如果两幅图像完全相同，则为0，否则为1。</p>
+<h6 id="实验结果-4"><a href="#实验结果-4" class="headerlink" title="实验结果"></a>实验结果</h6><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>GVD</th>
+<th>原图-加密图像1</th>
+<th>原图-加密图像2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R</td>
+<td>0.9864</td>
+<td>0.9864</td>
+</tr>
+<tr>
+<td>G</td>
+<td>0.9753</td>
+<td>0.9754</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0.9768</td>
+<td>0.9768</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="实验代码-4"><a href="#实验代码-4" class="headerlink" title="实验代码"></a>实验代码</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#计算图像分量的GVD,参数为加密前后的2个分量二维矩阵</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GVD_components</span>(<span class="params">channel0,channel1</span>):</span></span><br><span class="line">  AN0=<span class="number">0</span></span><br><span class="line">  AN1=<span class="number">0</span></span><br><span class="line">  w,h=channel0.shape</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,w<span class="number">-1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,h<span class="number">-1</span>):</span><br><span class="line">      <span class="comment">#加密前</span></span><br><span class="line">      GN0=<span class="number">0</span></span><br><span class="line">      GN0+=(channel0[i][j]-channel0[i<span class="number">-1</span>][j])**<span class="number">2</span></span><br><span class="line">      GN0+=(channel0[i][j]-channel0[i+<span class="number">1</span>][j])**<span class="number">2</span></span><br><span class="line">      GN0+=(channel0[i][j]-channel0[i][j<span class="number">-1</span>])**<span class="number">2</span></span><br><span class="line">      GN0+=(channel0[i][j]-channel0[i][j+<span class="number">1</span>])**<span class="number">2</span></span><br><span class="line">      GN0/=<span class="number">4</span></span><br><span class="line">      <span class="comment">#加密后</span></span><br><span class="line">      GN1=<span class="number">0</span></span><br><span class="line">      GN1+=(channel1[i][j]-channel1[i<span class="number">-1</span>][j])**<span class="number">2</span></span><br><span class="line">      GN1+=(channel1[i][j]-channel1[i+<span class="number">1</span>][j])**<span class="number">2</span></span><br><span class="line">      GN1+=(channel1[i][j]-channel1[i][j<span class="number">-1</span>])**<span class="number">2</span></span><br><span class="line">      GN1+=(channel1[i][j]-channel1[i][j+<span class="number">1</span>])**<span class="number">2</span></span><br><span class="line">      GN1/=<span class="number">4</span></span><br><span class="line">      AN0+=GN0</span><br><span class="line">      AN1+=GN1</span><br><span class="line">  AN0/=((w<span class="number">-2</span>)*(h<span class="number">-2</span>))</span><br><span class="line">  AN1/=((w<span class="number">-2</span>)*(h<span class="number">-2</span>))</span><br><span class="line">  gvd=(AN1-AN0)/(AN1+AN0)</span><br><span class="line">  <span class="keyword">return</span> gvd</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GVD</span>(<span class="params">img1,img2</span>):</span></span><br><span class="line">  img1=cv2.imread(img1)</span><br><span class="line">  img2=cv2.imread(img2)</span><br><span class="line">  w,h,_=img1.shape</span><br><span class="line">  B1,G1,R1=cv2.split(img1)</span><br><span class="line">  B2,G2,R2=cv2.split(img2)</span><br><span class="line">  R1=R1.astype(np.int16)</span><br><span class="line">  R2=R2.astype(np.int16)</span><br><span class="line">  G1=G1.astype(np.int16)</span><br><span class="line">  G2=G2.astype(np.int16)</span><br><span class="line">  B1=B1.astype(np.int16)</span><br><span class="line">  B2=B2.astype(np.int16)</span><br><span class="line">  R_gvd=GVD_components(R1,R2)</span><br><span class="line">  G_gvd=GVD_components(G1,G2)</span><br><span class="line">  B_gvd=GVD_components(B1,B2)</span><br><span class="line">  <span class="keyword">return</span> R_gvd,G_gvd,B_gvd</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  img=<span class="string">&#x27;./lena.png&#x27;</span></span><br><span class="line">  img1=<span class="string">&#x27;./lena_encrypt1.png&#x27;</span></span><br><span class="line">  img2=<span class="string">&#x27;./lena_encrypt2.png&#x27;</span></span><br><span class="line">  <span class="comment">#计算GVD</span></span><br><span class="line">  R_gvd,G_gvd,B_gvd=GVD(img,img1)</span><br><span class="line">  print(<span class="string">&#x27;***********GVD*********&#x27;</span>)</span><br><span class="line">  <span class="comment">#print(R_gvd,G_gvd,B_gvd)</span></span><br><span class="line">  print(<span class="string">&#x27;通道R:&#123;:.4&#125;&#x27;</span>.format(R_gvd))</span><br><span class="line">  print(<span class="string">&#x27;通道G:&#123;:.4&#125;&#x27;</span>.format(G_gvd))</span><br><span class="line">  print(<span class="string">&#x27;通道B:&#123;:.4&#125;&#x27;</span>.format(B_gvd))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<h5 id="加密质量"><a href="#加密质量" class="headerlink" title="加密质量"></a>加密质量</h5><h6 id="概念-5"><a href="#概念-5" class="headerlink" title="概念"></a>概念</h6><p>图像加密的质量可由下式决定：</p>
+<script type="math/tex; mode=display">
+EQ=\sum_{L=0}^{255}{(H_L(E)-H_L(I))^2/256}</script><p>其中$E(i,j)$和$I(i,j)$分别是M*N像素L灰度级的密文和明文图像在(i,j)处的像素灰度值。很显然，$I(i,j)、E(i,j)\in \{0,1,..,L-1\}$。将 $H_L(I)$ 和 $H_L(E)$定义为每个灰度级L各自在明文图像和密码图像中的出现次数，EQ表示每个灰度级l的平均变化次数，EQ值越大，加密安全性越好。</p>
+<h6 id="实验结果-5"><a href="#实验结果-5" class="headerlink" title="实验结果"></a>实验结果</h6><p>注：512*512图像，EQ值最大应该是1024？？？待考虑？？</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>EQ</th>
+<th>原图-加密图像1</th>
+<th>原图-加密图像2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R</td>
+<td>807</td>
+<td>804</td>
+</tr>
+<tr>
+<td>G</td>
+<td>589</td>
+<td>590</td>
+</tr>
+<tr>
+<td>B</td>
+<td>1027</td>
+<td>1027</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="实验代码-5"><a href="#实验代码-5" class="headerlink" title="实验代码"></a>实验代码</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">计算加密质量，img1是原图，img2是加密图像</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">EQ</span>(<span class="params">img1,img2</span>):</span></span><br><span class="line">  img1=cv2.imread(img1)</span><br><span class="line">  img2=cv2.imread(img2)</span><br><span class="line">  w,h,_=img1.shape</span><br><span class="line">  B1,G1,R1=cv2.split(img1)</span><br><span class="line">  B2,G2,R2=cv2.split(img2)</span><br><span class="line">  R1_H=&#123;&#125;</span><br><span class="line">  R2_H=&#123;&#125;</span><br><span class="line">  G1_H=&#123;&#125;</span><br><span class="line">  G2_H=&#123;&#125;</span><br><span class="line">  B1_H=&#123;&#125;</span><br><span class="line">  B2_H=&#123;&#125;</span><br><span class="line">  R_EQ=<span class="number">0</span></span><br><span class="line">  G_EQ=<span class="number">0</span></span><br><span class="line">  B_EQ=<span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">256</span>):</span><br><span class="line">    R1_H[i]=<span class="number">0</span></span><br><span class="line">    R2_H[i]=<span class="number">0</span></span><br><span class="line">    G1_H[i]=<span class="number">0</span></span><br><span class="line">    G2_H[i]=<span class="number">0</span></span><br><span class="line">    B1_H[i]=<span class="number">0</span></span><br><span class="line">    B2_H[i]=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(w):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(h):</span><br><span class="line">      R1_H[R1[i][j]]+=<span class="number">1</span>;</span><br><span class="line">      R2_H[R2[i][j]]+=<span class="number">1</span>;</span><br><span class="line">      G1_H[G1[i][j]]+=<span class="number">1</span>;</span><br><span class="line">      G2_H[G2[i][j]]+=<span class="number">1</span>;</span><br><span class="line">      B1_H[B1[i][j]]+=<span class="number">1</span>;</span><br><span class="line">      B2_H[B2[i][j]]+=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">256</span>):</span><br><span class="line">    <span class="comment">#公式里是平方，待考虑</span></span><br><span class="line">    R_EQ+=abs(R1_H[i]-R2_H[i])</span><br><span class="line">    G_EQ+=abs(G1_H[i]-G2_H[i])</span><br><span class="line">    B_EQ+=abs(B1_H[i]-B2_H[i])</span><br><span class="line">  <span class="comment"># print(R_EQ)</span></span><br><span class="line">  R_EQ/=<span class="number">256</span></span><br><span class="line">  G_EQ/=<span class="number">256</span></span><br><span class="line">  B_EQ/=<span class="number">256</span></span><br><span class="line">  <span class="keyword">return</span> R_EQ,G_EQ,B_EQ</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  img=<span class="string">&#x27;./lena.png&#x27;</span></span><br><span class="line">  img1=<span class="string">&#x27;./lena_encrypt1.png&#x27;</span></span><br><span class="line">  img2=<span class="string">&#x27;./lena_encrypt2.png&#x27;</span></span><br><span class="line">  <span class="comment">#计算加密质量</span></span><br><span class="line">  R_EQ,G_EQ,B_EQ=EQ(img,img1)</span><br><span class="line">  print(<span class="string">&#x27;***********EQ*********&#x27;</span>)</span><br><span class="line">  print(R_EQ,G_EQ,B_EQ)</span><br><span class="line">  print(<span class="string">&#x27;通道R:&#123;:.0f&#125;&#x27;</span>.format(R_EQ))</span><br><span class="line">  print(<span class="string">&#x27;通道G:&#123;:.0f&#125;&#x27;</span>.format(G_EQ))</span><br><span class="line">  print(<span class="string">&#x27;通道B:&#123;:.0f&#125;&#x27;</span>.format(B_EQ))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<h5 id="差别分析"><a href="#差别分析" class="headerlink" title="差别分析"></a>差别分析</h5><h5 id="鲁棒性与噪声"><a href="#鲁棒性与噪声" class="headerlink" title="鲁棒性与噪声"></a>鲁棒性与噪声</h5><h6 id="阻塞攻击（Occlusion-attack）"><a href="#阻塞攻击（Occlusion-attack）" class="headerlink" title="阻塞攻击（Occlusion attack）"></a>阻塞攻击（Occlusion attack）</h6><p>在互联网上的通信过程中，图像的一部分可能丢失，提出的算必须须能够以适当的方式处理有损图像的解码。为了显示所提出的密码在这种情况下的强度，分别从一个图形中去掉红色通道的一块像素、绿色通道的一块像素以及所有通道的一块像素，然后对它们进行加密;如果解密后原始信息被保留，并且原始图像的内容可以可视化，所提出的密码将能够处理有损图像的解密。</p>
+<h6 id="噪声攻击（Noise-addition）"><a href="#噪声攻击（Noise-addition）" class="headerlink" title="噪声攻击（Noise addition）"></a>噪声攻击（Noise addition）</h6><p>在现实世界中，图像在互联网上的传输不可避免地会受到各种因素的影响，比如噪声，通信噪声造成的失真、退化和污染是很常见的，这些因素都会对终端图像的解密产生一定的影响，从有噪声的密文 中恢复图像是比较困难的。因此，图像加密算法必须具有足够的鲁棒性，以抵抗实际场景中的噪声攻击。在仿真实验中，大多数的研究人员常会对密文图像 添加不同程度的高斯噪声或椒盐噪声进行实验，再对有噪声的加密图像进行解密并对解密结果进行比较。抗噪声能力是测试 加密方案性能的一个重要指标。</p>
+<h6 id="对比度调节"><a href="#对比度调节" class="headerlink" title="对比度调节"></a>对比度调节</h6><p>一幅图像中必须存在合适的亮度和对比度，这样才能让人看得舒服，前者代表整个图像的明度或暗度，后者定义亮度的差异，以确定不同区域的清晰分离。因此，对比度调整是一种图像处理机制，其中的输入强度映射到所需的水平，以增强感兴趣的区域或区域。</p>
+<p>来不及了，未完待续。。。。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" rel="tag"><i class="fa fa-tag"></i> 图像加密</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/07/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A%E5%A4%84%E7%90%86/" rel="prev" title="几种常见的图像模糊处理">
+      <i class="fa fa-chevron-left"></i> 几种常见的图像模糊处理
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E7%9B%AE%E7%9A%84"><span class="nav-number">1.1.</span> <span class="nav-text">本文目的</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%A4%BA%E4%BE%8B%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">实验示例图片下载</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E7%A9%BA%E9%97%B4%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">密钥空间分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E6%95%8F%E6%84%9F%E6%80%A7%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">密钥敏感性分析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">3.2.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">3.3.</span> <span class="nav-text">实验代码</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%81%B0%E5%BA%A6%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">灰度直方图分析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="nav-number">4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C-1"><span class="nav-number">4.2.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81-1"><span class="nav-number">4.3.</span> <span class="nav-text">实验代码</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E9%82%BB%E5%83%8F%E7%B4%A0%E7%9B%B8%E5%85%B3%E6%80%A7%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">相邻像素相关性分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5%E5%88%86%E6%9E%90"><span class="nav-number">6.</span> <span class="nav-text">信息熵分析</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-2"><span class="nav-number">6.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C-2"><span class="nav-number">6.2.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81-2"><span class="nav-number">6.3.</span> <span class="nav-text">实验代码</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B3%B0%E5%80%BC%E4%BF%A1%E5%99%AA%E6%AF%94%EF%BC%88PSNR%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">峰值信噪比（PSNR）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-3"><span class="nav-number">7.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C-3"><span class="nav-number">7.2.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81-3"><span class="nav-number">7.3.</span> <span class="nav-text">实验代码</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GVD"><span class="nav-number">8.</span> <span class="nav-text">GVD</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-4"><span class="nav-number">8.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C-4"><span class="nav-number">8.2.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81-4"><span class="nav-number">8.3.</span> <span class="nav-text">实验代码</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E8%B4%A8%E9%87%8F"><span class="nav-number">9.</span> <span class="nav-text">加密质量</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-5"><span class="nav-number">9.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C-5"><span class="nav-number">9.2.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81-5"><span class="nav-number">9.3.</span> <span class="nav-text">实验代码</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%AE%E5%88%AB%E5%88%86%E6%9E%90"><span class="nav-number">10.</span> <span class="nav-text">差别分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%B2%81%E6%A3%92%E6%80%A7%E4%B8%8E%E5%99%AA%E5%A3%B0"><span class="nav-number">11.</span> <span class="nav-text">鲁棒性与噪声</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E6%94%BB%E5%87%BB%EF%BC%88Occlusion-attack%EF%BC%89"><span class="nav-number">11.1.</span> <span class="nav-text">阻塞攻击（Occlusion attack）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%99%AA%E5%A3%B0%E6%94%BB%E5%87%BB%EF%BC%88Noise-addition%EF%BC%89"><span class="nav-number">11.2.</span> <span class="nav-text">噪声攻击（Noise addition）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E5%BA%A6%E8%B0%83%E8%8A%82"><span class="nav-number">11.3.</span> <span class="nav-text">对比度调节</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">190</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">loadding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">245k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:42</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
