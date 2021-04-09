@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="【论文地址】 一种基于两个复杂混沌系统的混合彩色图像加密算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A novel hybrid color image encryption algorithm using two complex chaotic systems">
+<meta property="og:url" content="http://example.com/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="【论文地址】 一种基于两个复杂混沌系统的混合彩色图像加密算法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/complex_chen.png">
+<meta property="og:image" content="http://example.com/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/complex_Lorenz.png">
+<meta property="og:image" content="http://example.com/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/1-s2.0-S0143816615001906-gr5.jpg">
+<meta property="og:image" content="https://ars.els-cdn.com/content/image/1-s2.0-S0143816615001906-gr6.jpg">
+<meta property="og:image" content="http://example.com/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/1-s2.0-S0143816615001906-gr7.jpg">
+<meta property="article:published_time" content="2021-04-09T05:21:46.000Z">
+<meta property="article:modified_time" content="2021-04-09T14:29:31.506Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="图像加密">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/complex_chen.png">
+
+<link rel="canonical" href="http://example.com/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>A novel hybrid color image encryption algorithm using two complex chaotic systems | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          A novel hybrid color image encryption algorithm using two complex chaotic systems
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-09 13:21:46 / 修改时间：22:29:31" itemprop="dateCreated datePublished" datetime="2021-04-09T13:21:46+08:00">2021-04-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0957417419308310">【论文地址】</a></p>
+<h5 id="一种基于两个复杂混沌系统的混合彩色图像加密算法"><a href="#一种基于两个复杂混沌系统的混合彩色图像加密算法" class="headerlink" title="一种基于两个复杂混沌系统的混合彩色图像加密算法"></a>一种基于两个复杂混沌系统的混合彩色图像加密算法</h5><a id="more"></a>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>本文在复杂Chen和复杂Lorenz系统的基础上，提出了一种新的彩色图像加密算法。与真实混沌系统相比，复杂混沌系统具有更大的混沌范围和更复杂的行为，可以进一步提高彩色图像加密的安全性，扩大密钥空间。加密算法由三个步骤组成。在置乱过程中，对普通图像的像素分别进行二维和一维的RGB通道排列。在扩散过程中，采用异或(XOR)操作来隐藏像素信息。最后，利用混合RGB信道实现多级加密。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>在计算机和网络技术飞速发展的今天，数据传输和存储的安全性越来越受到人们的关注。混沌系统的一些基本性质，如对初始条件的敏感性和伪随机性质，满足了一个好的密码系统的要求。从这个意义上说，图像混沌加密作为图像加密的一个新领域得到了迅速的发展，自1989年Matthews提出第一个混沌密码学以来，许多研究者都提出了基于混沌的密码学方案，基于混沌的加密在其他领域也有良好的性能，如视频加密。</p>
+<p>但目前研究的关键空间还有待完善。在大多数理论中，使用一维混沌映射生成伪随机数，而伪随机数的密钥空间小，可能会削弱对潜在攻击的抵抗能力。此外，由于在混沌系统的迭代上花费过多的时间，可能会降低加密速度。</p>
+<p>面对这些问题，一些研究者在过去几年里做出了一些贡献，可以概括为四个方向。引入多维或复杂的混沌映射；结合多个混沌映射；设计更复杂的排列-扩散算法；或者增加一些传统的加密方法。</p>
+<p>本文提出的基于复杂Chen系统和复杂Lorenz系统的方案可以扩大密钥空间，以应对潜在的攻击。另外，我们对像素混淆部分进行了二维处理，最后增加了一步处理，其主要思想是利用复杂混沌系统产生的伪随机数序列混合RGB通道。该算法的突出特点是具有多级扩散和更大的密钥空间，这些组合过程可以从各个方面保证系统的安全性，抵御攻击，避免上述问题的存在。</p>
+<h5 id="伪随机序列生成"><a href="#伪随机序列生成" class="headerlink" title="伪随机序列生成"></a>伪随机序列生成</h5><p>伪随机性是混沌系统的基本性质，适用于对信息进行加密覆盖。一维混沌系统(如logistic map)因其简单、高效而被广泛应用于伪随机数序列的生成。然而,他们的缺点,如小的密钥空间，是如此明显以致于许多提出的混沌密码系统已被一些密码分析方法破解。复杂混沌系统中复变量的实部和虚部使实变量的数量增加了一倍，增加了复变量和随机变量的数量。因此，本文采用了复杂的Chen系统和复杂的Lorenz系统来克服系统的不足，提高系统的安全性。</p>
+<h6 id="复杂Chen系统"><a href="#复杂Chen系统" class="headerlink" title="复杂Chen系统"></a>复杂Chen系统</h6><p>复杂Chen系统公式定义如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        \dot{z_1}=a_1(z_2-z_1) \\
+        \dot{z_2}=(c_1-a_1)z_1-z_1z_3+c_1z_2 \\
+        \dot{z_3}=\frac{1}{2}(\overline{z_1}z_2+z_1\overline{z_2})-b_1z_3
+        \end{array}
+    \right .
+\end{equation}</script><p>其中，$a_1,b_1$和 $c_1$是系统的控制参数，都是正实数。$z_1=z_1^r+jz_1^i$和 $z_2=z_2^r+jz_2^i$是复变量，$z_3$是实变量。根据论文所说，当 $a_1=27,b_1=4.5$且 $c_1=23$时，复杂Chen系统有更复杂和更混沌的表现，但是混沌系统对初始值不敏感，且吸引子图像与论文所述也不一样，反而当 $a_1=35,b_1=3$且 $c_1=28$时（正是Chen混沌控制参数），吸引子图像与论文相符，且对初值敏感，所以此处存疑？？？此时吸引子图像如下：</p>
+<p><img src="/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/complex_chen.png" alt="complex_chen"></p>
+<h6 id="复杂Lorenz系统"><a href="#复杂Lorenz系统" class="headerlink" title="复杂Lorenz系统"></a>复杂Lorenz系统</h6><p>复杂Lorenz系统公式定义如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        \dot{w_1}=a_2(w_2-w_1) \\
+        \dot{w_2}=c_2w_1-w_2-w_1w_3 \\
+        \dot{w_3}=\frac{1}{2}(\overline{w_1}w_2+w_1\overline{w_2})-b_2w_3
+        \end{array}
+    \right .
+\end{equation}</script><p>其中， $a_1,b_2$和 $c_3$是正实数， $w_1=w_1^r+jw_1^i$和 $w_2=w_2^r+jw_2^i$是复数变量，$w_3$是实数。同样，论文中描述当 $a_1=14,b_2=3.7$且 $c_2=35$时，复杂Lorenz系统有很好的的混沌表现，但是实验时发现这样的控制参数没有形成混沌，反而当 $a_1=10,b_1=28$且 $c_1=8/3$时（正是Lorenz混沌控制参数），吸引子图像与论文相符，所以此处也是没想明白？？？此时吸引子图像如下：</p>
+<p><img src="/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/complex_Lorenz.png" alt="complex_Lorenz"></p>
+<h6 id="密钥生成"><a href="#密钥生成" class="headerlink" title="密钥生成"></a>密钥生成</h6><p>汉明距离是一种表示两个等长序列对应位置的不同元素个数的方法，序列 $\alpha=(\alpha_1,\alpha-2,…,\alpha_n)$和 $\beta=(\beta_1,\beta_2,…,\beta_n)$的汉明距离 $H(\alpha,\beta)$定义如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        H(\alpha,\beta)=\sum_{i=1}^{n}{h(\alpha_i,\beta_i)} \\
+        h(\alpha_i,\beta_i)=
+        \begin{cases}
+        0, \ \alpha_i=\beta_i \\
+        1, \ \alpha_i \neq \beta_i
+        \end{cases}
+        \end{array}
+    \right .
+\end{equation}</script><p>基于上式，可以得到R、G、B三个通道的汉明距离 $H_{RG},H_{RB},H_{GB}$，因此生成密钥如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        H=[H_{RG},H_{RB},H_{GB},H_{RG},H_{RB},H_{GB}],\\
+        Key1=
+        \begin{cases}
+        Key_{Chen} \\
+        Key_{Lorenz} 
+        \end{cases} \\
+        Key2=mod(H,Key1);
+        \end{array}
+    \right .
+\end{equation}</script><p>其中，$Key_{Chen}$和$Key_{Lorenz}$是两个大小为6的序列，并且6个元素是由消息发送者选择的。 Key2是两个复杂混沌系统的初始值。</p>
+<p>在生成密钥时，对于不同的明文图像，在每个加密过程中汉明距离的值是不同的，消息接收方可以重新计算汉明距离，以保证解密后信息的完整性。因此，以上这些都达到了更高的安全级别。</p>
+<h6 id="伪随机序列"><a href="#伪随机序列" class="headerlink" title="伪随机序列"></a>伪随机序列</h6><p>采用上文提及的复杂混沌系统生成的混沌序列是浮点数值，不适合直接应用于图像加密方案。有必要将一个通道中的像素值修改为从0到255的整数，整数伪随机数序列转换公式如下：</p>
+<script type="math/tex; mode=display">
+t_i=fix(mod(s_i*10^{12},256))</script><p>其中，$s_i$是 来自两个混沌系统的混沌序列；mod返回除法之后的余数（即取模运算）。</p>
+<h5 id="加密方案"><a href="#加密方案" class="headerlink" title="加密方案"></a>加密方案</h5><p>明文图像加密的主要思想是对像素的位置进行排列，并通过不同的方法对像素值进行隐藏。本文的算法如下：</p>
+<ul>
+<li>首先，利用两个复杂的混沌系统生成随机序列对明文图像进行加密，改善了密钥空间，提高了对潜在攻击的安全性。</li>
+<li>其次，与传统的加密方案相比，我们的加密方案采用了图像的二维特征。</li>
+<li>第三，我们增加了一步混合RGB通道和混沌序列的过程，在前面的步骤的基础上实现了全方位多级加密。</li>
+</ul>
+<p>本文采用512*512的“Lena”图像进行试验，加密步骤如图：</p>
+<p><img src="/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/1-s2.0-S0143816615001906-gr5.jpg" alt="img"></p>
+<h6 id="像素置乱"><a href="#像素置乱" class="headerlink" title="像素置乱"></a>像素置乱</h6><p>在我们的加密算法中，这部分的目的是混淆像素在每个通道中的位置。为了描述简单，以R通道为例来说明加密过程，其他两个通道类似，只是使用了两个复杂混沌系统中不同的伪随机数序列。</p>
+<p>假设明文图像为$P_{M<em>N}$,其R通道的数据是一个M\</em>N的二维数组，两个伪随机序列是 $t_x$和 $t_y$，大小分别为M和N。$pos_x$和 $pos_y$两个序列用来标定 $t_x,t_y$ 和 $P_{M<em>N}$中元素的位置；然后我们根据元素大小分别对 $t_x$和 $t_y$进行排序，得到新序列 $pos_x$,$pos_y$。最后，$P_{M</em>N}$根据新的 $t_x、t_y$重新排列。</p>
+<p>排序过程图如下：</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0143816615001906-gr6.jpg" alt="img"></p>
+<p>然后，$P_{M*N}$扁平化为一维数组 $P_n$,对于一个伪随机序列 $t_z$，它的大小为n的元素位置标定</p>
+<p>序列为 $pos_z$,使用相同的方法来排列 $P_n$。</p>
+<h6 id="异或操作"><a href="#异或操作" class="headerlink" title="异或操作"></a>异或操作</h6><p>异或操作是加密和解密信息的一种简单而有用的方法。在此步骤过程中，通过对像素值与伪随机数序列进行异或运算来隐藏像素信息。</p>
+<p>用三个整数伪随机序列 $t_R,t_G,t_B$在每个通道上执行异或操作。</p>
+<h6 id="混沌马尾？？"><a href="#混沌马尾？？" class="headerlink" title="混沌马尾？？"></a>混沌马尾？？</h6><p>最后的加密步骤是用混沌序列混合RGB通道，这个加密步骤过程被生动地称为“混乱马尾”，因为它的过程就像马尾一样。RGB通道之间的界限可以用这种方法打破。因此，从一个通道到另一个通道解密图像是完全不可能的。该部分的加密步骤过程如下所示：</p>
+<ul>
+<li>为了实现马尾在每一部分的长度是变化的，设计了一个函数用于创建随机元素长度的序列，$M_{mix}$:</li>
+</ul>
+<script type="math/tex; mode=display">
+M_{mix}=FunMixRGB(u_i,zoom)</script><p>​    $u_i$是复杂混沌系统生成的一个序列，这里i设置为5。zoom是最大步长限制。</p>
+<ul>
+<li><p>编马尾的步骤如下：</p>
+<p>步骤1：用Mmix中第一个元素的长度交换R和G通道中的数据</p>
+<p>步骤2：用Mmix中下一个元素的长度交换R和B通道中的数据;</p>
+<p>步骤3：用Mmix中下一个元素的长度交换G和B通道中的数据;</p>
+<p>步骤4：重复步骤从1到3，直到所有的像素被交换。</p>
+</li>
+</ul>
+<p>”混沌马尾辫“的基本加密原理和处理步骤如图所示</p>
+<p><img src="/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/1-s2.0-S0143816615001906-gr7.jpg" alt="img"></p>
+<h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><h5 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h5><h6 id="复杂Chen"><a href="#复杂Chen" class="headerlink" title="复杂Chen"></a>复杂Chen</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment">#绘制三维图像</span></span><br><span class="line"><span class="keyword">import</span> mpl_toolkits.mplot3d <span class="keyword">as</span> p3d</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">复杂Chen吸引子生成函数</span></span><br><span class="line"><span class="string">参数为三个初始坐标，三个初始参数(2个为复数),迭代次数</span></span><br><span class="line"><span class="string">返回五个一维数组（可以生成5个混沌序列）</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Complex_Chen</span>(<span class="params">x0,y0,z0,a,b,c,T</span>):</span></span><br><span class="line">  h=<span class="number">0.001</span></span><br><span class="line">  <span class="comment">#r表示实部，i表示虚部</span></span><br><span class="line">  x_r=[]</span><br><span class="line">  x_i=[]</span><br><span class="line">  y_r=[]</span><br><span class="line">  y_i=[]</span><br><span class="line">  z=[]</span><br><span class="line">  <span class="keyword">for</span> t <span class="keyword">in</span> range(T):</span><br><span class="line">    xt=x0+h*(a*(y0-x0))</span><br><span class="line">    yt=y0+h*((c-a)*x0-x0*z0+c*y0)</span><br><span class="line">    zt=z0+h*(<span class="number">1</span>/<span class="number">2</span>*(x0.conjugate()*y0+x0*y0.conjugate())-b*z0)</span><br><span class="line">    <span class="comment">#x0、y0、z0统一更新</span></span><br><span class="line">    x0,y0,z0=xt,yt,zt</span><br><span class="line">    x_r.append(x0.real)</span><br><span class="line">    x_i.append(x0.imag)</span><br><span class="line">    y_r.append(y0.real)</span><br><span class="line">    y_i.append(y0.imag)</span><br><span class="line">    z.append(z0.real)</span><br><span class="line">  <span class="keyword">return</span> x_r,x_i,y_r,y_i,z</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  <span class="comment">#设定参数</span></span><br><span class="line">  a=<span class="number">35</span></span><br><span class="line">  b=<span class="number">3</span></span><br><span class="line">  c=<span class="number">28</span></span><br><span class="line">  <span class="comment">#迭代次数</span></span><br><span class="line">  T=<span class="number">100000</span></span><br><span class="line">  <span class="comment">#设初值</span></span><br><span class="line">  x0=<span class="number">3</span>+<span class="number">1j</span></span><br><span class="line">  y0=<span class="number">5</span>+<span class="number">1j</span></span><br><span class="line">  z0=<span class="number">2</span></span><br><span class="line">  <span class="comment"># fig=plt.figure()</span></span><br><span class="line">  <span class="comment"># ax=p3d.Axes3D(fig)</span></span><br><span class="line">  x_r,x_i,y_r,y_i,z=Complex_Chen(x0,y0,z0,a,b,c,T)</span><br><span class="line">  ax=plt.subplot(<span class="number">121</span>,projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line">  <span class="comment"># ax.plot(x_i,x_r,y_r)</span></span><br><span class="line">  ax.scatter(x_r,x_i,z,s=<span class="number">3</span>,alpha=<span class="number">0.5</span>)</span><br><span class="line">  ax.set_xlabel(<span class="string">&#x27;x_r&#x27;</span>)</span><br><span class="line">  ax.set_ylabel(<span class="string">&#x27;x_i&#x27;</span>)</span><br><span class="line">  ax.set_zlabel(<span class="string">&#x27;z&#x27;</span>)</span><br><span class="line">  ax.set_title(<span class="string">&#x27;x0=&#123;0&#125; y0=&#123;1&#125; z0=&#123;2&#125;&#x27;</span>.format(x0,y0,z0))</span><br><span class="line">  <span class="comment"># plt.axis(&#x27;off&#x27;)</span></span><br><span class="line">  <span class="comment"># #消除网格</span></span><br><span class="line">  ax.grid(<span class="literal">False</span>)</span><br><span class="line">  ax=plt.subplot(<span class="number">122</span>,projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line">  ax.scatter(x_i,x_r,y_r,s=<span class="number">3</span>,alpha=<span class="number">0.5</span>)</span><br><span class="line">  ax.set_xlabel(<span class="string">&#x27;x_i&#x27;</span>)</span><br><span class="line">  ax.set_ylabel(<span class="string">&#x27;x_r&#x27;</span>)</span><br><span class="line">  ax.set_zlabel(<span class="string">&#x27;y_r&#x27;</span>)</span><br><span class="line">  ax.set_title(<span class="string">&#x27;x0=&#123;0&#125; y0=&#123;1&#125; z0=&#123;2&#125;&#x27;</span>.format(x0,y0,z0))</span><br><span class="line">  ax.grid(<span class="literal">False</span>)</span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<h6 id="复杂Lorenz"><a href="#复杂Lorenz" class="headerlink" title="复杂Lorenz"></a>复杂Lorenz</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment">#绘制三维图像</span></span><br><span class="line"><span class="keyword">import</span> mpl_toolkits.mplot3d <span class="keyword">as</span> p3d</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">复杂Lorenz吸引子生成函数</span></span><br><span class="line"><span class="string">参数为三个初始坐标，三个初始参数,迭代次数</span></span><br><span class="line"><span class="string">返回五个一维list</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Complex_Lorenz</span>(<span class="params">x0,y0,z0,p,q,r,T</span>):</span></span><br><span class="line">  <span class="comment">#微分迭代步长</span></span><br><span class="line">  h=<span class="number">0.01</span></span><br><span class="line">  x_r=[]</span><br><span class="line">  x_i=[]</span><br><span class="line">  y_r=[]</span><br><span class="line">  y_i=[]</span><br><span class="line">  z=[]</span><br><span class="line">  <span class="keyword">for</span> t <span class="keyword">in</span> range(T):</span><br><span class="line">    xt=x0+h*p*(y0-x0)</span><br><span class="line">    yt=y0+h*(q*x0-y0-x0*z0)</span><br><span class="line">    zt=z0+h*(<span class="number">1</span>/<span class="number">2</span>*(x0.conjugate()*y0+x0*y0.conjugate())-r*z0)</span><br><span class="line">    <span class="comment">#x0、y0、z0统一更新</span></span><br><span class="line">    x0,y0,z0=xt,yt,zt</span><br><span class="line">    x_r.append(x0.real)</span><br><span class="line">    x_i.append(x0.imag)</span><br><span class="line">    y_r.append(y0.real)</span><br><span class="line">    y_i.append(y0.imag)</span><br><span class="line">    z.append(z0.real)</span><br><span class="line">  <span class="keyword">return</span> x_r,x_i,y_r,y_i,z</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  <span class="comment">#设定参数</span></span><br><span class="line">  p=<span class="number">10</span></span><br><span class="line">  q=<span class="number">28</span></span><br><span class="line">  r=<span class="number">8</span>/<span class="number">3</span></span><br><span class="line">  <span class="comment">#迭代次数</span></span><br><span class="line">  T=<span class="number">10000</span></span><br><span class="line">  <span class="comment">#设初值</span></span><br><span class="line">  x0=<span class="number">3</span>+<span class="number">1j</span></span><br><span class="line">  y0=<span class="number">5</span>+<span class="number">1j</span></span><br><span class="line">  z0=<span class="number">2</span></span><br><span class="line">  x_r,x_i,y_r,y_i,z=Complex_Lorenz(x0,y0,z0,p,q,r,T)</span><br><span class="line">  ax=plt.subplot(<span class="number">121</span>,projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line">  <span class="comment"># ax.scatter(x_r,x_i,z,s=3,alpha=0.5)</span></span><br><span class="line">  ax.plot(x_r,x_i,z,alpha=<span class="number">0.9</span>)</span><br><span class="line">  ax.set_xlabel(<span class="string">&#x27;x_r&#x27;</span>)</span><br><span class="line">  ax.set_ylabel(<span class="string">&#x27;x_i&#x27;</span>)</span><br><span class="line">  ax.set_zlabel(<span class="string">&#x27;z&#x27;</span>)</span><br><span class="line">  ax.set_title(<span class="string">&#x27;x0=&#123;0&#125; y0=&#123;1&#125; z0=&#123;2&#125;&#x27;</span>.format(x0,y0,z0))</span><br><span class="line">  <span class="comment"># plt.axis(&#x27;off&#x27;)</span></span><br><span class="line">  <span class="comment">#消除网格</span></span><br><span class="line">  ax.grid(<span class="literal">False</span>)</span><br><span class="line">  ax=plt.subplot(<span class="number">122</span>,projection=<span class="string">&quot;3d&quot;</span>)</span><br><span class="line">  <span class="comment">#绘制散点</span></span><br><span class="line">  <span class="comment"># ax.scatter(y_r,y_i,z,s=3,alpha=0.5)</span></span><br><span class="line">  <span class="comment">#绘制连续线段</span></span><br><span class="line">  ax.plot(y_r,y_i,z,alpha=<span class="number">0.9</span>)</span><br><span class="line">  ax.set_xlabel(<span class="string">&#x27;x_i&#x27;</span>)</span><br><span class="line">  ax.set_ylabel(<span class="string">&#x27;x_r&#x27;</span>)</span><br><span class="line">  ax.set_zlabel(<span class="string">&#x27;y_r&#x27;</span>)</span><br><span class="line">  ax.set_title(<span class="string">&#x27;x0=&#123;0&#125; y0=&#123;1&#125; z0=&#123;2&#125;&#x27;</span>.format(x0,y0,z0))</span><br><span class="line">  ax.grid(<span class="literal">False</span>)</span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line">  <span class="comment"># # #初值微小的变化</span></span><br><span class="line">  <span class="comment"># x0=3.0001+1j</span></span><br><span class="line">  <span class="comment"># y0=5+1j</span></span><br><span class="line">  <span class="comment"># z0=2</span></span><br><span class="line">  <span class="comment"># xx_r,xx_i,yy_r,yy_i,zz=Complex_Lorenz(x0,y0,z0,p,q,r,T)</span></span><br><span class="line">  <span class="comment"># ax=plt.subplot(122,projection=&quot;3d&quot;)</span></span><br><span class="line">  <span class="comment"># ax.scatter(x_i,x_r,y_r,s=3,alpha=0.5)</span></span><br><span class="line">  <span class="comment"># ax.set_xlabel(&#x27;x_i&#x27;)</span></span><br><span class="line">  <span class="comment"># ax.set_ylabel(&#x27;x_r&#x27;)</span></span><br><span class="line">  <span class="comment"># ax.set_zlabel(&#x27;y_r&#x27;)</span></span><br><span class="line">  <span class="comment"># ax.set_title(&#x27;x0=&#123;0&#125; y0=&#123;1&#125; z0=&#123;2&#125;&#x27;.format(x0,y0,z0))</span></span><br><span class="line">  <span class="comment"># ax.grid(False)</span></span><br><span class="line">  <span class="comment"># plt.show()</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># t=np.arange(0,T)</span></span><br><span class="line">  <span class="comment"># plt.scatter(t,x_r,s=1)</span></span><br><span class="line">  <span class="comment"># plt.scatter(t,xx_r,s=1)</span></span><br><span class="line">  <span class="comment"># plt.show()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h5><p>参见：<a target="_blank" rel="noopener" href="https://z2bns.github.io/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/">【图像加密常见性能评估指标】</a></p>
+<h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="复杂混沌系统？？？"><a href="#复杂混沌系统？？？" class="headerlink" title="复杂混沌系统？？？"></a>复杂混沌系统？？？</h6><p>复杂混沌系统不够明确，还没读太懂。。。</p>
+<h6 id="密钥生成？？？"><a href="#密钥生成？？？" class="headerlink" title="密钥生成？？？"></a>密钥生成？？？</h6><p>密钥生成那部分语句读着感觉有歧义？？？密钥到底有几个值啊？混沌系统初值复数整个算一个密钥，还是实部和虚部各算一个啊？</p>
+<h6 id="混沌序列选择？？？"><a href="#混沌序列选择？？？" class="headerlink" title="混沌序列选择？？？"></a>混沌序列选择？？？</h6><p>混沌序列到底产生了几个啊？两个复杂混沌系统应该都是五维的？应该有10个混沌序列？怎么选择混沌序列使用的并没有详细介绍？</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" rel="tag"><i class="fa fa-tag"></i> 图像加密</a>
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"><i class="fa fa-tag"></i> 论文</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/08/%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" rel="prev" title="常见图像加密性能评价指标">
+      <i class="fa fa-chevron-left"></i> 常见图像加密性能评价指标
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E4%B8%A4%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%B7%B7%E6%B2%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B7%B7%E5%90%88%E5%BD%A9%E8%89%B2%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">一种基于两个复杂混沌系统的混合彩色图像加密算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%AA%E9%9A%8F%E6%9C%BA%E5%BA%8F%E5%88%97%E7%94%9F%E6%88%90"><span class="nav-number">4.</span> <span class="nav-text">伪随机序列生成</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82Chen%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.1.</span> <span class="nav-text">复杂Chen系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82Lorenz%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.2.</span> <span class="nav-text">复杂Lorenz系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90"><span class="nav-number">4.3.</span> <span class="nav-text">密钥生成</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BC%AA%E9%9A%8F%E6%9C%BA%E5%BA%8F%E5%88%97"><span class="nav-number">4.4.</span> <span class="nav-text">伪随机序列</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E6%96%B9%E6%A1%88"><span class="nav-number">5.</span> <span class="nav-text">加密方案</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%83%8F%E7%B4%A0%E7%BD%AE%E4%B9%B1"><span class="nav-number">5.1.</span> <span class="nav-text">像素置乱</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%82%E6%88%96%E6%93%8D%E4%BD%9C"><span class="nav-number">5.2.</span> <span class="nav-text">异或操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B7%B7%E6%B2%8C%E9%A9%AC%E5%B0%BE%EF%BC%9F%EF%BC%9F"><span class="nav-number">5.3.</span> <span class="nav-text">混沌马尾？？</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">6.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">实验代码</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82Chen"><span class="nav-number">7.1.</span> <span class="nav-text">复杂Chen</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82Lorenz"><span class="nav-number">7.2.</span> <span class="nav-text">复杂Lorenz</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0"><span class="nav-number">8.</span> <span class="nav-text">性能评估</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">9.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E6%B7%B7%E6%B2%8C%E7%B3%BB%E7%BB%9F%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">9.1.</span> <span class="nav-text">复杂混沌系统？？？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">9.2.</span> <span class="nav-text">密钥生成？？？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B7%B7%E6%B2%8C%E5%BA%8F%E5%88%97%E9%80%89%E6%8B%A9%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">9.3.</span> <span class="nav-text">混沌序列选择？？？</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">10.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">loadding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">249k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:46</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
