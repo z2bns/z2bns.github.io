@@ -10293,7 +10293,7 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
 <p>用于图像加密的传统混沌系统有Lorenz map,Baker map,Arnold’s cat map,Hénon map,Logistic map ， Chee-Lee system，Hyper-chaotic system，Quantum Logistic map,Multiple coupled map lattices,Tent and sine map等。</p>
 <h6 id="一种基于混沌的图像加密方法"><a href="#一种基于混沌的图像加密方法" class="headerlink" title="一种基于混沌的图像加密方法"></a>一种基于混沌的图像加密方法</h6><p>具体内容见：<a href="https://z2bns.github.io/2021/03/23/An-image-encryption-apporach-based-on-chaotic/">【An image encryption apporach based on chaotic】</a></p>
 <h6 id="使用基于混沌理论和SHA-2的异或与DNA互补规则的彩色图像加密技术"><a href="#使用基于混沌理论和SHA-2的异或与DNA互补规则的彩色图像加密技术" class="headerlink" title="使用基于混沌理论和SHA-2的异或与DNA互补规则的彩色图像加密技术"></a>使用基于混沌理论和SHA-2的异或与DNA互补规则的彩色图像加密技术</h6><p>为了修改混沌系统的初始条件和控制参数，本研究使用SHA-256哈希函数。将彩色图像的三个通道排列成一维矢量，并根据分段线性混沌映射产生的混沌序列进行排序。然后这个排列阵列被分成三个部分，每个部分代表一个颜色通道，并再次使用洛伦兹的混沌系统独立排列。该算法的新颖之处在于，通道的每个像素都被DNA互补规则的异或操作所取代。多重DNA规则被用来在一个序列中重复这个操作到一些随机的次数。这个操作迭代循环进行。这种循环操作开始的DNA选择规则和操作的延续依赖于Chen的混沌序列。大量的模拟实验结果表明，该算法仅在一次加密中就获得了良好的加密效果。</p>
-<p>【A color image encryption technique using exclusive-or with DNA complementary rules based on chaos theory and SHA-2】</p>
+<p><a href="https://z2bns.github.io/2021/03/27/A-color-image-encryption-technique-using-exclusive-OR-with-DNA-complementary-rules-based-on-chaos-theory-and-SHA-2/">【A color image encryption technique using exclusive-or with DNA complementary rules based on chaos theory and SHA-2】</a></p>
 <h6 id="一种基于两个复杂混沌系统的混合彩色图像加密算法"><a href="#一种基于两个复杂混沌系统的混合彩色图像加密算法" class="headerlink" title="一种基于两个复杂混沌系统的混合彩色图像加密算法"></a>一种基于两个复杂混沌系统的混合彩色图像加密算法</h6><p>该加密算法包括三个步骤。</p>
 <ul>
 <li>在置换过程中，对明文图像像素分别进行二维和一维置换RGB通道。</li>
@@ -10301,10 +10301,12 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
 <li>最后，利用混合RGB信道实现了多级加密。</li>
 </ul>
 <p>基于安全性分析和实验仿真，该算法能够抵抗蛮力攻击，并具有良好的加密性能。</p>
-<p>【A novel hybrid color image encryption algorithm using two complex chaotic systems】</p>
+<p><a href="https://z2bns.github.io/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/">【A novel hybrid color image encryption algorithm using two complex chaotic systems】</a></p>
+<h6 id="一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法"><a href="#一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法" class="headerlink" title="一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法"></a>一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法</h6><p>【A novel color image encryption algorithm based on genetic recombination and the four-dimensional memristive hyperchaotic system】</p>
 <h5 id="使用进化方法的彩色图像加密"><a href="#使用进化方法的彩色图像加密" class="headerlink" title="使用进化方法的彩色图像加密"></a>使用进化方法的彩色图像加密</h5><h5 id="基于频域的彩色图像加密"><a href="#基于频域的彩色图像加密" class="headerlink" title="基于频域的彩色图像加密"></a>基于频域的彩色图像加密</h5><h6 id="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"><a href="#利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密" class="headerlink" title="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"></a>利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密</h6><p>【Color image encryption by using Arnold transform and color-blend operation in discrete cosine transform domains】</p>
 <h5 id="光学彩色图像加密"><a href="#光学彩色图像加密" class="headerlink" title="光学彩色图像加密"></a>光学彩色图像加密</h5><h6 id="利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密"><a href="#利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密" class="headerlink" title="利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密"></a>利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密</h6><p>【Optical color image encryption without information disclosure usingphase-truncated Fresnel transform and a random amplitude mask】</p>
-<h6 id="彩色图像加密利用hartley变换域旋转彩色向量"><a href="#彩色图像加密利用hartley变换域旋转彩色向量" class="headerlink" title="彩色图像加密利用hartley变换域旋转彩色向量"></a>彩色图像加密利用hartley变换域旋转彩色向量</h6><p>【Color image encryption by using the rotation of color vector in Hartley transform domains】</p>
+<h6 id="彩色图像加密利用hartley变换域旋转彩色向量"><a href="#彩色图像加密利用hartley变换域旋转彩色向量" class="headerlink" title="彩色图像加密利用hartley变换域旋转彩色向量"></a>彩色图像加密利用hartley变换域旋转彩色向量</h6><p>提出了一种基于离散哈特利变换旋转颜色向量加密彩色图像的算法</p>
+<p>【Color image encryption by using the rotation of color vector in Hartley transform domains】</p>
 <h5 id="利用置乱变换对彩色图像进行加密"><a href="#利用置乱变换对彩色图像进行加密" class="headerlink" title="利用置乱变换对彩色图像进行加密"></a>利用置乱变换对彩色图像进行加密</h5><h6 id="一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法"><a href="#一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法" class="headerlink" title="一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法"></a>一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法</h6><p>【An image encryption algorithm based on the memristive hyperchaotic system, cellular automata and DNA sequence operations】</p>
 <h5 id="彩色图像加密使用排列"><a href="#彩色图像加密使用排列" class="headerlink" title="彩色图像加密使用排列"></a>彩色图像加密使用排列</h5><h5 id="基于哈希的彩色图像加密"><a href="#基于哈希的彩色图像加密" class="headerlink" title="基于哈希的彩色图像加密"></a>基于哈希的彩色图像加密</h5><h5 id="基于DNA的彩色图像加密"><a href="#基于DNA的彩色图像加密" class="headerlink" title="基于DNA的彩色图像加密"></a>基于DNA的彩色图像加密</h5><h6 id="使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密"><a href="#使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密" class="headerlink" title="使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密"></a>使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密</h6><p>【Color image DNA encryption using NCA map-based CML and one-time keys】</p>
 <h5 id="彩色图像的双-多-图像加密"><a href="#彩色图像的双-多-图像加密" class="headerlink" title="彩色图像的双(多)图像加密"></a>彩色图像的双(多)图像加密</h5><h5 id="使用通道分解的彩色图像加密"><a href="#使用通道分解的彩色图像加密" class="headerlink" title="使用通道分解的彩色图像加密"></a>使用通道分解的彩色图像加密</h5><h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://baike.baidu.com/item/%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%BC%8F/10209468?fr=aladdin">色彩模式</a></p>
@@ -11598,6 +11600,46 @@ M_{mix}=FunMixRGB(u_i,zoom)</script><p>​    $u_i$是复杂混沌系统生成�
 <h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="复杂混沌系统？？？"><a href="#复杂混沌系统？？？" class="headerlink" title="复杂混沌系统？？？"></a>复杂混沌系统？？？</h6><p>复杂混沌系统不够明确，还没读太懂。。。</p>
 <h6 id="密钥生成？？？"><a href="#密钥生成？？？" class="headerlink" title="密钥生成？？？"></a>密钥生成？？？</h6><p>密钥生成那部分语句读着感觉有歧义？？？密钥到底有几个值啊？混沌系统初值复数整个算一个密钥，还是实部和虚部各算一个啊？</p>
 <h6 id="混沌序列选择？？？"><a href="#混沌序列选择？？？" class="headerlink" title="混沌序列选择？？？"></a>混沌序列选择？？？</h6><p>混沌序列到底产生了几个啊？两个复杂混沌系统应该都是五维的？应该有10个混沌序列？怎么选择混沌序列使用的并没有详细介绍？</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5>]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>图像加密</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Color image encryption by using the rotation of color vector in Hartley transform domains</title>
+    <url>/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><a href="https://www.sciencedirect.com/science/article/pii/S0143816610000382">【论文地址】</a></p>
+<h5 id="利用hartley变换域旋转彩色向量进行彩色图像加密"><a href="#利用hartley变换域旋转彩色向量进行彩色图像加密" class="headerlink" title="利用hartley变换域旋转彩色向量进行彩色图像加密"></a>利用hartley变换域旋转彩色向量进行彩色图像加密</h5><a id="more"></a>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>提出了一种基于离散哈特利变换旋转颜色向量加密彩色图像的算法，将彩色图像中的三个分量图像(红、绿、蓝)作为笛卡尔坐标的坐标轴。在图像加密过程中，引入了两种随机角度移位来旋转离散哈特利变换域内由三个颜色分量组成的颜色向量。两个角度对应的旋转位移可以作为方案的密钥。加密后的图像采用实数编码，一些数值模拟已经证明了所提方案的可行性。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>自1995年refreger和Javidi提出双随机相位编码技术[1]以来，光学图像加密已成为光学信息安全领域的一个重要课题。一些光学方法被考虑进行加密图像，例如光学转换，干涉术和全息术。</p>
+<p>近年来，基于不同随机过程的彩色图像加密方案得到了广泛的研究。为了对彩色图像进行加密，在一些算法中，对红、绿、蓝三种颜色分量分别进行考虑和计算。</p>
+<p>本文研究了一种基于离散哈特利变换(DHT)的彩色图像加密算法。将彩色图像的三个颜色分量视为空间坐标的坐标轴。因此，三个元素的颜色向量可以在球坐标下用一个半径和两个角来确定。在DHT的输出平面上，三个颜色分量组成的矢量在原点上通过两次随机独立的角度偏移( $\Delta \theta$ 和 $\Delta \varphi$ )旋转，这两次偏移分别与球坐标下的方位角和天顶角有关。旋转操作执行两次。最终的加密输出是在DHT域中获得的。加密过程中使用的随机角度偏移是算法的密钥。加密后的图像采用实数编码，便于实际应用中秘密图像的传输和存储。通过数值仿真验证了该加密方法的有效性和有效性。</p>
+<h5 id="彩色图像加密算法"><a href="#彩色图像加密算法" class="headerlink" title="彩色图像加密算法"></a>彩色图像加密算法</h5><p>随机相位编码技术应用于许多报道的图像加密算法中，是在数学上旋转一个复数。在介绍本文提出的彩色图像加密算法之前，先对彩色图像的三个元素矢量进行旋转运算。</p>
+<h6 id="旋转操作"><a href="#旋转操作" class="headerlink" title="旋转操作"></a>旋转操作</h6><p>一幅彩色图像可以分解成红、绿、蓝三种颜色的图像。本文将这三种颜色视为空间上的正交坐标轴，如下图所示。</p>
+<p><img src="/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/1-s2.0-S0143816610000382-gr1.jpg" alt="img"></p>
+<p>任何颜色都可以表示为用虚线标记的向量v，其等于(r, g, b)。在球坐标系中，$(\rho,\varphi,\theta)$ 等于(r, g, b)，它们的关系可以表示如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        \rho=\sqrt{r^2+g^2+b^2}, \\
+        \varphi=arccos(b/\rho), \\ 
+        \theta=angle(r+ig), \\
+        \end{array} \ 
+        and \ 
+        \begin{cases}
+        r=\rho sin\varphi cos\theta, \\
+        g=\rho sin\varphi sin \theta, \\
+        b=\rho cos\varphi,
+        \end{cases}
+    \right .
+\end{equation}</script><p>其中，angle符号是用来计算复数的角度的，i是虚数单位。在上图中，根据上式分别用 $\Delta \varphi $和 $\Delta \theta$改变 $\varphi,\theta$使向量v移动到向量u。两个向量(v和u)在旋转操作之前和之后的长度相等。对彩色图像的所有像素进行上述操作完成图像置乱，逆向操作是相同的过程，只是角度变成了 $-\Delta \varphi$和 $\Delta \theta$。</p>
+<p>在旋转操作中存在一种特殊情况</p>
+<h6 id="加密方案"><a href="#加密方案" class="headerlink" title="加密方案"></a>加密方案</h6><h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><h5 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h5><h5 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h5><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="算法？？？"><a href="#算法？？？" class="headerlink" title="算法？？？"></a>算法？？？</h6><p>看了很多篇论文以后，还不太清楚论文中算法提出的依据是什么？不过他们提出的算法也确实都是创新的。对他们的算法进行混合加密虽然可以做（置乱采用混乱马尾，扩散采用本文的颜色分量旋转），但好像不算创新？？？采用一种别人都没用过的方法应该算创新。</p>
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5>]]></content>
       <categories>
         <category>复杂网络与图像加密</category>
