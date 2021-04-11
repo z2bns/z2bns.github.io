@@ -10304,7 +10304,7 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
 <p><a href="https://z2bns.github.io/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/">【A novel hybrid color image encryption algorithm using two complex chaotic systems】</a></p>
 <h6 id="一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法"><a href="#一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法" class="headerlink" title="一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法"></a>一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法</h6><p>【A novel color image encryption algorithm based on genetic recombination and the four-dimensional memristive hyperchaotic system】</p>
 <h5 id="使用进化方法的彩色图像加密"><a href="#使用进化方法的彩色图像加密" class="headerlink" title="使用进化方法的彩色图像加密"></a>使用进化方法的彩色图像加密</h5><h5 id="基于频域的彩色图像加密"><a href="#基于频域的彩色图像加密" class="headerlink" title="基于频域的彩色图像加密"></a>基于频域的彩色图像加密</h5><h6 id="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"><a href="#利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密" class="headerlink" title="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"></a>利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密</h6><p>利用Arnold变换和离散余弦变换(DCT)设计了一种彩色图像加密算法。彩色图像的RGB分量在像素序列方面采用Arnold变换进行置乱处理。在一个由随机角定义的矩阵控制下，对打乱后的RGB分量进行交换和随机混合。采用DCT对彩色图像的像素值进行改变。在该加密方案中，上述操作连续执行两次。阿诺德变换参数和随机角度是彩色图像加密方法的密钥。</p>
-<p>【Color image encryption by using Arnold transform and color-blend operation in discrete cosine transform domains】</p>
+<p><a href="https://z2bns.github.io/2021/04/10/Color-image-encryption-by-using-Arnold-transform-and-color-blend-operation-in-discrete-cosine-transform-domains/">【Color image encryption by using Arnold transform and color-blend operation in discrete cosine transform domains】</a></p>
 <h5 id="光学彩色图像加密"><a href="#光学彩色图像加密" class="headerlink" title="光学彩色图像加密"></a>光学彩色图像加密</h5><h6 id="利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密"><a href="#利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密" class="headerlink" title="利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密"></a>利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密</h6><p>【Optical color image encryption without information disclosure usingphase-truncated Fresnel transform and a random amplitude mask】</p>
 <h6 id="彩色图像加密利用hartley变换域旋转彩色向量"><a href="#彩色图像加密利用hartley变换域旋转彩色向量" class="headerlink" title="彩色图像加密利用hartley变换域旋转彩色向量"></a>彩色图像加密利用hartley变换域旋转彩色向量</h6><p>提出了一种基于离散哈特利变换旋转颜色向量加密彩色图像的算法，将彩色图像中的三个分量图像(红、绿、蓝)作为笛卡尔坐标的坐标轴。在图像加密过程中，引入了两种随机角度移位来旋转离散哈特利变换域内由三个颜色分量组成的颜色向量。两个角度对应的旋转位移可以作为方案的密钥。加密后的图像采用实数编码，一些数值模拟已经证明了所提方案的可行性。</p>
 <p><a href="https://z2bns.github.io/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/">【Color image encryption by using the rotation of color vector in Hartley transform domains】</a></p>
@@ -11697,7 +11697,7 @@ H_k=\sum_{n=0}^{N-1}{x_n[cos(\frac{2\pi}{N}nk)+sin(\frac{2\pi}{N}nk)]}, \ k=0,..
 <h5 id="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"><a href="#利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密" class="headerlink" title="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"></a>利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密</h5><a id="more"></a>
 <h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>利用Arnold变换和离散余弦变换(DCT)设计了一种彩色图像加密算法。彩色图像的RGB分量在像素序列方面采用Arnold变换进行置乱处理。在一个由随机角定义的矩阵控制下，对打乱后的RGB分量进行交换和随机混合。采用DCT对彩色图像的像素值进行改变。在该加密方案中，上述操作连续执行两次。阿诺德变换参数和随机角度是彩色图像加密方法的密钥。</p>
 <h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>隐藏秘密数据或信息成为图像加密和图像水印的主要目标。随机可逆过程是设计信息安全算法的核心。这里的随机操作可以分为两种格式，即随机化数据(或图像)的值和排序。双随机相位编码(DRPE)技术，利用随机相位函数对原始图像的数据进行调制和改变，将其视为秘密信息的操作随机值。此外，还考虑了一些光学处理或变换[9-23]来改变图像的像素值。利用Arnold变换、jigsaw变换等置乱操作改变图像像素序列。秘密图像可以通过由随机可逆过程组成的加密方案随机化。</p>
-<p>本文提出了一种基于Arnold变换和离散余弦变换的彩色图像加密算法。对原始彩色图像进行分块，然后利用Arnold变换对其置乱处理。用随机角度定义的3 × 3矩阵交换彩色图像的RGB分量的像素值。然后用DCT方法置乱和交换图像。该加密方法需要进行两次Arnold变换、交换像素和DCT。随机角度的数据是加密的主要密钥。阿诺德变换的参数是提高安全性的另一个关键。通过数值仿真验证了该彩色图像加密算法的有效性。</p>
+<p>本文提出了一种基于Arnold变换和离散余弦变换的彩色图像加密算法。对原始彩色图像进行分块，然后利用Arnold变换对其置乱处理。用随机角度定义的3 × 3矩阵交换彩色图像的RGB分量的像素值。然后用DCT方法置乱和交换图像。该加密方法需要进行两次Arnold变换、交换像素和DCT。随机角度的数据是加密的主要密钥，阿诺德变换的参数是提高安全性的另一个密钥。通过数值仿真验证了该彩色图像加密算法的有效性。</p>
 <h5 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h5><p>在彩色图像加密的设计中，同时考虑了置乱序列和改变像素值。彩色图像加密算法的流程图如下：</p>
 <p><img src="/2021/04/10/Color-image-encryption-by-using-Arnold-transform-and-color-blend-operation-in-discrete-cosine-transform-domains/1-s2.0-S0030401810009612-gr1_lrg.jpg" alt="img"></p>
 <p>首先引入Arnold变换对彩色图像的RGB分量像素位置进行置乱处理，Arnold变换 $A_N^j$定义如下：</p>
@@ -11786,7 +11786,8 @@ f_m=\frac{1}{n}x_0+\frac{2}{n}\sum_{k=1}^{n-1}{x_k cos[\frac{\pi}{n}(m+\frac{1}{
   <entry>
     <title>Nginx常用命令</title>
     <url>/2021/04/11/Nginx%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>注：有些命令(./开头命令)是在nginx程序目录下执行，一般为 /usr/local/nginx/sbin。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>注：有些命令(./开头)是在nginx程序目录下执行，一般为 /usr/local/nginx/sbin。</p>
+<a id="more"></a>
 <h6 id="停止Nginx服务-四种"><a href="#停止Nginx服务-四种" class="headerlink" title="停止Nginx服务(四种)"></a>停止Nginx服务(四种)</h6><p>1、从容停止服务，需要进程完成当前工作后再停止。</p>
 <p>命令：<code>./nginx -s quit</code></p>
 <p>2、立即停止服务，无论进程是否在工作，都直接停止进程。</p>
