@@ -30,8 +30,9 @@
 <meta property="og:description" content="【论文地址】 利用hartley变换域旋转彩色向量进行彩色图像加密">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/1-s2.0-S0143816610000382-gr1.jpg">
+<meta property="og:image" content="http://example.com/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/1-s2.0-S0143816610000382-gr3.jpg">
 <meta property="article:published_time" content="2021-04-10T00:49:35.000Z">
-<meta property="article:modified_time" content="2021-04-10T03:39:21.582Z">
+<meta property="article:modified_time" content="2021-04-10T08:59:04.689Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="图像加密">
 <meta property="article:tag" content="论文">
@@ -228,7 +229,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-10 08:49:35 / 修改时间：11:39:21" itemprop="dateCreated datePublished" datetime="2021-04-10T08:49:35+08:00">2021-04-10</time>
+              <time title="创建时间：2021-04-10 08:49:35 / 修改时间：16:59:04" itemprop="dateCreated datePublished" datetime="2021-04-10T08:49:35+08:00">2021-04-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,14 +265,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -286,9 +287,9 @@
         <p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0143816610000382">【论文地址】</a></p>
 <h5 id="利用hartley变换域旋转彩色向量进行彩色图像加密"><a href="#利用hartley变换域旋转彩色向量进行彩色图像加密" class="headerlink" title="利用hartley变换域旋转彩色向量进行彩色图像加密"></a>利用hartley变换域旋转彩色向量进行彩色图像加密</h5><a id="more"></a>
 <h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>提出了一种基于离散哈特利变换旋转颜色向量加密彩色图像的算法，将彩色图像中的三个分量图像(红、绿、蓝)作为笛卡尔坐标的坐标轴。在图像加密过程中，引入了两种随机角度移位来旋转离散哈特利变换域内由三个颜色分量组成的颜色向量。两个角度对应的旋转位移可以作为方案的密钥。加密后的图像采用实数编码，一些数值模拟已经证明了所提方案的可行性。</p>
-<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>自1995年refreger和Javidi提出双随机相位编码技术[1]以来，光学图像加密已成为光学信息安全领域的一个重要课题。一些光学方法被考虑进行加密图像，例如光学转换，干涉术和全息术。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>自1995年refreger和Javidi提出双随机相位编码技术以来，光学图像加密已成为光学信息安全领域的一个重要课题。一些光学方法被考虑进行加密图像，例如光学转换，干涉术和全息术。</p>
 <p>近年来，基于不同随机过程的彩色图像加密方案得到了广泛的研究。为了对彩色图像进行加密，在一些算法中，对红、绿、蓝三种颜色分量分别进行考虑和计算。</p>
-<p>本文研究了一种基于离散哈特利变换(DHT)的彩色图像加密算法。将彩色图像的三个颜色分量视为空间坐标的坐标轴。因此，三个元素的颜色向量可以在球坐标下用一个半径和两个角来确定。在DHT的输出平面上，三个颜色分量组成的矢量在原点上通过两次随机独立的角度偏移( $\Delta \theta$ 和 $\Delta \varphi$ )旋转，这两次偏移分别与球坐标下的方位角和天顶角有关。旋转操作执行两次。最终的加密输出是在DHT域中获得的。加密过程中使用的随机角度偏移是算法的密钥。加密后的图像采用实数编码，便于实际应用中秘密图像的传输和存储。通过数值仿真验证了该加密方法的有效性和有效性。</p>
+<p>本文研究了一种基于离散哈特利变换(DHT)的彩色图像加密算法。将彩色图像的三个颜色分量视为空间坐标的坐标轴。因此，三个元素的颜色向量可以在球坐标下用一个半径和两个角来确定。在DHT的输出平面上，三个颜色分量组成的矢量在原点上通过两次随机独立的角度偏移( $\Delta \theta$ 和 $\Delta \varphi$ )旋转，这两次偏移分别与球坐标下的方位角（$\theta$）和天顶角( $\varphi$ )有关。旋转操作执行两次。最终的加密输出是在DHT域中获得的。加密过程中使用的随机角度偏移是算法的密钥。加密后的图像采用实数编码，便于实际应用中秘密图像的传输和存储。通过数值仿真验证了该加密方法的有效性和有效性。</p>
 <h5 id="彩色图像加密算法"><a href="#彩色图像加密算法" class="headerlink" title="彩色图像加密算法"></a>彩色图像加密算法</h5><p>随机相位编码技术应用于许多报道的图像加密算法中，是在数学上旋转一个复数。在介绍本文提出的彩色图像加密算法之前，先对彩色图像的三个元素矢量进行旋转运算。</p>
 <h6 id="旋转操作"><a href="#旋转操作" class="headerlink" title="旋转操作"></a>旋转操作</h6><p>一幅彩色图像可以分解成红、绿、蓝三种颜色的图像。本文将这三种颜色视为空间上的正交坐标轴，如下图所示。</p>
 <p><img src="/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/1-s2.0-S0143816610000382-gr1.jpg" alt="img"></p>
@@ -308,10 +309,50 @@
         b=\rho cos\varphi,
         \end{cases}
     \right .
-\end{equation}</script><p>其中，angle符号是用来计算复数的角度的，i是虚数单位。在上图中，根据上式分别用 $\Delta \varphi $和 $\Delta \theta$改变 $\varphi,\theta$使向量v移动到向量u。两个向量(v和u)在旋转操作之前和之后的长度相等。对彩色图像的所有像素进行上述操作完成图像置乱，逆向操作是相同的过程，只是角度变成了 $-\Delta \varphi$和 $\Delta \theta$。</p>
-<p>在旋转操作中存在一种特殊情况</p>
-<h6 id="加密方案"><a href="#加密方案" class="headerlink" title="加密方案"></a>加密方案</h6><h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><h5 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h5><h5 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h5><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="算法？？？"><a href="#算法？？？" class="headerlink" title="算法？？？"></a>算法？？？</h6><p>看了很多篇论文以后，还不太清楚论文中算法提出的依据是什么？不过他们提出的算法也确实都是创新的。对他们的算法进行混合加密虽然可以做（置乱采用混乱马尾，扩散采用本文的颜色分量旋转），但好像不算创新？？？采用一种别人都没用过的方法应该算创新。</p>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5>
+\end{equation}</script><p>注：该论文采用的是数学界的球坐标系标记，但 $\theta$为什呢这样表示呢？？</p>
+<p>其中，angle符号是用来计算复数的角度的，i是虚数单位。在上图中，根据上式分别用 $\Delta \varphi $和 $\Delta \theta$改变 $\varphi,\theta$使向量v移动到向量u。两个向量(v和u)在旋转操作之前和之后的长度相等。对彩色图像的所有像素进行上述操作完成图像置乱，逆向操作是相同的过程，只是角度变成了 $-\Delta \varphi$和 $-\Delta \theta$。</p>
+<p>在旋转操作中存在一种特殊情况，旋转后得到 $\varphi’=\varphi + \Delta \varphi$，该角度大于 $\pi$或者小于0时，就超出了定义范围[0,$\pi$]。为了解决这个问题，定义径向距离 $\widetilde{\rho}$如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\widetilde{\rho}=
+    \left\{
+        \begin{array}{lr}
+        \rho·sgn(sin\varphi'), \ if \ sin\varphi'\neq 0, \\
+        \rho, \ if \ sin\varphi'=0, \\ 
+        \end{array} \ 
+    \right .
+\end{equation}</script><p>其中，sgn是符号函数，径向距离 $\widetilde{\rho}$将会应用在图像加密过程中。</p>
+<p>旋转操作的计算程序总结如下：</p>
+<p>$function \ [I_r’,I_g’,I_b’]=rp_run(I_r,I_g,I_b,\Delta\varphi,\Delta\theta);$</p>
+<p>$\rho=\sqrt{I_r.<em>I_r+I_g.</em>I_g+I_b.*I_b};$</p>
+<p>$\varphi=arccos(I_b./\rho)+\Delta\varphi;$</p>
+<p>$if\ sin\varphi\neq 0$</p>
+<p>   $\rho=\rho.*sgn(sin\varphi)$</p>
+<p>end</p>
+<p>$\theta=angle(I_r+i*I_g)+\Delta\theta;$</p>
+<p>$I_b’=\rho.*cos(\varphi);$</p>
+<p>$I_g’=\rho.<em>sin(\varphi).</em>sin(\theta);$</p>
+<p>$I_r’=\rho.<em>sin(\varphi).</em>cos(\theta);$</p>
+<p>其中，$(I_r,I_g,I_b)$和 $I_r’,I_g’,I_b’$分别是旋转前后的彩色图像分量。符号‘.*’和’./‘代表两个矩阵相应元素的乘法和除法运算。rp_run函数在图像加密和图像解密过程中都会用到。</p>
+<h6 id="加密方案"><a href="#加密方案" class="headerlink" title="加密方案"></a>加密方案</h6><p>注：原论文哈特利转换是使用光学系统实现的，鉴于没有光学相关知识和相关条件，就用计算代替（应该可以）。</p>
+<p>在该加密方案中引入了哈特利变换，哈特利变换定义如下：</p>
+<script type="math/tex; mode=display">
+H_k=\sum_{n=0}^{N-1}{x_n[cos(\frac{2\pi}{N}nk)+sin(\frac{2\pi}{N}nk)]}, \ k=0,...,N-1</script><p>这里变换H将输出一个实输入信号的实结果。哈特利变换的反变换只需将$H_k$视为输入，进行离散哈特利变换，输出再乘上 $\frac{1}{N}$即得。也就是说，离散哈特利反转换除了一个比例因子之外，与离散哈特利转换完全相同。</p>
+<p>本文设计的彩色图像加密方案如下图a所示</p>
+<p><img src="/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/1-s2.0-S0143816610000382-gr3.jpg" alt="img"></p>
+<p>首先，将原始图像分解为3张图像(R1,G1,B1)。在P1块中，使用Hartley变换将这三幅图像转成R2、G2、B2。然后用随机角度 $\Delta\varphi_1$和 $\Delta \theta_1$旋转操作得到图像 $R_2’,G_2’,B_2’$。在P2块中，再次使用DHT变换得到图像 $R_3,G_3,B_3$,使用随机角度 $\Delta\varphi_2$和 $\Delta\theta_2$旋转得到图像  $R_3’,G_3’,B_3’$，最后使用Hartley变换得到加密图像。注意这里的 $\Delta\varphi_1$和 $\Delta\theta_1$各自不等于 $\Delta\varphi_2$和 $\Delta\theta_2$。四个旋转角度 $(\Delta\varphi_1,\Delta\theta_1,\Delta\varphi_2, \Delta\theta_2)$ 是依赖图像像素位置的二维函数。最后合成的图像由实数组成和光学变换领域的一些算法不同。其特点是在实际应用中便于存储和传输加密图像，此外，该算法还可用于三幅相同大小的不同灰度图像的加密。</p>
+<p>该加密算法在图像编码中引入了四倍随机角度偏移，提高了秘密信息的安全性。 $(\Delta\varphi_1,\Delta\theta_1,\Delta\varphi_2, \Delta\theta_2)$ 参数可视为提出的加密算法的密钥。</p>
+<h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><p>待做。。。</p>
+<h5 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h5><h5 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h5><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="算法？？？"><a href="#算法？？？" class="headerlink" title="算法？？？"></a>算法？？？</h6><p>看了很多篇论文以后，还不太清楚论文中算法提出的依据是什么？不过他们提出的算法也确实都是创新的。对他们的算法进行混合加密虽然可以做（置乱采用混乱马尾，扩散采用本文的颜色分量旋转），但好像不算创新？？？采用一种别人都没用过的方法应该算创新。</p>
+<h6 id="光学图像加密？？？"><a href="#光学图像加密？？？" class="headerlink" title="光学图像加密？？？"></a>光学图像加密？？？</h6><p>与基于数学难题的密码学相比，光学信息安全技术有着高维度加密、高并行处理速度以及能快速实现卷积和相关运算的特点。但是需要光学设备且涉及到很多光学、物理学知识，应该搞不了。。。</p>
+<h6 id="哈特利转换？？？"><a href="#哈特利转换？？？" class="headerlink" title="哈特利转换？？？"></a>哈特利转换？？？</h6><p>由数学公式定义的函数，可以用计算实现转换，还可以用光学仪器实现吗？？？这两者转换结果一样吗？？？</p>
+<p>还有，哈特利变换结果应该是浮点型吧，那怎么办，如果舍弃了，加密图像就无法还原了啊？？？</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9C%86%E7%90%83%E5%9D%90%E6%A0%87%E7%B3%BB/5758443?fr=aladdin">圆球坐标系</a></p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%A6%BB%E6%95%A3%E5%93%88%E7%89%B9%E5%88%A9%E8%BD%AC%E6%8D%A2/22781859?fr=aladdin#5">离散哈特利转换</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.elecfans.com/application/Security/1375204.html">双随机相位编码信息加密技术原理解析</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jiamisoft.com/blog/4309-suijixiangweiguangxuejiami.html">随机相位编码光学图像加密技术</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/216399437.html">傅里叶变换是干嘛的</a></p>
+
     </div>
 
     
@@ -366,7 +407,10 @@
     <a href="/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/" rel="prev" title="A novel hybrid color image encryption algorithm using two complex chaotic systems">
       <i class="fa fa-chevron-left"></i> A novel hybrid color image encryption algorithm using two complex chaotic systems
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/10/Color-image-encryption-by-using-Arnold-transform-and-color-blend-operation-in-discrete-cosine-transform-domains/" rel="next" title="Color image encryption by using Arnold transform and color-blend operation in discrete cosine transform domains.">
+      Color image encryption by using Arnold transform and color-blend operation in discrete cosine transform domains. <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -426,7 +470,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A9%E7%94%A8hartley%E5%8F%98%E6%8D%A2%E5%9F%9F%E6%97%8B%E8%BD%AC%E5%BD%A9%E8%89%B2%E5%90%91%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BD%A9%E8%89%B2%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86"><span class="nav-number">1.</span> <span class="nav-text">利用hartley变换域旋转彩色向量进行彩色图像加密</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BD%A9%E8%89%B2%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">彩色图像加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">4.1.</span> <span class="nav-text">旋转操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E6%96%B9%E6%A1%88"><span class="nav-number">4.2.</span> <span class="nav-text">加密方案</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">实验代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0"><span class="nav-number">7.</span> <span class="nav-text">性能评估</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">8.1.</span> <span class="nav-text">算法？？？</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A9%E7%94%A8hartley%E5%8F%98%E6%8D%A2%E5%9F%9F%E6%97%8B%E8%BD%AC%E5%BD%A9%E8%89%B2%E5%90%91%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BD%A9%E8%89%B2%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86"><span class="nav-number">1.</span> <span class="nav-text">利用hartley变换域旋转彩色向量进行彩色图像加密</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BD%A9%E8%89%B2%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">彩色图像加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">4.1.</span> <span class="nav-text">旋转操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E6%96%B9%E6%A1%88"><span class="nav-number">4.2.</span> <span class="nav-text">加密方案</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">实验代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0"><span class="nav-number">7.</span> <span class="nav-text">性能评估</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">8.1.</span> <span class="nav-text">算法？？？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%89%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">8.2.</span> <span class="nav-text">光学图像加密？？？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%93%88%E7%89%B9%E5%88%A9%E8%BD%AC%E6%8D%A2%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">8.3.</span> <span class="nav-text">哈特利转换？？？</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -442,7 +486,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">192</span>
+          <span class="site-state-item-count">196</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -455,7 +499,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -516,13 +560,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">250k</span>
+    <span title="站点总字数">257k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:48</span>
+    <span title="站点阅读时长">3:53</span>
 </div>
 
 

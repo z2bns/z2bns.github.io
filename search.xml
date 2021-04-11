@@ -10303,10 +10303,11 @@ F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\fra
 <p>基于安全性分析和实验仿真，该算法能够抵抗蛮力攻击，并具有良好的加密性能。</p>
 <p><a href="https://z2bns.github.io/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/">【A novel hybrid color image encryption algorithm using two complex chaotic systems】</a></p>
 <h6 id="一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法"><a href="#一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法" class="headerlink" title="一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法"></a>一种基于遗传重组和四维记忆超混沌系统的彩色图像加密算法</h6><p>【A novel color image encryption algorithm based on genetic recombination and the four-dimensional memristive hyperchaotic system】</p>
-<h5 id="使用进化方法的彩色图像加密"><a href="#使用进化方法的彩色图像加密" class="headerlink" title="使用进化方法的彩色图像加密"></a>使用进化方法的彩色图像加密</h5><h5 id="基于频域的彩色图像加密"><a href="#基于频域的彩色图像加密" class="headerlink" title="基于频域的彩色图像加密"></a>基于频域的彩色图像加密</h5><h6 id="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"><a href="#利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密" class="headerlink" title="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"></a>利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密</h6><p>【Color image encryption by using Arnold transform and color-blend operation in discrete cosine transform domains】</p>
+<h5 id="使用进化方法的彩色图像加密"><a href="#使用进化方法的彩色图像加密" class="headerlink" title="使用进化方法的彩色图像加密"></a>使用进化方法的彩色图像加密</h5><h5 id="基于频域的彩色图像加密"><a href="#基于频域的彩色图像加密" class="headerlink" title="基于频域的彩色图像加密"></a>基于频域的彩色图像加密</h5><h6 id="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"><a href="#利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密" class="headerlink" title="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"></a>利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密</h6><p>利用Arnold变换和离散余弦变换(DCT)设计了一种彩色图像加密算法。彩色图像的RGB分量在像素序列方面采用Arnold变换进行置乱处理。在一个由随机角定义的矩阵控制下，对打乱后的RGB分量进行交换和随机混合。采用DCT对彩色图像的像素值进行改变。在该加密方案中，上述操作连续执行两次。阿诺德变换参数和随机角度是彩色图像加密方法的密钥。</p>
+<p>【Color image encryption by using Arnold transform and color-blend operation in discrete cosine transform domains】</p>
 <h5 id="光学彩色图像加密"><a href="#光学彩色图像加密" class="headerlink" title="光学彩色图像加密"></a>光学彩色图像加密</h5><h6 id="利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密"><a href="#利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密" class="headerlink" title="利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密"></a>利用相位截断菲涅耳变换和随机振幅掩模进行不披露信息的光学彩色图像加密</h6><p>【Optical color image encryption without information disclosure usingphase-truncated Fresnel transform and a random amplitude mask】</p>
-<h6 id="彩色图像加密利用hartley变换域旋转彩色向量"><a href="#彩色图像加密利用hartley变换域旋转彩色向量" class="headerlink" title="彩色图像加密利用hartley变换域旋转彩色向量"></a>彩色图像加密利用hartley变换域旋转彩色向量</h6><p>提出了一种基于离散哈特利变换旋转颜色向量加密彩色图像的算法</p>
-<p>【Color image encryption by using the rotation of color vector in Hartley transform domains】</p>
+<h6 id="彩色图像加密利用hartley变换域旋转彩色向量"><a href="#彩色图像加密利用hartley变换域旋转彩色向量" class="headerlink" title="彩色图像加密利用hartley变换域旋转彩色向量"></a>彩色图像加密利用hartley变换域旋转彩色向量</h6><p>提出了一种基于离散哈特利变换旋转颜色向量加密彩色图像的算法，将彩色图像中的三个分量图像(红、绿、蓝)作为笛卡尔坐标的坐标轴。在图像加密过程中，引入了两种随机角度移位来旋转离散哈特利变换域内由三个颜色分量组成的颜色向量。两个角度对应的旋转位移可以作为方案的密钥。加密后的图像采用实数编码，一些数值模拟已经证明了所提方案的可行性。</p>
+<p><a href="https://z2bns.github.io/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/">【Color image encryption by using the rotation of color vector in Hartley transform domains】</a></p>
 <h5 id="利用置乱变换对彩色图像进行加密"><a href="#利用置乱变换对彩色图像进行加密" class="headerlink" title="利用置乱变换对彩色图像进行加密"></a>利用置乱变换对彩色图像进行加密</h5><h6 id="一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法"><a href="#一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法" class="headerlink" title="一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法"></a>一种基于记忆性超混沌系统、细胞自动机和DNA序列运算的图像加密算法</h6><p>【An image encryption algorithm based on the memristive hyperchaotic system, cellular automata and DNA sequence operations】</p>
 <h5 id="彩色图像加密使用排列"><a href="#彩色图像加密使用排列" class="headerlink" title="彩色图像加密使用排列"></a>彩色图像加密使用排列</h5><h5 id="基于哈希的彩色图像加密"><a href="#基于哈希的彩色图像加密" class="headerlink" title="基于哈希的彩色图像加密"></a>基于哈希的彩色图像加密</h5><h5 id="基于DNA的彩色图像加密"><a href="#基于DNA的彩色图像加密" class="headerlink" title="基于DNA的彩色图像加密"></a>基于DNA的彩色图像加密</h5><h6 id="使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密"><a href="#使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密" class="headerlink" title="使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密"></a>使用基于NCA映射的CML和一次性密钥的彩色图像DNA加密</h6><p>【Color image DNA encryption using NCA map-based CML and one-time keys】</p>
 <h5 id="彩色图像的双-多-图像加密"><a href="#彩色图像的双-多-图像加密" class="headerlink" title="彩色图像的双(多)图像加密"></a>彩色图像的双(多)图像加密</h5><h5 id="使用通道分解的彩色图像加密"><a href="#使用通道分解的彩色图像加密" class="headerlink" title="使用通道分解的彩色图像加密"></a>使用通道分解的彩色图像加密</h5><h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://baike.baidu.com/item/%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%BC%8F/10209468?fr=aladdin">色彩模式</a></p>
@@ -10867,7 +10868,7 @@ CK=a_0+p_0+u_0+v_0+w_0+x_0+y_0+z_0+q_0\ mod\ 1</script><p>密钥对明文图像�
 </tr>
 <tr>
 <td>2</td>
-<td>0.05-0.10, 0.30-0.35, 0.60-0.65, 0.070-0.75, 0.85-0.90</td>
+<td>0.05-0.10, 0.30-0.35, 0.60-0.65, 0.70-0.75, 0.85-0.90</td>
 <td>“ACGT”</td>
 <td>“TGCA”</td>
 </tr>
@@ -11528,7 +11529,7 @@ EQ=\sum_{L=0}^{255}{(H_L(E)-H_L(I))^2/256}</script><p>其中$E(i,j)$和$I(i,j)$�
         \dot{w_3}=\frac{1}{2}(\overline{w_1}w_2+w_1\overline{w_2})-b_2w_3
         \end{array}
     \right .
-\end{equation}</script><p>其中， $a_1,b_2$和 $c_3$是正实数， $w_1=w_1^r+jw_1^i$和 $w_2=w_2^r+jw_2^i$是复数变量，$w_3$是实数。同样，论文中描述当 $a_1=14,b_2=3.7$且 $c_2=35$时，复杂Lorenz系统有很好的的混沌表现，但是实验时发现这样的控制参数没有形成混沌，反而当 $a_1=10,b_1=28$且 $c_1=8/3$时（正是Lorenz混沌控制参数），吸引子图像与论文相符，所以此处也是没想明白？？？此时吸引子图像如下：</p>
+\end{equation}</script><p>其中， $a_2,b_2$和 $c_3$是正实数， $w_1=w_1^r+jw_1^i$和 $w_2=w_2^r+jw_2^i$是复数变量，$w_3$是实数。同样，论文中描述当 $a_2=14,b_2=3.7$且 $c_2=35$时，复杂Lorenz系统有很好的的混沌表现，但是实验时发现这样的控制参数没有形成混沌，反而当 $a_2=10,b_2=28$且 $c_2=8/3$时（正是Lorenz混沌控制参数），吸引子图像与论文相符，所以此处也是没想明白？？？此时吸引子图像如下：</p>
 <p><img src="/2021/04/09/A-novel-hybrid-color-image-encryption-algorithm-using-two-complex-chaotic-systems/complex_Lorenz.png" alt="complex_Lorenz"></p>
 <h6 id="密钥生成"><a href="#密钥生成" class="headerlink" title="密钥生成"></a>密钥生成</h6><p>汉明距离是一种表示两个等长序列对应位置的不同元素个数的方法，序列 $\alpha=(\alpha_1,\alpha-2,…,\alpha_n)$和 $\beta=(\beta_1,\beta_2,…,\beta_n)$的汉明距离 $H(\alpha,\beta)$定义如下：</p>
 <script type="math/tex; mode=display">
@@ -11615,9 +11616,9 @@ M_{mix}=FunMixRGB(u_i,zoom)</script><p>​    $u_i$是复杂混沌系统生成�
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><a href="https://www.sciencedirect.com/science/article/pii/S0143816610000382">【论文地址】</a></p>
 <h5 id="利用hartley变换域旋转彩色向量进行彩色图像加密"><a href="#利用hartley变换域旋转彩色向量进行彩色图像加密" class="headerlink" title="利用hartley变换域旋转彩色向量进行彩色图像加密"></a>利用hartley变换域旋转彩色向量进行彩色图像加密</h5><a id="more"></a>
 <h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>提出了一种基于离散哈特利变换旋转颜色向量加密彩色图像的算法，将彩色图像中的三个分量图像(红、绿、蓝)作为笛卡尔坐标的坐标轴。在图像加密过程中，引入了两种随机角度移位来旋转离散哈特利变换域内由三个颜色分量组成的颜色向量。两个角度对应的旋转位移可以作为方案的密钥。加密后的图像采用实数编码，一些数值模拟已经证明了所提方案的可行性。</p>
-<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>自1995年refreger和Javidi提出双随机相位编码技术[1]以来，光学图像加密已成为光学信息安全领域的一个重要课题。一些光学方法被考虑进行加密图像，例如光学转换，干涉术和全息术。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>自1995年refreger和Javidi提出双随机相位编码技术以来，光学图像加密已成为光学信息安全领域的一个重要课题。一些光学方法被考虑进行加密图像，例如光学转换，干涉术和全息术。</p>
 <p>近年来，基于不同随机过程的彩色图像加密方案得到了广泛的研究。为了对彩色图像进行加密，在一些算法中，对红、绿、蓝三种颜色分量分别进行考虑和计算。</p>
-<p>本文研究了一种基于离散哈特利变换(DHT)的彩色图像加密算法。将彩色图像的三个颜色分量视为空间坐标的坐标轴。因此，三个元素的颜色向量可以在球坐标下用一个半径和两个角来确定。在DHT的输出平面上，三个颜色分量组成的矢量在原点上通过两次随机独立的角度偏移( $\Delta \theta$ 和 $\Delta \varphi$ )旋转，这两次偏移分别与球坐标下的方位角和天顶角有关。旋转操作执行两次。最终的加密输出是在DHT域中获得的。加密过程中使用的随机角度偏移是算法的密钥。加密后的图像采用实数编码，便于实际应用中秘密图像的传输和存储。通过数值仿真验证了该加密方法的有效性和有效性。</p>
+<p>本文研究了一种基于离散哈特利变换(DHT)的彩色图像加密算法。将彩色图像的三个颜色分量视为空间坐标的坐标轴。因此，三个元素的颜色向量可以在球坐标下用一个半径和两个角来确定。在DHT的输出平面上，三个颜色分量组成的矢量在原点上通过两次随机独立的角度偏移( $\Delta \theta$ 和 $\Delta \varphi$ )旋转，这两次偏移分别与球坐标下的方位角（$\theta$）和天顶角( $\varphi$ )有关。旋转操作执行两次。最终的加密输出是在DHT域中获得的。加密过程中使用的随机角度偏移是算法的密钥。加密后的图像采用实数编码，便于实际应用中秘密图像的传输和存储。通过数值仿真验证了该加密方法的有效性和有效性。</p>
 <h5 id="彩色图像加密算法"><a href="#彩色图像加密算法" class="headerlink" title="彩色图像加密算法"></a>彩色图像加密算法</h5><p>随机相位编码技术应用于许多报道的图像加密算法中，是在数学上旋转一个复数。在介绍本文提出的彩色图像加密算法之前，先对彩色图像的三个元素矢量进行旋转运算。</p>
 <h6 id="旋转操作"><a href="#旋转操作" class="headerlink" title="旋转操作"></a>旋转操作</h6><p>一幅彩色图像可以分解成红、绿、蓝三种颜色的图像。本文将这三种颜色视为空间上的正交坐标轴，如下图所示。</p>
 <p><img src="/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/1-s2.0-S0143816610000382-gr1.jpg" alt="img"></p>
@@ -11637,16 +11638,211 @@ M_{mix}=FunMixRGB(u_i,zoom)</script><p>​    $u_i$是复杂混沌系统生成�
         b=\rho cos\varphi,
         \end{cases}
     \right .
-\end{equation}</script><p>其中，angle符号是用来计算复数的角度的，i是虚数单位。在上图中，根据上式分别用 $\Delta \varphi $和 $\Delta \theta$改变 $\varphi,\theta$使向量v移动到向量u。两个向量(v和u)在旋转操作之前和之后的长度相等。对彩色图像的所有像素进行上述操作完成图像置乱，逆向操作是相同的过程，只是角度变成了 $-\Delta \varphi$和 $\Delta \theta$。</p>
-<p>在旋转操作中存在一种特殊情况</p>
-<h6 id="加密方案"><a href="#加密方案" class="headerlink" title="加密方案"></a>加密方案</h6><h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><h5 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h5><h5 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h5><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="算法？？？"><a href="#算法？？？" class="headerlink" title="算法？？？"></a>算法？？？</h6><p>看了很多篇论文以后，还不太清楚论文中算法提出的依据是什么？不过他们提出的算法也确实都是创新的。对他们的算法进行混合加密虽然可以做（置乱采用混乱马尾，扩散采用本文的颜色分量旋转），但好像不算创新？？？采用一种别人都没用过的方法应该算创新。</p>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5>]]></content>
+\end{equation}</script><p>注：该论文采用的是数学界的球坐标系标记，但 $\theta$为什呢这样表示呢？？</p>
+<p>其中，angle符号是用来计算复数的角度的，i是虚数单位。在上图中，根据上式分别用 $\Delta \varphi $和 $\Delta \theta$改变 $\varphi,\theta$使向量v移动到向量u。两个向量(v和u)在旋转操作之前和之后的长度相等。对彩色图像的所有像素进行上述操作完成图像置乱，逆向操作是相同的过程，只是角度变成了 $-\Delta \varphi$和 $-\Delta \theta$。</p>
+<p>在旋转操作中存在一种特殊情况，旋转后得到 $\varphi’=\varphi + \Delta \varphi$，该角度大于 $\pi$或者小于0时，就超出了定义范围[0,$\pi$]。为了解决这个问题，定义径向距离 $\widetilde{\rho}$如下：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\widetilde{\rho}=
+    \left\{
+        \begin{array}{lr}
+        \rho·sgn(sin\varphi'), \ if \ sin\varphi'\neq 0, \\
+        \rho, \ if \ sin\varphi'=0, \\ 
+        \end{array} \ 
+    \right .
+\end{equation}</script><p>其中，sgn是符号函数，径向距离 $\widetilde{\rho}$将会应用在图像加密过程中。</p>
+<p>旋转操作的计算程序总结如下：</p>
+<p>$function \ [I_r’,I_g’,I_b’]=rp_run(I_r,I_g,I_b,\Delta\varphi,\Delta\theta);$</p>
+<p>$\rho=\sqrt{I_r.<em>I_r+I_g.</em>I_g+I_b.*I_b};$</p>
+<p>$\varphi=arccos(I_b./\rho)+\Delta\varphi;$</p>
+<p>$if\ sin\varphi\neq 0$</p>
+<p>   $\rho=\rho.*sgn(sin\varphi)$</p>
+<p>end</p>
+<p>$\theta=angle(I_r+i*I_g)+\Delta\theta;$</p>
+<p>$I_b’=\rho.*cos(\varphi);$</p>
+<p>$I_g’=\rho.<em>sin(\varphi).</em>sin(\theta);$</p>
+<p>$I_r’=\rho.<em>sin(\varphi).</em>cos(\theta);$</p>
+<p>其中，$(I_r,I_g,I_b)$和 $I_r’,I_g’,I_b’$分别是旋转前后的彩色图像分量。符号‘.*’和’./‘代表两个矩阵相应元素的乘法和除法运算。rp_run函数在图像加密和图像解密过程中都会用到。</p>
+<h6 id="加密方案"><a href="#加密方案" class="headerlink" title="加密方案"></a>加密方案</h6><p>注：原论文哈特利转换是使用光学系统实现的，鉴于没有光学相关知识和相关条件，就用计算代替（应该可以）。</p>
+<p>在该加密方案中引入了哈特利变换，哈特利变换定义如下：</p>
+<script type="math/tex; mode=display">
+H_k=\sum_{n=0}^{N-1}{x_n[cos(\frac{2\pi}{N}nk)+sin(\frac{2\pi}{N}nk)]}, \ k=0,...,N-1</script><p>这里变换H将输出一个实输入信号的实结果。哈特利变换的反变换只需将$H_k$视为输入，进行离散哈特利变换，输出再乘上 $\frac{1}{N}$即得。也就是说，离散哈特利反转换除了一个比例因子之外，与离散哈特利转换完全相同。</p>
+<p>本文设计的彩色图像加密方案如下图a所示</p>
+<p><img src="/2021/04/10/Color-image-encryption-by-using-the-rotation-of-color-vector-in-Hartley-transform-domains/1-s2.0-S0143816610000382-gr3.jpg" alt="img"></p>
+<p>首先，将原始图像分解为3张图像(R1,G1,B1)。在P1块中，使用Hartley变换将这三幅图像转成R2、G2、B2。然后用随机角度 $\Delta\varphi_1$和 $\Delta \theta_1$旋转操作得到图像 $R_2’,G_2’,B_2’$。在P2块中，再次使用DHT变换得到图像 $R_3,G_3,B_3$,使用随机角度 $\Delta\varphi_2$和 $\Delta\theta_2$旋转得到图像  $R_3’,G_3’,B_3’$，最后使用Hartley变换得到加密图像。注意这里的 $\Delta\varphi_1$和 $\Delta\theta_1$各自不等于 $\Delta\varphi_2$和 $\Delta\theta_2$。四个旋转角度 $(\Delta\varphi_1,\Delta\theta_1,\Delta\varphi_2, \Delta\theta_2)$ 是依赖图像像素位置的二维函数。最后合成的图像由实数组成和光学变换领域的一些算法不同。其特点是在实际应用中便于存储和传输加密图像，此外，该算法还可用于三幅相同大小的不同灰度图像的加密。</p>
+<p>该加密算法在图像编码中引入了四倍随机角度偏移，提高了秘密信息的安全性。 $(\Delta\varphi_1,\Delta\theta_1,\Delta\varphi_2, \Delta\theta_2)$ 参数可视为提出的加密算法的密钥。</p>
+<h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><p>待做。。。</p>
+<h5 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h5><h5 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h5><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="算法？？？"><a href="#算法？？？" class="headerlink" title="算法？？？"></a>算法？？？</h6><p>看了很多篇论文以后，还不太清楚论文中算法提出的依据是什么？不过他们提出的算法也确实都是创新的。对他们的算法进行混合加密虽然可以做（置乱采用混乱马尾，扩散采用本文的颜色分量旋转），但好像不算创新？？？采用一种别人都没用过的方法应该算创新。</p>
+<h6 id="光学图像加密？？？"><a href="#光学图像加密？？？" class="headerlink" title="光学图像加密？？？"></a>光学图像加密？？？</h6><p>与基于数学难题的密码学相比，光学信息安全技术有着高维度加密、高并行处理速度以及能快速实现卷积和相关运算的特点。但是需要光学设备且涉及到很多光学、物理学知识，应该搞不了。。。</p>
+<h6 id="哈特利转换？？？"><a href="#哈特利转换？？？" class="headerlink" title="哈特利转换？？？"></a>哈特利转换？？？</h6><p>由数学公式定义的函数，可以用计算实现转换，还可以用光学仪器实现吗？？？这两者转换结果一样吗？？？</p>
+<p>还有，哈特利变换结果应该是浮点型吧，那怎么办，如果舍弃了，加密图像就无法还原了啊？？？</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://baike.baidu.com/item/%E5%9C%86%E7%90%83%E5%9D%90%E6%A0%87%E7%B3%BB/5758443?fr=aladdin">圆球坐标系</a></p>
+<p><a href="https://baike.baidu.com/item/%E7%A6%BB%E6%95%A3%E5%93%88%E7%89%B9%E5%88%A9%E8%BD%AC%E6%8D%A2/22781859?fr=aladdin#5">离散哈特利转换</a></p>
+<p><a href="http://www.elecfans.com/application/Security/1375204.html">双随机相位编码信息加密技术原理解析</a></p>
+<p><a href="https://www.jiamisoft.com/blog/4309-suijixiangweiguangxuejiami.html">随机相位编码光学图像加密技术</a></p>
+<p><a href="https://zhidao.baidu.com/question/216399437.html">傅里叶变换是干嘛的</a></p>
+]]></content>
       <categories>
         <category>复杂网络与图像加密</category>
       </categories>
       <tags>
         <tag>图像加密</tag>
         <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Color image encryption by using Arnold transform and color-blend operation in discrete cosine transform domains.</title>
+    <url>/2021/04/10/Color-image-encryption-by-using-Arnold-transform-and-color-blend-operation-in-discrete-cosine-transform-domains/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><a href="https://www.sciencedirect.com/science/article/pii/S0030401810009612">【论文地址】</a></p>
+<h5 id="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"><a href="#利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密" class="headerlink" title="利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密"></a>利用离散余弦变换域的Arnold变换和颜色混合运算对彩色图像进行加密</h5><a id="more"></a>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>利用Arnold变换和离散余弦变换(DCT)设计了一种彩色图像加密算法。彩色图像的RGB分量在像素序列方面采用Arnold变换进行置乱处理。在一个由随机角定义的矩阵控制下，对打乱后的RGB分量进行交换和随机混合。采用DCT对彩色图像的像素值进行改变。在该加密方案中，上述操作连续执行两次。阿诺德变换参数和随机角度是彩色图像加密方法的密钥。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>隐藏秘密数据或信息成为图像加密和图像水印的主要目标。随机可逆过程是设计信息安全算法的核心。这里的随机操作可以分为两种格式，即随机化数据(或图像)的值和排序。双随机相位编码(DRPE)技术，利用随机相位函数对原始图像的数据进行调制和改变，将其视为秘密信息的操作随机值。此外，还考虑了一些光学处理或变换[9-23]来改变图像的像素值。利用Arnold变换、jigsaw变换等置乱操作改变图像像素序列。秘密图像可以通过由随机可逆过程组成的加密方案随机化。</p>
+<p>本文提出了一种基于Arnold变换和离散余弦变换的彩色图像加密算法。对原始彩色图像进行分块，然后利用Arnold变换对其置乱处理。用随机角度定义的3 × 3矩阵交换彩色图像的RGB分量的像素值。然后用DCT方法置乱和交换图像。该加密方法需要进行两次Arnold变换、交换像素和DCT。随机角度的数据是加密的主要密钥。阿诺德变换的参数是提高安全性的另一个关键。通过数值仿真验证了该彩色图像加密算法的有效性。</p>
+<h5 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h5><p>在彩色图像加密的设计中，同时考虑了置乱序列和改变像素值。彩色图像加密算法的流程图如下：</p>
+<p><img src="/2021/04/10/Color-image-encryption-by-using-Arnold-transform-and-color-blend-operation-in-discrete-cosine-transform-domains/1-s2.0-S0030401810009612-gr1_lrg.jpg" alt="img"></p>
+<p>首先引入Arnold变换对彩色图像的RGB分量像素位置进行置乱处理，Arnold变换 $A_N^j$定义如下：</p>
+<script type="math/tex; mode=display">
+a = \left[
+\matrix{
+  m_{j+1}\\
+  n_{j+1}\\
+}
+\right]=mod(\left[\matrix{
+  1 &1\\
+  1 &2\\
+  }
+  \right]
+  \left[\matrix{
+  m_j\\
+  n_j\\
+  }
+  \right],N
+
+),j=1,2,3,...</script><p>其中，$[m_j,n_j]^t$和 $[m_{j+1},n_{j+1}]^t$分别代表图像像素移位前后的位置向量。参数N是目标图像大小，变换的周期取决于参数N。在进行Arnold变换前将原始图像分成几个子图像，如下图所示。</p>
+<p><img src="/2021/04/10/Color-image-encryption-by-using-Arnold-transform-and-color-blend-operation-in-discrete-cosine-transform-domains/1-s2.0-S0030401810009612-gr2_lrg.jpg" alt="img"></p>
+<p>为了提高图像加密的安全性，将Arnold变换的执行次数固定在不同的值上。在对分块的子图像进行Arnold变换后，原始图像的三种颜色分量 $(R_0(x,y),G_0(x,y),B_0(x,y))$ 变成了 $(R_1(x,y),G_1(x,y),B_1(x,y))$。因此，原始图像的像素序列在一个局部区域被随机化。</p>
+<p>在Arnold变换之后，引入了仿射变换并用角θ定义如下：</p>
+<script type="math/tex; mode=display">
+T(\theta) = \left[
+\matrix{
+  cos\theta & sin^2\theta & -sin\theta cos\theta \\
+  -sin\theta & sin\theta cos\theta & -cos^2\theta \\
+  0 & cos\theta & sin\theta \\
+}
+\right]</script><p>其中，$T(\theta)$是一个正交矩阵。事实上也可以引入其它的3*3正交矩阵来替换上式中的 $T(\theta)$。其逆矩阵可以计算如下：</p>
+<script type="math/tex; mode=display">
+T(\theta) = \left[
+\matrix{
+  cos\theta & -sin\theta & 0 \\
+  sin^2\theta & sin\theta cos\theta & cos\theta \\
+  -sin\theta cos\theta & -cos^2\theta & sin\theta \\
+}
+\right]</script><p>图像分量 $(R_1(x,y),G_1(x,y),B_1(x,y))$用矩阵 $T(\theta)$和 $T^{-1}(\theta)$重新组合如下：</p>
+<script type="math/tex; mode=display">
+\left[
+\matrix{
+  R_1'(x,y)\\
+  G_1'(x,y)\\
+  B_1'(x,y)
+}
+\right]=T(\theta_{xy})\left[\matrix{
+  R_1(x,y)\\
+  G_1(x,y)\\
+  B_1(x,y)
+  }
+  \right]</script><p>和</p>
+<script type="math/tex; mode=display">
+\left[
+\matrix{
+  R_1(x,y)\\
+  G_1(x,y)\\
+  B_1(x,y)
+}
+\right]=T^{-1}(\theta_{xy})\left[\matrix{
+  R_1'(x,y)\\
+  G_1'(x,y)\\
+  B_1'(x,y)
+  }
+  \right]</script><p>符号 $\theta_{xy}$是一个取决于变量x和y的随机角度函数。本文使用上述两个式子加密和解密图像，可以交换彩色图像的像素值。同时引入了随机角函数 $\theta{xy}$作为加密算法的密钥。</p>
+<p>在图像加密过程中采用了离散余弦变换（DCT）。离散余弦变换(DCT)公式如下：</p>
+<script type="math/tex; mode=display">
+f_m=\sum_{k=0}^{n-1}{x_k cos[\frac{\pi}{n}m(k+\frac{1}{2})]}</script><p>其对应的逆离散余弦变换(IDCT)公式如下：</p>
+<script type="math/tex; mode=display">
+f_m=\frac{1}{n}x_0+\frac{2}{n}\sum_{k=1}^{n-1}{x_k cos[\frac{\pi}{n}(m+\frac{1}{2})]}</script><p>对分块子图像进行Arnold变换后，通过不同分块图像间的边界来揭示分块方案。DCT可以改变整幅图像像素值的分布，从而获得随机的输出图案。使用DCT的另一个原因是这个变换是在实数域中定义的，因此，该加密算法可以用实数对输出数据进行编码。当三个颜色分量的DCT都完成后，就得到了$R_2,G_2,B_2$。</p>
+<p>在接下来的步骤中，函数 $R_3,G_3,B_3$ 是通过分块操作和Arnold变换来计算的，其中分块方案和第一次相同。然后通过 $T(\theta)$得到 $R_3’,G_3’,B_3’$,利用逆DCT得到最终加密图像的颜色分量 $R_4,G_4,B_4$。解密过程则是加密过程的逆操作。</p>
+<p>所提出的加密方法的复杂度取决于Arnold变换、DCT和上面定义的颜色混合方程式。与经典的DRPE加密方法相比，该加密方法以随机角θxy作为主要密钥，重新组合彩色图像中颜色分量的像素值。此外，阿诺德变换被认为是增强加密算法安全性的附加密钥。在DRPE方法中，将随机相位函数附加到输入图像及其变换后的频谱中(这里的变换是在傅里叶变换，分数傅里叶变换和其他光学变换之间进行的)。在随机角 $θ_{xy}$ 和随机相位函数的控制下，图像的像素值随机变化。</p>
+<h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><p>实验图像采用512*512的彩色Lena图像。随机角函数 $\theta_{xy}$在[0, $2\pi$ ]上满足均匀分布。Arnold变换{j1,j2,j3,j4}的参数（Arnold变换次数）取为{32,55,63,43}。</p>
+<h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="浮点型数据？？"><a href="#浮点型数据？？" class="headerlink" title="浮点型数据？？"></a>浮点型数据？？</h6><p>$T(\theta_{xy})$混合三元素分量和DCT操作结果是浮点型的灰度值吧，那要怎么转成图像？直接网络传输浮点型像素数组？解密时浮点型数据因为误差能够正确解密吗？图像传输时到底传输的是什么，RGB像素值？图片查看16进制源数据不是RGB值啊，前几个都是文件头数据啊，传输时是传输带有文件头的数据还是RGB像素值数据？好乱啊。。。</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://www.ty53.com/lore/mnawz.html">离散余弦变换</a></p>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>图像加密</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx常用命令</title>
+    <url>/2021/04/11/Nginx%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>注：有些命令(./开头命令)是在nginx程序目录下执行，一般为 /usr/local/nginx/sbin。</p>
+<h6 id="停止Nginx服务-四种"><a href="#停止Nginx服务-四种" class="headerlink" title="停止Nginx服务(四种)"></a>停止Nginx服务(四种)</h6><p>1、从容停止服务，需要进程完成当前工作后再停止。</p>
+<p>命令：<code>./nginx -s quit</code></p>
+<p>2、立即停止服务，无论进程是否在工作，都直接停止进程。</p>
+<p>命令：<code>./nginx -s stop</code></p>
+<p>3、systemctl属于特定Linux系统命令，比如Centos7.X</p>
+<p>命令：<code>systemctl stop nginx.service</code></p>
+<p>4、killall 方法杀死进程，直接杀死进程。在上面无效的情况下使用，态度强硬，简单粗暴！</p>
+<p>命令：<code>killall nginx</code></p>
+<h6 id="启动Nginx服务-两种"><a href="#启动Nginx服务-两种" class="headerlink" title="启动Nginx服务(两种)"></a>启动Nginx服务(两种)</h6><p>1、执行nginx直接启动</p>
+<p>命令：<code>./nginx</code></p>
+<p>2、systemctl命令启动</p>
+<p>命令：<code>systemctl start nginx.service</code></p>
+<h6 id="查看启动后记录-两种"><a href="#查看启动后记录-两种" class="headerlink" title="查看启动后记录(两种)"></a>查看启动后记录(两种)</h6><p>1、标准格式显示</p>
+<p>命令：<code>ps -ef | grep nginx</code></p>
+<p>2、BSD格式显示</p>
+<p>命令：<code>ps aux | grep nginx</code></p>
+<h6 id="重启Nginx服务"><a href="#重启Nginx服务" class="headerlink" title="重启Nginx服务"></a>重启Nginx服务</h6><p>命令：<code>systemctl restart nginx.service</code></p>
+<h6 id="重新载入配置文件"><a href="#重新载入配置文件" class="headerlink" title="重新载入配置文件"></a>重新载入配置文件</h6><p>当有conf配置文件有修改时，用此命令。建议不要停止再重启，以防报错！</p>
+<p>命令：<code>./nginx -s reload</code></p>
+<h6 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h6><p>命令：<code>netstat -tlnp | grep nginx</code></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PPT_notes</title>
+    <url>/2021/04/11/PPT-notes/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>从图中可以看出，与使用其他图像加密方案相比，使用基于混沌、置乱和排列的方法进行彩色图像加密的文章数量要高得多，另外，基于混沌、进化和频率的方案在已发表论文中使用率最高，而基于dna、双(多)图像和位平面分解的方案使用率最低。<br>在该算法中，采用了三个不同维数的混沌系统来增加复杂性，分别是</p>
+<p>DNA是一种存在于几乎所有生物体内的遗传物质。在人体中，DNA以A, G, C和T是成对的。这些碱基分别是腺嘌呤(A)、胞嘧啶(C)、鸟嘌呤(G)和胸腺嘧啶(T)</p>
+<p>二进制数字系统只由两个数字组成;0和1相互对立或互补。同理，00和11是互补的，01和10也是互补的</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>RGB图像转三通道灰度图像</title>
+    <url>/2021/04/11/RGB%E5%9B%BE%E5%83%8F%E8%BD%AC%E4%B8%89%E9%80%9A%E9%81%93%E7%81%B0%E5%BA%A6%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>RGB彩色图像由R、G、B三个通道组成，可以转成三幅灰度图像。</p>
+<a id="more"></a>
+<h6 id="RGB彩色图像"><a href="#RGB彩色图像" class="headerlink" title="RGB彩色图像"></a>RGB彩色图像</h6><p>色彩模式是数字世界中表示颜色的一种算法。在数字世界中，为了表示各种颜色，人们通常将颜色划分为若干分量。由于成色原理的不同，决定了显示器、投影仪、扫描仪这类靠色光直接合成颜色的颜色设备和打印机、印刷机这类靠使用颜料的印刷设备在生成颜色方式上的区别。</p>
+<p>常见的色彩模式如下：</p>
+<p>RGB模式：适用于显示器、投影仪、扫描仪、数码相机等。</p>
+<p>CMYK模式：适用于打印机、印刷机等。</p>
+<p>假设RGB彩色图像P的大小为H ×W, W和H分别为图像的宽度和高度。每个像素的值由R、G、B(分别为红、绿、蓝)颜色分量组成。这样，彩色图像就可以根据其颜色通道转化为三幅灰度图像，每种颜色(R, G, B)的矩阵大小为H ×W。</p>
+<h6 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h6><p><img src="/2021/04/11/RGB%E5%9B%BE%E5%83%8F%E8%BD%AC%E4%B8%89%E9%80%9A%E9%81%93%E7%81%B0%E5%BA%A6%E5%9B%BE%E5%83%8F/RGB.png" alt="RGB"></p>
+<h6 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">彩色图像转化为RGB三幅灰度图像</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  img=<span class="string">&#x27;./lena.png&#x27;</span></span><br><span class="line">  im=cv2.imread(img)</span><br><span class="line">  B,G,R=cv2.split(im)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#结果展示</span></span><br><span class="line">  plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 中文乱码</span></span><br><span class="line">  <span class="comment">#子图1，原始图像</span></span><br><span class="line">  plt.subplot(<span class="number">141</span>)</span><br><span class="line">  <span class="comment">#plt默认使用三通道显示图像，所以需要制定cmap参数为gray</span></span><br><span class="line">  <span class="comment">#imshow()对图像进行处理，画出图像，show()进行图像显示</span></span><br><span class="line">  <span class="comment">#opencv的颜色通道顺序为[B,G,R]，而matplotlib颜色通道顺序为[R,G,B],所以需要调换一下通道位置</span></span><br><span class="line">  plt.imshow(im[:,:,(<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)])</span><br><span class="line">  plt.title(<span class="string">&#x27;原图像&#x27;</span>)</span><br><span class="line">  <span class="comment">#不显示坐标轴</span></span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图2，通道R灰度图像</span></span><br><span class="line">  plt.subplot(<span class="number">142</span>)</span><br><span class="line">  plt.imshow(R,cmap=<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;通道R&#x27;</span>)</span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图3，通道G</span></span><br><span class="line">  plt.subplot(<span class="number">143</span>)</span><br><span class="line">  plt.imshow(G,cmap=<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;通道G&#x27;</span>)</span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图4，B</span></span><br><span class="line">  plt.subplot(<span class="number">144</span>)</span><br><span class="line">  plt.imshow(B,cmap=<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;通道B&#x27;</span>)</span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__== <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><p><a href="https://baike.baidu.com/item/%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%BC%8F/10209468?fr=aladdin">色彩模式</a></p>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>图像加密</tag>
       </tags>
   </entry>
 </search>
