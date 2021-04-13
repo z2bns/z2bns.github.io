@@ -11576,6 +11576,8 @@ PSNR=10\log_{10}{\frac{(2^n-1)^2}{MSE}}</script><p>其中，M、N分别表示图
 <h5 id="已知明文攻击"><a href="#已知明文攻击" class="headerlink" title="已知明文攻击"></a>已知明文攻击</h5><h6 id="概念-10"><a href="#概念-10" class="headerlink" title="概念"></a>概念</h6><p>攻击者试图在拥有密文和相关的纯文本片段的情况下恢复密钥。</p>
 <h5 id="选择明文攻击"><a href="#选择明文攻击" class="headerlink" title="选择明文攻击"></a>选择明文攻击</h5><h6 id="概念-11"><a href="#概念-11" class="headerlink" title="概念"></a>概念</h6><p>一种具有优异扩散特性的图像加密算法，能够抵抗选择明文攻击。然而，当几种现有的图像加密算法使用相同的安全密钥加密原始图像时，它们的加密图像是重复的。攻击者利用这个安全弱点，使用选定的纯文本攻击来破坏加密算法</p>
 <p>未完待续。。。。</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://www.sciencedirect.com/science/article/pii/S016516841930218X">【An overview of encryption algorithms in color images】</a></p>
+<p><a href="https://www.sciencedirect.com/science/article/pii/S0030402618300755">【A color image encryption technique using exclusive-OR with DNA complementary rules based on chaos theory and SHA-2】</a></p>
 ]]></content>
       <categories>
         <category>复杂网络与图像加密</category>
