@@ -12239,6 +12239,50 @@ f_m=\frac{1}{n}x_0+\frac{2}{n}\sum_{k=1}^{n-1}{x_k cos[\frac{\pi}{n}(m+\frac{1}{
   <entry>
     <title>Color image DNA encryption using NCA map-based CML and one-time keys</title>
     <url>/2021/04/13/Color-image-DNA-encryption-using-NCA-map-based-CML-and-one-time-keys/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>【<a href="https://www.sciencedirect.com/science/article/pii/S0165168418300859">论文地址</a>】</p>
+<h5 id="使用基于-NCA-映射的-CML-和一次性密钥的彩色图像-DNA-加密"><a href="#使用基于-NCA-映射的-CML-和一次性密钥的彩色图像-DNA-加密" class="headerlink" title="使用基于 NCA 映射的 CML 和一次性密钥的彩色图像 DNA 加密"></a>使用基于 NCA 映射的 CML 和一次性密钥的彩色图像 DNA 加密</h5><a id="more"></a>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>图像加密</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>An image encryption approach on the basis of the time delay chaotic system</title>
+    <url>/2021/04/15/An-image-encryption-approach-on-the-basis-of-the-time-delay-chaotic-system/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>【<a href="https://www.sciencedirect.com/science/article/pii/S0030402620315655">论文地址</a>】</p>
+<h5 id="种基于时滞混沌系统的图像加密方法"><a href="#种基于时滞混沌系统的图像加密方法" class="headerlink" title="种基于时滞混沌系统的图像加密方法"></a>种基于时滞混沌系统的图像加密方法</h5><a id="more"></a>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://baike.baidu.com/item/%E6%97%B6%E6%BB%9E%E6%B7%B7%E6%B2%8C%E7%B3%BB%E7%BB%9F/21405012?fr=aladdin">时滞混沌系统</a></p>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>图像加密</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图像加密性能指标自动化测试</title>
+    <url>/2021/04/15/%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>图像加密常见性能评价指标自动化测试，以便对图像加密算法进行评估。</p>
+<a id="more"></a>
+<h6 id="初步想法"><a href="#初步想法" class="headerlink" title="初步想法"></a>初步想法</h6><p>上传图像加密算法</p>
+<p>默认测试图像库（Lena等）</p>
+<p>可以自定义上传测试图像</p>
+<p>根据算法加密解密测试图像</p>
+<p>用常见的性能评估指标对算法性能进行评估</p>
+<p>用图标的形式可视化评估结果</p>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>图像加密</tag>
+      </tags>
   </entry>
 </search>
