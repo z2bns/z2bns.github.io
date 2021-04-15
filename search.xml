@@ -12045,6 +12045,93 @@ f_m=\frac{1}{n}x_0+\frac{2}{n}\sum_{k=1}^{n-1}{x_k cos[\frac{\pi}{n}(m+\frac{1}{
     <title>任务2</title>
     <url>/2021/04/12/%E4%BB%BB%E5%8A%A12/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h6 id="六篇论文代码实现-评价指标实现"><a href="#六篇论文代码实现-评价指标实现" class="headerlink" title="六篇论文代码实现+评价指标实现"></a>六篇论文代码实现+评价指标实现</h6><a id="more"></a>
+<p>期刊影响因子对照表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>期刊名</th>
+<th>CiteScore</th>
+<th>Impact Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.sciencedirect.com/journal/future-generation-computer-systems">Future Generation Computer Systems</a></td>
+<td>10.2</td>
+<td>6.125</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.sciencedirect.com/journal/knowledge-based-systems">Knowledge-Based Systems</a></td>
+<td>11.7</td>
+<td>5.921</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.sciencedirect.com/journal/information-sciences">Information Sciences</a></td>
+<td>11.3</td>
+<td>5.910</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.sciencedirect.com/journal/journal-of-network-and-computer-applications">Journal of Network and Computer Applications</a></td>
+<td>13.8</td>
+<td>5.570</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.sciencedirect.com/journal/neurocomputing">Neurocomputing</a></td>
+<td>9.5</td>
+<td>4.438</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.sciencedirect.com/journal/signal-processing">Signal Processing</a></td>
+<td>8.8</td>
+<td>4.384</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.sciencedirect.com/journal/optics-and-lasers-in-engineering">Optics and Lasers in Engineering</a></td>
+<td>8.2</td>
+<td>4.273</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://www.sciencedirect.com/journal/communications-in-nonlinear-science-and-numerical-simulation">Communications in Nonlinear Science and Numerical Simulation</a></td>
+<td>7.3</td>
+<td>4.115</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://www.sciencedirect.com/journal/chaos-solitons-and-fractals">Chaos, Solitons &amp; Fractals</a></td>
+<td>5.9</td>
+<td>3.764</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://www.sciencedirect.com/journal/computers-and-security">Computers &amp; Security</a></td>
+<td>7.5</td>
+<td>3.579</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://www.sciencedirect.com/journal/optics-and-laser-technology">Optics &amp; Laser Technology</a></td>
+<td>5.3</td>
+<td>3.233</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="https://www.sciencedirect.com/journal/computer-networks">Computer Networks</a></td>
+<td>7.6</td>
+<td>3.111</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h6 id="筛选论文"><a href="#筛选论文" class="headerlink" title="筛选论文"></a>筛选论文</h6><div class="table-container">
 <table>
 <thead>
@@ -12191,10 +12278,67 @@ f_m=\frac{1}{n}x_0+\frac{2}{n}\sum_{k=1}^{n-1}{x_k cos[\frac{\pi}{n}(m+\frac{1}{
 <td>2.125</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><strong>序号</strong></td>
+<td><strong>论文</strong></td>
+<td><strong>期刊</strong></td>
+<td><strong>CiteScore</strong></td>
+<td><strong>Impact Factor</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>A chaos-based symmetric image encryption scheme using a bit-level permutation</td>
+<td><a href="https://www.sciencedirect.com/journal/information-sciences">Information Sciences</a></td>
+<td>11.3</td>
+<td>5.910</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Image encryption based on three-dimensional bit matrix permutation</td>
+<td><a href="https://www.sciencedirect.com/journal/signal-processing">Signal Processing</a></td>
+<td>8.8</td>
+<td>4.384</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A color image cryptosystem based on dynamic DNA encryption and chaos</td>
+<td><a href="https://www.sciencedirect.com/journal/signal-processing">Signal Processing</a></td>
+<td>8.8</td>
+<td>4.384</td>
+</tr>
+<tr>
+<td>4</td>
+<td>An image encryption scheme using self-adaptive selective permutation and inter-intra-block feedback diffusion</td>
+<td><a href="https://www.sciencedirect.com/journal/signal-processing">Signal Processing</a></td>
+<td>8.8</td>
+<td>4.384</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A symmetric color image encryption algorithm using the intrinsic features of bit distributions</td>
+<td><a href="https://www.sciencedirect.com/journal/communications-in-nonlinear-science-and-numerical-simulation">Communications in Nonlinear Science and Numerical Simulation</a></td>
+<td>7.3</td>
+<td>4.115</td>
+</tr>
+<tr>
+<td>6</td>
+<td>An image encryption scheme using reverse 2-dimensional chaotic map and dependent diffusion</td>
+<td><a href="https://www.sciencedirect.com/journal/communications-in-nonlinear-science-and-numerical-simulation">Communications in Nonlinear Science and Numerical Simulation</a></td>
+<td>7.3</td>
+<td>4.115</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Color image encryption based on paired interpermuting planes</td>
+<td><a href="https://www.sciencedirect.com/journal/optics-communications">Optics Communications</a></td>
+<td>4.1</td>
+<td>2.125</td>
+</tr>
+<tr>
+<td>8</td>
+<td>An image encryption scheme using lightweight bit-level confusion and cascade cross circular diffusion</td>
+<td><a href="https://www.sciencedirect.com/journal/optics-communications">Optics Communications</a></td>
+<td>4.1</td>
+<td>2.125</td>
 </tr>
 </tbody>
 </table>
@@ -12254,7 +12398,23 @@ f_m=\frac{1}{n}x_0+\frac{2}{n}\sum_{k=1}^{n-1}{x_k cos[\frac{\pi}{n}(m+\frac{1}{
     <title>An image encryption approach on the basis of the time delay chaotic system</title>
     <url>/2021/04/15/An-image-encryption-approach-on-the-basis-of-the-time-delay-chaotic-system/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>【<a href="https://www.sciencedirect.com/science/article/pii/S0030402620315655">论文地址</a>】</p>
-<h5 id="种基于时滞混沌系统的图像加密方法"><a href="#种基于时滞混沌系统的图像加密方法" class="headerlink" title="种基于时滞混沌系统的图像加密方法"></a>种基于时滞混沌系统的图像加密方法</h5><a id="more"></a>
+<h5 id="一种基于时滞混沌系统的图像加密方法"><a href="#一种基于时滞混沌系统的图像加密方法" class="headerlink" title="一种基于时滞混沌系统的图像加密方法"></a>一种基于时滞混沌系统的图像加密方法</h5><a id="more"></a>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>本文研究了基于时滞混沌系统的图像加密问题。首先提出了一种时滞混沌系统，该系统随时滞的变化具有不同的动力学行为。然后，根据新系统的时延，设计了一种新的图像加密方法。最后的实验表明，所提出的图像加密方法具有良好的有效性和较高的安全性。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>随着计算机网络的迅速发展，数字图像可以高速传输到世界的任何一个角落。然而，恶意用户也可以利用计算机网络获取未经授权的数字图像。因此，对这些未经授权的图像进行加密，防止图像信息被截获具有重要意义。</p>
+<p>图像加密问题已经得到了深入而广泛的研究，提出新的图像加密机制是很有必要的。混沌图像加密技术提供了一种有效的解决方案，到目前为止，已经提出了许多混沌系统。在现实世界中，时延广泛存在，研究表明，时延的微小变化可以极大地改变混沌系统的动态行为，可以用来设计图像加密方案。然而，据我们所知，现有的时滞混沌系统数量较少，几乎没有利用混沌系统的时滞进行图像加密的研究。</p>
+<h5 id="新型时滞混沌系统"><a href="#新型时滞混沌系统" class="headerlink" title="新型时滞混沌系统"></a>新型时滞混沌系统</h5><p>首先，提出了一种新的时滞混沌系统定义如下：</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{array}{l}
+    \frac{dx(t)}{dt}=a(y(t)-x(t))+w(t) \\
+    \frac{dy(t)}{dt}=(c-z(t))x(t)-y(t-\tau) \\
+    \frac{dz(t)}{dt}=x(t)y(t)-bz(t) \\
+    \frac{dw(t)}{dt}=-x(t)-aw(t) 
+\end{array}
+\right .</script><p>其中，系统初始值(x0,y0,z0,w0)=(0.1,0.1,0.1,0.1) ,控制参数为a=1.5,b=0.5,c=10.6,$\tau$=6.5时系统的动力学行为表现如下图：</p>
+<p>（可以用龙格库塔法求解，也可以通过点绘制（需要 $\tau$为整数 ））</p>
+<h5 id="图像加密"><a href="#图像加密" class="headerlink" title="图像加密"></a>图像加密</h5><h5 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h5><h6 id="时滞动力系统初始值？？？"><a href="#时滞动力系统初始值？？？" class="headerlink" title="时滞动力系统初始值？？？"></a>时滞动力系统初始值？？？</h6><p>对时滞动力系统，其初始条件为连续函数，论文中并没有提到初始条件的连续函数，不知道是怎么处理的，一律按0处理？？？</p>
+<h6 id="混沌系统求解？？"><a href="#混沌系统求解？？" class="headerlink" title="混沌系统求解？？"></a>混沌系统求解？？</h6><p>龙格库塔求解？？？直接迭代绘制点？？？</p>
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://baike.baidu.com/item/%E6%97%B6%E6%BB%9E%E6%B7%B7%E6%B2%8C%E7%B3%BB%E7%BB%9F/21405012?fr=aladdin">时滞混沌系统</a></p>
 ]]></content>
       <categories>
