@@ -12340,6 +12340,12 @@ f_m=\frac{1}{n}x_0+\frac{2}{n}\sum_{k=1}^{n-1}{x_k cos[\frac{\pi}{n}(m+\frac{1}{
 <td>4.1</td>
 <td>2.125</td>
 </tr>
+<tr>
+<td>9</td>
+<td>An Image Encryption Algorithm Based on Random Hamiltonian Path</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -12443,6 +12449,44 @@ f_m=\frac{1}{n}x_0+\frac{2}{n}\sum_{k=1}^{n-1}{x_k cos[\frac{\pi}{n}(m+\frac{1}{
       <tags>
         <tag>工具</tag>
         <tag>图像加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mackey-Glass时滞混沌系统</title>
+    <url>/2021/04/16/Mackey-Glass%E6%97%B6%E6%BB%9E%E6%B7%B7%E6%B2%8C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h5 id="时滞混沌系统"><a href="#时滞混沌系统" class="headerlink" title="时滞混沌系统"></a>时滞混沌系统</h5><p>时滞混沌系统即具有混沌运动的时滞系统。时滞系统是系统中一处或几处的信号传递有时间延迟的系统。所谓混沌是指具有以下特点的一类现象：由确定性产生；具有有界性；具有非周期性；初始条件具有极端敏感性。</p>
+<a id="more"></a>
+<h6 id="时滞系统"><a href="#时滞系统" class="headerlink" title="时滞系统"></a>时滞系统</h6><p>在工程中．许多动力系统可由状态变量随时间演化的微分方程来描述。随着混沌研究的不断深入，研究人员发现相当一部分动力系统的状态变量之间存在时间滞后现象，即系统的演化趋势不仅与系统当前的状态相关，而且还与过去某一时刻或若干时刻的状态有关。于是将这类动力学系统通称为时滞动力学系统。</p>
+<p>时滞动力学系统已经不能简单的用微分方程描述，其数学模型是时滞微分方程(Delay Differential Equations)。假设具有时滞的连续微分动力系统为：</p>
+<script type="math/tex; mode=display">
+\dot x=F(x,x_\tau,t)</script><p>对于上述微分方程，其初始条件要在初始一段时间上给出，一般由定义在 $[-\tau,0]$的连续可微函数确定，系统在t&gt;0后的行为不仅依赖于初始时刻的状态，而且与 $[-\tau,0]$时间段的运动有关，因此时滞系统的空间解是无穷维的。与常微分方程比较可知，当 $\tau =0$时，时滞微分方程退化为常微分方程。由于时滞微分方程 $\tau$不等于0，使得时滞对系统的动态特性比常微分方程系统的更加复杂，有着更加丰富的动力学行为。</p>
+<h6 id="判断依据"><a href="#判断依据" class="headerlink" title="判断依据"></a>判断依据</h6><p>如何判断一个时滞系统是否处于混沌运动状态，接下来从常用混沌特性分析方法推广到时滞系统，从下述五个方面来分析判断混沌运动</p>
+<p>（1）时间历程图</p>
+<p>对时滞微分方程进行数值计算，画出解状态变量随时间t变化的时间历程图，混沌系统随时间变化的图是貌似随机的。</p>
+<p>（2）初值敏感性测试图</p>
+<p>对初始作微小的扰动，稳定系统的初值扰动不明显；无界系统的初值扰动则会无限放大；而混沌系统的初值微小扰动后的轨道上的点与原轨道上的对应点之间的距离在一段时间内呈指数放大，由于混沌运动的有界性，之后距离就会呈随机振动。</p>
+<p>（3）相图</p>
+<p>利用数值计算结果，作出相轨迹随时间t面变化轨线。如果在相空间中，出现闭轨线则系统存在周期解；当经过无数个循环，无法获得封闭轨线，则系统可能产生混沌运动，出现吸引子。</p>
+<p>（4）功率谱分析</p>
+<p>可以通过决定系统长期演化的任一单变量时间序列来研究系统的混沌行为，对其在频域上进行研究。如果出现连续功率谱，则可认为出现混沌。</p>
+<p>（5）Lyapnov指数</p>
+<p>判断系统是否是混沌的重要的定量方法为是否有正的Lyapunov指数。Lyapunov指数是反映动力学系统特性的一个重要定量指标，它表明了在相空间中系统相邻轨道间收敛或发散（分离）的长期平均指数。对时滞动力系统，其初始条件为连续函数，因此其Lyapunov指数与作为初始条件的连续函数有关。定义在初始时间段的连续函数是不可数的，那么系统的Lyapunov指数的个数也是不可数的。计算时滞动力系统的Lyapunov指数是复杂的工作。在计算过程中，还可能出现奇异情况而使得结果不准确。实际上判断系统是否混沌，只要最大Lyapunov指数大于零就可以作为混沌存在的一个可靠依据。</p>
+<h5 id="Mackey-Glass系统"><a href="#Mackey-Glass系统" class="headerlink" title="Mackey-Glass系统"></a>Mackey-Glass系统</h5><p>时滞混沌系统系统最典型的一个例子就是Mackey-Glass系统。</p>
+<script type="math/tex; mode=display">
+\dot x(t)=-bx(t)+\frac{ax(t-\tau)}{1+x^c(t-\tau)}</script><p>其中参数a=0.2,b=0.1,c=10,时滞 $\tau $=16.8时，M-G系统是混沌的，且正的Lyapunov指数个数随时滞的增长而增加，f=300时，正的Lyapunov指数个数接近15。从以上系统说明，时滞混沌系统可以通过极简单结构产生具有极高随机性和不可预测性的时间系列．这正是信息保密安全通信所需要的特征。</p>
+<h6 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h6><p>选取系统参数a=0.2，b=0.1，c=10，时滞 $\tau$=23，此时Mackey-Glass系统处于混沌状态。从定性的角度画出系统的时间历程图、初值敏感性测试图和相图。对系统初步判断，然后从定量的角度进行功率谱分析，计算出最大Lyapunov指数来判断Mackey-Glass系统是否处于混沌运动状态。</p>
+<p>首先选取初始函数为 $x_0(t)=cos(t),t\epsilon [-\tau,0]$,舍去前面300个暂态点，得到 $x_0(t)$ 随时间t的变化波形如图1(左上子图1)，图1(右上子图2)为对初始函数加 $10^{-8}$扰动的 $x_1(t)$ 值波形，图1(左下子图3)为它们的差值；图1(右下子图4)为 $x(t-\tau)$与 $x(t)$两个平面之间的相图。</p>
+<p><img src="/2021/04/16/Mackey-Glass%E6%97%B6%E6%BB%9E%E6%B7%B7%E6%B2%8C%E7%B3%BB%E7%BB%9F/M-G.png" alt="M-G"></p>
+<p>时滞混沌系统具有极简单结构却复杂的动力学特性。将其引入混沌应用研究，首先分析时滞混沌系统的混沌特性是十分重要。</p>
+<h6 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment">#绘制三维图像</span></span><br><span class="line"><span class="keyword">import</span> mpl_toolkits.mplot3d <span class="keyword">as</span> p3d</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">时滞混沌系统Mackey-Glass，Euler(欧拉)公式进行求解,其他方法也可。。。</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Mackey_Glass</span>(<span class="params">x,h,a,b,c,tao,T</span>):</span></span><br><span class="line">  <span class="comment">#这里t是迭代周期，公式x(t)中的t是t*h</span></span><br><span class="line">  <span class="keyword">for</span> t <span class="keyword">in</span> range(tao,tao+T):</span><br><span class="line">    x[t+<span class="number">1</span>]=x[t]+h*(-b*x[t]+a*x[t-tao]/(<span class="number">1</span>+x[t-tao]**c))</span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  <span class="comment">#设定参数</span></span><br><span class="line">  a=<span class="number">0.2</span></span><br><span class="line">  b=<span class="number">0.1</span></span><br><span class="line">  c=<span class="number">10</span></span><br><span class="line">  tao=<span class="number">23</span></span><br><span class="line">  <span class="comment">#迭代次数</span></span><br><span class="line">  T=<span class="number">6001</span></span><br><span class="line">  <span class="comment">#初值是用连续函数定义的</span></span><br><span class="line">  <span class="comment">#迭代步长，应满足tao%h=0,否则存在误差</span></span><br><span class="line">  h=<span class="number">1</span></span><br><span class="line">  <span class="comment">#tao转成离散序列索引</span></span><br><span class="line">  tao=int(tao/h)</span><br><span class="line">  <span class="comment">#前tao+1个数是[-tao,0]的系统初值，后T个数是迭代T次</span></span><br><span class="line">  <span class="comment">#dtype默认是int32，要指定dtype</span></span><br><span class="line">  x=np.arange(<span class="number">0</span>,T+tao+<span class="number">1</span>,dtype=np.float64)</span><br><span class="line">  x1=np.arange(<span class="number">0</span>,T+tao+<span class="number">1</span>,dtype=np.float64)</span><br><span class="line">  x2=np.arange(<span class="number">0</span>,T+tao+<span class="number">1</span>,dtype=np.float64)</span><br><span class="line">  <span class="comment">#[-tao,0]之间的初始条件</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(tao+<span class="number">1</span>):</span><br><span class="line">    x[i]=np.cos(i)</span><br><span class="line">    <span class="comment">#对原初始函数加10的负8次方扰动，对比结果</span></span><br><span class="line">    x1[i]=np.cos(i)+<span class="number">10</span>**(<span class="number">-8</span>)</span><br><span class="line">    x2[i]=np.cos(i)+<span class="number">10</span>**(<span class="number">-8</span>)</span><br><span class="line">  <span class="comment">#产生时滞混沌序列</span></span><br><span class="line">  x=Mackey_Glass(x,h,a,b,c,tao,T)</span><br><span class="line">  x1=Mackey_Glass(x1,h,a,b,c,tao,T)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#结果展示</span></span><br><span class="line">  plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 中文乱码</span></span><br><span class="line">  plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>]=<span class="literal">False</span> <span class="comment">#用来正常显示负号</span></span><br><span class="line">  plt.subplot(<span class="number">221</span>)</span><br><span class="line">  <span class="comment">#舍去序列中前300个暂态点，这里采用t的值而不是索引</span></span><br><span class="line">  t=np.arange(<span class="number">300</span>,T+tao+<span class="number">1</span>)*h</span><br><span class="line">  plt.scatter(t,x[<span class="number">300</span>:],s=<span class="number">1</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;$x_0(t)=cos(t),t\\in[-\\tau,0]$&#x27;</span>)</span><br><span class="line">  <span class="comment">#子图2</span></span><br><span class="line">  plt.subplot(<span class="number">222</span>)</span><br><span class="line">  plt.scatter(t,x1[<span class="number">300</span>:],s=<span class="number">1</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;$x_0(t)=cos(t)+10^&#123;-8&#125;,t\\in[-\\tau,0]$&#x27;</span>)</span><br><span class="line">  plt.subplot(<span class="number">223</span>)</span><br><span class="line">  plt.scatter(t,x[<span class="number">300</span>:]-x1[<span class="number">300</span>:],s=<span class="number">1</span>)</span><br><span class="line">  plt.title(<span class="string">&#x27;$x_0(t)$与$x_1(t)$的差值&#x27;</span>)</span><br><span class="line">  plt.subplot(<span class="number">224</span>)</span><br><span class="line">  plt.plot(x[<span class="number">300</span>:T],x[<span class="number">300</span>+tao:tao+T])</span><br><span class="line">  plt.title(<span class="string">&#x27;x(t)与x(t+tao)的相图&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># #设置子图默认的间距</span></span><br><span class="line">  plt.tight_layout()</span><br><span class="line">  <span class="comment">#显示图像</span></span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://baike.baidu.com/item/%E6%97%B6%E6%BB%9E%E6%B7%B7%E6%B2%8C%E7%B3%BB%E7%BB%9F/21405012?fr=aladdin">时滞混沌系统</a></p>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>图像加密</tag>
+        <tag>混沌</tag>
       </tags>
   </entry>
 </search>
