@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="【论文地址】 基于三维位矩阵排列的图像加密">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Image encryption based on three-dimensional bit matrix permutation">
+<meta property="og:url" content="http://example.com/2021/04/19/Image-encryption-based-on-three-dimensional-bit-matrix-permutation/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="【论文地址】 基于三维位矩阵排列的图像加密">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/04/19/Image-encryption-based-on-three-dimensional-bit-matrix-permutation/bit_matrix.png">
+<meta property="article:published_time" content="2021-04-19T06:48:35.000Z">
+<meta property="article:modified_time" content="2021-04-20T12:03:50.457Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="图像加密">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/19/Image-encryption-based-on-three-dimensional-bit-matrix-permutation/bit_matrix.png">
+
+<link rel="canonical" href="http://example.com/2021/04/19/Image-encryption-based-on-three-dimensional-bit-matrix-permutation/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Image encryption based on three-dimensional bit matrix permutation | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/Image-encryption-based-on-three-dimensional-bit-matrix-permutation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Image encryption based on three-dimensional bit matrix permutation
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-19 14:48:35" itemprop="dateCreated datePublished" datetime="2021-04-19T14:48:35+08:00">2021-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-20 20:03:50" itemprop="dateModified" datetime="2021-04-20T20:03:50+08:00">2021-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/19/Image-encryption-based-on-three-dimensional-bit-matrix-permutation/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/Image-encryption-based-on-three-dimensional-bit-matrix-permutation/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>【<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0165168415002078">论文地址</a>】</p>
+<h5 id="基于三维位矩阵排列的图像加密"><a href="#基于三维位矩阵排列的图像加密" class="headerlink" title="基于三维位矩阵排列的图像加密"></a>基于三维位矩阵排列的图像加密</h5><a id="more"></a>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>最近，人们提出了许多基于像素级或位级加密的图像加密算法。然而，无论是像素级排列还是位级排列都有其固有的缺陷。本文提出了一种新的密码系统来解决这些问题。首先对不同的排列算法进行了全面的分析和比较。由于从位级的角度来看，图像可以被认为是一个自然的三维(3D)位矩阵(宽度、高度和位长)，因此提出了一种新的三维位矩阵排列，置乱阶段将Chen系统与3D Cat映射相结合，提出了一种新的映射规则，将3D矩阵中的一个随机位置映射到另一个随机位置(即双随机位置置换)，而不是使用传统的顺序访问普通图像。仿真结果验证了该密码系统的安全性和有效性。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>互联网技术与社会的发展网络服务(SNS)使得数字图片和视频的在线分享越来越多。与此同时，非法访问或修改私人多媒体信息已成为数字世界中一个严重的问题。尽管这种性质的问题可以通过使用信息加密来解决，但由于这类信息的固有特征，包括相邻像素中的数据之间的高度相关性，传统的加密方案，例如DES和AES，不适用于多媒体信息加密应用程序以及实时变换的需要。因此，需要一种新的加密机制来满足多媒体信息的特殊需求。在这方面，近年来，利用混沌理论和排列-扩散体系结构的图像加密技术取得了重大进展。</p>
+<p>到目前为止已经提出了许多图像加密算法，这些算法根据产生伪随机数的方式可以分为两类:基于混沌理论的算法和基于非混沌理论的算法。基于混沌的图像加密，是基于混沌动态系统和密码系统之间的相似性，包括伪随机行为，对初始条件的敏感性和遍历性。两种图像加密的第二种，非混沌加密，涉及到使用非混沌动态系统生成伪随机数序列，然后使用伪随机数序列对图像进行加密的方法。</p>
+<p>然而，图像加密的问题是，图像的位矩阵是一个自然的3D矩阵，因为一个256级灰度的大小为M*N的图像可以看做一个M*N*8的矩阵，在此基础上，现有的大多数算法尝试使用多种二维排列组合来对三维矩阵进行排列。此外，使用二维混沌映射或排序算法进行排列会出现重复的模式问题，排序序列中元素数量的增加导致排序算法的执行时间迅速增加。</p>
+<p>为了解决上述问题，本文提出了一种新的基于Chen系统和三维混沌映射耦合的三维置换算法，在新的置换算法中，不仅可以修改位的位置，而且可以同时修改每个位的权值。在此基础上，本文提出了一种新的基于Chen系统的三维明文图像随机访问机制，使用三维cat映射控制第二阶段的排列。仿真结果表明，该方案具有较高的安全性和有效性。</p>
+<h5 id="排列算法中的问题"><a href="#排列算法中的问题" class="headerlink" title="排列算法中的问题"></a>排列算法中的问题</h5><p>排列算法在图像加密中起着重要的作用，它通常是密码系统的第一步，目的是对所有像素进行重新定位。排列算法可以根据图像加密时是否移动像素或位元分为两类或两级。位级排列算法重新定义每个像素的基本位组成，因此在像素级上产生完全不同的统计信息。对256 Gy级的明文图像的8位平面分别进行排列，然后重新组合形成密码图像;然而，这忽略了比特平面之间的区别和联系。</p>
+<p>在算法本身的基础上，还可以对置换算法进行另一种分类，即计算置换操作后每个像素的新位置的方法。这两类算法分别是基于排序的置换算法和基于二维混沌映射置换的置换算法，第一类算法使用随机数序列来定义新的位置，一般来说，根据伪随机系统计算一个或多个随机序列，然后对序列进行排序。在此之后，在排序前后序列中的两个相对位置之间获得一个映射规则，该映射规则应用于可能是行、列或像素的排列单元。序列中的元素数等于明文图像中的比特数，长序列排序后，比特的位置就确定了。这个算法非常耗时，因为对如此大量的数字进行排序和比较是一个cpu频带例程。基于排列的排序算法的优点是易于设计和实现，缺点是通常需要过多的执行时间。第二类算法，利用由离散2D混沌映射(如Cat映射、标准映射、Henon映射和Baker映射)控制的排列过程。二维混沌系统生成随机目标位置集，并将像素映射到密码图像中。然而，在扩散操作前，由二维控制的排列总是出现重复的图案，因为输出位置的坐标不是完全随机的。二维混沌映射的排列算法,排列的图像可能会出现重复的模式,一个映射规则由混沌映射的结果,导致几乎所有的像素相似的距离在同一方向移动,尤其是当猫使用地图。因此，重复模式反映了所有像素的规律性移动。这种置换算法的优点是在实现上的时间效率，缺点是其密码系统的安全性很大程度上依赖于扩散操作，而置换算法是扩散操作的辅助步骤。然而，在基于排序的排列算法的情况下，情况是不同的。这种算法可以采用两种排列方法中的一种。第一种方法将其基本元素作为一行或一列像素进行排列，在这种情况下，只需要对少量数字进行排序。例如一个M*N的图像，需要对两个分别为M和N大小的伪随机序列进行排序，因此，执行此操作所需的时间是可以接受的。但是，随着序列中数字数量的增加，对特定序列进行排序的时间会显著增加。第二种排列方法的缺点是，用于排列的基本元素是像素或位，其随机序列的长度等于像素或位的数量。在这种情况下，对如此大的序列进行排序非常耗时。</p>
+<p>基于以上分析，我们可以得出一个有效的位级置换算法有两个标准:(1)混淆图像不存在重复模式;(2)排列后图像的直方图应均匀分布。普通的排列算法不能满足这两个要求，上述置换算法都是在二维平面上进行的，不能在位级上提供完全随机的位置移位策略。这些算法通常将置换平面指定为一个位平面或一个像素平面组成一个颜色通道，整个置换效果被认为是多个置换平面的组合。实际上，图像的位矩阵就形成了一个自然的3D矩阵，例如，一个大小为M*N的256级灰度的图像包含一个大小为M*N*8的矩阵。因此，我们的研究目的是确定是否有可能直接排列3D矩阵，使用排列规则来确定3D位置，而不是不同排列的2D平面的组合。新的3D排列规则定义了一种随机重定位机制，允许明文图像中的每一位都有同等的可能性重定位到3D位矩阵中的任何位置。</p>
+<h5 id="基于三维位矩阵的混合排列结构"><a href="#基于三维位矩阵的混合排列结构" class="headerlink" title="基于三维位矩阵的混合排列结构"></a>基于三维位矩阵的混合排列结构</h5><p>本节介绍我们提出的基于图像可以自然地被视为3D位矩阵的新位级排列架构，新的排列体系结构结合了基于排序和基于Cat映射的排列。</p>
+<p>如上所述，一个大小为512*512的256级灰度图像可以被认为是一个大小为512*512*8的三维矩阵，对应的r1,r2,r3分别为512、512和24。此外，对于RGB彩色图像，r1、r2、r3的值为512、512和24。对于基于排序的排列算法，将排序序列的长度加倍将使执行时间增加两倍以上。在我们提出的方案中，我们使用一个转换后的三维位矩阵来减少排列时间。对一个标准的大小为512*512的256级灰度测试图像，转换的三维矩阵为128*128*128,因为512*512*8=128*128*128。仿真结果表明，当每个维位比特数越近，该排序算法的速度越快。需要注意的是，每个方向上的位数不需要像这里一样相同。</p>
+<p>基于排序的排列算法和基于二维混沌映射的排列算法有各自的特点，总结如下表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Permutation</th>
+<th>Permuted element</th>
+<th>Benefit</th>
+<th>Drawback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sorting-based</td>
+<td>Column and row sorted<br>Pixel or bit sorted</td>
+<td>Fast<br>Permutation effect is good</td>
+<td>Repeat patterns<br>Execution time is too long not acceptable</td>
+</tr>
+<tr>
+<td>2D chaotic map-based</td>
+<td>Pixel or bit</td>
+<td>Fast</td>
+<td>Repeat patterns</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>基于排序的排列算法的混淆效果稍好，因为基本移动单元可以是一列、一行或一个像素。然而，当序列元素增加时，基于排序的排列的执行时间显著增加。二维混沌映射置换算法的情况则有所不同。排列效果不够好，混乱图像中出现大量重复图案，但执行时间快。无论是基于排序的算法还是基于二维混沌映射的置换算法都可以产生完全噪声的密文图像</p>
+<p>本节介绍一种新的基于双随机位置映射(DRPM)的置换策略，它利用了基于排序和基于混沌映射的置换算法的优点。对转换后的三维位矩阵进行排列策略，利用耦合的三维混沌映射、Chen系统和三维Cat映射有效地生成混沌图像。</p>
+<p>利用Chen系统生成第一个映射规则，对三维位矩阵进行随机访问</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \left\{
+        \begin{array}{lr}
+        x' =a(y-x)  \\
+        y'=(c-a) x-xz+cy \\
+        z'=xy-bz
+        \end{array}
+    \right .
+\end{equation}</script><p>其中，a，b，c是控制参数。在Chen系统中，当a=35，b=3，c $\in$[20,28.4]时，动态系统是混沌的。通过欧拉公式用步长0.001得到三个大小分别为r1,r2,r3的序列，定义如下式。Chen系统的初始值为 $key_c_x_0$=0.22521231547896,$key_c_y_0$=0.58749654123587,$key_c_z_0$=0.98564123475621。</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{array}{l}
+    qx_i=(x_i*10^9)mod \ 65536 \\
+    qy_i=(y_i*10^9)mod \ 65536 \\
+    qz_i=(z_i*10^9)mod \ 65536 \\
+\end{array}
+\right .</script><p>其中， $x_i,y_i,z_i$是Chen系统产生的伪随机序列并且 i $\in$[0,127]。然后对三个序列排序得到排序后的序列 $sqx_i,sqy_i,sqz_i$。</p>
+<p>通过将排序后的序列与原始序列进行比较，可以得到映射序列X、Y、Z。经过比较，如果序列$sqx_i$的第一个数字位于序列qxi的k1位置，则映射规则X的第一个数字为k1,依次类推，得到映射规则X，Y，Z</p>
+<script type="math/tex; mode=display">
+X={k_1^x,k_2^x,...,k_{r1}^x} \\
+Y={k_1^y,k_2^y,...,k_{r1}^y} \\
+Z={k_1^z,k_2^z,...,k_{r1}^z}</script><p>将X、Y、Z三个映射序列组合得到第一个映射规则，将普通位映射到随机位。</p>
+<script type="math/tex; mode=display">
+(bx,by,bz)->(k_{bx}^x,k_{by}^y,k_{bz}^z)</script><p>其中，$1\leq bx\leq r_1,1\leq by \leq r_2,1\leq bz\leq r_3,k_{bx}^x,k_{by}^y,k_{bz}^z$定义如上X,Y,Z。（bx,by,bz）代表三维矩阵的顺序位置, $k_{bx}^x,k_{by}^y,k_{bz}^z$代表随机位置。</p>
+<p>在混淆操作中有两个因素导致重复模式。第一种是控制混乱操作的混沌映射的内在重复模式，而第二种是由序列访问的相邻像素值的相似性引起的普通图像的顺序访问。换句话说，重复模式出现的原因是在重复模式的混沌映射下，几乎相同值的像素被顺序映射，和使用相同的程序访问大量相同或相似的像素并映射到目标位置。由于连续访问明文图像中具有相同值的像素，这将导致在混淆图像中出现重复的模式。</p>
+<p>该方案采用了一种新的对明文图像的访问策略，试图避免这一问题。上述定义映射规则，将每个顺序位置映射到随机位置。通过反向使用这个映射规则，定义一个从随机位置到顺序位置的新映射规则成为可能，如下：</p>
+<script type="math/tex; mode=display">
+(k_{bx}^x,k_{by}^y,k_{bz}^z)->(bx,by,bz)</script><p>利用下面描述的第二条映射规则(3D Cat映射)，定义了3D矩阵中从一个随机位置到另一个位置的新的映射规则</p>
+<p>3D Cat映射用于控制每个比特的置换操作的第二步,定义如下：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{array}{l}
+    x_{n+1} \\
+    y_{n+1} \\
+    z_{n+1} 
+\end{array}
+\right ]=
+\left[
+\begin{array}{lll}
+    1+a_za_zb_y & a_z & ay+a_xa_z+a_xa_zb_y \\
+    b_z+a_zb_y+a_xa_zb_yb_z & a_zb_z+1 & a_ya_z+a_za_ya_zb_yb_z+a_xa_zb_z+a_za_yb_y+a_x \\
+    a_xb_xb_y+b_y & b_x & a_xa_yb_xb_y+a_xb_x+a_yb_y+1
+\end{array}
+\right
+]*
+\left[
+\begin{array}{l}
+x_n \\
+y_n \\
+z_n
+\end{array}
+\right]</script><p>其中，$a_x,a_y,a_z,b_x,b_y,b_z$是3D Cat 映射的6个参数，计算如下：</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{array}{l}
+a_x=(x_{200}*10^9)mod\ 64 \\
+a_y=(y_{200}*10^9)mod\ 64 \\
+a_z=(z_{200}*10^9)mod\ 64 \\
+b_x=(x_{200}*10^9)mod\ 64 \\
+b_y=(y_{200}*10^9)mod\ 64 \\
+b_z=(z_{200}*10^9)mod\ 64 \\
+\end{array}
+\right\}</script><p>其中 $x_i,y_i,z_i$是由Chen系统得到的随机序列，Chen系统参数为a=35,b=3,c=28,初始条件是 $key_d_x_0$=0.22521231547896, $key_d_y_0$=0.58749654143234, $key_d_z_0$=0.98564123475621。</p>
+<h5 id="所提方案的扩散阶段"><a href="#所提方案的扩散阶段" class="headerlink" title="所提方案的扩散阶段"></a>所提方案的扩散阶段</h5><p>扩散操作在像素级执行。第一步是将被混淆的比特矩阵转化为二维像素矩阵，然后将二维像素矩阵转化为一维像素阵列。扩散操作如下：</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{array}{l}
+    cph[i]=pm[i]\bigoplus rdm_2[tmp_1];\\
+    tmp_1=rdm_1[tmp_2]; \\
+    tmp_2=cph[i]
+\end{array}
+
+\right .</script><p>其中，pm[i]代表排列图像的第i个像素，0&lt;=i&lt;=262143,cph[i]是密文图像的第i个像素。变量tmp1和tmp2是两个扩散操作期间的临时值，rdm1和rdm2是两个随机序列，定义如下。tmp2的初始条件是tmp2=$(3.99999<em>key_{d3}</em>(1-key_{d3})*1000)mod\ 256$)，仿真模拟时， $key_{d3}$被设置为0.43263498463278。</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{array}{l}
+rdm_1[i]=(rs_1[2000+i]*10^9)mod \ 256 \\
+rdm_2[i]=(rs_2[2000+i]*10^9) mod\ 256
+\end{array}
+\right .</script><p>其中，rs1和rs2是两个由逻辑映射生成的随机序列，初始值为 $key_{d1}$= 0.23465654373432,  $key_{d2}$=0.34678978310437，逻辑映射定义如下：</p>
+<script type="math/tex; mode=display">
+f(x_n)=\alpha x_{n-1}(1-x_{n-1})</script><p>在计算rdm1和rdm2时，如果输出数与前面的数相等，则丢弃该数，继续计算下一轮，以保证rdm1和rdm2不包含重复的数。</p>
+<p>扩散阶段后，将一维像素序列转化为二维密码图像。该方案的每一个加密轮包括一个混淆轮和一个扩散轮。</p>
+<h5 id="所提出的方案"><a href="#所提出的方案" class="headerlink" title="所提出的方案"></a>所提出的方案</h5><p>该方案是一个典型的Fridrich体系结构密码系统，其中一个加密轮包括一个混淆轮和一个扩散轮。</p>
+<p>(1)首先将二维像素矩阵转化为三维比特矩阵;</p>
+<p>(2)3D位矩阵是基于上述介绍的混合3D排列算法进行排列的，其中Chen系统和3D Cat映射控制整个过程。</p>
+<p>a）随机序列qxi, qyi, qzi由Chen系统产生</p>
+<p>b）这三个序列被排序，并与原始的三个序列进行比较得到映射序列X, Y, Z。随机访问规则 $(k_{bx}^x,k_{by}^y,k_{bz}^z)$定义了随机访问3D位矩阵的顺序。</p>
+<p>c）根据步骤(b)定义的访问顺序，对于每一个比特，3D cat映射将计算其在置换3D矩阵中的新位置，直到所有比特都被置换。</p>
+<p>(3)排列后的三维比特矩阵由三维比特矩阵转化为二维像素矩阵。置换阶段结束。</p>
+<p>(4)将二维像素矩阵进一步转化为一维像素阵列。</p>
+<p>(5)根据上述扩散描述对每个像素进行扩散操作</p>
+<p>(6)将扩散阶段后的一维像素阵列转化为二维像素矩阵。扩散阶段结束。</p>
+<p>在这些步骤中，混淆阶段包括步骤1、2、3，扩散阶段包括步骤4、5、6。</p>
+<p>对于解密算法，应反向执行上述步骤。</p>
+<h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><p><img src="/2021/04/19/Image-encryption-based-on-three-dimensional-bit-matrix-permutation/bit_matrix.png" alt="bit_matrix"></p>
+<h5 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Chen吸引子生成函数</span></span><br><span class="line"><span class="string">参数为三个初始坐标，三个初始参数,迭代次数</span></span><br><span class="line"><span class="string">返回三个一维数组(坐标)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Chen</span>(<span class="params">x0,y0,z0,a,b,c,T</span>):</span></span><br><span class="line">  h=<span class="number">0.001</span></span><br><span class="line">  x=[]</span><br><span class="line">  y=[]</span><br><span class="line">  z=[]</span><br><span class="line">  <span class="keyword">for</span> t <span class="keyword">in</span> range(T):</span><br><span class="line">    xt=x0+h*(a*(y0-x0))</span><br><span class="line">    yt=y0+h*((c-a)*x0-x0*z0+c*y0)</span><br><span class="line">    zt=z0+h*(x0*y0-b*z0)</span><br><span class="line">    <span class="comment">#x0、y0、z0统一更新</span></span><br><span class="line">    x0,y0,z0=xt,yt,zt</span><br><span class="line">    x.append(x0)</span><br><span class="line">    y.append(y0)</span><br><span class="line">    z.append(z0)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> x,y,z</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Logistic</span>(<span class="params">x0,T</span>):</span></span><br><span class="line">  <span class="comment">#混沌系统控制参数</span></span><br><span class="line">  u=<span class="number">3.99999</span></span><br><span class="line">  <span class="comment">#一个临时数组用于返回加密后的图像，可以不影响原始图像</span></span><br><span class="line">  seq=np.zeros(T)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(T):</span><br><span class="line">    <span class="comment">#计算混沌序列值</span></span><br><span class="line">    x0=u*x0*(<span class="number">1</span>-x0)</span><br><span class="line">    seq[i]=x0</span><br><span class="line">  <span class="keyword">return</span> seq</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bit2pixel</span>(<span class="params">bits</span>):</span></span><br><span class="line">  <span class="keyword">return</span> bits[<span class="number">0</span>]*<span class="number">128</span>+bits[<span class="number">1</span>]*<span class="number">64</span>+bits[<span class="number">2</span>]*<span class="number">32</span>+bits[<span class="number">3</span>]*<span class="number">16</span>+bits[<span class="number">4</span>]*<span class="number">8</span>+bits[<span class="number">5</span>]*<span class="number">4</span>+bits[<span class="number">6</span>]*<span class="number">2</span>+bits[<span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#传入0-255之间的一个整数，输出包含8个元素的数组</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pixel2bit</span>(<span class="params">pixel</span>):</span></span><br><span class="line">  bin_pixel=bin(pixel)[<span class="number">2</span>:].zfill(<span class="number">8</span>)</span><br><span class="line">  arr=np.zeros(<span class="number">8</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">    arr[i]=bin_pixel[i]</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">加密函数</span></span><br><span class="line"><span class="string">img:原始图像路径</span></span><br><span class="line"><span class="string">key:密钥列表，大小为9(1、2为PWLCM初始条件和参数；3、4、5、6为Chen系统初值，7、8、9为Lorenz系统初值)</span></span><br><span class="line"><span class="string">return:返回加密后的图像</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span>(<span class="params">img,key</span>):</span></span><br><span class="line">  <span class="comment">#三维矩阵</span></span><br><span class="line">  im=cv2.imread(img)</span><br><span class="line">  <span class="comment">#获取图像宽高和通道数</span></span><br><span class="line">  [h,w,dim]=im.shape</span><br><span class="line">  print(im[<span class="number">0</span>][:<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line">  <span class="comment">#二维明文图像转成三维比特矩阵，先设为h*w*8dim</span></span><br><span class="line">  <span class="comment">#三维矩阵的维度</span></span><br><span class="line">  r1=h</span><br><span class="line">  r2=w</span><br><span class="line">  r3=<span class="number">8</span>*dim</span><br><span class="line">  bin_pixels=np.zeros((r1,r2,r3))</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(r1):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(r2):</span><br><span class="line">      bin_pixels[i][j]=np.append(np.append(pixel2bit(im[i][j][<span class="number">0</span>]),pixel2bit(im[i][j][<span class="number">1</span>])),pixel2bit(im[i][j][<span class="number">2</span>]))</span><br><span class="line">  <span class="comment">#Chen系统控制参数</span></span><br><span class="line">  a=<span class="number">35</span></span><br><span class="line">  b=<span class="number">3</span></span><br><span class="line">  c=<span class="number">28</span></span><br><span class="line">  <span class="comment">#初始条件</span></span><br><span class="line">  x0=key[<span class="number">0</span>]</span><br><span class="line">  y0=key[<span class="number">1</span>]</span><br><span class="line">  z0=key[<span class="number">2</span>]</span><br><span class="line">  <span class="comment">#迭代次数,舍去前500个暂态值</span></span><br><span class="line">  T=<span class="number">500</span>+r1+r2+r3</span><br><span class="line">  xi,yi,zi=Chen(x0,y0,z0,a,b,c,T)</span><br><span class="line">  <span class="comment">#得到大小分别为r1，r2，r3的三个整数序列</span></span><br><span class="line">  qxi=[]</span><br><span class="line">  qyi=[]</span><br><span class="line">  qzi=[]</span><br><span class="line">  <span class="comment">#与65536取模，而不是256是为了扩大序列值空间，兼顾效率的同时增加随机性</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xi[-r1:]:</span><br><span class="line">    qxi.append(int(i*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">65536</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> yi[-r2:]:</span><br><span class="line">    qyi.append(int(i*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">65536</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> zi[-r3:]:</span><br><span class="line">    qzi.append(int(i*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">65536</span>)</span><br><span class="line">  X=np.arange(r1)</span><br><span class="line">  Y=np.arange(r2)</span><br><span class="line">  Z=np.arange(r3)</span><br><span class="line">  <span class="comment">#根据qxi排序</span></span><br><span class="line">  <span class="comment">#打包</span></span><br><span class="line">  dic=list(zip(qxi,X))</span><br><span class="line">  dic.sort(key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">  <span class="comment">#得到排序后的像素列表</span></span><br><span class="line">  X=list(list(zip(*dic))[<span class="number">1</span>])</span><br><span class="line">  <span class="comment">#根据qyi排序</span></span><br><span class="line">  dic=list(zip(qyi,Y))</span><br><span class="line">  dic.sort(key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">  <span class="comment">#得到排序后的像素列表</span></span><br><span class="line">  Y=list(list(zip(*dic))[<span class="number">1</span>])</span><br><span class="line">  <span class="comment">#根据qzi排序</span></span><br><span class="line">  dic=list(zip(qzi,Z))</span><br><span class="line">  dic.sort(key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">  <span class="comment">#得到排序后的像素列表</span></span><br><span class="line">  Z=list(list(zip(*dic))[<span class="number">1</span>])</span><br><span class="line">  ax=int(xi[<span class="number">200</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  ay=int(yi[<span class="number">200</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  az=int(zi[<span class="number">200</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  bx=int(xi[<span class="number">201</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  by=int(yi[<span class="number">201</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  bz=int(zi[<span class="number">201</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  ax=ay=az=bx=by=bz=<span class="number">1</span></span><br><span class="line">  cat=np.zeros((<span class="number">3</span>,<span class="number">3</span>))</span><br><span class="line">  cat=np.array([[<span class="number">1</span>+az*az*by,az,ay+ax*az+ax*ay*az*by],[bz+az*by+ax*az*by*bz,az*bz+<span class="number">1</span>,ay*az+az*ay*by*bz+ax*az*bz+az*ay*by+ax],[ax*bx*by+by,bx,ax*ay*bx*by+ax*bx+ay*by+<span class="number">1</span>]])</span><br><span class="line">  <span class="comment"># pixels=np.zeros((r1,r2,r3))</span></span><br><span class="line">  print(cat)</span><br><span class="line">  <span class="comment">#3D Cat是满射吗，二维Arnold是满射，如果不是就会出问题？？</span></span><br><span class="line">  pixels=np.array(bin_pixels)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(r1):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(r2):</span><br><span class="line">      <span class="keyword">for</span> k <span class="keyword">in</span> range(r3):</span><br><span class="line">        posx=(X[i]*(<span class="number">1</span>+az*az*by)+Y[j]*az+Z[k]*(ay+ax*az+ax*ay*az*by))%r1</span><br><span class="line">        posy=(X[i]*(bz+az*by+ax*az*by*bz)+Y[j]*(az*bz+<span class="number">1</span>)+Z[k]*(ay*az+az*ay*by*bz+ax*az*bz+az*ay*by+ax))%r2</span><br><span class="line">        posz=(X[i]*(ax*bx*by+by)+Y[j]*bx+Z[k]*(ax*ay*bx*by+ax*bx+ay*by+<span class="number">1</span>))%r3</span><br><span class="line"></span><br><span class="line">        pixels[i][j][k]=bin_pixels[posx][posy][posz]</span><br><span class="line"></span><br><span class="line">  <span class="comment">#三维比特矩阵转三维RGB像素值</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(r1):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(r2):</span><br><span class="line">      B=bit2pixel(pixels[i][j][:<span class="number">8</span>])</span><br><span class="line">      G=bit2pixel(pixels[i][j][<span class="number">8</span>:<span class="number">16</span>])</span><br><span class="line">      R=bit2pixel(pixels[i][j][<span class="number">16</span>:])</span><br><span class="line">      im[i][j]=np.array([B,G,R])</span><br><span class="line">  <span class="comment">#扁平化为一维</span></span><br><span class="line">  pm=im.flatten(order=<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#扩散阶段</span></span><br><span class="line">  <span class="comment">#逻辑映射初始条件</span></span><br><span class="line">  keyd1=key[<span class="number">3</span>]</span><br><span class="line">  keyd2=key[<span class="number">4</span>]</span><br><span class="line">  <span class="comment">#tmp2参数</span></span><br><span class="line">  keyd3=key[<span class="number">5</span>]</span><br><span class="line">  tmp2=int(<span class="number">3.99999</span>*keyd3*(<span class="number">1</span>-keyd3)*<span class="number">1000</span>)%<span class="number">256</span></span><br><span class="line">  rs1=Logistic(keyd1,w*h*<span class="number">3</span>+<span class="number">2000</span>)</span><br><span class="line">  rs2=Logistic(keyd2,w*h*<span class="number">3</span>+<span class="number">2000</span>)</span><br><span class="line">  rdm1=np.zeros(w*h*<span class="number">3</span>,dtype=np.uint8)</span><br><span class="line">  rdm2=np.zeros(w*h*<span class="number">3</span>,dtype=np.uint8)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(w*h*<span class="number">3</span>):</span><br><span class="line">    rdm1[i]=int(rs1[<span class="number">2000</span>+i]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">256</span></span><br><span class="line">    rdm2[i]=int(rs2[<span class="number">2000</span>+i]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">256</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(w*h*<span class="number">3</span>):</span><br><span class="line">    tmp1=rdm1[tmp2]</span><br><span class="line">    pm[i]=pm[i]^rdm2[tmp1]</span><br><span class="line">    tmp2=pm[i]</span><br><span class="line"></span><br><span class="line">  print(<span class="string">&#x27;密文&#x27;</span>,pm[:<span class="number">20</span>])</span><br><span class="line">  <span class="comment">#重新转成RGB三维图像</span></span><br><span class="line">  img_encrypt=pm.reshape((h,w,dim),order=<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> img_encrypt[:,:,(<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)]</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">功能：加密图像解密，加密过程的逆</span></span><br><span class="line"><span class="string">参数：</span></span><br><span class="line"><span class="string">输入加密图像路径和密钥参数</span></span><br><span class="line"><span class="string">返回：</span></span><br><span class="line"><span class="string">返回解密后的图像(ndarray)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span>(<span class="params">img,key</span>):</span></span><br><span class="line">  im=cv2.imread(img)</span><br><span class="line">  h,w,dim=im.shape</span><br><span class="line">  r1=h</span><br><span class="line">  r2=w</span><br><span class="line">  r3=<span class="number">8</span>*dim</span><br><span class="line">  <span class="comment">#扁平化为一维</span></span><br><span class="line">  pm=im.flatten(order=<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line">  print(<span class="string">&#x27;密文：&#x27;</span>,pm[:<span class="number">20</span>])</span><br><span class="line"></span><br><span class="line">  <span class="comment">#逆扩散阶段</span></span><br><span class="line">  <span class="comment">#逻辑映射初始条件</span></span><br><span class="line">  keyd1=key[<span class="number">3</span>]</span><br><span class="line">  keyd2=key[<span class="number">4</span>]</span><br><span class="line">  <span class="comment">#tmp2参数</span></span><br><span class="line">  keyd3=key[<span class="number">5</span>]</span><br><span class="line">  tmp2=int(<span class="number">3.99999</span>*keyd3*(<span class="number">1</span>-keyd3)*<span class="number">1000</span>)%<span class="number">256</span></span><br><span class="line">  rs1=Logistic(keyd1,w*h*<span class="number">3</span>+<span class="number">2000</span>)</span><br><span class="line">  rs2=Logistic(keyd2,w*h*<span class="number">3</span>+<span class="number">2000</span>)</span><br><span class="line">  rdm1=np.zeros(w*h*<span class="number">3</span>,dtype=np.uint8)</span><br><span class="line">  rdm2=np.zeros(w*h*<span class="number">3</span>,dtype=np.uint8)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(w*h*<span class="number">3</span>):</span><br><span class="line">    rdm1[i]=int(rs1[<span class="number">2000</span>+i]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">256</span></span><br><span class="line">    rdm2[i]=int(rs2[<span class="number">2000</span>+i]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">256</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(w*h*<span class="number">3</span>):</span><br><span class="line">    tmp1=rdm1[tmp2]</span><br><span class="line">    tmp2=pm[i]</span><br><span class="line">    pm[i]=pm[i]^rdm2[tmp1]</span><br><span class="line">  print(pm[:<span class="number">20</span>])</span><br><span class="line">  <span class="comment">#重新转成三维</span></span><br><span class="line">  im=pm.reshape((h,w,dim),order=<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  print(im[<span class="number">1</span>][:<span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">  <span class="comment">#三维像素矩阵转成三维比特矩阵</span></span><br><span class="line">  pixels=np.zeros((r1,r2,r3))</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(r1):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(r2):</span><br><span class="line">      pixels[i][j]=np.append(np.append(pixel2bit(im[i][j][<span class="number">0</span>]),pixel2bit(im[i][j][<span class="number">1</span>])),pixel2bit(im[i][j][<span class="number">2</span>]))</span><br><span class="line"></span><br><span class="line">  print(<span class="string">&#x27;置乱后的bit矩阵：&#x27;</span>,pixels[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">  <span class="comment">#Chen系统控制参数</span></span><br><span class="line">  a=<span class="number">35</span></span><br><span class="line">  b=<span class="number">3</span></span><br><span class="line">  c=<span class="number">28</span></span><br><span class="line">  <span class="comment">#初始条件</span></span><br><span class="line">  x0=key[<span class="number">0</span>]</span><br><span class="line">  y0=key[<span class="number">1</span>]</span><br><span class="line">  z0=key[<span class="number">2</span>]</span><br><span class="line">  <span class="comment">#迭代次数,舍去前500个暂态值</span></span><br><span class="line">  T=<span class="number">500</span>+r1+r2+r3</span><br><span class="line"></span><br><span class="line">  xi,yi,zi=Chen(x0,y0,z0,a,b,c,T)</span><br><span class="line">  <span class="comment">#得到大小分别为r1，r2，r3的三个整数序列</span></span><br><span class="line">  qxi=[]</span><br><span class="line">  qyi=[]</span><br><span class="line">  qzi=[]</span><br><span class="line">  <span class="comment">#与65536取模，而不是256是为了扩大序列值空间，兼顾效率的同时增加随机性</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xi[-r1:]:</span><br><span class="line">    qxi.append(int(i*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">65536</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> yi[-r2:]:</span><br><span class="line">    qyi.append(int(i*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">65536</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> zi[-r3:]:</span><br><span class="line">    qzi.append(int(i*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">65536</span>)</span><br><span class="line">  X=np.arange(r1)</span><br><span class="line">  Y=np.arange(r2)</span><br><span class="line">  Z=np.arange(r3)</span><br><span class="line">  <span class="comment">#根据qxi排序</span></span><br><span class="line">  <span class="comment">#打包</span></span><br><span class="line">  dic=list(zip(qxi,X))</span><br><span class="line">  dic.sort(key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">  <span class="comment">#得到排序后的像素列表</span></span><br><span class="line">  X=list(list(zip(*dic))[<span class="number">1</span>])</span><br><span class="line">  <span class="comment">#根据qyi排序</span></span><br><span class="line">  dic=list(zip(qyi,Y))</span><br><span class="line">  dic.sort(key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">  <span class="comment">#得到排序后的像素列表</span></span><br><span class="line">  Y=list(list(zip(*dic))[<span class="number">1</span>])</span><br><span class="line">  <span class="comment">#根据qzi排序</span></span><br><span class="line">  dic=list(zip(qzi,Z))</span><br><span class="line">  dic.sort(key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">  <span class="comment">#得到排序后的像素列表</span></span><br><span class="line">  Z=list(list(zip(*dic))[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">  <span class="comment">#逆3D cat映射,这里两种解法，要么求3D cat逆矩阵，要么倒用映射规则，cat逆矩阵难求，采用第二种</span></span><br><span class="line">  ax=int(xi[<span class="number">200</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  ay=int(yi[<span class="number">200</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  az=int(zi[<span class="number">200</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  bx=int(xi[<span class="number">201</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  by=int(yi[<span class="number">201</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  bz=int(zi[<span class="number">201</span>]*(<span class="number">10</span>**<span class="number">9</span>))%<span class="number">64</span></span><br><span class="line">  ax=ay=az=bx=by=bz=<span class="number">1</span></span><br><span class="line">  <span class="comment"># bin_pixels=np.zeros((r1,r2,r3))</span></span><br><span class="line">  bin_pixels=np.array(pixels)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(r1):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(r2):</span><br><span class="line">      <span class="keyword">for</span> k <span class="keyword">in</span> range(r3):</span><br><span class="line">        posx=(X[i]*(<span class="number">1</span>+az*az*by)+Y[j]*az+Z[k]*(ay+ax*az+ax*ay*az*by))%r1</span><br><span class="line">        posy=(X[i]*(bz+az*by+ax*az*by*bz)+Y[j]*(az*bz+<span class="number">1</span>)+Z[k]*(ay*az+az*ay*by*bz+ax*az*bz+az*ay*by+ax))%r2</span><br><span class="line">        posz=(X[i]*(ax*bx*by+by)+Y[j]*bx+Z[k]*(ax*ay*bx*by+ax*bx+ay*by+<span class="number">1</span>))%r3</span><br><span class="line">        bin_pixels[posx][posy][posz]=pixels[i][j][k]</span><br><span class="line"></span><br><span class="line">  <span class="comment">#三维比特矩阵转三维RGB像素值</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(r1):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(r2):</span><br><span class="line">      B=bit2pixel(bin_pixels[i][j][:<span class="number">8</span>])</span><br><span class="line">      G=bit2pixel(bin_pixels[i][j][<span class="number">8</span>:<span class="number">16</span>])</span><br><span class="line">      R=bit2pixel(bin_pixels[i][j][<span class="number">16</span>:])</span><br><span class="line">      im[i][j]=np.array([B,G,R])</span><br><span class="line">  print(im[<span class="number">0</span>][:<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> im[:,:,(<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  <span class="comment">#原始图像路径</span></span><br><span class="line">  img_path=<span class="string">&#x27;./Lena.png&#x27;</span></span><br><span class="line">  <span class="comment">#Chen系统初始条件</span></span><br><span class="line">  keyc_x0=<span class="number">0.22521231547896</span></span><br><span class="line">  keyc_y0=<span class="number">0.58749654123587</span></span><br><span class="line">  keyc_z0=<span class="number">0.98564123475621</span></span><br><span class="line">  keyd1=<span class="number">0.23465654373432</span></span><br><span class="line">  keyd2=<span class="number">0.34678978310437</span></span><br><span class="line">  keyd3=<span class="number">0.43263498463278</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#加密密钥参数列表</span></span><br><span class="line">  key=[]</span><br><span class="line">  key.append(keyc_x0)</span><br><span class="line">  key.append(keyc_y0)</span><br><span class="line">  key.append(keyc_z0)</span><br><span class="line">  key.append(keyd1)</span><br><span class="line">  key.append(keyd2)</span><br><span class="line">  key.append(keyd3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">#原始图像</span></span><br><span class="line">  img=cv2.imread(img_path)[:,:,(<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)]</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 加密图像</span></span><br><span class="line">  img_encrypt=encrypt(img_path,key)</span><br><span class="line">  cv2.imwrite(<span class="string">&#x27;./Lena_encrypt.png&#x27;</span>,img_encrypt[:,:,(<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)])</span><br><span class="line">  encrypt_path=<span class="string">&#x27;./Lena_encrypt.png&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#正确密钥解密图像</span></span><br><span class="line">  img_decrypt=decrypt(encrypt_path,key)</span><br><span class="line">  decrypt_path=<span class="string">&#x27;./Lena_decrypt.png&#x27;</span></span><br><span class="line">  cv2.imwrite(decrypt_path,img_decrypt[:,:,(<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)])</span><br><span class="line"></span><br><span class="line">  <span class="comment"># #错误密钥解密图像</span></span><br><span class="line">  wrong_key=list(key)</span><br><span class="line">  wrong_key[<span class="number">2</span>]+=pow(<span class="number">10</span>,<span class="number">-5</span>)</span><br><span class="line">  wrong_decrypt=decrypt(encrypt_path,wrong_key)</span><br><span class="line">  cv2.imwrite(<span class="string">&#x27;./wrong_decrypt.png&#x27;</span>,wrong_decrypt[:,:,(<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)])</span><br><span class="line"></span><br><span class="line">  <span class="comment">#结果展示</span></span><br><span class="line">  plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 中文乱码</span></span><br><span class="line">  <span class="comment">#子图1，原始图像</span></span><br><span class="line">  plt.subplot(<span class="number">221</span>)</span><br><span class="line">  <span class="comment">#imshow()对图像进行处理，画出图像，show()进行图像显示</span></span><br><span class="line">  plt.imshow(img)</span><br><span class="line">  plt.title(<span class="string">&#x27;原始图像&#x27;</span>)</span><br><span class="line">  <span class="comment">#不显示坐标轴</span></span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图2，加密后图像</span></span><br><span class="line">  plt.subplot(<span class="number">222</span>)</span><br><span class="line">  plt.imshow(img_encrypt)</span><br><span class="line">  plt.title(<span class="string">&#x27;加密图像\nz3=&#123;&#125;&#x27;</span>.format(key[<span class="number">2</span>]))</span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图3，错误密钥解密结果</span></span><br><span class="line">  plt.subplot(<span class="number">223</span>)</span><br><span class="line">  plt.imshow(wrong_decrypt)</span><br><span class="line">  plt.title(<span class="string">&#x27;解密图像\nz3=&#123;&#125;&#x27;</span>.format(wrong_key[<span class="number">2</span>]))</span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图4，正确密钥解密结果</span></span><br><span class="line">  plt.subplot(<span class="number">224</span>)</span><br><span class="line">  plt.imshow(img_decrypt)</span><br><span class="line">  plt.title(<span class="string">&#x27;解密图像\nz3=&#123;&#125;&#x27;</span>.format(key[<span class="number">2</span>]))</span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># #设置子图默认的间距</span></span><br><span class="line">  plt.tight_layout()</span><br><span class="line">  <span class="comment">#显示图像</span></span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<h5 id="性能评估"><a href="#性能评估" class="headerlink" title="性能评估"></a>性能评估</h5><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><h6 id="像素矩阵与比特矩阵的转换"><a href="#像素矩阵与比特矩阵的转换" class="headerlink" title="像素矩阵与比特矩阵的转换"></a>像素矩阵与比特矩阵的转换</h6><p>目前代码需要优化，这块太慢了。。。</p>
+<h6 id="3D-Cat-映射？？？"><a href="#3D-Cat-映射？？？" class="headerlink" title="3D Cat 映射？？？"></a>3D Cat 映射？？？</h6><p>对于不同的参数，映射好像不是满射，所以有点问题？？？</p>
+<h6 id="Logistic映射"><a href="#Logistic映射" class="headerlink" title="Logistic映射"></a>Logistic映射</h6><p>rdm1和rdm2两个随机序列生成时，要丢弃相同的值？？这块还需要看看</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" rel="tag"><i class="fa fa-tag"></i> 图像加密</a>
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"><i class="fa fa-tag"></i> 论文</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/19/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="prev" title="问题记录">
+      <i class="fa fa-chevron-left"></i> 问题记录
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E4%B8%89%E7%BB%B4%E4%BD%8D%E7%9F%A9%E9%98%B5%E6%8E%92%E5%88%97%E7%9A%84%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86"><span class="nav-number">1.</span> <span class="nav-text">基于三维位矩阵排列的图像加密</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E5%88%97%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">排列算法中的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E4%B8%89%E7%BB%B4%E4%BD%8D%E7%9F%A9%E9%98%B5%E7%9A%84%E6%B7%B7%E5%90%88%E6%8E%92%E5%88%97%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">基于三维位矩阵的混合排列结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%80%E6%8F%90%E6%96%B9%E6%A1%88%E7%9A%84%E6%89%A9%E6%95%A3%E9%98%B6%E6%AE%B5"><span class="nav-number">6.</span> <span class="nav-text">所提方案的扩散阶段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%80%E6%8F%90%E5%87%BA%E7%9A%84%E6%96%B9%E6%A1%88"><span class="nav-number">7.</span> <span class="nav-text">所提出的方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">8.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">9.</span> <span class="nav-text">实验代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0"><span class="nav-number">10.</span> <span class="nav-text">性能评估</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">11.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%83%8F%E7%B4%A0%E7%9F%A9%E9%98%B5%E4%B8%8E%E6%AF%94%E7%89%B9%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">11.1.</span> <span class="nav-text">像素矩阵与比特矩阵的转换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3D-Cat-%E6%98%A0%E5%B0%84%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">11.2.</span> <span class="nav-text">3D Cat 映射？？？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Logistic%E6%98%A0%E5%B0%84"><span class="nav-number">11.3.</span> <span class="nav-text">Logistic映射</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">12.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">207</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">CSDN</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">275k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:10</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
