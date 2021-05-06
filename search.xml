@@ -13070,7 +13070,6 @@ q & pq+1
 x\\
 y
 \end{array}
-
 \right]mod\ N</script><p>​    </p>
 <script type="math/tex; mode=display">
 ciphered(x',y')=arr(x,y)\bigoplus {[\alpha*(t/1000)*[1-(t/1000)]*1000]mod256}</script><p>在式1中，(x,y)是明文图像像素的原始位置，（x’,y’）是cat映射产生的伪随机位置，p、q是cat映射的两个参数，N是方形图像的高或宽。在式2中，arr(x,y)和ciphered(x’,y’)分别是明文图像和密文图像的像素值。此外，t是前一个处理的像素值，$\alpha$是Logistic映射参数。</p>
@@ -13096,7 +13095,6 @@ q & pq+1
 x\\
 y
 \end{array}
-
 \right]mod\ N</script><script type="math/tex; mode=display">
 ciphered(x,y)=arr(x',y')\bigoplus {[\alpha*(t/1000)*[1-(t/1000)]*1000]mod256}</script><p>反向和普通cat映射的区别是像素位置，一个是ciphered(x’,y’)和arr(x,y)，另一个是ciphered(x,y)和arr(x’,y’)。例如，arr(511,511)轻微改变，像素将会在更早的阶段处理不是最后一个。像素序列将会被早期阶段极小的改变影响。</p>
 <p>如图描述了普通二维混沌映射和反向使用混沌映射在混淆效应上的区别。</p>
@@ -13420,5 +13418,37 @@ temp2=ciph\_d(i)
         <tag>图像加密</tag>
         <tag>论文</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Tue Apr 27 2021 08:00:00 GMT+0800 (中国标准时间)</title>
+    <url>/2021/04/27/2021-04-27/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Welcome to my blog, enter password to read.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="3b2a4ce6f0b0cd53063145966625a4e3ad5c275d81a4924a933bac9ac12e6bc6">04b96cf03f1b5d00286d72390b6bf2e0817acbfddb7147d2fcc01912c7f5c0f9713c9c317ba53b9347fde83c930f8c77af411014f8ec84eef7465f6027f6e56361da453a696c51ea2cf726ce74f4d1f870ba487ed6f2d242104af5c0877116b7f14bfb7a90c5973d12ee403d2035f9933239ae2447ed66790333bdf54ffb591262e25fa12dbcf137d44c19a6cd948ebafb15e73fa6eff6dc060b9040f5fe74ceda47dc32b97d576023487f051b3ba548d6ba50e2b500f2040aef18f59839ab6e1e75f19b19b2197541d212a3b8a50be74d4dcb775f19746dc5f65bb1d14038106d809a8f516785e6e320975209525d369518b3e93b5bec268679dda1396e30afe69c8f882a0bd5eacf54f501c1e3d2ec1f5da0f913213670df08e0d6b80fcb4eae6ef923a41c3f53ddcca2607f6678eea060d465636e5a9b01ce7adfce63940884dec87836435e12dddb39dd3672a0e0658720c44b1187cd9fd6206e783f60f748b319a054e8ee26ab2e235015c8216e8e842ebb78fab1c66fd74e6a2d3dce22eb6edca933ad4e97918ac18b022b5639c3b0b291f60f2f6cbd0a2f8fb3546a9a1a134dc642ead50402de7dd2e87143d1a7c6e6372d3556eba563f6ef9cb61ddd289728659e4eaa083d2dd0031e99fadba1a0b7ff2cb85520b54b539c6568a97214a3da2328721301b5743d36df429480a976c381d5c4d6590234d8b60475dffc8897eadbffc024637bc79f797fdb5da0b16ec23ba1a24548968c4bcbbd722deaef958728e2092ac90db099a56e088d11d7103092dacdf7c133f474113e51e799c62f2f831c8a64285e9b5ae47a8390bdcae62ebcc5a74fe699ae0150967785073104d1737725859d051a5957bf25e235d5f4be5da48757ad71703b2b72e784eeee2b682c2f6429cdc2bee89aa7886f06463462ef227bcb0da3dc01a46ded29fa9a3a7abac55cdc0ddeabac8070fd9e89faf69e74e5978807e55c00d810a1d99aeb2f63c8ad0212e35cd1168b58476ec7d1c2cfff80ab81ff1817c8c5de060cf35c9d85c5d6ffd321e59f4f89c2ed08e0e7c1e98301843dd557e24744ca64d864287bf4d7d66b56be7f6b00c01472cee238f4975e975cbbf9b16a1c8d69720ae332ff80d48ea1e537e7bd6badef84fba7ee0661627483ca12ab0032a28612da7ece2bbc1334dc6917780020c82bd5fc7062e71994c9a3374779c69d6fb6b62a3482a49e9f3c53b1ebecf5ef3bb59c16b64870b23dec7adab014356e5db2a6735da0e7a6a933c04763deefec8cbcd7079133481c52f7b127d16e067fc8b248a8d91222969c0b839ee299328e50751fad3a8a59a8ab14736c16dfeede39752e43d6abbf9d5a13d7e0a63e56437bbcad8e5af9942cb82c2d4f06cfe6c7ffa02ae9c3785ec931944ae2ea079b6cb51da7bcc9a81e390265bdc575546f0c4aa647e6457bea81b8da9e5edac3a72f418931a27016a22a944cc13525fdf4265786b950daf74586296149dcb23bf00f2247cfa811513c6cc0f52746e10dfd286acafdb676aa8a9c68af703f0d92dd949b8caa0116c8e95c0716ab807b5014171bd0e41b54d52f43e5aa257929d25a3dfc2fcbb6c6f31124b47fe1470a5da526203996221526f08a83b9169fb0bc91a18e5bee73144da6abe1424e715867cad09a9136523e5ca07b84c0c3c9a6e84f7c8297761b7c75eeb9938cd10c5144b3eee25015b232e42d6a8f0ee73081df50b7c0a7210e9b0da1eaaff56c8f40bbe4e11ac04820f1627a489da847287f2470f422845c114746304a64b1a218696e812d7836fcf0c04f1a79738f7df834e8783da521228b15771482809c4793db10fc3fb8596834ab4900abe79c9f5f6af7008bf873d3295c6416e1169139ddf6b452cd1de4b2d57e</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>我的前半生</title>
+    <url>/2021/05/06/%E6%88%91%E7%9A%84%E5%89%8D%E5%8D%8A%E7%94%9F/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Welcome to my blog, enter password to read.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="50b2e4953833714490724af6c36c3d6743cf872a4a419ca6041345ad62f5771d">04b96cf03f1b5d00286d72390b6bf2e0817acbfddb7147d2fcc01912c7f5c0f9713c9c317ba53b9347fde83c930f8c77af411014f8ec84eef7465f6027f6e56361da453a696c51ea2cf726ce74f4d1f870ba487ed6f2d242104af5c0877116b7f14bfb7a90c5973d12ee403d2035f9933239ae2447ed66790333bdf54ffb591262e25fa12dbcf137d44c19a6cd948ebafb15e73fa6eff6dc060b9040f5fe74ceda47dc32b97d576023487f051b3ba548d6ba50e2b500f2040aef18f59839ab6e1e75f19b19b2197541d212a3b8a50be74d4dcb775f19746dc5f65bb1d14038106d809a8f516785e6e320975209525d369518b3e93b5bec268679dda1396e30afe69c8f882a0bd5eacf54f501c1e3d2ecd4e6904fa639fb1904eb97d57d7b6ba68a1ff4de98d5b6d1beff334b1a8f44dfb1943727d0528cf93a0a2ff68faa1d6ccab044acf139229a404e8c65494555068b501f987b4f9774a7f563f3cbe929500416bea77528160bedef5b7f5e4c5a1294fabc560a50f797c2c5e5a667d3a250a300d13b9888a99d0d2b1f8ac7ab119c2c5c1b0d4e5bc07be5d7d55cda5076466bc377e6222f763cd5165838fb275f029fa2ea85301f303014022fdb7f4752963a8440edcc0e02e48eb8d50f633b1735d16e866b61e2695088d1cdcdce625dfe</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
   </entry>
 </search>
