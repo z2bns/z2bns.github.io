@@ -13742,4 +13742,48 @@ temp2=ciph\_d(i)
         <tag>图像加密</tag>
       </tags>
   </entry>
+  <entry>
+    <title>学习杂记</title>
+    <url>/2021/06/18/%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>本文主要记录知识体系中的某个盲点，有助于探究人生的真谛。</p>
+<p>&lt;! — more —&gt;</p>
+<h5 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h5><h6 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h6><p>内核指的是一个提供设备驱动、文件系统、进程管理、网络通信等功能的系统软件，内核并不是一套完整的操作系统，它只是操作系统的核心。</p>
+<h6 id="发行版本"><a href="#发行版本" class="headerlink" title="发行版本"></a>发行版本</h6><p>一些组织或厂商将 Linux 内核与各种软件和文档包装起来，并提供系统安装界面和系统配置、设定与管理工具，就构成了 Linux 的发行版本。</p>
+<h5 id="手机充电器"><a href="#手机充电器" class="headerlink" title="手机充电器"></a>手机充电器</h5><p>618想要买一个无线充电器，选购时对一些参数不是很了解，记录如下。</p>
+<h6 id="手机充电的原理"><a href="#手机充电的原理" class="headerlink" title="手机充电的原理"></a>手机充电的原理</h6><h6 id="充电数据线的电路构造？"><a href="#充电数据线的电路构造？" class="headerlink" title="充电数据线的电路构造？"></a>充电数据线的电路构造？</h6><h6 id="人触电受伤原理？细胞受损？"><a href="#人触电受伤原理？细胞受损？" class="headerlink" title="人触电受伤原理？细胞受损？"></a>人触电受伤原理？细胞受损？</h6><p>回答：首先要弄明白电死的原因。 1。触电：人或动物被电死是因为人体内有电流通过，从而干扰人体神经传导的生物电，使得大脑对机体失去控制，或者感受到异常刺激后，对肌肉和各器官发出错误的命令。尤其是电流通过心脏时，心脏会痉挛而停止跳动，从来导致人体缺氧而死。不是说有电流人就会被电死，跟电流的大小有关，电流等于电压的大小除以人体的电阻。电池为什么电不死人呢？因为电池电压太低，在人体内产生的电流太小，人没有感觉，对人也无法造成伤害。电流越大，人被电死的可能性就越大。也就是说电压越高越危险。 2。电灼伤。当人体接触高电压时，体内会产生大电流，由于电流的热效应，会造成机体的烧伤，灼伤等。 可见，不管是何种方式的触电，造成人和动物电死的罪魁祸首是电流通过机体。而产生电流的一个必要条件是必须形成闭合回路。 下面分析小鸟为什么电不死？ 1。高压线都有绝缘外皮的，不是裸导线。 2。就算是裸导线： 如果小鸟一条腿站，那么显然没有回路，如果电流从小鸟一条腿进去，那么从哪出来呢？因此电流不会进入小鸟体内。物理学上的一个规律：力和能量往往要寻找最容易的一个突破口。就跟一条河一样，它会顺着河道流，而不会说转向岸边冲上去。 如果小鸟两条腿站，电流可以从小鸟的一条腿进入，另一条腿出来。小鸟两腿间距离很小，之间导线的电阻小于0.01欧，而小鸟的电阻大于500欧。根据并联电路分流公式，流过导线的电流是流过小鸟体内的50000倍。高压输电采用的电流是很小的，因此小鸟只承担了电流的1/50000，远远达不到触电所需要的电流。就跟一条河上开了一个100米的口子和1厘米的口子，水会从哪个口子流出去呢？显然会从100米的口子流出去。 3。如果要小鸟电死，只要用一根铁丝将小鸟和地相连，小鸟会被立刻烤焦，因为大地的电位是最低的，电流最容易流向大地，一旦高压线上有导体和大地相连，电流就会向大地倾泄。这就是人触电的原因。人一直站在地上，和大地相连，摸到火线后，电流就会通过人体流向大地，可以说大地对电流的吸引力是最强的。如果你一个人在空中（脚不着地）摸到高压线，你也不会被电死。 总之，电流才是电死的罪魁祸首。电压只不过是为电流的形成提供了一个必要条件，但不是充分条件。有电压，还要有回路,大小还与电阻有关。</p>
+<p>参考：<a href="https://zhidao.baidu.com/question/179537880.html">人触电的原理是什么？</a></p>
+<h6 id="电源适配器的输出电压和输出电流是啥意思？"><a href="#电源适配器的输出电压和输出电流是啥意思？" class="headerlink" title="电源适配器的输出电压和输出电流是啥意思？"></a>电源适配器的输出电压和输出电流是啥意思？</h6><p>疑惑：输出电压很明确就是相当于电路中的电源电压，没有形成回路输出电流是啥意思，难道是输出充电线空载时的电流，以常规的5V,1A为例，意味着适配器内部电阻5 $\Omega$？</p>
+<p>答：简单来说电源适配器的理论输出电流（就是铭牌上的电流）就是适配器所能输出的最大安全电流，而适配器的实际输出电流则是由用电设备所决定的，取决于适配器的阻抗（内阻）与用电设备的阻抗（外阻）。</p>
+<p>参考：<a href="https://mp.weixin.qq.com/s?__biz=MjM5NDUyMTE5MQ==&amp;mid=2651022527&amp;idx=1&amp;sn=54e785825b14690613999a45c05ec688&amp;chksm=bd714db78a06c4a1df63ad42d98096663951bf9aaa7a878cb1951d4ef8654d4842d3f18f4d54#rd">快充技术科普：充电5分钟，通话2小时是怎么做到的？</a></p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计划杂记</title>
+    <url>/2021/06/19/%E8%AE%A1%E5%88%92%E6%9D%82%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>本文记录学习安排。</p>
+<a id="more"></a>
+<ul>
+<li>[x] <a href="http://c.biancheng.net/qt/">Qt教程</a></li>
+<li><p>[ ] <a href="http://c.biancheng.net/gcc/">GCC</a></p>
+</li>
+<li><p>[ ] 《编译原理》</p>
+</li>
+<li><p>[ ] Code::Blocks使用</p>
+</li>
+<li><p>[ ] CMMI快乐之旅</p>
+</li>
+<li>[ ] JPEG简单的压缩实践C语言版</li>
+<li>[ ] JPEG简单的压缩实践Python语言版</li>
+<li>[ ] JPEG1压缩算法实现</li>
+<li>[ ] JPEG2000压缩算法实现</li>
+<li>[ ] </li>
+</ul>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
 </search>
