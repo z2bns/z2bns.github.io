@@ -4401,41 +4401,8 @@ x+e≥max(x,y)</script><p>而 $max(x,y)$ 就是所有小朋友拥有的糖果数
 <li><strong>排名第 199、399、599、999、1999 名的参赛者</strong>可获coupang「棒球帽」×1</li>
 </ul>
 <a id="more"></a>
-<p>重要提示**</p>
+<p><strong>重要提示</strong></p>
 <ol>
-<li><p>请注意，每个错误提交的惩罚时间已经从 <strong>10分钟</strong> 改变为了 <strong>5分钟</strong> 。</p>
-</li>
-<li><p>力扣一向非常重视竞赛的公平，为了保障每一位用户的权益，如有用户被检查出竞赛中存在违规行为（如抄袭、作弊等），我们会坚持以 <strong>零容忍</strong> 的态度维护竞赛的公平、公正。</p>
-</li>
-<li><p>以下被判定为竞赛中的违规行为</p>
-<ul>
-<li><p>一人使用多账号提交（英文站 LCUS 的账号 和 中文站 LCCN 的账号属于两个账号）</p>
-</li>
-<li><p>通过不正当的方式将部分或全部测试用例的答案直接贴到代码里的</p>
-</li>
-<li>多账号提交雷同代码（抄袭）</li>
-<li>使用不正当手段影响他人竞赛的</li>
-<li>竞赛结束前在讨论区发布答案的</li>
-</ul>
-</li>
-<li><p>如被发现违规行为，我们将会严格按照以下处罚规则执行：</p>
-<ul>
-<li><p><strong>第一次违规</strong>：账号内的所有积分清零，账号冻结 1 个月</p>
-</li>
-<li><p><strong>第二次违规</strong>：永久封号</p>
-</li>
-</ul>
-</li>
-<li><p>同时我们也鼓励大家共同维护竞赛的公平和公正，我们会给与举报成功的用户额外的奖励：</p>
-<ul>
-<li><p>被认定为违规账号的前 10 名举报者，每人可获得 20 积分奖励</p>
-</li>
-<li><p>每人每场最高可获得举报成功的 100 积分奖励</p>
-</li>
-</ul>
-</li>
-</ol>
-<h6 id="题目列表重要提示"><a href="#题目列表重要提示" class="headerlink" title="题目列表重要提示**"></a>题目列表重要提示**</h6><ol>
 <li><p>请注意，每个错误提交的惩罚时间已经从 <strong>10分钟</strong> 改变为了 <strong>5分钟</strong> 。</p>
 </li>
 <li><p>力扣一向非常重视竞赛的公平，为了保障每一位用户的权益，如有用户被检查出竞赛中存在违规行为（如抄袭、作弊等），我们会坚持以 <strong>零容忍</strong> 的态度维护竞赛的公平、公正。</p>
@@ -13746,7 +13713,7 @@ temp2=ciph\_d(i)
     <title>学习杂记</title>
     <url>/2021/06/18/%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>本文主要记录知识体系中的某个盲点，有助于探究人生的真谛。</p>
-<p>&lt;! — more —&gt;</p>
+<a id="more"></a>
 <h5 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h5><h6 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h6><p>内核指的是一个提供设备驱动、文件系统、进程管理、网络通信等功能的系统软件，内核并不是一套完整的操作系统，它只是操作系统的核心。</p>
 <h6 id="发行版本"><a href="#发行版本" class="headerlink" title="发行版本"></a>发行版本</h6><p>一些组织或厂商将 Linux 内核与各种软件和文档包装起来，并提供系统安装界面和系统配置、设定与管理工具，就构成了 Linux 的发行版本。</p>
 <h5 id="手机充电器"><a href="#手机充电器" class="headerlink" title="手机充电器"></a>手机充电器</h5><p>618想要买一个无线充电器，选购时对一些参数不是很了解，记录如下。</p>
@@ -13755,6 +13722,9 @@ temp2=ciph\_d(i)
 <h6 id="电源适配器的输出电压和输出电流是啥意思？"><a href="#电源适配器的输出电压和输出电流是啥意思？" class="headerlink" title="电源适配器的输出电压和输出电流是啥意思？"></a>电源适配器的输出电压和输出电流是啥意思？</h6><p>疑惑：输出电压很明确就是相当于电路中的电源电压，没有形成回路输出电流是啥意思，难道是输出充电线空载时的电流，以常规的5V,1A为例，意味着适配器内部电阻5 $\Omega$？</p>
 <p>答：简单来说电源适配器的理论输出电流（就是铭牌上的电流）就是适配器所能输出的最大安全电流，而适配器的实际输出电流则是由用电设备所决定的，取决于适配器的阻抗（内阻）与用电设备的阻抗（外阻）。</p>
 <p>参考：<a href="https://mp.weixin.qq.com/s?__biz=MjM5NDUyMTE5MQ==&amp;mid=2651022527&amp;idx=1&amp;sn=54e785825b14690613999a45c05ec688&amp;chksm=bd714db78a06c4a1df63ad42d98096663951bf9aaa7a878cb1951d4ef8654d4842d3f18f4d54#rd">快充技术科普：充电5分钟，通话2小时是怎么做到的？</a></p>
+<h5 id="win10小技巧"><a href="#win10小技巧" class="headerlink" title="win10小技巧"></a>win10小技巧</h5><h6 id="笔记本自带键盘开关"><a href="#笔记本自带键盘开关" class="headerlink" title="笔记本自带键盘开关"></a>笔记本自带键盘开关</h6><p>以管理员身份打开cmd，输入以下命令（需要重启）</p>
+<p>关闭：sc config i8042prt start=disabled</p>
+<p>开启：sc config i8042prt start=auto</p>
 ]]></content>
       <categories>
         <category>其他</category>
@@ -13767,23 +13737,189 @@ temp2=ciph\_d(i)
 <a id="more"></a>
 <ul>
 <li>[x] <a href="http://c.biancheng.net/qt/">Qt教程</a></li>
-<li><p>[ ] <a href="http://c.biancheng.net/gcc/">GCC</a></p>
-</li>
-<li><p>[ ] 《编译原理》</p>
-</li>
-<li><p>[ ] Code::Blocks使用</p>
-</li>
-<li><p>[ ] CMMI快乐之旅</p>
-</li>
+<li>[x] <a href="http://c.biancheng.net/gcc/">GCC</a></li>
+<li>[x] <a href="https://leetcode-cn.com/contest/weekly-contest-246/">LeetCode第246场周赛</a></li>
+<li>[ ] 《编译原理》</li>
+<li>[ ] Code::Blocks使用</li>
+<li>[ ] CMMI快乐之旅</li>
 <li>[ ] JPEG简单的压缩实践C语言版</li>
 <li>[ ] JPEG简单的压缩实践Python语言版</li>
 <li>[ ] JPEG1压缩算法实现</li>
 <li>[ ] JPEG2000压缩算法实现</li>
-<li>[ ] </li>
+<li>[ ] 利用美之图数据集训练，生成图片</li>
+<li>[ ] <a href="https://www.runoob.com/bootstrap">Bootstrap</a></li>
+<li>[ ] 全栈工程师</li>
+<li>[ ] 算法工程师</li>
 </ul>
 ]]></content>
       <categories>
         <category>其他</category>
       </categories>
+  </entry>
+  <entry>
+    <title>任务4</title>
+    <url>/2021/06/08/%E4%BB%BB%E5%8A%A14/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><ol>
+<li>找JPEG的代码看一看，将代码看懂，方便后续试验。</li>
+<li>思考高分辨率（一亿像素以上的图像）的JPEG图像的加密算法；</li>
+<li>考虑并行算法，例如多线程或者CUDA。</li>
+</ol>
+<p>更多关注JPEG2000的无损压缩代码</p>
+<p>一个月时间，做完找老师面谈。去sciencedirect.com搜相关论文看看。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>第246场周赛</title>
+    <url>/2021/06/20/%E7%AC%AC246%E5%9C%BA%E5%91%A8%E8%B5%9B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><a href="https://leetcode-cn.com/contest/weekly-contest-246/">比赛地址</a></p>
+<h6 id="比赛说明"><a href="#比赛说明" class="headerlink" title="比赛说明"></a>比赛说明</h6><p>本场竞赛由「蔚来 &amp; 力扣」联合主办</p>
+<p><strong>【工作机会奖励】</strong></p>
+<ul>
+<li><strong>排名第 1 ~ 300 名的参赛者</strong>可获「 NIO 蔚来」简历内推机会。</li>
+</ul>
+<p><strong>【实物奖励】</strong></p>
+<ul>
+<li><strong>排名第 1 名的参赛者</strong>可获 NIO 蔚来 ES8 - 1:18 合金车模（天蓝）x 1</li>
+<li><strong>排名第 2 名的参赛者</strong>可获 NIO 蔚来 ES6 - 1:18 合金车模（星云紫）x 1</li>
+<li><strong>排名第 3 ~ 4 名的参赛者</strong>可获 NIO 蔚来Blue Sky 保温杯（蓝绿）x 1</li>
+<li><strong>排名第 5 ~ 10 名的参赛者</strong>可获 NIO 蔚来 NIOLIFE环保软木笔 5支装 x 1</li>
+<li><strong>排名第 166、266、366、466、566、666 名的参赛者</strong>可获 NIO 蔚来的纪念礼品 x 1</li>
+</ul>
+<a id="more"></a>
+<h6 id="题目列表"><a href="#题目列表" class="headerlink" title="题目列表"></a>题目列表</h6><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>题目</th>
+<th>难度</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.<a href="https://leetcode-cn.com/contest/weekly-contest-246/problems/largest-odd-number-in-string/">字符串中的最大奇数</a></td>
+<td>简单</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2.<a href="https://leetcode-cn.com/contest/weekly-contest-246/problems/the-number-of-full-rounds-you-have-played/">你完成的完整对局数</a></td>
+<td>中等</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3.<a href="https://leetcode-cn.com/contest/weekly-contest-246/problems/count-sub-islands/">统计子岛屿</a></td>
+<td>中等</td>
+<td>5</td>
+</tr>
+<tr>
+<td>4.<a href="https://leetcode-cn.com/contest/weekly-contest-246/problems/minimum-absolute-difference-queries/">查询差绝对值的最小值</a></td>
+<td>中等</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="字符串中的最大奇数"><a href="#字符串中的最大奇数" class="headerlink" title="字符串中的最大奇数"></a>字符串中的最大奇数</h6><p><strong>题目描述：</strong></p>
+<p>给你一个字符串 <code>num</code> ，表示一个大整数。请你在字符串 <code>num</code> 的所有 <strong>非空子字符串</strong> 中找出 <strong>值最大的奇数</strong> ，并以字符串形式返回。如果不存在奇数，则返回一个空字符串 <code>&quot;&quot;</code> 。</p>
+<p><strong>子字符串</strong> 是字符串中的一个连续的字符序列。</p>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：num &#x3D; &quot;52&quot;</span><br><span class="line">输出：&quot;5&quot;</span><br><span class="line">解释：非空子字符串仅有 &quot;5&quot;、&quot;2&quot; 和 &quot;52&quot; 。&quot;5&quot; 是其中唯一的奇数。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：num &#x3D; &quot;4206&quot;</span><br><span class="line">输出：&quot;&quot;</span><br><span class="line">解释：在 &quot;4206&quot; 中不存在奇数。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：num &#x3D; &quot;35427&quot;</span><br><span class="line">输出：&quot;35427&quot;</span><br><span class="line">解释：&quot;35427&quot; 本身就是一个奇数。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= num.length &lt;=</code>$10^5$</li>
+<li><code>num</code> 仅由数字组成且不含前导零</li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>倒序遍历字符串<code>num</code>，如果当前字符对应数字是奇数，返回从头到当前字符的子串。</p>
+<p><strong>提交的代码：</strong>（运行时间24ms，内存消耗13.6M）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">largestOddNumber</span><span class="params">(<span class="built_in">string</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(num[num.size()<span class="number">-1</span>]%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=num.size()<span class="number">-2</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num[i]%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                num.erase(i+<span class="number">1</span>,num.size()<span class="number">-1</span>-i);</span><br><span class="line">                <span class="keyword">return</span> num; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h6 id="你完成的完整对局数"><a href="#你完成的完整对局数" class="headerlink" title="你完成的完整对局数"></a>你完成的完整对局数</h6><p><strong>题目描述：</strong></p>
+<p>一款新的在线电子游戏在近期发布，在该电子游戏中，以 <strong>刻钟</strong> 为周期规划若干时长为 <strong>15 分钟</strong> 的游戏对局。这意味着，在 <code>HH:00</code>、<code>HH:15</code>、<code>HH:30</code> 和 <code>HH:45</code> ，将会开始一个新的对局，其中 <code>HH</code> 用一个从 <code>00</code> 到 <code>23</code> 的整数表示。游戏中使用 <strong>24 小时制的时钟</strong> ，所以一天中最早的时间是 <code>00:00</code> ，最晚的时间是 <code>23:59</code> 。</p>
+<p>给你两个字符串 <code>startTime</code> 和 <code>finishTime</code> ，均符合 <code>&quot;HH:MM&quot;</code> 格式，分别表示你 <strong>进入</strong> 和 <strong>退出</strong> 游戏的确切时间，请计算在整个游戏会话期间，你完成的 <strong>完整对局的对局数</strong> 。</p>
+<ul>
+<li>例如，如果 <code>startTime = &quot;05:20&quot;</code> 且 <code>finishTime = &quot;05:59&quot;</code> ，这意味着你仅仅完成从 <code>05:30</code> 到 <code>05:45</code> 这一个完整对局。而你没有完成从 <code>05:15</code> 到 <code>05:30</code> 的完整对局，因为你是在对局开始后进入的游戏；同时，你也没有完成从 <code>05:45</code> 到 <code>06:00</code> 的完整对局，因为你是在对局结束前退出的游戏。</li>
+</ul>
+<p>如果 <code>finishTime</code> <strong>早于</strong> <code>startTime</code> ，这表示你玩了个通宵（也就是从 <code>startTime</code> 到午夜，再从午夜到 <code>finishTime</code>）。</p>
+<p>假设你是从 <code>startTime</code> 进入游戏，并在 <code>finishTime</code> 退出游戏，请计算并返回你完成的 <strong>完整对局的对局数</strong> 。</p>
+<p><strong>子字符串</strong> 是字符串中的一个连续的字符序列。</p>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：startTime &#x3D; &quot;12:01&quot;, finishTime &#x3D; &quot;12:44&quot;</span><br><span class="line">输出：1</span><br><span class="line">解释：你完成了从 12:15 到 12:30 的一个完整对局。</span><br><span class="line">你没有完成从 12:00 到 12:15 的完整对局，因为你是在对局开始后的 12:01 进入的游戏。</span><br><span class="line">你没有完成从 12:30 到 12:45 的完整对局，因为你是在对局结束前的 12:44 退出的游戏。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：startTime &#x3D; &quot;20:00&quot;, finishTime &#x3D; &quot;06:00&quot;</span><br><span class="line">输出：40</span><br><span class="line">解释：你完成了从 20:00 到 00:00 的 16 个完整的对局，以及从 00:00 到 06:00 的 24 个完整的对局。</span><br><span class="line">16 + 24 &#x3D; 40</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：startTime &#x3D; &quot;00:00&quot;, finishTime &#x3D; &quot;23:59&quot;</span><br><span class="line">输出：95</span><br><span class="line">解释：除最后一个小时你只完成了 3 个完整对局外，其余每个小时均完成了 4 场完整对局。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>startTime</code> 和 <code>finishTime</code> 的格式为 <code>HH:MM</code></li>
+<li><code>00 &lt;= HH &lt;= 23</code></li>
+<li><code>00 &lt;= MM &lt;= 59</code></li>
+<li><code>startTime</code> 和 <code>finishTime</code> 不相等</li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>先把startTime和finishTime都转成分钟数，然后判断开始时间点是否小于结束时间，如果大于，则证明玩了个通宵，结束时间要加上24个小时，然后计算玩的这段时间有多少个刻钟，最后判断开始时间点是否是刻钟起点（15的倍数），如果不是最终结果要减去1。</p>
+<p><strong>提交的代码：</strong>（运行时间0ms，内存消耗5.9M）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numberOfRounds</span><span class="params">(<span class="built_in">string</span> startTime, <span class="built_in">string</span> finishTime)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//cout&lt;&lt;startTime.substr(0,2)&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">int</span> start_hour=stoi(startTime.substr(<span class="number">0</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">int</span> start_min=stoi(startTime.substr(<span class="number">3</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">int</span> end_hour=stoi(finishTime.substr(<span class="number">0</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">int</span> end_min=stoi(finishTime.substr(<span class="number">3</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="comment">//字符串转int不能直接强转吗</span></span><br><span class="line">        <span class="comment">//int end_min=int(finishTime.substr(3,2));</span></span><br><span class="line">        <span class="keyword">int</span> start=start_hour*<span class="number">60</span>+start_min;</span><br><span class="line">        <span class="keyword">int</span> end=end_hour*<span class="number">60</span>+end_min;</span><br><span class="line">        <span class="keyword">if</span>(start&gt;end)&#123;</span><br><span class="line">            end+=<span class="number">24</span>*<span class="number">60</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        result=end/<span class="number">15</span>-start/<span class="number">15</span>;</span><br><span class="line">        <span class="keyword">if</span>(start%<span class="number">15</span>!=<span class="number">0</span>)&#123;</span><br><span class="line">            result-=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h6 id="统计子岛屿"><a href="#统计子岛屿" class="headerlink" title="统计子岛屿"></a>统计子岛屿</h6><p><strong>题目描述：</strong></p>
+<p>给你两个 <code>m x n</code> 的二进制矩阵 <code>grid1</code> 和 <code>grid2</code> ，它们只包含 <code>0</code> （表示水域）和 <code>1</code> （表示陆地）。一个 <strong>岛屿</strong> 是由 <strong>四个方向</strong> （水平或者竖直）上相邻的 <code>1</code> 组成的区域。任何矩阵以外的区域都视为水域。</p>
+<p>如果 <code>grid2</code> 的一个岛屿，被 <code>grid1</code> 的一个岛屿 <strong>完全</strong> 包含，也就是说 <code>grid2</code> 中该岛屿的每一个格子都被 <code>grid1</code> 中同一个岛屿完全包含，那么我们称 <code>grid2</code> 中的这个岛屿为 <strong>子岛屿</strong> 。</p>
+<p>请你返回 <code>grid2</code> 中 <strong>子岛屿</strong> 的 <strong>数目</strong> 。</p>
+<p><strong>示例1：</strong></p>
+<p><img src="/2021/06/20/%E7%AC%AC246%E5%9C%BA%E5%91%A8%E8%B5%9B/test1.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：grid1 &#x3D; [[1,1,1,0,0],[0,1,1,1,1],[0,0,0,0,0],[1,0,0,0,0],[1,1,0,1,1]], grid2 &#x3D; [[1,1,1,0,0],[0,0,1,1,1],[0,1,0,0,0],[1,0,1,1,0],[0,1,0,1,0]]</span><br><span class="line">输出：3</span><br><span class="line">解释：如上图所示，左边为 grid1 ，右边为 grid2 。</span><br><span class="line">grid2 中标红的 1 区域是子岛屿，总共有 3 个子岛屿。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<p><img src="/2021/06/20/%E7%AC%AC246%E5%9C%BA%E5%91%A8%E8%B5%9B/testcasex2.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：grid1 &#x3D; [[1,0,1,0,1],[1,1,1,1,1],[0,0,0,0,0],[1,1,1,1,1],[1,0,1,0,1]], grid2 &#x3D; [[0,0,0,0,0],[1,1,1,1,1],[0,1,0,1,0],[0,1,0,1,0],[1,0,0,0,1]]</span><br><span class="line">输出：2 </span><br><span class="line">解释：如上图所示，左边为 grid1 ，右边为 grid2 。</span><br><span class="line">grid2 中标红的 1 区域是子岛屿，总共有 2 个子岛屿。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>m == grid1.length == grid2.length</code></li>
+<li><code>n == grid1[i].length == grid2[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 500</code></li>
+<li><code>grid1[i][j]</code> 和 <code>grid2[i][j]</code> 都要么是 <code>0</code> 要么是 <code>1</code> 。</li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>觉得这道题和之前做过的一道题类似，应该是要用递归，不过比赛时没做。。。</p>
+<p><strong>提交的代码：</strong>（运行时间ms，内存消耗M）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countSubIslands</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid1, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid2)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h6 id="查询差绝对值的最小值"><a href="#查询差绝对值的最小值" class="headerlink" title="查询差绝对值的最小值"></a>查询差绝对值的最小值</h6><p><strong>题目描述：</strong></p>
+<p>一个数组 <code>a</code> 的 <strong>差绝对值的最小值</strong> 定义为：<code>0 &lt;= i &lt; j &lt; a.length</code> 且 <code>a[i] != a[j]</code> 的 <code>|a[i] - a[j]|</code> 的 <strong>最小值</strong>。如果 <code>a</code> 中所有元素都 <strong>相同</strong> ，那么差绝对值的最小值为 <code>-1</code> 。</p>
+<ul>
+<li>比方说，数组 <code>[5,**2**,**3**,7,2]</code> 差绝对值的最小值是 <code>|2 - 3| = 1</code> 。注意答案不为 <code>0</code> ，因为 <code>a[i]</code> 和 <code>a[j]</code> 必须不相等。</li>
+</ul>
+<p>给你一个整数数组 <code>nums</code> 和查询数组 <code>queries</code> ，其中 <code>queries[i] = [li, ri]</code> 。对于每个查询 <code>i</code> ，计算 <strong>子数组</strong> <code>nums[li...ri]</code> 中 <strong>差绝对值的最小值</strong> ，子数组 <code>nums[li...ri]</code> 包含 <code>nums</code> 数组（下标从 <strong>0</strong> 开始）中下标在 <code>li</code> 和 <code>ri</code> 之间的所有元素（包含 <code>li</code> 和 <code>ri</code> 在内）。</p>
+<p>请你返回 <code>ans</code> <strong>数组</strong>，其中 <code>ans[i]</code> 是第 <code>i</code> 个查询的答案。</p>
+<p><strong>子数组</strong> 是一个数组中连续的一段元素。</p>
+<p><code>|x|</code> 的值定义为：</p>
+<ul>
+<li>如果 <code>x &gt;= 0</code> ，那么值为 <code>x</code> 。</li>
+<li>如果 <code>x &lt; 0</code> ，那么值为 <code>-x</code> 。</li>
+</ul>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：nums &#x3D; [1,3,4,8], queries &#x3D; [[0,1],[1,2],[2,3],[0,3]]</span><br><span class="line">输出：[2,1,4,1]</span><br><span class="line">解释：查询结果如下：</span><br><span class="line">- queries[0] &#x3D; [0,1]：子数组是 [1,3] ，差绝对值的最小值为 |1-3| &#x3D; 2 。</span><br><span class="line">- queries[1] &#x3D; [1,2]：子数组是 [3,4] ，差绝对值的最小值为 |3-4| &#x3D; 1 。</span><br><span class="line">- queries[2] &#x3D; [2,3]：子数组是 [4,8] ，差绝对值的最小值为 |4-8| &#x3D; 4 。</span><br><span class="line">- queries[3] &#x3D; [0,3]：子数组是 [1,3,4,8] ，差的绝对值的最小值为 |3-4| &#x3D; 1 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：nums &#x3D; [4,5,2,2,7,10], queries &#x3D; [[2,3],[0,2],[0,5],[3,5]]</span><br><span class="line">输出：[-1,1,1,3]</span><br><span class="line">解释：查询结果如下：</span><br><span class="line">- queries[0] &#x3D; [2,3]：子数组是 [2,2] ，差绝对值的最小值为 -1 ，因为所有元素相等。</span><br><span class="line">- queries[1] &#x3D; [0,2]：子数组是 [4,5,2] ，差绝对值的最小值为 |4-5| &#x3D; 1 。</span><br><span class="line">- queries[2] &#x3D; [0,5]：子数组是 [4,5,2,2,7,10] ，差绝对值的最小值为 |4-5| &#x3D; 1 。</span><br><span class="line">- queries[3] &#x3D; [3,5]：子数组是 [2,7,10] ，差绝对值的最小值为 |7-10| &#x3D; 3 。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>2 &lt;= nums.length &lt;= 105</code></li>
+<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
+<li><code>1 &lt;= queries.length &lt;= 2 * 104</code></li>
+<li><code>0 &lt;= li &lt; ri &lt; nums.length</code></li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>按照queries中的元素取出nums中的子数组，然后计算差绝对值的最小值，这里是关键，我采用了sort排序，效率太低超时了。。。</p>
+<p><strong>提交的代码：</strong>（运行时间ms，内存消耗M）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; minDifference(vector&lt;int&gt;&amp; nums, vector&lt;vector&lt;int&gt;&gt;&amp; queries) &#123;</span><br><span class="line">        vector&lt;int&gt; result;</span><br><span class="line">        int m&#x3D;queries.size();</span><br><span class="line">        int n&#x3D;queries[0].size();</span><br><span class="line">        for(int i&#x3D;0;i&lt;m;i++)&#123;</span><br><span class="line">            &#x2F;&#x2F;取出子数组</span><br><span class="line">            vector&lt;int&gt; sub_nums;</span><br><span class="line">            sub_nums.assign(nums.begin()+queries[i][0],nums.begin()+queries[i][1]+1);</span><br><span class="line">            &#x2F;&#x2F;计算子数组差绝对值最小值</span><br><span class="line">            &#x2F;&#x2F;对子数组从小到大排序</span><br><span class="line">            sort(sub_nums.begin(),sub_nums.end());</span><br><span class="line">            int min&#x3D;INT_MAX;</span><br><span class="line">            for(int j&#x3D;1;j&lt;sub_nums.size();j++)&#123; </span><br><span class="line">                if((sub_nums[j]!&#x3D;sub_nums[j-1]) &amp;&amp; (min&gt;sub_nums[j]-sub_nums[j-1]))&#123;     </span><br><span class="line">                    min&#x3D;sub_nums[j]-sub_nums[j-1]; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(min&#x3D;&#x3D;INT_MAX)&#123;</span><br><span class="line">                min&#x3D;-1;</span><br><span class="line">            &#125;</span><br><span class="line">            result.emplace_back(min);</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><p>很久没做LeetCode题了，从这周开始坚持参加周赛，然后写写博客，平常刷LeetCode题也不再每道题都写博客了，加油。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>CONTEST</category>
+      </categories>
+      <tags>
+        <tag>LeetCode周赛</tag>
+      </tags>
   </entry>
 </search>
