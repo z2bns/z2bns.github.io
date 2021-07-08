@@ -207,6 +207,119 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/08/Python%E8%A7%A3%E6%9E%90Excel%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%88%B0Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/08/Python%E8%A7%A3%E6%9E%90Excel%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%88%B0Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD/" class="post-title-link" itemprop="url">Python解析Excel表数据到Mysql数据库中</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-07-08 13:39:26 / 修改时间：13:44:50" itemprop="dateCreated datePublished" datetime="2021-07-08T13:39:26+08:00">2021-07-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/07/08/Python%E8%A7%A3%E6%9E%90Excel%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%88%B0Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/08/Python%E8%A7%A3%E6%9E%90Excel%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%88%B0Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>268</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近做一个小项目有导入Excel表到Mysql数据库的需求，就借此机会总结一下python解析Excel到Mysql数据库的操作。</p>
+<p>以之前写过的文章《<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41137110/article/details/107118673">物流公司物品邮寄资费可视化分析</a>》中的<a target="_blank" rel="noopener" href="https://download.csdn.net/download/qq_41137110/19326233">express.xlsx</a>文件为例，导入到本地Mysql数据库的express表</p>
+<p>物品邮寄资费标准Excel表（<a target="_blank" rel="noopener" href="https://download.csdn.net/download/qq_41137110/19326233">express.xlsx</a>）内容如下：</p>
+<p><img src="/2021/07/08/Python%E8%A7%A3%E6%9E%90Excel%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%88%B0Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD/20200704011236187.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<h3 id="数据库建表"><a href="#数据库建表" class="headerlink" title="数据库建表"></a>数据库建表</h3><p>数据库建表sql语句如下</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> Navicat Premium Data Transfer</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> Source Server         : localhost</span></span><br><span class="line"><span class="comment"> Source Server Type    : MySQL</span></span><br><span class="line"><span class="comment"> Source Server Version : 80024</span></span><br><span class="line"><span class="comment"> Source Host           : localhost:3306</span></span><br><span class="line"><span class="comment"> Source Schema         : myself</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> Target Server Type    : MySQL</span></span><br><span class="line"><span class="comment"> Target Server Version : 80024</span></span><br><span class="line"><span class="comment"> File Encoding         : 65001</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> Date: 06/07/2021 15:58:07</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">NAMES</span> utf8mb4;</span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for express</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`express`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`express`</span>  (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">0</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">&#x27;快递公司&#x27;</span>,</span><br><span class="line">  <span class="string">`year`</span> <span class="built_in">varchar</span>(<span class="number">5</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">&#x27;年份&#x27;</span>,</span><br><span class="line">  <span class="string">`src_province`</span> <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">&#x27;源省份&#x27;</span>,</span><br><span class="line">  <span class="string">`dst_province`</span> <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">&#x27;目的省份&#x27;</span>,</span><br><span class="line">  <span class="string">`first_weight`</span> <span class="built_in">varchar</span>(<span class="number">5</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">&#x27;首重&#x27;</span>,</span><br><span class="line">  <span class="string">`other_price`</span> <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">&#x27;续重&#x27;</span>,</span><br><span class="line">  <span class="string">`remark`</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">&#x27;备注&#x27;</span>,</span><br><span class="line">  <span class="string">`modify_time`</span> datetime(<span class="number">0</span>) <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">&#x27;修改时间&#x27;</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>) <span class="keyword">USING</span> BTREE</span><br><span class="line">) <span class="keyword">ENGINE</span> = <span class="keyword">InnoDB</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8 <span class="keyword">COLLATE</span> = utf8_bin ROW_FORMAT = Dynamic;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<h3 id="Python解析Excel表"><a href="#Python解析Excel表" class="headerlink" title="Python解析Excel表"></a>Python解析Excel表</h3><p>Excel表导入到Mysql数据库的Python代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- codeing = utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time : 2021/7/6 14:03</span></span><br><span class="line"><span class="comment"># @Author : loadding...</span></span><br><span class="line"><span class="comment"># @File : Excel2Mysql.py</span></span><br><span class="line"><span class="comment"># @Software : Sublime Text</span></span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment">#连接数据库（主机，端口，用户，密码等）</span></span><br><span class="line">	<span class="comment">#本地库</span></span><br><span class="line">	db=pymysql.connect(host=<span class="string">&#x27;localhost&#x27;</span>,port=<span class="number">3306</span>,user=<span class="string">&#x27;root&#x27;</span>,password=<span class="string">&#x27;root&#x27;</span>,db=<span class="string">&#x27;myself&#x27;</span>,charset=<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line">	<span class="comment">#数据库游标</span></span><br><span class="line">	cursor=db.cursor()</span><br><span class="line">	filename=<span class="string">&#x27;./express.xlsx&#x27;</span></span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		data=xlrd.open_workbook(filename)  <span class="comment"># 读取excel文件</span></span><br><span class="line">	<span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">		print(<span class="string">&#x27;open excel file failed!&#x27;</span>)</span><br><span class="line">		<span class="keyword">raise</span> e</span><br><span class="line">	query=<span class="string">&#x27;&#x27;&#x27;insert into express(name,year,src_province,dst_province,first_weight,other_price,remark,modify_time) values(%s,%s,%s,%s,%s,%s,%s,%s)&#x27;&#x27;&#x27;</span></span><br><span class="line">	<span class="comment">#插入数据库中的字段全部初始化</span></span><br><span class="line">	name=<span class="string">&#x27;&#x27;</span></span><br><span class="line">	year=<span class="string">&#x27;&#x27;</span></span><br><span class="line">	src_province=<span class="string">&#x27;&#x27;</span></span><br><span class="line">	dst_province=<span class="string">&#x27;&#x27;</span></span><br><span class="line">	first_weight=<span class="string">&#x27;&#x27;</span></span><br><span class="line">	other_price=<span class="string">&#x27;&#x27;</span></span><br><span class="line">	remark=<span class="string">&#x27;&#x27;</span></span><br><span class="line">	<span class="comment">#遍历excel表的sheet页</span></span><br><span class="line">	sheetnames=data.sheet_names();</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(len(sheetnames)):</span><br><span class="line">		<span class="comment">#获取第i个sheet页</span></span><br><span class="line">		table=data.sheet_by_index(i)</span><br><span class="line">		src_province = <span class="string">&#x27;吉林&#x27;</span></span><br><span class="line">		year=<span class="string">&#x27;2020&#x27;</span></span><br><span class="line">		nameList=[<span class="string">&#x27;德邦&#x27;</span>,<span class="string">&#x27;顺丰&#x27;</span>,<span class="string">&#x27;邮政&#x27;</span>,<span class="string">&#x27;申通&#x27;</span>,<span class="string">&#x27;京东&#x27;</span>]</span><br><span class="line">		provinceList=[<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">		firstList=[<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">		otherList=[<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">		remarkList=[<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br><span class="line">		remarkList[<span class="number">0</span>]=table.cell(table.nrows<span class="number">-1</span>,<span class="number">0</span>).value</span><br><span class="line">		remarkList[<span class="number">1</span>]=table.cell(table.nrows<span class="number">-2</span>,<span class="number">4</span>).value</span><br><span class="line">		remarkList[<span class="number">2</span>]=table.cell(table.nrows<span class="number">-1</span>,<span class="number">8</span>).value</span><br><span class="line">		remarkList[<span class="number">3</span>]=table.cell(table.nrows<span class="number">-2</span>,<span class="number">12</span>).value</span><br><span class="line">		remarkList[<span class="number">4</span>]=table.cell(table.nrows<span class="number">-2</span>,<span class="number">16</span>).value</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">3</span>,table.nrows<span class="number">-2</span>):</span><br><span class="line">			<span class="comment">#遍历每一行数据</span></span><br><span class="line">			provinceList[<span class="number">0</span>]=table.cell(j,<span class="number">0</span>).value</span><br><span class="line">			provinceList[<span class="number">1</span>]=table.cell(j,<span class="number">4</span>).value</span><br><span class="line">			provinceList[<span class="number">2</span>]=table.cell(j,<span class="number">8</span>).value</span><br><span class="line">			provinceList[<span class="number">3</span>]=table.cell(j,<span class="number">12</span>).value</span><br><span class="line">			provinceList[<span class="number">4</span>]=table.cell(j,<span class="number">16</span>).value</span><br><span class="line">			firstList[<span class="number">0</span>]=table.cell(j,<span class="number">1</span>).value</span><br><span class="line">			firstList[<span class="number">1</span>]=table.cell(j,<span class="number">5</span>).value</span><br><span class="line">			firstList[<span class="number">2</span>]=table.cell(j,<span class="number">6</span>).value</span><br><span class="line">			firstList[<span class="number">3</span>]=table.cell(j,<span class="number">13</span>).value</span><br><span class="line">			firstList[<span class="number">4</span>]=table.cell(j,<span class="number">17</span>).value</span><br><span class="line">			otherList[<span class="number">0</span>]=table.cell(j,<span class="number">2</span>).value</span><br><span class="line">			otherList[<span class="number">1</span>]=table.cell(j,<span class="number">6</span>).value</span><br><span class="line">			otherList[<span class="number">2</span>]=table.cell(j,<span class="number">10</span>).value</span><br><span class="line">			otherList[<span class="number">3</span>]=table.cell(j,<span class="number">14</span>).value</span><br><span class="line">			otherList[<span class="number">4</span>]=table.cell(j,<span class="number">18</span>).value</span><br><span class="line">			<span class="comment">#每一行数据对应5个不同公司的数据</span></span><br><span class="line">			<span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">				name=nameList[k]</span><br><span class="line">				dst_province=provinceList[k]</span><br><span class="line">				first_weight=firstList[k]</span><br><span class="line">				other_price=otherList[k]</span><br><span class="line">				remark=remarkList[k]</span><br><span class="line">    			<span class="comment">#获取插入时间</span></span><br><span class="line">				modify_time=datetime.datetime.strftime(datetime.datetime.now(), <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line">				values=(name,year,src_province,dst_province,first_weight,other_price,remark,modify_time)</span><br><span class="line">				<span class="keyword">try</span>:</span><br><span class="line">					cursor.execute(query,values)</span><br><span class="line">				<span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">					print(e)</span><br><span class="line"></span><br><span class="line">	<span class="comment">#关闭游标</span></span><br><span class="line">	cursor.close()</span><br><span class="line">	<span class="comment">#提交操作	</span></span><br><span class="line">	db.commit()</span><br><span class="line">	<span class="comment">#关闭数据库</span></span><br><span class="line">	db.close()</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>导入后的数据库表内容如下：</p>
+<p><img src="/2021/07/08/Python%E8%A7%A3%E6%9E%90Excel%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%88%B0Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD/20210706160426551.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42869365/article/details/83472466">mysql下载与安装</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/insane-Mr-Li/p/9092619.html">python里面的xlrd模块详解</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/20/%E7%AC%AC246%E5%9C%BA%E5%91%A8%E8%B5%9B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1176,113 +1289,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/11/2021-05-11/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Z2BNS">
-      <meta itemprop="description" content="Because like, so love">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CTF of Z2BNS">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/11/2021-05-11/" class="post-title-link" itemprop="url">For man is man and master of his fate!</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 09:48:26 / 修改时间：10:09:53" itemprop="dateCreated datePublished" datetime="2021-05-11T09:48:26+08:00">2021-05-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index"><span itemprop="name">Diary</span></a>
-                </span>
-            </span>
-		  <div style="display:inline">
-		   |
-		  <i class="fa fa-eye"></i>
-		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
-		  </div>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/11/2021-05-11/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/11/2021-05-11/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>669</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          Here's something encrypted, password is required to continue reading.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/11/2021-05-11/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1354,7 +1360,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">221</span>
+          <span class="site-state-item-count">222</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
