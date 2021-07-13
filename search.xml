@@ -13926,6 +13926,7 @@ temp2=ciph\_d(i)
     <title>Python解析Excel表数据到Mysql数据库中</title>
     <url>/2021/07/08/Python%E8%A7%A3%E6%9E%90Excel%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%88%B0Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近做一个小项目有导入Excel表到Mysql数据库的需求，就借此机会总结一下python解析Excel到Mysql数据库的操作。</p>
+<a id="more"></a>
 <p>以之前写过的文章《<a href="https://blog.csdn.net/qq_41137110/article/details/107118673">物流公司物品邮寄资费可视化分析</a>》中的<a href="https://download.csdn.net/download/qq_41137110/19326233">express.xlsx</a>文件为例，导入到本地Mysql数据库的express表</p>
 <p>物品邮寄资费标准Excel表（<a href="https://download.csdn.net/download/qq_41137110/19326233">express.xlsx</a>）内容如下：</p>
 <p><img src="/2021/07/08/Python%E8%A7%A3%E6%9E%90Excel%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%88%B0Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD/20200704011236187.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
@@ -13943,5 +13944,117 @@ temp2=ciph\_d(i)
       <categories>
         <category>python</category>
       </categories>
+  </entry>
+  <entry>
+    <title>原地运球</title>
+    <url>/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>何以解忧，唯有篮球。</p>
+<a id="more"></a>
+<p>野球场打球时候经常运球失误，运球挺菜的，想利用这个暑假提升自己的运球。所以在b站上找了这个系统的运球教学视频，学习一下，😃</p>
+<p>每个动作三到五组</p>
+<h6 id="原地低运球"><a href="#原地低运球" class="headerlink" title="原地低运球"></a>原地低运球</h6><p>要领：球的高度不超过膝盖，球的落点在脚前方，左手35次，右手30次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/01.gif" alt="01"></p>
+<p>总结：这个动作，手腕、手指和核心腰腹是主要用力的部位。当你想要提升运球速度，自然而然就会加大力量，核心腰腹就会加入进来，这个动作能极大提升手腕和手指的灵活程度。初学者可以低头看球，慢慢找到感觉，再强行让自己抬头。</p>
+<h6 id="原地中运球"><a href="#原地中运球" class="headerlink" title="原地中运球"></a>原地中运球</h6><p>要领：在第一个基础上提高运球的高度，球的高度在膝盖和腰腹的范围之间，球落点在脚前方，左手25次，右手20次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/02.gif" alt="02"></p>
+<p>总结：这个动作，手臂、手腕、手指和核心腰腹是主要用力的部位，手臂要尽全力按压球，别怕失误，失误了重新计算直到不失误完成才算一组。</p>
+<h6 id="原地高运球"><a href="#原地高运球" class="headerlink" title="原地高运球"></a>原地高运球</h6><p>要领：在第二个基础上继续提高运球的高度，球的高度在肩部附近，球落点在脚前方，左手15次，右手10次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/03.gif" alt="03"></p>
+<h6 id="低中高组合运球"><a href="#低中高组合运球" class="headerlink" title="低中高组合运球"></a>低中高组合运球</h6><p>要领：把第一第二第三个动作组合起来低中高左右手各10次</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/04.gif" alt="04"></p>
+<h6 id="原地V字运球"><a href="#原地V字运球" class="headerlink" title="原地V字运球"></a>原地V字运球</h6><p>要领：左手25次，右手20次，组数为3组。球的高度在膝盖附近，球的落点在同一位置，通过旋转手臂，手按压球的左右侧上面来完成动作。这个动作能够提升我们旋转手臂运球的能力，内旋手臂运球有利于我们将球从身体内侧运到外侧进行突破、横移等。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/05.gif" alt="05"></p>
+<h6 id="原地IN-amp-OUT运球"><a href="#原地IN-amp-OUT运球" class="headerlink" title="原地IN&amp;OUT运球"></a>原地IN&amp;OUT运球</h6><p>要领：左手25次，右手20次，次数为3组。手触碰球的右侧上方，手臂带动手腕向内旋转完成动作。球的运动轨迹是外-&gt;内-&gt;外。这个动作是悬浮运球的基础，在比赛中也是非常常用，运球过半程、突破过人、横移创造投篮空间等。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/06.gif" alt="06"></p>
+<h6 id="原地V字运球与IN-amp-OUT运球组合"><a href="#原地V字运球与IN-amp-OUT运球组合" class="headerlink" title="原地V字运球与IN&amp;OUT运球组合"></a>原地V字运球与IN&amp;OUT运球组合</h6><p>要领：原地V字运球左手15次，右手10次</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/07.gif" alt="07"></p>
+<h6 id="原地换手运球"><a href="#原地换手运球" class="headerlink" title="原地换手运球"></a>原地换手运球</h6><p>20次为一组，初学者先缩小两手的距离再慢慢加大距离，熟练之后，球的高度从低到高。这个动作能够使我们快速改变运球方向，以达到摆脱防守球员的效果，是在比赛中一个简洁高效的动作。 </p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/08.gif" alt="08"></p>
+<h6 id="原地V字运球和原地换手运球组合"><a href="#原地V字运球和原地换手运球组合" class="headerlink" title="原地V字运球和原地换手运球组合"></a>原地V字运球和原地换手运球组合</h6><p>要领：原地V字运球运一次衔接原地换手运球一次，10次为一组</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/09.gif" alt="09"></p>
+<h6 id="原地IN-amp-OUT运球和原地换手运球组合"><a href="#原地IN-amp-OUT运球和原地换手运球组合" class="headerlink" title="原地IN&amp;OUT运球和原地换手运球组合"></a>原地IN&amp;OUT运球和原地换手运球组合</h6><p>要领：原地IN&amp;OUT运球运一次衔接原地换手运球一次，15次为一组</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/10.gif" alt="10"></p>
+<h6 id="原地V字运球、IN-amp-OUT运球和原地换手运球组合"><a href="#原地V字运球、IN-amp-OUT运球和原地换手运球组合" class="headerlink" title="原地V字运球、IN&amp;OUT运球和原地换手运球组合"></a>原地V字运球、IN&amp;OUT运球和原地换手运球组合</h6><p>要领：原地V字运球运一次衔接IN&amp;OUT运球一次再衔接原地换手运球一次，10次为1组</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/11.gif" alt="11"></p>
+<h6 id="原地胯下运球"><a href="#原地胯下运球" class="headerlink" title="原地胯下运球"></a>原地胯下运球</h6><p>要领：右边20次，左边25次，两脚平行站立，左脚或右脚向前一步，将球穿过胯下完成动作，其实这个动作就是原地换手运球，只是方向不一样，球的落点在身体下方，重点要找到落点。这个动作在比赛中的用处极大，它不会像换手运球那样将球暴露在防守人面前，这个动作能够让我们在保护住球的前提下改变运球方向。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/12.gif" alt="12"></p>
+<h6 id="原地胯下运球衔接换手运球"><a href="#原地胯下运球衔接换手运球" class="headerlink" title="原地胯下运球衔接换手运球"></a>原地胯下运球衔接换手运球</h6><p>先前后开立站位，后平行脚站位，右边10次，左边15次。通过这个动作的联系，逐步找到球的落点。</p>
+<h6 id="换手胯下运球"><a href="#换手胯下运球" class="headerlink" title="换手胯下运球"></a><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/13.gif" alt="13">换手胯下运球</h6><p>要领：换手运球运两次衔接一次胯下运球，换手运完后按压球的侧上面向胯下方向发力完成动作，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/14.gif" alt="14"></p>
+<h6 id="V字胯下运球"><a href="#V字胯下运球" class="headerlink" title="V字胯下运球"></a>V字胯下运球</h6><p>要领：一次V字运球衔接胯下运球，V字运球先内再外，向外时顺势按压球的侧上面向胯下方向发力完成动作，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/15.gif" alt="15"></p>
+<h6 id="IN-amp-OUT胯下换手运球"><a href="#IN-amp-OUT胯下换手运球" class="headerlink" title="IN&amp;OUT胯下换手运球"></a>IN&amp;OUT胯下换手运球</h6><p>要领：V字运球可以由低到高，幅度由小到大，以增加衔接胯下运球时的难度，右边10次，左边去15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/16.gif" alt="16"></p>
+<p>IN&amp;OUT换手胯下运球</p>
+<p>要领：IN&amp;OUT运一次衔接换手一次衔接胯下一次，IN&amp;OUT和换手运球时幅度可以由小变大，增加躯干的跟随性以增加迷惑性，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/17.gif" alt="17"></p>
+<h6 id="V字胯下运球-1"><a href="#V字胯下运球-1" class="headerlink" title="V字胯下运球"></a>V字胯下运球</h6><p>要领：V字运一次衔接胯下一次，V字运球可以由低到高，幅度由小到大，以增加衔接胯下运球时的难度，右边10次，左边15次</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/18.gif" alt="18"></p>
+<h6 id="V字IN-amp-OUT胯下运球"><a href="#V字IN-amp-OUT胯下运球" class="headerlink" title="V字IN&amp;OUT胯下运球"></a>V字IN&amp;OUT胯下运球</h6><p>要领：V字运一次衔接IN&amp;OUT一次衔接胯下一次，继续增加胯下运球时的铺垫动作，发力方式自由选择，右边10次，左边15次</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/19.gif" alt="19"></p>
+<h6 id="左右胯下运球"><a href="#左右胯下运球" class="headerlink" title="左右胯下运球"></a>左右胯下运球</h6><p>要领：这个动作比较考验协调性，难度较高，初学者可以先放慢速度或先联系穿越双脚的八字绕球动作，力求不失误再慢慢提高速度，注意球的落点以及胯下后，接胯下的手要往前方拉回来，做胯下时手吃球尽量靠近身体，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/20.gif" alt="20"></p>
+<h6 id="换手左右胯下运球"><a href="#换手左右胯下运球" class="headerlink" title="换手左右胯下运球"></a>换手左右胯下运球</h6><p>要领：换手运一次衔接左右胯下一次，通过一次左右胯下衔接换手，继续提高胯下后衔接体前动作的能力，以及提高我们连续做不同动作做变向的能力。10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/21.gif" alt="21"></p>
+<h6 id="V字左右胯下运球"><a href="#V字左右胯下运球" class="headerlink" title="V字左右胯下运球"></a>V字左右胯下运球</h6><p>V字运球一次衔接左右胯下，V字运球先内再外，将球运至胯下舒服的位置上，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/22.gif" alt="22"></p>
+<h6 id="换手双胯下运球"><a href="#换手双胯下运球" class="headerlink" title="换手双胯下运球"></a>换手双胯下运球</h6><p>要领：换手运一次衔接双胯下一次，换手时重心可提起，胯下时再核心发力下压重心快速排球，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/23.gif" alt="23"></p>
+<h6 id="V字双胯下换手运球"><a href="#V字双胯下换手运球" class="headerlink" title="V字双胯下换手运球"></a>V字双胯下换手运球</h6><p>要领：V字一次衔接双胯下一次衔接换手一次，发力方式可自由选择，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/24.gif" alt="24"></p>
+<h6 id="绕球背后运球"><a href="#绕球背后运球" class="headerlink" title="绕球背后运球"></a>绕球背后运球</h6><p>要领：我们进入背后运球环节，背后运球和之前的换手运球差不多，只是在背后做，所以难度也直线增加，同样比体前换手运球能够更好地保护球，目的是感受背后运球球的落点，右手10次，左手15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/25.gif" alt="25"></p>
+<h6 id="绕球双背后运球"><a href="#绕球双背后运球" class="headerlink" title="绕球双背后运球"></a>绕球双背后运球</h6><p>要领：继续感受球的落点，背后运球熟悉球的落点尤为重要，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/26.gif" alt="26"></p>
+<h6 id="原地中运球衔接背后运球"><a href="#原地中运球衔接背后运球" class="headerlink" title="原地中运球衔接背后运球"></a>原地中运球衔接背后运球</h6><p>要领：原地中运球运一次，球的落点在脚的左右侧，衔接背后运一次换到另一边，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/27.gif" alt="27"></p>
+<h6 id="原地中运球衔接背后运球-1"><a href="#原地中运球衔接背后运球-1" class="headerlink" title="原地中运球衔接背后运球"></a>原地中运球衔接背后运球</h6><p>要领：看似和刚刚的动作一样，其实难度更大。原地中运球运一次，球的落点在脚的前方，衔接时需要运用IN&amp;OUT中OUT的动作将去球往左后方或右后方拉，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/28.gif" alt="28"></p>
+<h6 id="V字背后体前换手运球"><a href="#V字背后体前换手运球" class="headerlink" title="V字背后体前换手运球"></a>V字背后体前换手运球</h6><p>要领：V字一次衔接背后一次衔接提前换手，同样的V字运球时顺势将球往左后方或右后方拉，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/29.gif" alt="29"></p>
+<h6 id="V字背后运球"><a href="#V字背后运球" class="headerlink" title="V字背后运球"></a>V字背后运球</h6><p>要领：V字一次衔接背后一次，和上一组动作类似，减少了提前换手的调整动作，增加难度，左右两边同时练习，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/30.gif" alt="30"></p>
+<h6 id="V字IN-amp-OUT背后体前换手运球"><a href="#V字IN-amp-OUT背后体前换手运球" class="headerlink" title="V字IN&amp;OUT背后体前换手运球"></a>V字IN&amp;OUT背后体前换手运球</h6><p>要领：V字一次衔接IN&amp;OUT一次衔接背后一次衔接体前换手一次。难点在于做IN&amp;OUT时要将球往侧后方拉以完成背后运球，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/31.gif" alt="31"></p>
+<h6 id="换手背后运球"><a href="#换手背后运球" class="headerlink" title="换手背后运球"></a>换手背后运球</h6><p>要领：换手运一次衔接背后一次，别小看这个动作，你需要连续将球往侧后方拉以完成背后运球，以及将球在身体侧后方拉至体前做换手，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/32.gif" alt="32"></p>
+<h6 id="两次换手衔接背后运球"><a href="#两次换手衔接背后运球" class="headerlink" title="两次换手衔接背后运球"></a>两次换手衔接背后运球</h6><p>要领：继续强化做不同动作时手持球向侧前方侧后方拉的能力，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/33.gif" alt="33"></p>
+<h6 id="原地中运球衔接双背后运球"><a href="#原地中运球衔接双背后运球" class="headerlink" title="原地中运球衔接双背后运球"></a>原地中运球衔接双背后运球</h6><p>要领：重心可稍提起，把控好球的落点，感受双手在背后做换手运球的感觉，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/34.gif" alt="34"></p>
+<h6 id="两次体前换手双背后运球"><a href="#两次体前换手双背后运球" class="headerlink" title="两次体前换手双背后运球"></a>两次体前换手双背后运球</h6><p>要领：难度在于衔接的时候，将球往侧后方拉做双背后，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/35.gif" alt="35"></p>
+<h6 id="三次体前换手双背后运球"><a href="#三次体前换手双背后运球" class="headerlink" title="三次体前换手双背后运球"></a>三次体前换手双背后运球</h6><p>要领：左右两边同时练习，继续提高体前运球衔接背后运球的能力，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/36.gif" alt="36"></p>
+<h6 id="胯下双背后运球"><a href="#胯下双背后运球" class="headerlink" title="胯下双背后运球"></a>胯下双背后运球</h6><p>要领：胯下运一次衔接双背后，这个动作能够将球隐藏在身体后，10次一组</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/ScreenToGif_Workspace/37.gif" alt="37"></p>
+<h6 id="连续背后换手运球"><a href="#连续背后换手运球" class="headerlink" title="连续背后换手运球"></a>连续背后换手运球</h6><p>要领：别怕失误，注意把控球的落点，幅度和高度可以自由切换，以增强在不同间距的运球能力，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/38.gif" alt="38"></p>
+<h6 id="原地中运球胯下背后运球"><a href="#原地中运球胯下背后运球" class="headerlink" title="原地中运球胯下背后运球"></a>原地中运球胯下背后运球</h6><p>要领：原地中运球是调整动作，可以放松做，胯下背后全力做，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/39.gif" alt="39"></p>
+<h6 id="胯下背后运球"><a href="#胯下背后运球" class="headerlink" title="胯下背后运球"></a>胯下背后运球</h6><p>要领：比上一个动作少了中运球的调整，难点在于背后完往前拉回衔接胯下，右边10次，左边15次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/40.gif" alt="40"></p>
+<h6 id="V字换手胯下换手运球"><a href="#V字换手胯下换手运球" class="headerlink" title="V字换手胯下换手运球"></a>V字换手胯下换手运球</h6><p>要领：V字运一次衔接换手一次衔接胯下一次衔接背后，通过各种组合动作，提高运球能力，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/41.gif" alt="41"></p>
+<h6 id="IN-amp-OUT换手胯下背后运球"><a href="#IN-amp-OUT换手胯下背后运球" class="headerlink" title="IN&amp;OUT换手胯下背后运球"></a>IN&amp;OUT换手胯下背后运球</h6><p>要领：IN&amp;OUT时身体跟随做刺探，右边10次，左边15次</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/42.gif" alt="42"></p>
+<h6 id="换手胯下双背后运球"><a href="#换手胯下双背后运球" class="headerlink" title="换手胯下双背后运球"></a>换手胯下双背后运球</h6><p>要领：换手时上半身躯干往变向方向刺探，10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/43.gif" alt="43"></p>
+<h6 id="胯下换手胯下背后运球"><a href="#胯下换手胯下背后运球" class="headerlink" title="胯下换手胯下背后运球"></a>胯下换手胯下背后运球</h6><p>要领：右边10次，左边15次</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/44.gif" alt="44"></p>
+<h6 id="双胯下双背后运球"><a href="#双胯下双背后运球" class="headerlink" title="双胯下双背后运球"></a>双胯下双背后运球</h6><p>要领：双胯下时转动身体增加身体的晃动，右边10次，左边15次。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/45.gif" alt="45"></p>
+<h6 id="左右胯下双背后运球"><a href="#左右胯下双背后运球" class="headerlink" title="左右胯下双背后运球"></a>左右胯下双背后运球</h6><p>要领：这个组合难度不下，找到球的落点以及左右胯下时手尽量靠近身体。10次一组。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/46.gif" alt="46"></p>
+<h6 id="自由组合"><a href="#自由组合" class="headerlink" title="自由组合"></a>自由组合</h6><p>要领：在10分钟时间里，自由组合各种动作进行练习，进一步提升各种衔接运球的能力。</p>
+<p><img src="/2021/07/13/%E5%8E%9F%E5%9C%B0%E8%BF%90%E7%90%83/47.gif" alt="47"></p>
+<p>终于搞完了，🤗</p>
+]]></content>
+      <categories>
+        <category>篮球</category>
+      </categories>
+      <tags>
+        <tag>运球</tag>
+      </tags>
   </entry>
 </search>
