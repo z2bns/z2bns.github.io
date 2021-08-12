@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background-color: #ccc;
+        }
+        
+        .w {
+            width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            height: 60px;
+            background-color: #444;
+        }
+        
+        .header-w {
+            position: relative;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 60px;
+            line-height: 60px;
+            text-align: left;
+            color: #fff;
+        }
+        
+        .add {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 60px;
+            line-height: 58px;
+            text-align: right;
+        }
+        
+        .add input {
+            width: 500px;
+            height: 30px;
+            border-radius: 10px;
+            outline: none;
+            padding-left: 10px;
+            font-size: 16px;
+        }
+        
+        .title {
+            height: 80px;
+            line-height: 80px;
+        }
+        
+        .title h1 {
+            float: left;
+        }
+        
+        .title .count {
+            float: right;
+            line-height: 80px;
+        }
+        
+        .title span {
+            height: 14px;
+            background-color: #fff;
+            border-radius: 14px;
+            padding: 0 6px;
+        }
+        
+        #todolist li {
+            list-style: none;
+            height: 40px;
+            line-height: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            border-left: 7px solid #388E8E;
+            margin: 10px 0;
+        }
+        
+        #donelist li {
+            list-style: none;
+            height: 40px;
+            line-height: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            border-left: 7px solid #999;
+            background: rgba(255, 255, 255, .5);
+        }
+        
+        #todolist input,
+        #donelist input {
+            float: left;
+            width: 25px;
+            height: 25px;
+            margin-left: 15px;
+            margin-top: 8px;
+        }
+        
+        #todolist p,
+        #donelist p {
+            float: left;
+            margin-left: 15px;
+        }
+        
+        #todolist a,
+        #donelist a {
+            float: right;
+            margin-right: 15px;
+            text-decoration: none;
+            color: #999;
+        }
+        
+        footer {
+            text-align: center;
+            color: #999;
+            margin-top: 20px;
+        }
+        
+        .del {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            line-height: 20px;
+            text-align: center;
+            background: #ccc;
+            flex-grow: 0;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(function() {
+            load();
+            // 1. 按下回车 把完整数据 存储到本地存储里面
+            // 存储的数据格式 var todolist = [{title: "xxx", done: false}]
+            $("#title").on("keydown", function(event) {
+                if (event.keyCode === 13) {
+                    if ($(this).val() === "") {
+                        alert("请输入内容！")
+                    } else {
+                        // 先读取本地数据存储的原来的数据
+                        //var local = getData();
+                        // console.log(local);
+                        // 把local数组进行更新数据 把最新的数据追加给local数组
+                        
+
+                        // 把这个数组local存储到本地存储
+                        //saveData(local);
+                        // 2. 把本地存储的数据渲染出来
+                        //load();
+                        $("ol").prepend("<li><input type='checkbox'><p>" + $(this).val("") + "</p><a href='#' id='" + 1 + "'><div class='del'>X</div></a></li>");
+                        todoCount++;
+                        $(this).val("");
+                    }
+                }
+            });
+            // 3. todolist 删除操作
+            $("ol, ul").on("click", "a", function() {
+                    // alert(11);
+                    var data = getData();
+                    var index = $(this).attr("id");
+                    //删除所选数据
+                    data.splice(index, 1);
+                    saveData(data);
+                    load();
+                })
+                // 4. todolist 正在进行和已完成的操作
+            $("ol, ul").on("click", "input", function() {
+                    // 先获取本地存储的数据
+                    var data = getData();
+                    // 修改数据
+                    var index = $(this).siblings("a").attr("id");
+                    data[index].done = $(this).prop("checked");
+                    // 保存到本地存储
+                    saveData(data);
+                    load();
+                })
+                // 读取本地存储的数据
+            function getData() {
+                var data = localStorage.getItem("todolist");
+                if (data !== null) {
+                    // 本地存储里面的数据都是字符串格式的 需要转换格式
+                    return JSON.parse(data);
+                } else {
+                    return [];
+                }
+            }
+            // 保存本地存储数据
+            function saveData(data) {
+                localStorage.setItem("todolist", JSON.stringify(data));
+            }
+            // 渲染加载数据
+            function load() {
+                var todoCount=("#donelist li").length;
+                var data = getData();
+                // 遍历之前先清空ol里面的元素内容
+                $("ol, ul").empty();
+                var todoCount = 0; //正在进行的个数
+                var doneCount = 0; // 完成的个数
+
+                // 遍历数据
+                $.each(data, function(i, n) {
+                    if (n.done) {
+                        $("ul").prepend("<li><input type='checkbox' checked='checked'><p>" + n.title + "</p><a href='#' id='" + i + "'><div class='del'>X</div></a></li>");
+                        doneCount++;
+                    } else {
+                        $("ol").prepend("<li><input type='checkbox'><p>" + n.title + "</p><a href='#' id='" + i + "'><div class='del'>X</div></a></li>");
+                        todoCount++;
+                    }
+                });
+                $("#todoCount").text(todoCount);
+                $("#doneCount").text(doneCount);
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <!-- header start -->
+    <div class="header">
+        <div class="header-w w">
+            <div class="logo">
+                <h1>ToDoList</h1>
+            </div>
+            <div class="add">
+                <input type="text" id="title" placeholder="添加ToDo">
+            </div>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- main start -->
+    <div class="main">
+        <div class="main-w w">
+            <div class="start">
+                <div class="title">
+                    <h1>正在进行</h1>
+                    <div class="count"><span id="todoCount">0</span></div>
+                </div>
+                <ol id="todolist" class="demo-box">
+                    
+                </ol>
+            </div>
+            <div class="end">
+                <div class="title">
+                    <h1>已经完成</h1>
+                    <div class="count"><span id="doneCount">0</span></div>
+                </div>
+                <ul id="donelist">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- main end -->
+    <footer>
+        Copyright &copy; 2019 todolist.cn
+    </footer>
+</body>
+
+</html>
