@@ -205,8 +205,10 @@
             }
             // 渲染加载数据
             function load() {
-                var todoCount=("#donelist li").length;
-                var data = getData();
+                var doneCount=("#donelist li").length;
+                var todoCount=("#todolist li").length;
+
+                //var data = getData();
                 // 遍历之前先清空ol里面的元素内容
                 $("ol, ul").empty();
                 var todoCount = 0; //正在进行的个数
@@ -222,6 +224,7 @@
                         todoCount++;
                     }
                 });
+                
                 $("#todoCount").text(todoCount);
                 $("#doneCount").text(doneCount);
             }

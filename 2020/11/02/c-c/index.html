@@ -30,7 +30,7 @@
 <meta property="og:description" content="通常我们对类成员进行“初始化”有两种方式：  构造函数后面跟冒号； 构造函数里面对成员进行赋值。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-02T04:34:45.000Z">
-<meta property="article:modified_time" content="2020-11-07T09:47:01.959Z">
+<meta property="article:modified_time" content="2021-08-19T02:50:35.308Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary">
@@ -241,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-07 17:47:01" itemprop="dateModified" datetime="2020-11-07T17:47:01+08:00">2020-11-07</time>
+                <time title="修改时间：2021-08-19 10:50:35" itemprop="dateModified" datetime="2021-08-19T10:50:35+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,7 +277,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>487</span>
+              <span>616</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -303,11 +303,11 @@
 </ol>
 <a id="more"></a>
 <hr>
-<p>const和引用必须在声明的时候就初始化，换句话说就是在给const和引用类型变量分配内存的时候就初始化。</p>
+<h6 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h6><p>const和引用必须在声明的时候就初始化，换句话说就是在给const和引用类型变量分配内存的时候就初始化。</p>
 <hr>
-<p>根据C++的规则，const类型和引用不可以被赋值，只能被初始化。</p>
+<h6 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h6><p>根据C++的规则，const类型和引用不可以被赋值，只能被初始化。</p>
 <hr>
-<p>实在构造函数里面调用等于号并不是真正意义上的“初始化”。这个过程相当于：</p>
+<p>其实构造函数里面调用等于号并不是真正意义上的“初始化”。这个过程相当于：</p>
 <ol>
 <li>系统创建成员变量；</li>
 <li>创建完后再进行赋值操作。</li>
@@ -320,7 +320,13 @@
 <p><strong>通俗的讲，构造函数后面的冒号就是初始化，而括号里面的等于号并不是初始化，而是变量生成以后的赋值而已（永远都是2个步骤）。</strong></p>
 <p><strong>引用b初始化完成后，就永远指向初始化时候的那个变量，无法再改变了。</strong>我这里的“引用不可以被赋值”是指不能给引用本身赋值来改变它的指向，并不是说不可以改变引用指向的内存的内容。</p>
 <hr>
-<p>数组名是指向数组中第一个元素的常量指针</p>
+<h6 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h6><p>数组名是指向数组中第一个元素的常量指针</p>
+<hr>
+<h6 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h6><p>0表示整数，’0’表示0字符，\\0’表示ASCII码值为0的字符。</p>
+<p>在字符串中’\\0’用作字符串的结束标志。</p>
+<p>‘\\0’是字符串来结束标志位 对应ascii码：00；</p>
+<p>‘0’是字符0 对应ascii码：30；</p>
+<p>0是数字0 对应ascii码：00；</p>
 
     </div>
 
@@ -438,6 +444,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">字符</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -453,7 +460,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">225</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -466,7 +473,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -527,13 +534,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">302k</span>
+    <span title="站点总字数">305k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:34</span>
+    <span title="站点阅读时长">4:38</span>
 </div>
 
 

@@ -795,11 +795,11 @@
 </ol>
 <a id="more"></a>
 <hr>
-<p>const和引用必须在声明的时候就初始化，换句话说就是在给const和引用类型变量分配内存的时候就初始化。</p>
+<h6 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h6><p>const和引用必须在声明的时候就初始化，换句话说就是在给const和引用类型变量分配内存的时候就初始化。</p>
 <hr>
-<p>根据C++的规则，const类型和引用不可以被赋值，只能被初始化。</p>
+<h6 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h6><p>根据C++的规则，const类型和引用不可以被赋值，只能被初始化。</p>
 <hr>
-<p>实在构造函数里面调用等于号并不是真正意义上的“初始化”。这个过程相当于：</p>
+<p>其实构造函数里面调用等于号并不是真正意义上的“初始化”。这个过程相当于：</p>
 <ol>
 <li>系统创建成员变量；</li>
 <li>创建完后再进行赋值操作。</li>
@@ -812,7 +812,13 @@
 <p><strong>通俗的讲，构造函数后面的冒号就是初始化，而括号里面的等于号并不是初始化，而是变量生成以后的赋值而已（永远都是2个步骤）。</strong></p>
 <p><strong>引用b初始化完成后，就永远指向初始化时候的那个变量，无法再改变了。</strong>我这里的“引用不可以被赋值”是指不能给引用本身赋值来改变它的指向，并不是说不可以改变引用指向的内存的内容。</p>
 <hr>
-<p>数组名是指向数组中第一个元素的常量指针</p>
+<h6 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h6><p>数组名是指向数组中第一个元素的常量指针</p>
+<hr>
+<h6 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h6><p>0表示整数，’0’表示0字符，\\0’表示ASCII码值为0的字符。</p>
+<p>在字符串中’\\0’用作字符串的结束标志。</p>
+<p>‘\\0’是字符串来结束标志位 对应ascii码：00；</p>
+<p>‘0’是字符0 对应ascii码：30；</p>
+<p>0是数字0 对应ascii码：00；</p>
 ]]></content>
       <categories>
         <category>C&amp;C++</category>
@@ -13692,8 +13698,23 @@ temp2=ciph\_d(i)
   <entry>
     <title>颜色空间转换RGB-&gt;YCbCr</title>
     <url>/2021/05/31/%E9%A2%9C%E8%89%B2%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2RGB-YCbCr/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
-<p>参考</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>RGB、YUV和YCbCr都是人为规定的彩色模型或颜色空间（有时也叫彩色系统或彩色空间）。它的用途是在某些标准下用通常可接受的方式对彩色加以说明。本质上，彩色模型是坐标系统和子空间的阐述。</p>
+<a id="more"></a>
+<p>YCbCr与RGB的相互转换</p>
+<p>RGB-&gt;YCbCr</p>
+<script type="math/tex; mode=display">
+Y=0.299R+0.587G+0.114B\\
+Cb=0.564(B-Y)=0.564(-0.299R-0.587G+0.886B)=-0.1686R-0.3311G+0.4997B\\
+Cr=0.713(R-Y)=0.713(0.701R-0.587G-0.114B)=0.4998R-0.4185G-0.0813B</script><p>YCbCr-&gt;RGB</p>
+<script type="math/tex; mode=display">
+R=Y+1.402Cr\\
+G=Y-0.344Cb-0.714Cr\\
+B=Y+1.772Cb</script><h6 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># plt 用于显示图片</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line"><span class="comment"># ITU-R BT.601</span></span><br><span class="line"><span class="comment"># https://en.wikipedia.org/wiki/YCbCr</span></span><br><span class="line"><span class="comment"># RGB -&gt; YCbCr</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rgb2ycbcr</span>(<span class="params">rgb</span>):</span></span><br><span class="line">    m = np.array([[ <span class="number">0.299</span>, <span class="number">0.587</span>, <span class="number">0.114</span>],</span><br><span class="line">                  [<span class="number">-0.1686</span>, <span class="number">-0.3311</span>, <span class="number">0.4997</span>],</span><br><span class="line">                  [ <span class="number">0.4998</span>, <span class="number">-0.4185</span>, <span class="number">-0.0813</span>]])</span><br><span class="line">    shape = rgb.shape</span><br><span class="line">    <span class="keyword">if</span> len(shape) == <span class="number">3</span>:</span><br><span class="line">        rgb = rgb.reshape((shape[<span class="number">0</span>] * shape[<span class="number">1</span>], <span class="number">3</span>))</span><br><span class="line">    ycbcr = np.dot(rgb, m.transpose())</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> ycbcr.reshape(shape)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ITU-R BT.601</span></span><br><span class="line"><span class="comment"># https://en.wikipedia.org/wiki/YCbCr</span></span><br><span class="line"><span class="comment"># YUV -&gt; RGB</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ycbcr2rgb</span>(<span class="params">ycbcr</span>):</span></span><br><span class="line">    m = np.array([[ <span class="number">1</span>,<span class="number">0</span>, <span class="number">1.402</span>],</span><br><span class="line">                  [<span class="number">1</span>, <span class="number">-0.344</span>, <span class="number">-0.714</span>],</span><br><span class="line">                  [ <span class="number">1</span>, <span class="number">1.772</span>, <span class="number">0</span>]])</span><br><span class="line">    shape = ycbcr.shape</span><br><span class="line">    <span class="keyword">if</span> len(shape) == <span class="number">3</span>:</span><br><span class="line">        ycbcr = ycbcr.reshape((shape[<span class="number">0</span>] * shape[<span class="number">1</span>], <span class="number">3</span>))</span><br><span class="line">    rgb = copy.deepcopy(ycbcr)</span><br><span class="line">    rgb = np.dot(ycbcr, m.transpose())</span><br><span class="line">    <span class="keyword">return</span> rgb.reshape(shape)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">  <span class="comment">#opencv的颜色通道顺序为[B,G,R]，而matplotlib颜色通道顺序为[R,G,B],所以需要调换一下通道位置</span></span><br><span class="line">  img1 = cv2.imread(<span class="string">&#x27;./yuv.jpg&#x27;</span>)[:,:,(<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)] <span class="comment"># 读取和代码处于同一目录下的 yuv.jpg</span></span><br><span class="line">  img2=rgb2ycbcr(img1)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">#结果展示</span></span><br><span class="line">  plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 中文乱码</span></span><br><span class="line">  plt.subplot(<span class="number">221</span>)</span><br><span class="line">  <span class="comment">#imshow()对图像进行处理，画出图像，show()进行图像显示</span></span><br><span class="line">  plt.imshow(img1)</span><br><span class="line">  plt.title(<span class="string">&#x27;RGB原图&#x27;</span>)</span><br><span class="line">  <span class="comment">#不显示坐标轴</span></span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">  <span class="comment"># print(&#x27;原RGB图像&#x27;)</span></span><br><span class="line">  <span class="comment"># print(img1)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图2</span></span><br><span class="line">  plt.subplot(<span class="number">222</span>)</span><br><span class="line">  img2=rgb2ycbcr(img1)</span><br><span class="line">  <span class="comment">#Cb分量赋值为0</span></span><br><span class="line">  img2[:,:,<span class="number">1</span>]=<span class="number">0</span></span><br><span class="line">  <span class="comment">#Cr分量赋值为0</span></span><br><span class="line">  img2[:,:,<span class="number">2</span>]=<span class="number">0</span></span><br><span class="line">  <span class="comment">#重新转成rgb图像</span></span><br><span class="line">  img3=ycbcr2rgb(img2)</span><br><span class="line">  <span class="comment"># print(&#x27;RGB-YCbCr图像&#x27;)</span></span><br><span class="line">  <span class="comment"># print(img2)</span></span><br><span class="line">  img3=img3.astype(np.uint8)</span><br><span class="line">  plt.imshow(img3)</span><br><span class="line">  plt.title(<span class="string">&#x27;Y通道&#x27;</span>)</span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图3</span></span><br><span class="line">  plt.subplot(<span class="number">223</span>)</span><br><span class="line">  <span class="comment"># print(&#x27;YCbCr-RGB图像&#x27;)</span></span><br><span class="line">  <span class="comment"># print(img3)</span></span><br><span class="line">  img2=rgb2ycbcr(img1)</span><br><span class="line">  <span class="comment">#Y分量赋值为0</span></span><br><span class="line">  img2[:,:,<span class="number">0</span>]=<span class="number">0</span></span><br><span class="line">  <span class="comment">#Cr分量赋值为0</span></span><br><span class="line">  img2[:,:,<span class="number">2</span>]=<span class="number">0</span></span><br><span class="line">  <span class="comment">#重新转成rgb图像</span></span><br><span class="line">  img4=ycbcr2rgb(img2)</span><br><span class="line">  <span class="comment"># print(img4)</span></span><br><span class="line">  img4=img4.astype(np.uint8)</span><br><span class="line">  <span class="comment"># print(img3)</span></span><br><span class="line">  plt.imshow(img4)</span><br><span class="line">  plt.title(<span class="string">&#x27;Cb通道&#x27;</span>)</span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#子图4</span></span><br><span class="line">  plt.subplot(<span class="number">224</span>)</span><br><span class="line">  img2=rgb2ycbcr(img1)</span><br><span class="line">  <span class="comment">#Y分量赋值为0</span></span><br><span class="line">  img2[:,:,<span class="number">0</span>]=<span class="number">0</span></span><br><span class="line">  <span class="comment">#Cb分量赋值为0</span></span><br><span class="line">  img2[:,:,<span class="number">1</span>]=<span class="number">0</span></span><br><span class="line">  <span class="comment">#重新转成rgb图像</span></span><br><span class="line">  img5=ycbcr2rgb(img2)</span><br><span class="line">  img5=img5.astype(np.uint8)</span><br><span class="line">  plt.imshow(img5)</span><br><span class="line">  plt.title(<span class="string">&#x27;Cr通道&#x27;</span>)</span><br><span class="line">  plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># #设置子图默认的间距</span></span><br><span class="line">  plt.tight_layout()</span><br><span class="line">  <span class="comment">#显示图像</span></span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ ==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h6><p>原图片</p>
+<p><img src="/2021/05/31/%E9%A2%9C%E8%89%B2%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2RGB-YCbCr/yuv.jpg" alt="yuv"></p>
+<p>转换结果</p>
+<p><img src="/2021/05/31/%E9%A2%9C%E8%89%B2%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2RGB-YCbCr/ycbcr_split.jpeg" alt="ycbcr_split"></p>
+<p><strong>参考</strong></p>
 <p><a href="https://en.wikipedia.org/wiki/YCbCr">YCbCr</a></p>
 <p><a href="https://blog.csdn.net/qq_41137110/article/details/117431046">jpeg图片格式详解</a></p>
 <p><a href="https://www.cnblogs.com/justkong/p/6570914.html">RGB、YUV和HSV颜色空间模型</a></p>
@@ -14093,7 +14114,7 @@ temp2=ciph\_d(i)
   </entry>
   <entry>
     <title>新电脑来喽</title>
-    <url>/2021/08/12/%E6%96%B0%E7%94%B5%E8%84%91%E6%9D%A5%E5%96%BD/</url>
+    <url>/2021/08/10/%E6%96%B0%E7%94%B5%E8%84%91%E6%9D%A5%E5%96%BD/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>实验室采购了一批新电脑，快来看看吧。</p>
 <a id="more"></a>
 <h6 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">电脑型号            戴尔 OptiPlex 7080 台式电脑</span><br><span class="line">操作系统            Windows 10 专业版 64位 ( DirectX 12 )</span><br><span class="line">处理器              英特尔 Core i7-10700 @ 2.90GHz 八核</span><br><span class="line">主板                戴尔 0J37VM ( LPC Controller - 0687 )</span><br><span class="line">主显卡              Nvidia GeForce GTX 1050 Ti ( 4 GB &#x2F; Nvidia )</span><br><span class="line">内存                16 GB ( GLOWAY DDR4 2666MHz )</span><br><span class="line">主硬盘              台电 256GB SSD ( 256 GB &#x2F; 固态硬盘 )</span><br><span class="line">显示器              戴尔 DELA19B DELL S2721D ( 27 英寸  )</span><br><span class="line">光驱                PLDS DVD+-RW DU-8A5LH DVD刻录机</span><br><span class="line">声卡                瑞昱 High Definition Audio @ 英特尔 英特尔智音技术音频控制器</span><br><span class="line">网卡                英特尔 Ethernet Connection  I219-LM &#x2F; 戴尔</span><br></pre></td></tr></table></figure>
@@ -14112,6 +14133,121 @@ temp2=ciph\_d(i)
       </categories>
       <tags>
         <tag>硬件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>红警快捷键</title>
+    <url>/2021/08/13/%E7%BA%A2%E8%AD%A6%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><a href="https://bbs.ra2ol.com/">红色警戒2战网对战平台</a>，可以在线对战，😙</p>
+<a id="more"></a>
+<p>红色警戒常用快捷键如下：</p>
+<p>1、部署对象 / 部队 D</p>
+<p>2、警戒目前区域 G</p>
+<p>3、移动攻击 点选部队 按下 Ctrl + Shift + 点选部队或区域</p>
+<p>4、散开 X</p>
+<p>5、强制开火 按住 Ctrl 键，用光标指示目标，再左击</p>
+<p>6、强制移动 按住 Alt 键，用光标指示目标，再左击</p>
+<p>7、选项选单 ESC</p>
+<p>8、编队 Ctrl + 1 ~ 9</p>
+<p>9、与选定阵营同盟 A</p>
+<p>10、选择同类型部队 T</p>
+<p>11、与所有观战者交谈 （多人模式） 按 Enter 开启交谈功能，输入讯息后，再按 Enter 传送讯息，按鼠标右键取消讯息。</p>
+<p>12、与所有盟友交谈（多人模式） 按 Home 键开启交谈功能，输入讯息后，再按 Enter 传送讯息，按鼠标右键取消讯息。</p>
+<p>13、与所有玩家交谈（多人模式） 按 End 键开启交谈功能，输入讯息后，再按 Enter 传送讯息，按鼠标右键取消讯息。</p>
+<p>14、布置信标 按下 B 键，按下 Enter 输入讯息后，再按 Enter 传讯，按 Del 取消讯息。</p>
+<p>15、进入路径点模式 点选部队 按住 Z 键，设定路径点，放开 Z 键开始让部队照路径前进。</p>
+<p>16、设定集合点 点选兵营、战车工厂、造船厂或复制中心，再于战场上选择集合点。</p>
+<p>17、前往雷达事件地点 空格键</p>
+<p>18、所有部队喝采 C</p>
+<p>19、开启外交选单 Tab</p>
+<p>20、跟随镜头 F</p>
+<p>21、守卫指定点 Ctrl + Alt + 点选区域</p>
+<p>22、护卫部队 Ctrl + Alt + 点选部队</p>
+<p>23、防守建筑 Ctrl + Alt + 点选建筑</p>
+<p>24、建筑页面 Q</p>
+<p>25、武器页面 W</p>
+<p>26、步兵页面 E</p>
+<p>27、车辆页面 R</p>
+<p>28、下一个部队 M</p>
+<p>29、上一个部队 N</p>
+<p>30、全选 P</p>
+<p>31、以精锐为准选择部队 Y</p>
+<p>32、以生命值为准选择部队 U</p>
+<p>33、调整已编队部队 按住 Shift 键，点选已选定部队取消选取或点选未选取的部队，将之加到编队中。</p>
+<p>34、将战略地图以基地为中心置中 H</p>
+<p>35、维修模式 鼠标左点建筑，K</p>
+<p>36、变卖模式 鼠标左点建筑，L</p>
+<p>37、设立书签 Ctrl + F1 ~ F4</p>
+<p>38、前往书签所在位置 F1 ~ F4</p>
+<p>39、多人联机叫嚣语言 F5 ~ F12</p>
+<p>40、游戏中截图 Ctrl + C （所截图片在红警程序文件夹里可以找到）</p>
+]]></content>
+      <categories>
+        <category>娱乐</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>无重复字符的最长子串</title>
+    <url>/2021/08/20/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><strong><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<a id="more"></a>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: s &#x3D; &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: s &#x3D; &quot;bbbbb&quot;</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: s &#x3D; &quot;pwwkew&quot;</span><br><span class="line">输出: 3</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span><br><span class="line">     请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: s &#x3D; &quot;&quot;</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 5 * 104</code></li>
+<li><code>s</code> 由英文字母、数字、符号和空格组成</li>
+</ul>
+<center>🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️解题过程🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️🙋‍♂️</center>
+
+<h6 id="解题过程："><a href="#解题过程：" class="headerlink" title="解题过程："></a>解题过程：</h6><p><strong>思路：</strong></p>
+<p>双重遍历，统计以每个字符开头的最长子串，然后取所有子串中长度最大的那个，另外用uordered_map容器写了一个判断字符串是否含有重复字符的函数。</p>
+<p><strong>c++代码：</strong>(执行用时1548ms，击败5%，内存消耗448.1M，击败4.99%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//判断字符串s是否含有重复字符，true为不重复</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">nopeat</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();++i)&#123;</span><br><span class="line">            m[s[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> m.size()==s.length();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//双重遍历，统计以每个字符开头的最长子串</span></span><br><span class="line">        <span class="keyword">int</span> len=s.length();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i)&#123;</span><br><span class="line">            <span class="comment">//从前向后遍历,从长度result开始</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=result;j&lt;=len-i;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nopeat(s.substr(i,j)))&#123;</span><br><span class="line">                    result=j;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<center>💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎官 方 题 解💎💎💎💎💎💎💎💎💎💎💎💎💎💎💎</center>
+
+<h6 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解:"></a><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetc-2/">官方题解</a>:</h6><p><strong>方法一：滑动窗口</strong><br><strong>思路和算法</strong></p>
+<p>我们先用一个例子考虑如何在较优的时间复杂度内通过本题。</p>
+<p>我们不妨以示例一中的字符串 $\texttt{abcabcbb}$ 为例，找出从每一个字符开始的，不包含重复字符的最长子串，那么其中最长的那个字符串即为答案。对于示例一中的字符串，我们列举出这些结果，其中括号中表示选中的字符以及最长的字符串：</p>
+<p>以 $\texttt{(a)bcabcbb}$​​ 开始的最长字符串为 $\texttt{(abc)abcbb}$​​​；<br>以 $\texttt{a(b)cabcbb}$​开始的最长字符串为 $\texttt{a(bca)bcbb}$​；<br>以 $\texttt{ab(c)abcbb}$​开始的最长字符串为 $\texttt{ab(cab)cbb}$​；<br>以 $\texttt{abc(a)bcbb}$​ 开始的最长字符串为 $\texttt{abc(abc)bb}$；<br>以 $\texttt{abca(b)cbb}$ 开始的最长字符串为 $\texttt{abca(bc)bb}$；<br>以 $\texttt{abcab(c)bb}$ 开始的最长字符串为 $\texttt{abcab(cb)b}$；<br>以 $\texttt{abcabc(b)b}$ 开始的最长字符串为 $\texttt{abcabc(b)b}$；<br>以 $\texttt{abcabcb(b)}$ 开始的最长字符串为 $\texttt{abcabcb(b)}$。<br>发现了什么？如果我们依次递增地枚举子串的起始位置，那么子串的结束位置也是递增的！这里的原因在于，假设我们选择字符串中的第 k 个字符作为起始位置，并且得到了不包含重复字符的最长子串的结束位置为 $r_k$​。那么当我们选择第 k+1 个字符作为起始位置时，首先从k+1 到 $r_k$的字符显然是不重复的，并且由于少了原本的第 k 个字符，我们可以尝试继续增大 $r_k$，直到右侧出现了重复字符为止。</p>
+<p>这样一来，我们就可以使用「滑动窗口」来解决这个问题了：</p>
+<p>我们使用两个指针表示字符串中的某个子串（或窗口）的左右边界，其中左指针代表着上文中「枚举子串的起始位置」，而右指针即为上文中的 $r_k$；</p>
+<p>在每一步的操作中，我们会将左指针向右移动一格，表示 我们开始枚举下一个字符作为起始位置，然后我们可以不断地向右移动右指针，但需要保证这两个指针对应的子串中没有重复的字符。在移动结束后，这个子串就对应着 以左指针开始的，不包含重复字符的最长子串。我们记录下这个子串的长度；</p>
+<p>在枚举结束后，我们找到的最长的子串的长度即为答案。</p>
+<p><strong>判断重复字符</strong></p>
+<p>在上面的流程中，我们还需要使用一种数据结构来判断 是否有重复的字符，常用的数据结构为哈希集合（即 <code>C++</code> 中的 <code>std::unordered_set</code>，<code>Java</code> 中的 <code>HashSet</code>，<code>Python</code> 中的 <code>set</code>, <code>JavaScript</code> 中的 <code>Set</code>）。在左指针向右移动的时候，我们从哈希集合中移除一个字符，在右指针向右移动的时候，我们往哈希集合中添加一个字符。</p>
+<p>至此，我们就完美解决了本题</p>
+<p><strong>c++代码：</strong>(执行用时28ms，击败49%，内存消耗10.1M，击败15%）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 哈希集合，记录每个字符是否出现过</span></span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">char</span>&gt; occ;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="comment">// 右指针，初始值为 -1，相当于我们在字符串的左边界的左侧，还没有开始移动</span></span><br><span class="line">        <span class="keyword">int</span> rk = <span class="number">-1</span>, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 枚举左指针的位置，初始值隐性地表示为 -1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// 左指针向右移动一格，移除一个字符</span></span><br><span class="line">                occ.erase(s[i - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (rk + <span class="number">1</span> &lt; n &amp;&amp; !occ.count(s[rk + <span class="number">1</span>])) &#123;</span><br><span class="line">                <span class="comment">// 不断地移动右指针</span></span><br><span class="line">                occ.insert(s[rk + <span class="number">1</span>]);</span><br><span class="line">                ++rk;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 第 i 到 rk 个字符是一个极长的无重复字符子串</span></span><br><span class="line">            ans = max(ans, rk - i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>复杂度分析</strong></p>
+<ul>
+<li>时间复杂度：$O(N)$，其中 N 是字符串的长度。左指针和右指针分别会遍历整个字符串一次。</li>
+<li>空间复杂度：$O(|\Sigma|)$，其中 $\Sigma$ 表示字符集（即字符串中可以出现的字符），$|\Sigma|$ 表示字符集的大小。在本题中没有明确说明字符集，因此可以默认为所有 ASCII 码在 [0, 128) 内的字符，即 $|\Sigma| = 128$。我们需要用到哈希集合来存储出现过的字符，而字符最多有 $|\Sigma|$ 个，因此空间复杂度为 $O(|\Sigma|)$。</li>
+</ul>
+<center>⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳总 结⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳</center>
+
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>我的方法提交结果效率不高，我们简单分析一下复杂度：其实看似用了两个for循环，时间复杂度就是$O(N^2)$​​,这么简单地得出结论是有点草率的，其实我的方法和题解采用的滑动窗口是一样的，只是我以为两个for循环就是暴力解法了🤣。两个for循环只是遍历了所有的字符串，复杂度其实是$O(N)$​​，但是内层循环每一次都要调用一次substr()截取字符串函数和一次nopeat()方法判断一次重复字符，简单地计算一下时间复杂度，是$O(1^2+2^2+…+N^2)$，也就大约是$O(N^3)$级别。所以效率比较低。</p>
+<p>但官方题解复杂度的计算也好像有点问题，时间复杂度应该是$O(N^2)$，因为除了for和while循环的$O(N),$还有一个occ.count()函数计数操作，考虑到这个函数的话，时间复杂度应该大约等于$1+2+3+…+n=\frac{n(n+1)}{2}$,所以官方题解这个时间复杂度应该还是$O(N^2)$，不过待求证。。另外，官方题解代码还有一个地方可以优化，就是如果以索引i开头的最大长度子串都小于ans的话，就不用再滑动右指针了去遍历了。</p>
+<p>这道题真的挺好的，通过这道题使我对复杂度的计算有了更深的领悟，真不错😏。</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>中等</tag>
       </tags>
   </entry>
 </search>
