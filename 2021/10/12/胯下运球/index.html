@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="快速提升胯下运球能力。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="胯下运球">
+<meta property="og:url" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="快速提升胯下运球能力。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx1.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx2.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx3.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx4.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx5.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx6.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx7.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx8.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx9.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx10.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx11.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx12.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx13.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx13_2.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx14.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx15.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx16_1.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx16_2.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx17.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx18_1.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx18_2.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx19.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx20.gif">
+<meta property="og:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx21.gif">
+<meta property="article:published_time" content="2021-10-12T01:49:38.000Z">
+<meta property="article:modified_time" content="2021-10-12T02:49:58.893Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="运球">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx1.gif">
+
+<link rel="canonical" href="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>胯下运球 | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-playlist">
+
+    <a href="/playlist/" rel="section"><i class="fa fa-music fa-fw"></i>歌单</a>
+
+  </li>
+        <li class="menu-item menu-item-todolist">
+
+    <a href="/todolist/" rel="section"><i class="fa fa-clipboard-list fa-fw"></i>愿望单</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          胯下运球
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-10-12 09:49:38 / 修改时间：10:49:58" itemprop="dateCreated datePublished" datetime="2021-10-12T09:49:38+08:00">2021-10-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AF%AE%E7%90%83/" itemprop="url" rel="index"><span itemprop="name">篮球</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>快速提升胯下运球能力。</p>
+<a id="more"></a>
+<p>首先是基本的站姿，两脚平行站立，比肩稍宽，屈膝屈髋，屁股往后坐，撅起屁股，背部稍微挺直，眼看前方，然后一只脚往前迈成弓步，保持好重心在腰腹核心；拍球时，整只手臂都需要用力，是一个动态配合的过程，手腕带动手指要往下压，指向球落点的方向。</p>
+<h6 id="胯下绕球"><a href="#胯下绕球" class="headerlink" title="胯下绕球"></a>胯下绕球</h6><p>要领：把手指张开，尽量用手指和掌根接触球，持球绕小腿画圈，速度由慢到快，找到感觉后再加速。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx1.gif" alt="kx1"></p>
+<h6 id="连续胯下换手拉球"><a href="#连续胯下换手拉球" class="headerlink" title="连续胯下换手拉球"></a>连续胯下换手拉球</h6><p>要领：刚开始时可以配合手腕勾住球做，慢慢熟练后加快速度，手持球的左右侧面进行练习。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx2.gif" alt="kx2"></p>
+<h6 id="单次胯下接球"><a href="#单次胯下接球" class="headerlink" title="单次胯下接球"></a>单次胯下接球</h6><p>要领：胯下一次接住球连续做，要将手往下送，如果手过早离开球就容易控制不好落点，落点靠前就会打腿失误，练习时收紧核心，慢慢熟练起来加大力度。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx3.gif" alt="kx3"></p>
+<h6 id="连续胯下换手"><a href="#连续胯下换手" class="headerlink" title="连续胯下换手"></a>连续胯下换手</h6><p>要领：胯下后，手要将球迅速悬浮往前方拉。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx4.gif" alt="kx4"></p>
+<h6 id="连续胯下"><a href="#连续胯下" class="headerlink" title="连续胯下"></a>连续胯下</h6><p>要领：刚开始可以只用手指拍球，慢慢地再加大幅度和力度。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx5.gif" alt="kx5"></p>
+<h6 id="胯下换手"><a href="#胯下换手" class="headerlink" title="胯下换手"></a>胯下换手</h6><p>要领：继续增加难度，把前后脚换成平行脚，前后脚做动作时，落点是比较好把控的，平行脚的话难度就会大很多，球的落点大概在身体的正下方。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx6.gif" alt="kx6"></p>
+<h6 id="平行脚连续胯下"><a href="#平行脚连续胯下" class="headerlink" title="平行脚连续胯下"></a>平行脚连续胯下</h6><p>要领：保持好重心，双胯下的过人动作在实战中还是非常好用的。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx7.gif" alt="kx7"></p>
+<h6 id="连续左右胯下"><a href="#连续左右胯下" class="headerlink" title="连续左右胯下"></a>连续左右胯下</h6><p>要领：这个动作对于初学者来说还是非常难的，最主要的就是落点比较难控制，导致落点难控制的原因是在衔接下一个胯下时手要将球从后方拉回至前方并要在靠近身体中线的位置。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx8.gif" alt="kx8"></p>
+<h6 id="连续左右反胯下"><a href="#连续左右反胯下" class="headerlink" title="连续左右反胯下"></a>连续左右反胯下</h6><p>要领：需要将球从身前拉至身后完成动作，将球吸在手里。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx9.gif" alt="kx9"></p>
+<h6 id="上步胯下"><a href="#上步胯下" class="headerlink" title="上步胯下"></a>上步胯下</h6><p>要领：做胯下时，上前一步刺探，重心转移到前脚，然后前脚稍用力蹬地还原，再衔接下一次。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx10.gif" alt="kx10"></p>
+<h6 id="上步反胯下"><a href="#上步反胯下" class="headerlink" title="上步反胯下"></a>上步反胯下</h6><p>要领：和前一个动作相似，只不过这次是反胯下，在实战中急停经常能用到这个动作，还是一样的，上步时重心向前，利用前脚蹬地急停拉回。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx11.gif" alt="kx11"></p>
+<h6 id="开合胯下"><a href="#开合胯下" class="headerlink" title="开合胯下"></a>开合胯下</h6><p>要领：胯下时稍微压低重心打开双脚，完后抬起重心稍微合脚，有一个脚步的变化以及重心的变化。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx12.gif" alt="kx12"></p>
+<h6 id="行进间高中心胯下换手"><a href="#行进间高中心胯下换手" class="headerlink" title="行进间高中心胯下换手"></a>行进间高中心胯下换手</h6><p>要领： 就像平时走路一样，胯下时往前一步，换手时再上一步，距离可以自由设定，也可以按次数练习，除了练习前进外，还需要后退练习，找到在不同运动方向下做胯下的感觉。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx13.gif" alt="kx13"></p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx13_2.gif" alt="kx13_2"></p>
+<h6 id="行进间低重心胯下换手"><a href="#行进间低重心胯下换手" class="headerlink" title="行进间低重心胯下换手"></a>行进间低重心胯下换手</h6><p>要领：稍微降低重心，一次运球上一步。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx14.gif" alt="kx14"></p>
+<h6 id="行进间胯下两次换手胯下"><a href="#行进间胯下两次换手胯下" class="headerlink" title="行进间胯下两次换手胯下"></a>行进间胯下两次换手胯下</h6><p>要领：两次换手是调整动作，两边同时练习，增加熟练度。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx15.gif" alt="kx15"></p>
+<h6 id="行进间左右胯下"><a href="#行进间左右胯下" class="headerlink" title="行进间左右胯下"></a>行进间左右胯下</h6><p>要领：这个动作还是蛮有难度的，重点在于球的落点，落点把控不好就容易打腿，孰能生巧，练就有用。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx16_1.gif" alt="kx16_1"></p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx16_2.gif" alt="kx16_2"></p>
+<h6 id="行进间连续胯下"><a href="#行进间连续胯下" class="headerlink" title="行进间连续胯下"></a>行进间连续胯下</h6><p>要领：上一步运一次球。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx17.gif" alt="kx17"></p>
+<h6 id="行进间反胯下"><a href="#行进间反胯下" class="headerlink" title="行进间反胯下"></a>行进间反胯下</h6><p>要领：前后行进都要练习。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx18_1.gif" alt="kx18_1"></p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx18_2.gif" alt="kx18_2"></p>
+<h6 id="行进间低重心左右胯下"><a href="#行进间低重心左右胯下" class="headerlink" title="行进间低重心左右胯下"></a>行进间低重心左右胯下</h6><p>要领：降低重心，手尽量在膝盖下面。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx19.gif" alt="kx19"></p>
+<h6 id="S型胯下"><a href="#S型胯下" class="headerlink" title="S型胯下"></a>S型胯下</h6><p>要领：胯下完后往胯下方向上步，胯下时压低重心，护球手和躯干护住球。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx20.gif" alt="kx20"></p>
+<h6 id="S型反胯下"><a href="#S型反胯下" class="headerlink" title="S型反胯下"></a>S型反胯下</h6><p>要领：注意是先急停再下球，前脚用力蹬地刹停向前的重心再反胯下。</p>
+<p><img src="/2021/10/12/%E8%83%AF%E4%B8%8B%E8%BF%90%E7%90%83/kx21.gif" alt="kx21"></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%BF%90%E7%90%83/" rel="tag"><i class="fa fa-tag"></i> 运球</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/14/%E8%A1%8C%E8%BF%9B%E9%97%B4%E8%BF%90%E7%90%83/" rel="prev" title="行进间运球">
+      <i class="fa fa-chevron-left"></i> 行进间运球
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%83%AF%E4%B8%8B%E7%BB%95%E7%90%83"><span class="nav-number">1.</span> <span class="nav-text">胯下绕球</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E8%83%AF%E4%B8%8B%E6%8D%A2%E6%89%8B%E6%8B%89%E7%90%83"><span class="nav-number">2.</span> <span class="nav-text">连续胯下换手拉球</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8D%95%E6%AC%A1%E8%83%AF%E4%B8%8B%E6%8E%A5%E7%90%83"><span class="nav-number">3.</span> <span class="nav-text">单次胯下接球</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E8%83%AF%E4%B8%8B%E6%8D%A2%E6%89%8B"><span class="nav-number">4.</span> <span class="nav-text">连续胯下换手</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E8%83%AF%E4%B8%8B"><span class="nav-number">5.</span> <span class="nav-text">连续胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%83%AF%E4%B8%8B%E6%8D%A2%E6%89%8B"><span class="nav-number">6.</span> <span class="nav-text">胯下换手</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B9%B3%E8%A1%8C%E8%84%9A%E8%BF%9E%E7%BB%AD%E8%83%AF%E4%B8%8B"><span class="nav-number">7.</span> <span class="nav-text">平行脚连续胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%B7%A6%E5%8F%B3%E8%83%AF%E4%B8%8B"><span class="nav-number">8.</span> <span class="nav-text">连续左右胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%B7%A6%E5%8F%B3%E5%8F%8D%E8%83%AF%E4%B8%8B"><span class="nav-number">9.</span> <span class="nav-text">连续左右反胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%8A%E6%AD%A5%E8%83%AF%E4%B8%8B"><span class="nav-number">10.</span> <span class="nav-text">上步胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%8A%E6%AD%A5%E5%8F%8D%E8%83%AF%E4%B8%8B"><span class="nav-number">11.</span> <span class="nav-text">上步反胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%80%E5%90%88%E8%83%AF%E4%B8%8B"><span class="nav-number">12.</span> <span class="nav-text">开合胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%8C%E8%BF%9B%E9%97%B4%E9%AB%98%E4%B8%AD%E5%BF%83%E8%83%AF%E4%B8%8B%E6%8D%A2%E6%89%8B"><span class="nav-number">13.</span> <span class="nav-text">行进间高中心胯下换手</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%8C%E8%BF%9B%E9%97%B4%E4%BD%8E%E9%87%8D%E5%BF%83%E8%83%AF%E4%B8%8B%E6%8D%A2%E6%89%8B"><span class="nav-number">14.</span> <span class="nav-text">行进间低重心胯下换手</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%8C%E8%BF%9B%E9%97%B4%E8%83%AF%E4%B8%8B%E4%B8%A4%E6%AC%A1%E6%8D%A2%E6%89%8B%E8%83%AF%E4%B8%8B"><span class="nav-number">15.</span> <span class="nav-text">行进间胯下两次换手胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%8C%E8%BF%9B%E9%97%B4%E5%B7%A6%E5%8F%B3%E8%83%AF%E4%B8%8B"><span class="nav-number">16.</span> <span class="nav-text">行进间左右胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%8C%E8%BF%9B%E9%97%B4%E8%BF%9E%E7%BB%AD%E8%83%AF%E4%B8%8B"><span class="nav-number">17.</span> <span class="nav-text">行进间连续胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%8C%E8%BF%9B%E9%97%B4%E5%8F%8D%E8%83%AF%E4%B8%8B"><span class="nav-number">18.</span> <span class="nav-text">行进间反胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%8C%E8%BF%9B%E9%97%B4%E4%BD%8E%E9%87%8D%E5%BF%83%E5%B7%A6%E5%8F%B3%E8%83%AF%E4%B8%8B"><span class="nav-number">19.</span> <span class="nav-text">行进间低重心左右胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#S%E5%9E%8B%E8%83%AF%E4%B8%8B"><span class="nav-number">20.</span> <span class="nav-text">S型胯下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#S%E5%9E%8B%E5%8F%8D%E8%83%AF%E4%B8%8B"><span class="nav-number">21.</span> <span class="nav-text">S型反胯下</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">235</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">CSDN</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">313k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:45</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -29,12 +29,14 @@
 <meta property="og:site_name" content="CTF of Z2BNS">
 <meta property="og:description" content="【论文地址】 一种内容自适应联合图像压缩和加密方案">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/08/20/A-Content-Adaptive-Joint-Image-Compression-and-Encryptiion-Scheme/li1-2786860-small.gif">
 <meta property="article:published_time" content="2021-08-20T14:31:18.000Z">
-<meta property="article:modified_time" content="2021-08-22T14:35:00.532Z">
+<meta property="article:modified_time" content="2021-09-22T03:01:11.911Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="图像加密">
 <meta property="article:tag" content="论文">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/08/20/A-Content-Adaptive-Joint-Image-Compression-and-Encryptiion-Scheme/li1-2786860-small.gif">
 
 <link rel="canonical" href="http://example.com/2021/08/20/A-Content-Adaptive-Joint-Image-Compression-and-Encryptiion-Scheme/">
 
@@ -242,7 +244,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 22:35:00" itemprop="dateModified" datetime="2021-08-22T22:35:00+08:00">2021-08-22</time>
+                <time title="修改时间：2021-09-22 11:01:11" itemprop="dateModified" datetime="2021-09-22T11:01:11+08:00">2021-09-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,14 +280,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>42</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -299,7 +301,28 @@
       
         <p>【<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8239690">论文地址</a>】</p>
 <h5 id="一种内容自适应联合图像压缩和加密方案"><a href="#一种内容自适应联合图像压缩和加密方案" class="headerlink" title="一种内容自适应联合图像压缩和加密方案"></a>一种内容自适应联合图像压缩和加密方案</h5><a id="more"></a>
-<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><h5 id="加密操作实现"><a href="#加密操作实现" class="headerlink" title="加密操作实现"></a>加密操作实现</h5><h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><h5 id="安全分析"><a href="#安全分析" class="headerlink" title="安全分析"></a>安全分析</h5>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>​        对于联合的图像压缩和加密方案，加密能力和压缩效率通常是两个相互矛盾的问题。本文提出了一种新的基于有损JPEG标准的图像压缩与加密联合方案，旨在在保持JPEG压缩效率的前提下，提高加密能力。提出的方案是图像内容自适应的，因为加密密钥是对明文图像使用BLAKE2散列算法生成的。该方案包含三种加密操作:交替新正交变换、直流系数加密和交流系数加密。</p>
+<p>​        为了节省当明文图像发生变化时，每次向解码器传输不同的加密密钥进行解密的成本，我们提出将密钥嵌入到某些ac系数的熵编码比特流中，整个嵌入过程由另一个称为嵌入密钥的密钥控制。大量的实验表明，我们的加密方案是JPEG友好的，并具有良好的混淆和扩散特性。详细的安全性分析也说明了该方案对各种密码分析策略的健壮性。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>​        近年来，由于计算机网络和信息技术的迅速发展，大量的多媒体数据已经通过各种类型的社交网络平台进行传输，比如Facebook和Instagram。在这些交换数据的主要部分(图像、视频或音频)中，无论它们是机密的还是私有的，都需要安全机制提供不同程度的保护。保护数字数据不被窃听和截取的常用解决方案是加密消息或加密通道，这两者都需要一定的密码学知识。由于图像在通信中起着至关重要的作用，而原始视频也可以看作是一组静止图像(帧)序列的构建，因此图像数据的加密越来越受到人们的关注。</p>
+<p>​        自20世纪70年代以来，许多密码学技术得到了发展，其中一些比如数据加密标准(DES)和高级加密标准(AES)，已被广泛采用作为标准化的加密算法。然而，使用这些传统算法进行图像加密时，由于图像数据量大，计算成本高。此外，在执行DES/AES之后，输出的密码图像通常是随机的，因此用于压缩目的的空间很小。为了加快加密速度，简化加密操作，人们提出了多种纯排列图像加密算法。这种加密方案易于实现，在空间域和频率域都可用，但仍有一些固有的局限性。例如，由于像素值没有被修改，纯排列方法不能改变像素的频率分布，因此容易受到统计攻击。此外，当明文图像的大小较小时，像素/块的排列排列数量将小于密钥空间，使用选择明文攻击猜测排列映射可能会破坏密码系统。因为我们看到的大多数互联网图像都被压缩了，为了减少图像处理和通信中的加解密时间，图像保护的研究重点转向了图像压缩与加密的结合。</p>
+<p>​        JPEG和JPEG2000是联合摄影专家组委员会制定的两种图像压缩标准，其中，JPEG2000是在2000年提出的，在JPEG之后，目的是取代它们最初的基于DCT的JPEG标准。JPEG2000 (JPSEC)安全，作为JPEG2000标准的安全部分，它为JPEG2000图像的安全解决方案提供了框架。JPSEC被设计成一个开放的框架，以便在未来可以加入新的工具。然而，截至2017年，各种社交网络平台和数码相机使用的大多数图像格式仍然是有损的JPEG。鉴于此，JPEG委员会最近发起了一项名为JPEG Privacy &amp; Security的新活动，旨在开发有损JPEG的各种安全功能，以实现图像信息的安全共享。因此，我们的安全机制设计主要集中在有损的JPEG标准上。在下图中给出了JPEG的基线编码过程，从中我们可以看到主要包含四个阶段：DCT变换，量化，锯齿扫描，熵编码。在JPEG解码过程中，所包含的阶段正好与编码的四个阶段相反。</p>
+<p><img src="/2021/08/20/A-Content-Adaptive-Joint-Image-Compression-and-Encryptiion-Scheme/li1-2786860-small.gif" alt="li1-2786860-small"></p>
+<p>​        JPEG是用于图像存储和传输的通用图像压缩标准，大大节省了存储空间和传输带宽。因此，研究JPEG图像联合压缩与加密具有重要的理论和实用价值，引起了许多研究者的关注。现有的JPEG图像联合压缩和加密方案主要是通过将加密技术引入JPEG标准的一个阶段或多个阶段来实现的。</p>
+<p>​        在我们的工作中，我们提出了一个联合的图像压缩和加密方案，具有良好的扩散特性和良好的压缩效率。整个密码系统基于有损的JPEG标准，并且明文图像内容自适应，因为我们用于加密的密钥依赖于明文图像。为了生成明文图像敏感的密钥，我们使用以明文图像为输入的BLAKE2哈希算法，并输出256位随机散列值，表示为Key1，命名为加密密钥，用于控制以下加密操作。BLAKE2对输入发生的变化非常敏感，因此不同的输入明文图像会产生不同的Key1值，这些值必须对译码器可用以恢复密文图像。为了节省每次向解码器传输不同Key1的成本，我们将Key1通过一些嵌入规则嵌入到某个熵编码比特流中，嵌入位置由另一个256位密钥Key2决定，命名为嵌入密钥，它是已知的，且仅为编码器和解码器所知。密钥2可以在一段时间内保持不变，这是由编码器和解码器决定的，即使用于压缩和加密的明文图像发生了变化。我们的加密操作包括新的正交变换、直流系数加密和交流系数加密。实验结果表明，整个加密方案是有效的，具有良好的压缩和安全特性。</p>
+<p>​        我们工作的主要贡献可以总结如下。</p>
+<ul>
+<li>从明文图像生成加密密钥的机制可以极大地改善密码系统的扩散特性，从而提高方案对差分攻击的防护性能，这是许多联合压缩加密方案所缺乏的。</li>
+<li>通过在8阶DCT- ii流图中引入旋转角度，提出了一种编码效率与DCT相似的8阶DCT- ii正交变换，并将其用于由密钥交替控制的8 × 8块变换。</li>
+<li>在此基础上，提出了一种数据隐藏技术不破坏最终加密比特流的格式信息。</li>
+<li>整个方案具有JPEG压缩友好性，可以在加密能力和压缩效率之间达到很好的平衡。</li>
+</ul>
+<h5 id="加密操作实现"><a href="#加密操作实现" class="headerlink" title="加密操作实现"></a>加密操作实现</h5><p>​        详细的加密操作实现包括新的正交变换、块排列和异或运算的DC加密和数据嵌入的AC加密。它们的设计原则是实现三个目标:(a)抑制比特流大小增量,(b)格式兼容加密和(c)增强混淆和扩散性能。</p>
+<p>​        给定一个大小为H*W的明文图像，其中H和W为平面图像的高度和宽度，以像素为单位。我们将其作为BLAKE2算法的输入，产生一个256位的随机值Key1来控制加解密操作。另外一个256位的密钥Key2是预定义的，只有编码器和解码器知道。为了从Key1和Key2生成伪随机密钥流，我们还使用</p>
+<p>BLAKE2算法以Key1和Key2为初始种子密钥，计算公式如下：</p>
+<script type="math/tex; mode=display">
+K_{n+1}=H(K_n)(n=0,1,2,...)</script><p>其中，H(·)是BLAKE2哈希函数，$K_0$是Key1或Key2。我们将这两个伪随机密钥流表示为 $K_{enc-1}$和 $K_{enc-2}$。</p>
+<h6 id="新的正交变换"><a href="#新的正交变换" class="headerlink" title="新的正交变换"></a>新的正交变换</h6><p>在JPEG中，8 × 8 type-II DCT用于块的变换，因为当像素间[24]存在高相关性(这是大多数自然图像普遍存在的现象)时，它能提供高效的能量压缩性能，并具有可分性。在我们的工作中，我们修改了JPEG的转换阶段，允许更多的8 × 8块正交变换，而不仅仅是DCT。为了保持JPEG的优良压缩性能，我们新生成的变换的编码效率应该与DCT相似或略有下降。</p>
+<h6 id="DC系数加密"><a href="#DC系数加密" class="headerlink" title="DC系数加密"></a>DC系数加密</h6><h6 id="AC系数加密"><a href="#AC系数加密" class="headerlink" title="AC系数加密"></a>AC系数加密</h6><h6 id="加密解密算法"><a href="#加密解密算法" class="headerlink" title="加密解密算法"></a>加密解密算法</h6><h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><h5 id="安全分析"><a href="#安全分析" class="headerlink" title="安全分析"></a>安全分析</h5>
     </div>
 
     
@@ -417,7 +440,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E7%A7%8D%E5%86%85%E5%AE%B9%E8%87%AA%E9%80%82%E5%BA%94%E8%81%94%E5%90%88%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9%E5%92%8C%E5%8A%A0%E5%AF%86%E6%96%B9%E6%A1%88"><span class="nav-number">1.</span> <span class="nav-text">一种内容自适应联合图像压缩和加密方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E6%93%8D%E4%BD%9C%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">加密操作实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90"><span class="nav-number">6.</span> <span class="nav-text">安全分析</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E7%A7%8D%E5%86%85%E5%AE%B9%E8%87%AA%E9%80%82%E5%BA%94%E8%81%94%E5%90%88%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9%E5%92%8C%E5%8A%A0%E5%AF%86%E6%96%B9%E6%A1%88"><span class="nav-number">1.</span> <span class="nav-text">一种内容自适应联合图像压缩和加密方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E6%93%8D%E4%BD%9C%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">加密操作实现</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%B0%E7%9A%84%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2"><span class="nav-number">4.1.</span> <span class="nav-text">新的正交变换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#DC%E7%B3%BB%E6%95%B0%E5%8A%A0%E5%AF%86"><span class="nav-number">4.2.</span> <span class="nav-text">DC系数加密</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#AC%E7%B3%BB%E6%95%B0%E5%8A%A0%E5%AF%86"><span class="nav-number">4.3.</span> <span class="nav-text">AC系数加密</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">加密解密算法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90"><span class="nav-number">6.</span> <span class="nav-text">安全分析</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -433,7 +456,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">234</span>
+          <span class="site-state-item-count">235</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -507,13 +530,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">313k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:42</span>
+    <span title="站点阅读时长">4:45</span>
 </div>
 
 
