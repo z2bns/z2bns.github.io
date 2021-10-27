@@ -14279,7 +14279,8 @@ B=Y+1.772Cb</script><h6 id="测试代码"><a href="#测试代码" class="headerl
 <script type="math/tex; mode=display">
 K_{n+1}=H(K_n)(n=0,1,2,...)</script><p>其中，H(·)是BLAKE2哈希函数，$K_0$是Key1或Key2。我们将这两个伪随机密钥流表示为 $K_{enc-1}$和 $K_{enc-2}$。</p>
 <h6 id="新的正交变换"><a href="#新的正交变换" class="headerlink" title="新的正交变换"></a>新的正交变换</h6><p>在JPEG中，8 × 8 type-II DCT用于块的变换，因为当像素间[24]存在高相关性(这是大多数自然图像普遍存在的现象)时，它能提供高效的能量压缩性能，并具有可分性。在我们的工作中，我们修改了JPEG的转换阶段，允许更多的8 × 8块正交变换，而不仅仅是DCT。为了保持JPEG的优良压缩性能，我们新生成的变换的编码效率应该与DCT相似或略有下降。</p>
-<h6 id="DC系数加密"><a href="#DC系数加密" class="headerlink" title="DC系数加密"></a>DC系数加密</h6><h6 id="AC系数加密"><a href="#AC系数加密" class="headerlink" title="AC系数加密"></a>AC系数加密</h6><h6 id="加密解密算法"><a href="#加密解密算法" class="headerlink" title="加密解密算法"></a>加密解密算法</h6><h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><h5 id="安全分析"><a href="#安全分析" class="headerlink" title="安全分析"></a>安全分析</h5>]]></content>
+<h6 id="DC系数加密"><a href="#DC系数加密" class="headerlink" title="DC系数加密"></a>DC系数加密</h6><h6 id="AC系数加密"><a href="#AC系数加密" class="headerlink" title="AC系数加密"></a>AC系数加密</h6><h6 id="加密解密算法"><a href="#加密解密算法" class="headerlink" title="加密解密算法"></a>加密解密算法</h6><h5 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h5><h5 id="安全分析"><a href="#安全分析" class="headerlink" title="安全分析"></a>安全分析</h5><h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-0017538003&amp;origin=inward">[17] W.-H. Chen, C. Harrison, S. Fralick, A fast computational algorithm for the discrete cosine transform, IEEE Trans. Commun. 25 (1977) 1004–1011.</a></p>
+]]></content>
       <categories>
         <category>复杂网络与图像加密</category>
       </categories>
@@ -14573,5 +14574,57 @@ K_{n+1}=H(K_n)(n=0,1,2,...)</script><p>其中，H(·)是BLAKE2哈希函数，$K_
       <categories>
         <category>Diary</category>
       </categories>
+  </entry>
+  <entry>
+    <title>DCT离散余弦变换</title>
+    <url>/2021/10/27/DCT%E7%A6%BB%E6%95%A3%E4%BD%99%E5%BC%A6%E5%8F%98%E6%8D%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h6 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h6><p> DCT变换的全称是离散余弦变换(Discrete Cosine Transform)，主要用于数据或图像的压缩，能够将空域的信号转换到频域上，具有良好的去相关性的性能。DCT变换本身是无损的，但是在图像编码等领域给接下来的量化、哈弗曼编码等创造了很好的条件，同时，由于DCT变换是对称的，所以，我们可以在量化编码后利用DCT逆变换，在接收端恢复原始的图像信息。DCT变换在当前的图像分析以及压缩领域有着极为广大的用途，我们常见的JPEG静态图像编码以及MJPEG、MPEG动态编码等标准中都使用了DCT变换。</p>
+<h6 id="一维DCT变换"><a href="#一维DCT变换" class="headerlink" title="一维DCT变换"></a>一维DCT变换</h6><p>一维DCT变换是二维DCT变换的基础，所以我们先来讨论一下一维DCT变换。一维DCT变换共有8种形式，其中最常用的是第二种形式，由于其运算简单、适用范围广，我们在这里只讨论这种形式，其表达式如下：</p>
+<script type="math/tex; mode=display">
+F(u)=c(u)\sum^{N-1}_{i=0}f(i){cos[\frac{(i+0.5)\pi}{N}u]}</script><script type="math/tex; mode=display">
+c(u)=\left\{
+\begin{array}{l}
+\sqrt{\frac{1}{N}},u=0\\
+\sqrt{\frac{2}{N}},u\neq0
+\end{array}
+\right .</script><p>其中，f(i)为原始的信号，F(u)是DCT变换后的系数，N为原始信号的点数，c(u)可以认为是一个补偿系数，可以使DCT变换矩阵为正交矩阵。</p>
+<h6 id="二维DCT变换"><a href="#二维DCT变换" class="headerlink" title="二维DCT变换"></a>二维DCT变换</h6><p>二维DCT变换其实是在一维DCT变换的基础上再做了一次DCT变换，其公式如下：</p>
+<script type="math/tex; mode=display">
+F(u,v)=c(u)c(v)\sum^{N-1}_{i=0}{\sum^{N-1}_{j=0}{f(i,j)cos[\frac{(i+0.5)\pi}{N}u]cos[\frac{(j+0.5)\pi}{N}v]}}</script><script type="math/tex; mode=display">
+c(u)=\left\{
+\begin{array}{l}
+\sqrt{\frac{1}{N}},u=0\\
+\sqrt{\frac{2}{N}},u\neq0
+\end{array}
+\right .</script><p>由公式我们可以看出，上面只讨论了二维图像数据为方阵的情况，在实际应用中，如果不是方阵的数据，一般都是补齐之后再做变换的，重构之后可以去掉补齐的部分，得到原始的图像信息，这个尝试一下，应该比较容易理解。</p>
+<p>另外，由于DCT变换高度的对称性，在使用python进行相关的运算时，可以使用更简单的矩阵处理方式：</p>
+<script type="math/tex; mode=display">
+F=AfA^T</script><script type="math/tex; mode=display">
+A(i,j)=c(i)cos[\frac{(j+0.5)\pi}{N}i]</script><h6 id="二维DCT逆变换"><a href="#二维DCT逆变换" class="headerlink" title="二维DCT逆变换"></a>二维DCT逆变换</h6><p>在图像的接收端，根据DCT变化的可逆性，我们可以通过DCT逆变换恢复出原始的图像信息，公式如下：</p>
+<script type="math/tex; mode=display">
+f(i,j)=\sum^{N-1}_{u=0}{\sum^N-1}_{v=0}{c(u)c(v)F(u,v)cos[\frac{(i+0.5)\pi}{N}u]cos[\frac{(j+0.5)\pi}{N}v]}</script><script type="math/tex; mode=display">
+c(u)=\left\{
+\begin{array}{l}
+\sqrt{\frac{1}{N}},u=0\\
+\sqrt{\frac{2}{N}},u\neq0
+\end{array}
+\right .</script><p>同样的道理，我们利用之前的矩阵运算公式可以推导出DCT逆变换相应的矩阵形式：</p>
+<script type="math/tex; mode=display">
+f=A^TFA</script><script type="math/tex; mode=display">
+A(i,j)=c(i)cos[\frac{(j+0.5)\pi}{N}i]</script><h6 id="仿真实验"><a href="#仿真实验" class="headerlink" title="仿真实验"></a>仿真实验</h6><p>接下来使用python对变换过程进行仿真实验：</p>
+<p><strong>实验代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import cv2</span><br><span class="line"></span><br><span class="line">#传入要计算的方阵</span><br><span class="line">def cal_dct(X):</span><br><span class="line">	N&#x3D;X.shape[0]</span><br><span class="line">	A&#x3D;np.zeros((N,N))</span><br><span class="line">	# print(X)</span><br><span class="line">	for i in range(N):</span><br><span class="line">		for j in range(N):</span><br><span class="line">			if i &#x3D;&#x3D; 0:</span><br><span class="line">				a&#x3D;np.sqrt(1&#x2F;N)</span><br><span class="line">			else:</span><br><span class="line">				a&#x3D;np.sqrt(2&#x2F;N)</span><br><span class="line">			A[i,j]&#x3D;a*np.cos(np.pi*(j+0.5)*i&#x2F;N)</span><br><span class="line">	#DCT变换</span><br><span class="line">	#dot矩阵乘法，*号是对应元素相乘</span><br><span class="line">	Y&#x3D;A.dot(X).dot(A.T)</span><br><span class="line">	return Y</span><br><span class="line"></span><br><span class="line">def cal_idct(X):</span><br><span class="line">	N&#x3D;X.shape[0]</span><br><span class="line">	A&#x3D;np.zeros((N,N))</span><br><span class="line">	for i in range(N):</span><br><span class="line">		for j in range(N):</span><br><span class="line">			if i &#x3D;&#x3D; 0:</span><br><span class="line">				a&#x3D;np.sqrt(1&#x2F;N)</span><br><span class="line">			else:</span><br><span class="line">				a&#x3D;np.sqrt(2&#x2F;N)</span><br><span class="line">			A[i,j]&#x3D;a*np.cos(np.pi*(j+0.5)*i&#x2F;N)</span><br><span class="line">	#DCT变换</span><br><span class="line">	#dot矩阵乘法，*号是对应元素相乘</span><br><span class="line">	Y&#x3D;(A.T).dot(X).dot(A)</span><br><span class="line">	return Y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">	#指定二维方阵</span><br><span class="line">	X&#x3D;np.array([[42,66,68,66],[92,4,76,17],[79,85,74,71],[96,93,39,3]],dtype&#x3D;np.float64)</span><br><span class="line">	#DCT变换</span><br><span class="line">	Y&#x3D;cal_dct(X)</span><br><span class="line">	print(&#39;dct公式计算结果如下:&#39;)</span><br><span class="line">	print(Y)</span><br><span class="line">	#使用opencv库中的dct函数计算</span><br><span class="line">	YY&#x3D;cv2.dct(X)</span><br><span class="line">	print(&#39;使用opencv库中的dct函数计算结果如下:&#39;)</span><br><span class="line">	print(YY)</span><br><span class="line">	</span><br><span class="line">	#DCT逆变换</span><br><span class="line">	X&#x3D;cal_idct(Y)</span><br><span class="line">	print(&#39;idct公式计算结果如下:&#39;)</span><br><span class="line">	print(X)</span><br><span class="line"></span><br><span class="line">	#使用opencv库中的idct函数计算</span><br><span class="line">	XX&#x3D;cv2.idct(YY)</span><br><span class="line">	print(&#39;使用opencv库中的idct函数计算结果如下:&#39;)</span><br><span class="line">	print(XX)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line">	main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>实验结果</strong></p>
+<p><img src="/2021/10/27/DCT%E7%A6%BB%E6%95%A3%E4%BD%99%E5%BC%A6%E5%8F%98%E6%8D%A2/image-20211027164104708.png" alt="image-20211027164104708"></p>
+<p>由实验结果可以看出，我们采用的公式的方法和python openCV模块自带的dct函数结果是一致的，验证了我们方法的正确性。</p>
+<p>如果原始信号是图像等相关性较大的数据的时候，我们可以发现在变换之后，系数较大的集中在左上角，而右下角的几乎都是0，其中左上角的是低频分量，右下角的是高频分量，低频系数体现的是图像中目标的轮廓和灰度分布特性，高频系数体现的是目标形状的细节信息。DCT变换后，能量主要集中在低频分量处，这也是DCT变换去相关性的一个体现。之后在量化和编码阶段，我们可以用“Z”字形编码，这样就可以得到大量的连续的0，这大大简化了编码的过程。</p>
+<p>另外我们也可以看到逆变换后无损的恢复了原始信息，所以证明了方法的正确性。但是在实际过程中，需要量化编码或者直接舍弃高频分量等处理，所以会出现一定程度的误差，这个是不可避免的。</p>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>图像加密</tag>
+      </tags>
   </entry>
 </search>
