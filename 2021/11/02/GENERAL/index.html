@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="This category tests your skills in fundamental areas for understanding modern cryptography. These include data encoding, the XOR operator, and basic modular arithmetic. You may know this stuff already">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GENERAL">
+<meta property="og:url" content="http://example.com/2021/11/02/GENERAL/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="This category tests your skills in fundamental areas for understanding modern cryptography. These include data encoding, the XOR operator, and basic modular arithmetic. You may know this stuff already">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/11/02/GENERAL/image-20211102112315562.png">
+<meta property="og:image" content="http://example.com/2021/11/02/GENERAL/image-20211102112418283.png">
+<meta property="og:image" content="http://example.com/2021/11/02/GENERAL/image-20211102113128460.png">
+<meta property="og:image" content="http://example.com/2021/11/02/GENERAL/image-20211102113651203.png">
+<meta property="og:image" content="http://example.com/2021/11/02/GENERAL/image-20211102114115521.png">
+<meta property="article:published_time" content="2021-11-02T03:17:56.000Z">
+<meta property="article:modified_time" content="2021-11-02T13:25:29.930Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="密码学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/11/02/GENERAL/image-20211102112315562.png">
+
+<link rel="canonical" href="http://example.com/2021/11/02/GENERAL/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>GENERAL | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-playlist">
+
+    <a href="/playlist/" rel="section"><i class="fa fa-music fa-fw"></i>歌单</a>
+
+  </li>
+        <li class="menu-item menu-item-todolist">
+
+    <a href="/todolist/" rel="section"><i class="fa fa-clipboard-list fa-fw"></i>愿望单</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/02/GENERAL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GENERAL
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-02 11:17:56 / 修改时间：21:25:29" itemprop="dateCreated datePublished" datetime="2021-11-02T11:17:56+08:00">2021-11-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CryptoHack/" itemprop="url" rel="index"><span itemprop="name">CryptoHack</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/11/02/GENERAL/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/02/GENERAL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>596</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>This category tests your skills in fundamental areas for understanding modern cryptography. These include data encoding, the XOR operator, and basic modular arithmetic. You may know this stuff already, but you can still gain points and have fun completing these challenges!</p>
+<a id="more"></a>
+<h5 id="ENCODING"><a href="#ENCODING" class="headerlink" title="ENCODING"></a>ENCODING</h5><h6 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII"></a>ASCII</h6><p><strong>题目描述</strong></p>
+<p><img src="/2021/11/02/GENERAL/image-20211102112315562.png" alt="image-20211102112315562"></p>
+<p><strong>python代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr&#x3D;[99, 114, 121, 112, 116, 111, 123, 65, 83, 67, 73, 73, 95, 112, 114, 49, 110, 116, 52, 98, 108, 51, 125]</span><br><span class="line">flag&#x3D;&#39;&#39;</span><br><span class="line">for i in arr:</span><br><span class="line">	flag+&#x3D;chr(i)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<h6 id="Hex"><a href="#Hex" class="headerlink" title="Hex"></a>Hex</h6><p><strong>题目描述</strong></p>
+<p><img src="/2021/11/02/GENERAL/image-20211102112418283.png" alt="image-20211102112418283"></p>
+<p><strong>python代码</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&#x27;63727970746f7b596f755f77696c6c5f62655f776f726b696e675f776974685f6865785f737472696e67735f615f6c6f747d&#x27;</span></span><br><span class="line">flag=bytes.fromhex(s)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<h6 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h6><p><strong>题目描述</strong></p>
+<p><img src="/2021/11/02/GENERAL/image-20211102113128460.png" alt="image-20211102113128460"></p>
+<p><strong>python代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">s&#x3D;&#39;72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf&#39;</span><br><span class="line">flag&#x3D;base64.b64encode(bytes.fromhex(s))</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<h6 id="Bytes-and-Big-Integers"><a href="#Bytes-and-Big-Integers" class="headerlink" title="Bytes and Big Integers"></a>Bytes and Big Integers</h6><p><strong>题目描述</strong></p>
+<p><img src="/2021/11/02/GENERAL/image-20211102113651203.png" alt="image-20211102113651203"></p>
+<p><strong>python代码</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">s=<span class="number">11515195063862318899931685488813747395775516287289682636499965282714637259206269</span></span><br><span class="line">flag=long_to_bytes(s)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<h6 id="Encoding-Challenge"><a href="#Encoding-Challenge" class="headerlink" title="Encoding Challenge"></a>Encoding Challenge</h6><p><strong>题目描述</strong></p>
+<p><img src="/2021/11/02/GENERAL/image-20211102114115521.png" alt="image-20211102114115521"></p>
+<p><strong>解题过程</strong></p>
+<p>服务端运行的13377.py文件内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long, long_to_bytes</span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> listener <span class="comment"># this is cryptohack&#x27;s server-side module and not part of python</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">FLAG = <span class="string">&quot;crypto&#123;????????????????????&#125;&quot;</span></span><br><span class="line">ENCODINGS = [</span><br><span class="line">    <span class="string">&quot;base64&quot;</span>,</span><br><span class="line">    <span class="string">&quot;hex&quot;</span>,</span><br><span class="line">    <span class="string">&quot;rot13&quot;</span>,</span><br><span class="line">    <span class="string">&quot;bigint&quot;</span>,</span><br><span class="line">    <span class="string">&quot;utf-8&quot;</span>,</span><br><span class="line">]</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">&#x27;/usr/share/dict/words&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    WORDS = [line.strip().replace(<span class="string">&quot;&#x27;&quot;</span>, <span class="string">&quot;&quot;</span>) <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines()]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Challenge</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.challenge_words = <span class="string">&quot;&quot;</span></span><br><span class="line">        self.stage = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">create_level</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.stage += <span class="number">1</span></span><br><span class="line">        self.challenge_words = <span class="string">&quot;_&quot;</span>.join(random.choices(WORDS, k=<span class="number">3</span>))</span><br><span class="line">        encoding = random.choice(ENCODINGS)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> encoding == <span class="string">&quot;base64&quot;</span>:</span><br><span class="line">            encoded = base64.b64encode(self.challenge_words.encode()).decode() <span class="comment"># wow so encode</span></span><br><span class="line">        <span class="keyword">elif</span> encoding == <span class="string">&quot;hex&quot;</span>:</span><br><span class="line">            encoded = self.challenge_words.encode().hex()</span><br><span class="line">        <span class="keyword">elif</span> encoding == <span class="string">&quot;rot13&quot;</span>:</span><br><span class="line">            encoded = codecs.encode(self.challenge_words, <span class="string">&#x27;rot_13&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> encoding == <span class="string">&quot;bigint&quot;</span>:</span><br><span class="line">            encoded = hex(bytes_to_long(self.challenge_words.encode()))</span><br><span class="line">        <span class="keyword">elif</span> encoding == <span class="string">&quot;utf-8&quot;</span>:</span><br><span class="line">            encoded = [ord(b) <span class="keyword">for</span> b <span class="keyword">in</span> self.challenge_words]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&quot;type&quot;</span>: encoding, <span class="string">&quot;encoded&quot;</span>: encoded&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># This challenge function is called on your input, which must be JSON</span></span><br><span class="line">    <span class="comment"># encoded</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">challenge</span>(<span class="params">self, your_input</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self.stage == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> self.create_level()</span><br><span class="line">        <span class="keyword">elif</span> self.stage == <span class="number">100</span>:</span><br><span class="line">            self.exit = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="string">&quot;flag&quot;</span>: FLAG&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.challenge_words == your_input[<span class="string">&quot;decoded&quot;</span>]:</span><br><span class="line">            <span class="keyword">return</span> self.create_level()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&quot;error&quot;</span>: <span class="string">&quot;Decoding fail&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">listener.start_server(port=<span class="number">13377</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>分析代码发现，每次输入会执行challenge()，只有当stage==100时会输出flag，而改变stage的值需要调用create_level()函数，也就是要成功执行100次create_level()函数，解题脚本pwntools_example.py如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> * <span class="comment"># pip install pwntools</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long, long_to_bytes</span><br><span class="line"><span class="comment">#远程连接</span></span><br><span class="line">r = remote(<span class="string">&#x27;socket.cryptohack.org&#x27;</span>, <span class="number">13377</span>, level = <span class="string">&#x27;debug&#x27;</span>)</span><br><span class="line"><span class="comment">#接收信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">json_recv</span>():</span></span><br><span class="line">    line = r.recvline()</span><br><span class="line">    <span class="keyword">return</span> json.loads(line.decode())</span><br><span class="line"><span class="comment">#发送信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">json_send</span>(<span class="params">hsh</span>):</span></span><br><span class="line">    request = json.dumps(hsh).encode()</span><br><span class="line">    r.sendline(request)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">	received = json_recv()</span><br><span class="line">	print(<span class="string">&#x27;***************************************************************第&#x27;</span>,i+<span class="number">1</span>,<span class="string">&#x27;次********************************&#x27;</span>)</span><br><span class="line"></span><br><span class="line">	print(<span class="string">&quot;Received type: &quot;</span>)</span><br><span class="line">	print(received[<span class="string">&quot;type&quot;</span>])</span><br><span class="line">	print(<span class="string">&quot;Received encoded value: &quot;</span>)</span><br><span class="line">	print(received[<span class="string">&quot;encoded&quot;</span>])</span><br><span class="line">	print(type(received[<span class="string">&quot;encoded&quot;</span>]))</span><br><span class="line">    <span class="comment">#将接收到的信息解密后发送出去</span></span><br><span class="line">	encoding=received[<span class="string">&quot;type&quot;</span>]</span><br><span class="line">	<span class="keyword">if</span> encoding == <span class="string">&quot;base64&quot;</span>:</span><br><span class="line">        <span class="comment">#b64decode()参数是str类型，返回结果是bytes类型，使用.deocode()把bytes类型转成str类型赋值给decoded变量</span></span><br><span class="line">	    decoded = base64.b64decode(received[<span class="string">&quot;encoded&quot;</span>]).decode() <span class="comment"># wow so encode</span></span><br><span class="line">	<span class="keyword">elif</span> encoding == <span class="string">&quot;hex&quot;</span>:</span><br><span class="line">        <span class="comment">#bytes.fromhex(str),将16进制格式的字符串转成bytes类型，如&#x27;686f737069&#x27;-&gt;b&#x27;hospi&#x27;</span></span><br><span class="line">	    decoded = bytes.fromhex(received[<span class="string">&quot;encoded&quot;</span>]).decode()</span><br><span class="line">	<span class="keyword">elif</span> encoding == <span class="string">&quot;rot13&quot;</span>:</span><br><span class="line">	    decoded = codecs.decode(received[<span class="string">&quot;encoded&quot;</span>], <span class="string">&#x27;rot_13&#x27;</span>)</span><br><span class="line">	<span class="keyword">elif</span> encoding == <span class="string">&quot;bigint&quot;</span>:</span><br><span class="line">        <span class="comment">#先用int(str,16)将16进制格式字符串转成整型，再使用long_to_bytes()转成bytes</span></span><br><span class="line">	    decoded = long_to_bytes(int(received[<span class="string">&quot;encoded&quot;</span>],<span class="number">16</span>)).decode()</span><br><span class="line">	<span class="keyword">elif</span> encoding == <span class="string">&quot;utf-8&quot;</span>:</span><br><span class="line">        <span class="comment">#把数组中的每一个整数转成对应的ASCII字符，再将数组转成字符串</span></span><br><span class="line">	    decoded =<span class="string">&#x27;&#x27;</span>.join(chr(b) <span class="keyword">for</span> b <span class="keyword">in</span> received[<span class="string">&quot;encoded&quot;</span>])</span><br><span class="line">	to_send = &#123;</span><br><span class="line">	    <span class="string">&quot;decoded&quot;</span>: decoded</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">#发送信息到服务端</span></span><br><span class="line">	json_send(to_send)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="XOR"><a href="#XOR" class="headerlink" title="XOR"></a>XOR</h5><h6 id="XOR-Starter"><a href="#XOR-Starter" class="headerlink" title="XOR Starter"></a>XOR Starter</h6><h6 id="XOR-Properties"><a href="#XOR-Properties" class="headerlink" title="XOR Properties"></a>XOR Properties</h6><h6 id="Favourite-byte"><a href="#Favourite-byte" class="headerlink" title="Favourite byte"></a>Favourite byte</h6><h6 id="You-either-know-XOR-you-don’t"><a href="#You-either-know-XOR-you-don’t" class="headerlink" title="You either know, XOR you don’t"></a>You either know, XOR you don’t</h6><h6 id="Lemur-XOR"><a href="#Lemur-XOR" class="headerlink" title="Lemur XOR"></a>Lemur XOR</h6><h5 id="MATHEMATICS"><a href="#MATHEMATICS" class="headerlink" title="MATHEMATICS"></a>MATHEMATICS</h5><h5 id="DATA-FORMATS"><a href="#DATA-FORMATS" class="headerlink" title="DATA FORMATS"></a>DATA FORMATS</h5>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 密码学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/27/DCT%E7%A6%BB%E6%95%A3%E4%BD%99%E5%BC%A6%E5%8F%98%E6%8D%A2/" rel="prev" title="DCT离散余弦变换">
+      <i class="fa fa-chevron-left"></i> DCT离散余弦变换
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#ENCODING"><span class="nav-number">1.</span> <span class="nav-text">ENCODING</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#ASCII"><span class="nav-number">1.1.</span> <span class="nav-text">ASCII</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Hex"><span class="nav-number">1.2.</span> <span class="nav-text">Hex</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Base64"><span class="nav-number">1.3.</span> <span class="nav-text">Base64</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Bytes-and-Big-Integers"><span class="nav-number">1.4.</span> <span class="nav-text">Bytes and Big Integers</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Encoding-Challenge"><span class="nav-number">1.5.</span> <span class="nav-text">Encoding Challenge</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#XOR"><span class="nav-number">2.</span> <span class="nav-text">XOR</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#XOR-Starter"><span class="nav-number">2.1.</span> <span class="nav-text">XOR Starter</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#XOR-Properties"><span class="nav-number">2.2.</span> <span class="nav-text">XOR Properties</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Favourite-byte"><span class="nav-number">2.3.</span> <span class="nav-text">Favourite byte</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#You-either-know-XOR-you-don%E2%80%99t"><span class="nav-number">2.4.</span> <span class="nav-text">You either know, XOR you don’t</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Lemur-XOR"><span class="nav-number">2.5.</span> <span class="nav-text">Lemur XOR</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MATHEMATICS"><span class="nav-number">3.</span> <span class="nav-text">MATHEMATICS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DATA-FORMATS"><span class="nav-number">4.</span> <span class="nav-text">DATA FORMATS</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">CSDN</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">316k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:48</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
