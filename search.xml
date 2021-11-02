@@ -14622,8 +14622,9 @@ A(i,j)=c(i)cos[\frac{(j+0.5)\pi}{N}i]</script><h6 id="仿真实验"><a href="#�
 <p>如果原始信号是图像等相关性较大的数据的时候，我们可以发现在变换之后，系数较大的集中在左上角，而右下角的几乎都是0，其中左上角的是低频分量，右下角的是高频分量，低频系数体现的是图像中目标的轮廓和灰度分布特性，高频系数体现的是目标形状的细节信息。DCT变换后，能量主要集中在低频分量处，这也是DCT变换去相关性的一个体现。之后在量化和编码阶段，我们可以用“Z”字形编码，这样就可以得到大量的连续的0，这大大简化了编码的过程。</p>
 <p>另外我们也可以看到逆变换后无损的恢复了原始信息，所以证明了方法的正确性。但是在实际过程中，需要量化编码或者直接舍弃高频分量等处理，所以会出现一定程度的误差，这个是不可避免的。</p>
 <h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><ol>
-<li><a href="https://www.cnblogs.com/wyuzl/p/7880124.html">【DCT变换、DCT反变换、分块DCT变换】</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/85299446">【详解离散余弦变换（DCT）】</a></li>
+<li>【<a href="https://www.cnblogs.com/wyuzl/p/7880124.html">DCT变换、DCT反变换、分块DCT变换</a>】</li>
+<li>【<a href="https://zhuanlan.zhihu.com/p/85299446">详解离散余弦变换（DCT）</a>】</li>
+<li>【<a href="https://www.cnblogs.com/timdyh/p/13338975.html">Python 实现图像快速傅里叶变换和离散余弦变换</a>】</li>
 </ol>
 ]]></content>
       <categories>
