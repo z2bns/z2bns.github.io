@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="【论文地址】 基于8阶交替的联合图像压缩与加密">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Joint image compression and encryption based on order-8 alternating transforms">
+<meta property="og:url" content="http://example.com/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="【论文地址】 基于8阶交替的联合图像压缩与加密">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/1-s2.0-S1047320317300275-gr2.jpg">
+<meta property="article:published_time" content="2021-11-17T03:09:39.000Z">
+<meta property="article:modified_time" content="2021-11-24T08:41:25.055Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="图像加密">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/1-s2.0-S1047320317300275-gr2.jpg">
+
+<link rel="canonical" href="http://example.com/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Joint image compression and encryption based on order-8 alternating transforms | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-playlist">
+
+    <a href="/playlist/" rel="section"><i class="fa fa-music fa-fw"></i>歌单</a>
+
+  </li>
+        <li class="menu-item menu-item-todolist">
+
+    <a href="/todolist/" rel="section"><i class="fa fa-clipboard-list fa-fw"></i>愿望单</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Joint image compression and encryption based on order-8 alternating transforms
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-17 11:09:39" itemprop="dateCreated datePublished" datetime="2021-11-17T11:09:39+08:00">2021-11-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-24 16:41:25" itemprop="dateModified" datetime="2021-11-24T16:41:25+08:00">2021-11-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>【<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1047320317300275">论文地址</a>】</p>
+<h5 id="基于8阶交替的联合图像压缩与加密"><a href="#基于8阶交替的联合图像压缩与加密" class="headerlink" title="基于8阶交替的联合图像压缩与加密"></a>基于8阶交替的联合图像压缩与加密</h5><a id="more"></a>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>本文提出了一种基于JPEG标准的联合图像压缩加密方案。我们在JPEG的转换阶段实现了图像加密。代替只使用8*8的DCT变换，我们通过在8*8DCT变换流图中不同阶段的蝴蝶嵌入一个额外的旋转角度$\pi$生成了新的正交变换，然后根据预定义的密钥交替地应用它们进行转换。通过仔细控制嵌入的旋转角度的数量，还可以实现对加密图像的质量控制。通过在熵编码阶段之前进行块排列，进一步增强了加密算法的性能。大量的实验证明了我们的加密方案具有良好的保护和压缩性能。最后，给出了详细的安全性分析，展示了该加密方案对各种密码分析方法的抵抗能力，如蛮力攻击、密钥敏感性分析、替换攻击和统计攻击。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>近年来，随着多媒体技术的快速发展，许多功能强大、有趣的新应用被开发出来，人们可以通过不同的社交网络平台来分享存储在移动智能设备上的图片，如Facebook和Instagram。在典型的图像使用中，所有者倾向于将其存储起来以备将来使用，或者通过互联网将其分发给特定的人，而互联网尤其容易被窃听和截取，因此对高效、安全的图像存储和传输有很大的需求。加密是保证图像安全的常用方法之一。</p>
+<p>到目前为止，有各种各样的加密技术，比如数据加密标准(DES)和高级加密标准(AES)，但它们主要是为文本数据安全而设计的。使用这些传统算法进行图像加密时，由于图像数据量大，计算成本高。</p>
+<p>此外，与文本数据不同，图像的信息密度要低得多，许多图像应用程序常常需要实时处理，因此，需要一种计算成本低、加解密速度快的加密策略来保证图像的安全。</p>
+<p>在过去，置乱技术被研究者广泛地用于实现图像加密。这些技术包括简单的置换操作和时域或频域的仿射变换操作。然而，随着计算能力的快速提高，破解这种加密方案变得越来越容易。然后，考虑到压缩是我们在互联网上看到的大多数图像必须做的步骤，图像安全研究的重点转移到整合图像压缩过程与加密，以减少图像通信和处理中的加解密时间。这一加密方向最流行的方法是部分加密或选择性加密，它将加密应用于图像压缩系统的最终结果或中间阶段的一部分系数。部分图像加密的主要目的是减少加密数据量，同时获得一定的安全性。</p>
+<p>根据加密和压缩过程的处理顺序不同，部分图像加密可分为三类:压缩前、压缩中和压缩后。预压缩是指在压缩之前进行加密，在解密之前进行解压。在[7]中，Tang提出了一种通过使用DES加密直流系数并随机排列交流系数而不是标准之字形扫描顺序来实现部分图像加密的方法。该加密方案的格式符合JPEG，但压缩效率降低了40%左右，因为新的排列打乱了运行长度的概率分布，并使Huffman表的性能低于最优。在压缩类中，图像加解密和压缩解压缩是联合进行的。在[9-11]中，Wu等人在熵编码阶段以秘密顺序交替使用多个Huffman表来实现部分加密。这种加密方案可以在不牺牲压缩性能的情况下实现非常高的视觉退化，但它不符合格式，因为解码器需要解密用于加密的霍夫曼表来做解压缩。后压缩算法在压缩后进行加密，通常是压缩友好的;不需要修改编码器或解码器端的加密和解密。在[12]中，他们提出了一种JPEG图像加密方法，只对霍夫曼编码阶段中用于完全指定非零系数的符号和大小的比特进行加密。该算法视觉退化程度高，格式符合JPEG，但加密参数是静态的，无法进行调优。在[13-16]中，Au-Yeung等人提出在编码过程中通过在转换阶段嵌入加密方案来实现视频的部分加密。由于变换是视频编码器和解码器中必须做的步骤，这种方案的一个明显的优点是它几乎不引入额外的计算。他们通过修改DCT-II的流图结构中的角度值，生成一系列新的正交变换，并根据预定义的密钥交替应用这些新的变换来实现部分视频加密。在[14]中，提出了三种不同的加密算法，并声称Algorithm-3可以在加密能力和编码效率之间取得最佳平衡。</p>
+<p>在工作中，我们提出了一种新的联合图像压缩和加密方案，通过在JPEG的转换阶段嵌入加密算法，使图像质量可控。该方案可以在保持JPEG良好压缩性能的同时，达到足够高的安全性，并且格式符合JPEG标准。代替只使用8*8的DCT变换，我们采用在[14]中使用的符号翻转策略来发展新的8阶正交变换，但是我们做符号翻转的蝴蝶与[14]是不同的，导致不同的新的转换集的转换。然后，给出了利用新生成的变换集进行加密的算法。加密和压缩性能通过一些常见的判断标准来评估。并且我们已经证明了我们的新的正交变换比[14]产生的那些有更好的编码效率。通过仔细选择蝴蝶进行角度旋转，可以控制加密图像的视觉质量。此外，为了更好地抵抗直接替换攻击，我们对加密算法进行了修改，增加了块置换操作。最后对所提出的加密方案进行了详细的安全性分析，以展示其对各种攻击的抵抗能力，如蛮力攻击、密钥敏感性分析、替换攻击和统计分析。</p>
+<h5 id="新8阶正交变换的生成"><a href="#新8阶正交变换的生成" class="headerlink" title="新8阶正交变换的生成"></a>新8阶正交变换的生成</h5><p>在JPEG中，8*8的DCT用来做变换，因为当像素间的相关性很强时，它被证明是压缩能力最好的变换——这在大多数自然图像中都是真实的。在[17]中，以矩阵的形式提出了一个快速DCT-II算法，并通过一个信号流图加以说明。在我们生成新的正交变换的方法中，我们通过引入额外的p旋转角来改进信号流图结构。因此，我们首先介绍了DCT-II的底层快速计算算法，然后解释如何基于它生成新的变换。</p>
+<h6 id="DCT-II的一种快速计算算法"><a href="#DCT-II的一种快速计算算法" class="headerlink" title="DCT-II的一种快速计算算法"></a>DCT-II的一种快速计算算法</h6><p>这个DCT快速计算算法是基于矩阵分解的，一般情况下，n阶II型DCT矩阵可写成递归形式如下:</p>
+<script type="math/tex; mode=display">
+[C^{II}_{8}]=[P_{8}]\left[\begin{array}{cc}P^{T}_{N/2}C^{II}_{N/2} & 0\\
+0 & R_{N/2}
+\end{array} \right ][B_{N}]</script><script type="math/tex; mode=display">
+[B_{N}]=\frac{\sqrt{2}}{2}\left [\begin{array}{cc} I_{N/2} & \overline{I}_{N/2}  \\\overline{I}_{N/2} & -I_{N/2}
+\end{array}\right ]</script><p>$[P_N]$​​是一个N*N的排列矩阵，将转换后的向量从一个位逆序排列成一个自然的顺序，$[I_{N/2}]$​是单位矩阵，$[\overline{I}_{N/2}]$是反对角单位矩阵。$[R_{N/2}]$可以分解成 $(2log_2{N}-3)$个矩阵。</p>
+<p>由于在JPEG标准中，只有8阶DCT-II用于转换，所以在这里我们给出了它的流程图如下：</p>
+<p><img src="/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/1-s2.0-S1047320317300275-gr2.jpg" alt="1-s2.0-S1047320317300275-gr2"></p>
+<p>其快速计算公式可描述为：</p>
+<script type="math/tex; mode=display">
+[C^{II}_8]=[P_8]\left[ \begin{array}{cc}P^{T}_4C^{II}_4 & 0 \\ 0 & R_4 \end{array}\right]</script><script type="math/tex; mode=display">
+[C^{II}_{4}]=[P_4]\left[\begin{array}{cc}P^T_2C^{II}_2 & 0 \\ 0 & R_2\end{array} \right]</script><script type="math/tex; mode=display">
+[P_4]=\left[\begin{array}{cc}1&0&0&0\\0&0&1&0\\0&1&0&0\\0&0&0&1\end{array}\right]</script><script type="math/tex; mode=display">
+[R_2]=[M1]=\left[\begin{array}{cc}sin\frac{\pi}{8}&cos\frac{\pi}{8} \\-sin\frac{3\pi}{8}&cos\frac{3\pi}{8}\end{array}\right]</script><script type="math/tex; mode=display">
+[P_2]=\left[\begin{array}{cc}1&0\\0&1\end{array}\right],[C^{II}_2]=\frac{\sqrt{2}}{2}\left[\begin{array}{cc}1&1\\1&-1\end{array}\right]</script><script type="math/tex; mode=display">
+P_8=\left[\begin{array}{cc}1&0&0&0&0&0&0&0\\0&0&0&0&1&0&0&0\\0&0&1&0&0&0&0&0\\0&0&0&0&0&0&1&0\\0&1&0&0&0&0&0&0\\0&0&0&0&0&1&0&0\\0&0&0&1&0&0&0&0\\0&0&0&0&0&0&0&1\end{array}\right]</script><script type="math/tex; mode=display">
+[R_4]=[M1][M2][M3]</script><script type="math/tex; mode=display">
+[M1]=\left[\begin{array}{cc}sin\frac{\pi}{16}&0&0&cos\frac{\pi}{16}\\0&sin\frac{5\pi}{16}&cos\frac{5\pi}{16}&0\\0&-sin\frac{3\pi}{16}&cos{3\pi}{16}&0\\-sin\frac{7\pi}{16}&0&0&cos\frac{7\pi}{16}\end{array}\right]</script><p>[M1]的计算相当于流程图中Stage-4的下半部分的蝴蝶</p>
+<script type="math/tex; mode=display">
+[M2]=\frac{\sqrt{2}}{2}\left[\begin{array}{cc}1&1&0&0\\1&-1&0&0\\0&0&-1&1\\0&0&1&1\end{array}\right]</script><p>[M2]的计算相当于流程图中Stage-3的下半部分的蝴蝶</p>
+<script type="math/tex; mode=display">
+[M3]=\left[\begin{array}{cc}1&0&0&0\\0&-cos\frac{\pi}{4}&cos\frac{\pi}{4}&0\\0&cos\frac{\pi}{4}&cos\frac{\pi}{4}&0\end{array}\right]</script><p>[M3]的计算相当于流程图中Stage-2的下半部分的蝴蝶</p>
+<h6 id="生成新的正交变换"><a href="#生成新的正交变换" class="headerlink" title="生成新的正交变换"></a>生成新的正交变换</h6><p>考虑到加密和压缩性能，新生成的转换的编码效率应该与DCT完全相同，或者只是略有下降。</p>
+<p>因此，我们不把角度旋转引入蝴蝶中阶段1和阶段2，因为这会导致变换系数发生较大的变化，最终影响整体编码效率。</p>
+<p>在我们的变换生成方法中，使用额外的p的旋转角度，我们生成了两组新的正交变换，TS1和TS2。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" rel="tag"><i class="fa fa-tag"></i> 图像加密</a>
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"><i class="fa fa-tag"></i> 论文</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/03/A-Fast-Computational-Algorithm-for-the-Discrete-Cosine-Transform/" rel="prev" title="A Fast Computational Algorithm for the Discrete Cosine Transform">
+      <i class="fa fa-chevron-left"></i> A Fast Computational Algorithm for the Discrete Cosine Transform
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/" rel="next" title="JPEG原理详解">
+      JPEG原理详解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E8%E9%98%B6%E4%BA%A4%E6%9B%BF%E7%9A%84%E8%81%94%E5%90%88%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%8A%A0%E5%AF%86"><span class="nav-number">1.</span> <span class="nav-text">基于8阶交替的联合图像压缩与加密</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B08%E9%98%B6%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2%E7%9A%84%E7%94%9F%E6%88%90"><span class="nav-number">4.</span> <span class="nav-text">新8阶正交变换的生成</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#DCT-II%E7%9A%84%E4%B8%80%E7%A7%8D%E5%BF%AB%E9%80%9F%E8%AE%A1%E7%AE%97%E7%AE%97%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">DCT-II的一种快速计算算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2"><span class="nav-number">4.2.</span> <span class="nav-text">生成新的正交变换</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">241</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">CSDN</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">331k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5:01</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

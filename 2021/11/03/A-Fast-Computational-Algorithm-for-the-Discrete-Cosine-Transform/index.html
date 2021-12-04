@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="【论文地址30027-5&#x2F;h0085)】 离散余弦变换的一种快速计算算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Fast Computational Algorithm for the Discrete Cosine Transform">
+<meta property="og:url" content="http://example.com/2021/11/03/A-Fast-Computational-Algorithm-for-the-Discrete-Cosine-Transform/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="【论文地址30027-5&#x2F;h0085)】 离散余弦变换的一种快速计算算法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-03T07:08:50.000Z">
+<meta property="article:modified_time" content="2021-11-25T02:49:40.206Z">
+<meta property="article:author" content="Z2BNS">
+<meta property="article:tag" content="图像加密">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/11/03/A-Fast-Computational-Algorithm-for-the-Discrete-Cosine-Transform/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>A Fast Computational Algorithm for the Discrete Cosine Transform | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-playlist">
+
+    <a href="/playlist/" rel="section"><i class="fa fa-music fa-fw"></i>歌单</a>
+
+  </li>
+        <li class="menu-item menu-item-todolist">
+
+    <a href="/todolist/" rel="section"><i class="fa fa-clipboard-list fa-fw"></i>愿望单</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/03/A-Fast-Computational-Algorithm-for-the-Discrete-Cosine-Transform/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          A Fast Computational Algorithm for the Discrete Cosine Transform
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-03 15:08:50" itemprop="dateCreated datePublished" datetime="2021-11-03T15:08:50+08:00">2021-11-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-25 10:49:40" itemprop="dateModified" datetime="2021-11-25T10:49:40+08:00">2021-11-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/11/03/A-Fast-Computational-Algorithm-for-the-Discrete-Cosine-Transform/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/03/A-Fast-Computational-Algorithm-for-the-Discrete-Cosine-Transform/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>【<a target="_blank" rel="noopener" href="http://refhub.elsevier.com/S1047-3203(17">论文地址</a>30027-5/h0085)】</p>
+<h5 id="离散余弦变换的一种快速计算算法"><a href="#离散余弦变换的一种快速计算算法" class="headerlink" title="离散余弦变换的一种快速计算算法"></a>离散余弦变换的一种快速计算算法</h5><a id="more"></a>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>本文提出了一种快速离散余弦变换算法，与传统的使用快速傅里叶变换的离散余弦变换算法相比，计算复杂度改善了6倍，该算法以矩阵的形式导出，并用信号流图来说明，信号流图可以很容易地转换为硬件或软件实现。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><p>离散余弦变换（DCT）已经被成功应用到高分辨率图像编码中。传统的实现DCT变换的方法是利用双倍大小的快速傅里叶（FFT）算法，在计算过程中使用了复数计算。由于缺乏有效的算法，DCT在各种各样的应用中并没有像它的特性所暗示的那样广泛。本文描述了一种只涉及实数操作的更有效的计算一组N个点的快速离散余弦变换(FDCT)算法。该算法可以扩展到任意期望的值 $N=2^m,m&gt;=2$。这种推广包括交替的余弦/正弦蝴蝶矩阵和二进制矩阵，以重新排列矩阵元素，使其在每个其他节点上保持可识别的位反转模式。泛化并不是唯一的——已经发现了几种替代方法，但这里描述的方法似乎是最简单的解释。它不一定是最有效的FDCT，但代表了一种方法扩展的技术。这种方法采用了 $(3N/2)(log_2N-1)+2$个实数加法和 $Nlog_2N-3N/2+4$​个实数乘法，这大约是使用双倍大小FFT的传统方法的6倍快。</p>
+<h5 id="离散余弦变换"><a href="#离散余弦变换" class="headerlink" title="离散余弦变换"></a>离散余弦变换</h5><p>离散函数 $f(j)，j=0,1,…,N-1$的离散余弦变换定义如下：</p>
+<script type="math/tex; mode=display">
+F(k)=\frac{2c(k)}{N}\sum^{N-1}_{j=0}f(j)cos[\frac{(2j+1)k\pi}{2N}],k=0,1,...,N-1</script><p>逆变换定义如下：</p>
+<script type="math/tex; mode=display">
+f(j)=\sum^{N-1}_{k=0}c(k)F(k)cos[\frac{(2j+1)k\pi}{2N}],j=0,1,...,N-1</script><p>其中，</p>
+<script type="math/tex; mode=display">
+c(k)=\frac{1}{\sqrt{2}}, k=0\\
+c(k)=1,k=1,2,...,N-1</script><p>该变换比任何已知的快速计算算法拥有更高的能量压缩特性。该变换还具有循环卷积-乘法关系，可方便地应用于线性系统理论中。</p>
+<h5 id="快速计算算法"><a href="#快速计算算法" class="headerlink" title="快速计算算法"></a>快速计算算法</h5><p>一个N*1的数据向量[f]的离散余弦变换可以用矩阵形式表达如下：</p>
+<script type="math/tex; mode=display">
+[F]=\frac{2}{N}[A_N][f]</script><p>其中，$[A_N]=[c(k)cos(2j+1)k\pi/2N];j,k=0,1,…,(N-1)$​​,[F]是N*1的转换后的向量。本文提出的快速计算算法是基于$[A_N]$矩阵的矩阵分解。如下所示，该矩阵可以写成下面的递归形式：</p>
+<script type="math/tex; mode=display">
+[A_N]=[P_N]\left[\begin{array}{cc}A_{N/2}&0\\0&R_{N/2}\end{array}\right][B_N]</script><p>其中，$[B_N]$定义如下：</p>
+<script type="math/tex; mode=display">
+[R_{N/2}]=[c(k)cos\frac{(2j+1)(2k+1)\pi}{2N}];j,k=0,1,...,\frac{N}{2}-1</script><p>$[P_N]$​是一个N x N的排列矩阵，它将变换后的向量从位逆序排列为一个自然的顺序。2*2DCT变换可以写成如下形式</p>
+<script type="math/tex; mode=display">
+[A_2]=\frac{1}{\sqrt(2)}\left[\begin{array}{cc}1&1\\1&-1\end{array}\right]</script><p>从 $[A_N]$的递归性质可以看出，只要找到一种通用的 $[R_{N/2}]$矩阵分解方法，$A_2$就可以扩展到更高阶的矩阵。</p>
+<p>下面的讨论提出了一种分解 $[R_{N/2}]$ 矩阵的系统方法,需要强调的是这种分解方法不是唯一的，也不是最优的。另外有几种方法需要较少的计算步骤，但它们对更大的尺寸没有明显的泛化。</p>
+<p>$[R_{N/2}]$矩阵可以用下面的方式分解成（$2log_2N-3$）个矩阵：</p>
+<script type="math/tex; mode=display">
+[R_{N/2}]=[M1][M2][M3][M4]...[M(2log_2N-3)]</script><p>矩阵有四种不同的类型</p>
+<p>类型1：[M1],第一个矩阵</p>
+<p>类型2：$[M(2log_2N-3)]$，最后一个矩阵</p>
+<p>类型3：[Mq],奇数矩阵，如[M3],[M5]等</p>
+<p>类型4：[Mp],偶数矩阵，如[M2],[M4]等</p>
+<p>在详细描述这四种矩阵之前，给出了以下定义:</p>
+<script type="math/tex; mode=display">
+B_N=\left[\begin{array}{cc}I_{N/2}&\overline{I}_{N/2}\\\overline{I}_{N/2} &-I_{N/2}\end{array}\right]</script><script type="math/tex; mode=display">
+B_N^*=\left[\begin{array}{cc}-I_{N/2}&\overline{I}_{N/2}\\\overline{I}_{N/2} &I_{N/2}\end{array}\right]</script><p>$I_{N/2}$是阶数为 $\frac{N}{2}$的单位矩阵</p>
+<p>$\overline{I}_{N/2}$是反对角单位矩阵</p>
+<p>$[S_i^k]=sin\frac{k\pi}{i}[I_{N/2i}]$</p>
+<p>$[\overline{s}_i^k]=sin\frac{k\pi}{i}[\overline{I}_{N/2i}]$</p>
+<p>$[C_i^k]=cos\frac{k\pi}{i}[I_{N/2i}]$​</p>
+<p>$[\overline{C}_i^k]=cos\frac{k\pi}{i}[\overline{I}_{N/2i}]$​</p>
+<p>上式中，单位矩阵 $[I_{N/2i}]$表示 对角sin或者cos矩阵 $[S_i^k],[\overline{S}_i^k],[C_i^k],[\overline{C}_i^k]$的阶数，另外i&gt;N/2 时，$[I_{N/2i}]\equiv1$。</p>
+<h5 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h5><h6 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="comment">#传入要计算的方阵</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal_dct</span>(<span class="params">X</span>):</span></span><br><span class="line">	N=X.shape[<span class="number">0</span>]</span><br><span class="line">	A=np.zeros((N,N))</span><br><span class="line">	<span class="comment"># print(X)</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">			<span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">				a=np.sqrt(<span class="number">1</span>/N)</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				a=np.sqrt(<span class="number">2</span>/N)</span><br><span class="line">			A[i,j]=a*np.cos(np.pi*(j+<span class="number">0.5</span>)*i/N)</span><br><span class="line">	<span class="comment"># print(A)</span></span><br><span class="line">	<span class="comment">#DCT变换</span></span><br><span class="line">	<span class="comment">#dot矩阵乘法，*号是对应元素相乘</span></span><br><span class="line">	Y=A.dot(X).dot(A.T)</span><br><span class="line">	<span class="keyword">return</span> Y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal_idct</span>(<span class="params">X</span>):</span></span><br><span class="line">	N=X.shape[<span class="number">0</span>]</span><br><span class="line">	A=np.zeros((N,N))</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">			<span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">				a=np.sqrt(<span class="number">1</span>/N)</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				a=np.sqrt(<span class="number">2</span>/N)</span><br><span class="line">			A[i,j]=a*np.cos(np.pi*(j+<span class="number">0.5</span>)*i/N)</span><br><span class="line">	<span class="comment">#DCT变换</span></span><br><span class="line">	<span class="comment">#dot矩阵乘法，*号是对应元素相乘</span></span><br><span class="line">	</span><br><span class="line">	Y=(A.T).dot(X).dot(A)</span><br><span class="line">	<span class="keyword">return</span> Y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#快速DCT计算算法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fast_DCT</span>(<span class="params">X</span>):</span></span><br><span class="line">	<span class="comment">#计算C8</span></span><br><span class="line">	P8=np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line">	P4=np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line">	M1=np.array([[np.sin(np.pi/<span class="number">16</span>),<span class="number">0</span>,<span class="number">0</span>,np.cos(np.pi/<span class="number">16</span>)],[<span class="number">0</span>,np.sin(<span class="number">5</span>*np.pi/<span class="number">16</span>),np.cos(<span class="number">5</span>*np.pi/<span class="number">16</span>),<span class="number">0</span>],[<span class="number">0</span>,-np.sin(<span class="number">3</span>*np.pi/<span class="number">16</span>),np.cos(<span class="number">3</span>*np.pi/<span class="number">16</span>),<span class="number">0</span>],[-np.sin(<span class="number">7</span>*np.pi/<span class="number">16</span>),<span class="number">0</span>,<span class="number">0</span>,np.cos(<span class="number">7</span>*np.pi/<span class="number">16</span>)]])</span><br><span class="line">	M2=np.sqrt(<span class="number">2</span>)/<span class="number">2</span>*np.array([[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>]])</span><br><span class="line">	M3=np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,-np.cos(np.pi/<span class="number">4</span>),np.cos(np.pi/<span class="number">4</span>),<span class="number">0</span>],[<span class="number">0</span>,np.cos(np.pi/<span class="number">4</span>),np.cos(np.pi/<span class="number">4</span>),<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line">	<span class="comment"># print(M3)</span></span><br><span class="line">	R4=M1.dot(M2).dot(M3)</span><br><span class="line">	B8=np.sqrt(<span class="number">2</span>)/<span class="number">2</span>*np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>]])</span><br><span class="line"></span><br><span class="line">	<span class="comment">#计算C4</span></span><br><span class="line">	P2=np.array([[<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line">	C2=np.sqrt(<span class="number">2</span>)/<span class="number">2</span>*np.array([[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">-1</span>]])</span><br><span class="line">	R2=np.array([[np.sin(np.pi/<span class="number">8</span>),np.cos(np.pi/<span class="number">8</span>)],[-np.sin(<span class="number">3</span>*np.pi/<span class="number">8</span>),np.cos(<span class="number">3</span>*np.pi/<span class="number">8</span>)]])</span><br><span class="line">	B4=np.sqrt(<span class="number">2</span>)/<span class="number">2</span>*np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>]])</span><br><span class="line">	</span><br><span class="line">	tmp1=np.concatenate((P2.T.dot(C2),np.zeros((<span class="number">2</span>,<span class="number">2</span>))),axis=<span class="number">1</span>)</span><br><span class="line">	tmp2=np.concatenate((np.zeros((<span class="number">2</span>,<span class="number">2</span>)),R2),axis=<span class="number">1</span>)</span><br><span class="line">	tmp=np.concatenate((tmp1,tmp2))</span><br><span class="line">	C4=P4.dot(tmp).dot(B4)</span><br><span class="line"></span><br><span class="line">	tmp1=np.concatenate((P4.T.dot(C4),np.zeros((<span class="number">4</span>,<span class="number">4</span>))),axis=<span class="number">1</span>)</span><br><span class="line">	tmp2=np.concatenate((np.zeros((<span class="number">4</span>,<span class="number">4</span>)),R4),axis=<span class="number">1</span>)</span><br><span class="line">	tmp=np.concatenate((tmp1,tmp2))</span><br><span class="line">	<span class="comment">#得到正交矩阵C8</span></span><br><span class="line">	C8=P8.dot(tmp).dot(B8)</span><br><span class="line"></span><br><span class="line">	Y=C8.dot(X).dot(C8.T)</span><br><span class="line">	<span class="keyword">return</span> Y</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fast_IDCT</span>(<span class="params">X</span>):</span></span><br><span class="line">	<span class="comment">#计算C8</span></span><br><span class="line">	P8=np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line">	P4=np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line">	M1=np.array([[np.sin(np.pi/<span class="number">16</span>),<span class="number">0</span>,<span class="number">0</span>,np.cos(np.pi/<span class="number">16</span>)],[<span class="number">0</span>,np.sin(<span class="number">5</span>*np.pi/<span class="number">16</span>),np.cos(<span class="number">5</span>*np.pi/<span class="number">16</span>),<span class="number">0</span>],[<span class="number">0</span>,-np.sin(<span class="number">3</span>*np.pi/<span class="number">16</span>),np.cos(<span class="number">3</span>*np.pi/<span class="number">16</span>),<span class="number">0</span>],[-np.sin(<span class="number">7</span>*np.pi/<span class="number">16</span>),<span class="number">0</span>,<span class="number">0</span>,np.cos(<span class="number">7</span>*np.pi/<span class="number">16</span>)]])</span><br><span class="line">	M2=np.sqrt(<span class="number">2</span>)/<span class="number">2</span>*np.array([[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>]])</span><br><span class="line">	M3=np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,-np.cos(np.pi/<span class="number">4</span>),np.cos(np.pi/<span class="number">4</span>),<span class="number">0</span>],[<span class="number">0</span>,np.cos(np.pi/<span class="number">4</span>),np.cos(np.pi/<span class="number">4</span>),<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line">	<span class="comment"># print(M3)</span></span><br><span class="line">	R4=M1.dot(M2).dot(M3)</span><br><span class="line">	B8=np.sqrt(<span class="number">2</span>)/<span class="number">2</span>*np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>]])</span><br><span class="line"></span><br><span class="line">	<span class="comment">#计算C4</span></span><br><span class="line">	P2=np.array([[<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line">	C2=np.sqrt(<span class="number">2</span>)/<span class="number">2</span>*np.array([[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">-1</span>]])</span><br><span class="line">	R2=np.array([[np.sin(np.pi/<span class="number">8</span>),np.cos(np.pi/<span class="number">8</span>)],[-np.sin(<span class="number">3</span>*np.pi/<span class="number">8</span>),np.cos(<span class="number">3</span>*np.pi/<span class="number">8</span>)]])</span><br><span class="line">	B4=np.sqrt(<span class="number">2</span>)/<span class="number">2</span>*np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>]])</span><br><span class="line">	</span><br><span class="line">	tmp1=np.concatenate((P2.T.dot(C2),np.zeros((<span class="number">2</span>,<span class="number">2</span>))),axis=<span class="number">1</span>)</span><br><span class="line">	tmp2=np.concatenate((np.zeros((<span class="number">2</span>,<span class="number">2</span>)),R2),axis=<span class="number">1</span>)</span><br><span class="line">	tmp=np.concatenate((tmp1,tmp2))</span><br><span class="line">	C4=P4.dot(tmp).dot(B4)</span><br><span class="line"></span><br><span class="line">	tmp1=np.concatenate((P4.T.dot(C4),np.zeros((<span class="number">4</span>,<span class="number">4</span>))),axis=<span class="number">1</span>)</span><br><span class="line">	tmp2=np.concatenate((np.zeros((<span class="number">4</span>,<span class="number">4</span>)),R4),axis=<span class="number">1</span>)</span><br><span class="line">	tmp=np.concatenate((tmp1,tmp2))</span><br><span class="line">	<span class="comment">#得到正交矩阵C8</span></span><br><span class="line">	C8=P8.dot(tmp).dot(B8)</span><br><span class="line"></span><br><span class="line">	Y=C8.T.dot(X).dot(C8)</span><br><span class="line">	<span class="keyword">return</span> Y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">	<span class="comment">#测试，给定一个8*8的矩阵</span></span><br><span class="line">	X=np.array([[<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>,<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>],[<span class="number">92</span>,<span class="number">4</span>,<span class="number">76</span>,<span class="number">17</span>,<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>],[<span class="number">79</span>,<span class="number">85</span>,<span class="number">74</span>,<span class="number">71</span>,<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>],[<span class="number">96</span>,<span class="number">93</span>,<span class="number">39</span>,<span class="number">3</span>,<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>],[<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>,<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>],[<span class="number">92</span>,<span class="number">4</span>,<span class="number">76</span>,<span class="number">17</span>,<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>],[<span class="number">79</span>,<span class="number">85</span>,<span class="number">74</span>,<span class="number">71</span>,<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>],[<span class="number">96</span>,<span class="number">93</span>,<span class="number">39</span>,<span class="number">3</span>,<span class="number">42</span>,<span class="number">66</span>,<span class="number">68</span>,<span class="number">66</span>]],dtype=np.float64)</span><br><span class="line">	<span class="comment">#计算DCT变换后的结果</span></span><br><span class="line">	Y=cal_dct(X)</span><br><span class="line">	print(Y)</span><br><span class="line">	print(<span class="string">&#x27;*************************&#x27;</span>)</span><br><span class="line">	<span class="comment">#调用cv2库中的dct函数</span></span><br><span class="line">	YY=cv2.dct(X)</span><br><span class="line">	print(YY)</span><br><span class="line">	print(<span class="string">&#x27;************************&#x27;</span>)</span><br><span class="line">	<span class="comment">#提出的快速计算算法</span></span><br><span class="line">	YYY=fast_DCT(X)</span><br><span class="line">	print(YYY)</span><br><span class="line">	<span class="comment">#IDCT</span></span><br><span class="line">	X=cal_idct(Y)</span><br><span class="line">	print(X)</span><br><span class="line">	print(<span class="string">&#x27;*************************&#x27;</span>)</span><br><span class="line">	<span class="comment">#调用cv2库中的dct函数</span></span><br><span class="line">	X=cv2.idct(YY)</span><br><span class="line">	print(X)</span><br><span class="line">	print(<span class="string">&#x27;************************&#x27;</span>)</span><br><span class="line">	<span class="comment">#提出的快速计算算法</span></span><br><span class="line">	X=fast_IDCT(YYY)</span><br><span class="line">	print(X)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ ==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">[[ 4.84750000e+02  6.41525518e+00  8.08716048e+01  1.94719777e+01</span><br><span class="line">  -3.57500000e+01  1.34448255e+01  3.38807990e+01  9.57461504e+00]</span><br><span class="line"> [-4.32489152e+00 -1.36497986e+01 -2.33629144e+01 -1.64769788e+01</span><br><span class="line">   2.82560597e+00  1.36169047e+01  8.42538557e+00  5.23162272e-01]</span><br><span class="line"> [-3.74467051e-14  2.45392075e-15 -1.42634402e-14 -7.86703667e-15</span><br><span class="line">   6.20186521e-15  3.93768720e-15 -8.79218256e-15 -1.05081179e-14]</span><br><span class="line"> [-1.39699475e+01 -2.88766884e+01 -3.89941365e+01 -2.50078137e+01</span><br><span class="line">   6.99429145e+00  2.71861709e+01  2.25130198e+01  8.55081980e+00]</span><br><span class="line"> [-6.25000000e+00 -6.21998536e-01  1.07158195e+01  4.11351653e+00</span><br><span class="line">  -1.97500000e+01 -3.93065081e+01 -3.88045901e+01 -2.20780551e+01]</span><br><span class="line"> [ 2.44075900e+01  2.20631412e+01  7.45093787e-02 -8.95596469e+00</span><br><span class="line">  -8.24036938e+00 -1.61533515e+01 -3.05597165e+01 -2.77419121e+01]</span><br><span class="line"> [-3.61631546e-13 -2.68558280e-14 -1.14408027e-13 -5.13334521e-14</span><br><span class="line">   4.91046416e-14  4.25111508e-14  2.27897333e-14  5.10099810e-15]</span><br><span class="line"> [ 3.17100998e+01  8.38102665e+00 -4.85264557e+01 -4.92516810e+01</span><br><span class="line">  -7.86238834e+00  1.40906021e+00 -3.34341090e+01 -4.51890361e+01]]</span><br><span class="line">*************************</span><br><span class="line">[[ 4.84750000e+02  6.41525518e+00  8.08716048e+01  1.94719777e+01</span><br><span class="line">  -3.57500000e+01  1.34448255e+01  3.38807990e+01  9.57461504e+00]</span><br><span class="line"> [-4.32489152e+00 -1.36497986e+01 -2.33629144e+01 -1.64769788e+01</span><br><span class="line">   2.82560597e+00  1.36169047e+01  8.42538557e+00  5.23162272e-01]</span><br><span class="line"> [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00</span><br><span class="line">   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00]</span><br><span class="line"> [-1.39699475e+01 -2.88766884e+01 -3.89941365e+01 -2.50078137e+01</span><br><span class="line">   6.99429145e+00  2.71861709e+01  2.25130198e+01  8.55081980e+00]</span><br><span class="line"> [-6.25000000e+00 -6.21998536e-01  1.07158195e+01  4.11351653e+00</span><br><span class="line">  -1.97500000e+01 -3.93065081e+01 -3.88045901e+01 -2.20780551e+01]</span><br><span class="line"> [ 2.44075900e+01  2.20631412e+01  7.45093787e-02 -8.95596469e+00</span><br><span class="line">  -8.24036938e+00 -1.61533515e+01 -3.05597165e+01 -2.77419121e+01]</span><br><span class="line"> [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00</span><br><span class="line">   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00]</span><br><span class="line"> [ 3.17100998e+01  8.38102665e+00 -4.85264557e+01 -4.92516810e+01</span><br><span class="line">  -7.86238834e+00  1.40906021e+00 -3.34341090e+01 -4.51890361e+01]]</span><br><span class="line">************************</span><br><span class="line">[[ 4.84750000e+02  6.41525518e+00  8.08716048e+01  1.94719777e+01</span><br><span class="line">  -3.57500000e+01  1.34448255e+01  3.38807990e+01  9.57461504e+00]</span><br><span class="line"> [-4.32489152e+00 -1.36497986e+01 -2.33629144e+01 -1.64769788e+01</span><br><span class="line">   2.82560597e+00  1.36169047e+01  8.42538557e+00  5.23162272e-01]</span><br><span class="line"> [-6.61401448e-15  3.17122151e-16 -3.92887044e-15  2.51146777e-15</span><br><span class="line">   8.22335925e-15  3.09337706e-15  3.90041359e-15  2.22506330e-15]</span><br><span class="line"> [-1.39699475e+01 -2.88766884e+01 -3.89941365e+01 -2.50078137e+01</span><br><span class="line">   6.99429145e+00  2.71861709e+01  2.25130198e+01  8.55081980e+00]</span><br><span class="line"> [-6.25000000e+00 -6.21998536e-01  1.07158195e+01  4.11351653e+00</span><br><span class="line">  -1.97500000e+01 -3.93065081e+01 -3.88045901e+01 -2.20780551e+01]</span><br><span class="line"> [ 2.44075900e+01  2.20631412e+01  7.45093787e-02 -8.95596469e+00</span><br><span class="line">  -8.24036938e+00 -1.61533515e+01 -3.05597165e+01 -2.77419121e+01]</span><br><span class="line"> [ 4.71027738e-16  1.52198036e-15 -1.05487038e-15 -1.60330487e-15</span><br><span class="line">  -1.57009246e-16 -4.26576458e-16  1.96645187e-15  3.96516478e-16]</span><br><span class="line"> [ 3.17100998e+01  8.38102665e+00 -4.85264557e+01 -4.92516810e+01</span><br><span class="line">  -7.86238834e+00  1.40906021e+00 -3.34341090e+01 -4.51890361e+01]]</span><br><span class="line">[[42. 66. 68. 66. 42. 66. 68. 66.]</span><br><span class="line"> [92.  4. 76. 17. 42. 66. 68. 66.]</span><br><span class="line"> [79. 85. 74. 71. 42. 66. 68. 66.]</span><br><span class="line"> [96. 93. 39.  3. 42. 66. 68. 66.]</span><br><span class="line"> [42. 66. 68. 66. 42. 66. 68. 66.]</span><br><span class="line"> [92.  4. 76. 17. 42. 66. 68. 66.]</span><br><span class="line"> [79. 85. 74. 71. 42. 66. 68. 66.]</span><br><span class="line"> [96. 93. 39.  3. 42. 66. 68. 66.]]</span><br><span class="line">*************************</span><br><span class="line">[[42. 66. 68. 66. 42. 66. 68. 66.]</span><br><span class="line"> [92.  4. 76. 17. 42. 66. 68. 66.]</span><br><span class="line"> [79. 85. 74. 71. 42. 66. 68. 66.]</span><br><span class="line"> [96. 93. 39.  3. 42. 66. 68. 66.]</span><br><span class="line"> [42. 66. 68. 66. 42. 66. 68. 66.]</span><br><span class="line"> [92.  4. 76. 17. 42. 66. 68. 66.]</span><br><span class="line"> [79. 85. 74. 71. 42. 66. 68. 66.]</span><br><span class="line"> [96. 93. 39.  3. 42. 66. 68. 66.]]</span><br><span class="line">************************</span><br><span class="line">[[42. 66. 68. 66. 42. 66. 68. 66.]</span><br><span class="line"> [92.  4. 76. 17. 42. 66. 68. 66.]</span><br><span class="line"> [79. 85. 74. 71. 42. 66. 68. 66.]</span><br><span class="line"> [96. 93. 39.  3. 42. 66. 68. 66.]</span><br><span class="line"> [42. 66. 68. 66. 42. 66. 68. 66.]</span><br><span class="line"> [92.  4. 76. 17. 42. 66. 68. 66.]</span><br><span class="line"> [79. 85. 74. 71. 42. 66. 68. 66.]</span><br><span class="line"> [96. 93. 39.  3. 42. 66. 68. 66.]]</span><br><span class="line">[Finished in 0.4s]</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" rel="tag"><i class="fa fa-tag"></i> 图像加密</a>
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"><i class="fa fa-tag"></i> 论文</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/02/GENERAL/" rel="prev" title="GENERAL">
+      <i class="fa fa-chevron-left"></i> GENERAL
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/" rel="next" title="Joint image compression and encryption based on order-8 alternating transforms">
+      Joint image compression and encryption based on order-8 alternating transforms <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E4%BD%99%E5%BC%A6%E5%8F%98%E6%8D%A2%E7%9A%84%E4%B8%80%E7%A7%8D%E5%BF%AB%E9%80%9F%E8%AE%A1%E7%AE%97%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">离散余弦变换的一种快速计算算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E4%BD%99%E5%BC%A6%E5%8F%98%E6%8D%A2"><span class="nav-number">4.</span> <span class="nav-text">离散余弦变换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E8%AE%A1%E7%AE%97%E7%AE%97%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">快速计算算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">6.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">6.1.</span> <span class="nav-text">实验代码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">6.2.</span> <span class="nav-text">实验结果</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">241</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">CSDN</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.playmyself.top/wordpress/" title="http:&#x2F;&#x2F;www.playmyself.top&#x2F;wordpress&#x2F;" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">331k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5:01</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
