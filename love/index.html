@@ -23,14 +23,27 @@
   </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="love">
+<meta property="og:title" content="CTF of Z2BNS">
 <meta property="og:url" content="http://example.com/love/index.html">
 <meta property="og:site_name" content="CTF of Z2BNS">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-12T11:32:21.000Z">
-<meta property="article:modified_time" content="2021-12-12T11:32:21.105Z">
+<meta property="og:image" content="http://example.com/love/index/11.jpg">
+<meta property="og:image" content="http://example.com/love/index/12.jpg">
+<meta property="og:image" content="http://example.com/love/index/13.jpg">
+<meta property="og:image" content="http://example.com/love/index/14.jpg">
+<meta property="og:image" content="http://example.com/love/index/15.jpg">
+<meta property="og:image" content="http://example.com/love/index/16.jpg">
+<meta property="og:image" content="http://example.com/love/index/11.jpg">
+<meta property="og:image" content="http://example.com/love/index/12.jpg">
+<meta property="og:image" content="http://example.com/love/index/13.jpg">
+<meta property="og:image" content="http://example.com/love/index/14.jpg">
+<meta property="og:image" content="http://example.com/love/index/15.jpg">
+<meta property="og:image" content="http://example.com/love/index/16.jpg">
+<meta property="article:published_time" content="2021-12-12T11:39:16.257Z">
+<meta property="article:modified_time" content="2021-12-12T11:39:16.257Z">
 <meta property="article:author" content="Z2BNS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/love/index/11.jpg">
 
 <link rel="canonical" href="http://example.com/love/">
 
@@ -45,7 +58,7 @@
   };
 </script>
 
-  <title>love | CTF of Z2BNS
+  <title> | CTF of Z2BNS
 </title>
   
 
@@ -218,7 +231,7 @@
     <div class="post-block" lang="zh-CN">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">love
+<h1 class="post-title" itemprop="name headline">
 </h1>
 
 <div class="post-meta">
@@ -232,7 +245,205 @@
       
       
       <div class="post-body">
-          
+          <div class="wrap">
+    <!--部署内外层图片-->
+    <div class="cube">
+        <!--前面图片 -->
+        <div class="out_front">
+            <img src="/love/index/11.jpg" class="pic">
+        </div>
+        <!--后面图片 -->
+        <div class="out_back">
+            <img src="/love/index/12.jpg" class="pic">
+        </div>
+        <!--左面图片 -->
+        <div class="out_left">
+            <img src="/love/index/13.jpg" class="pic">
+        </div>
+        <!--右面图片 -->
+        <div class="out_right">
+            <img src="/love/index/14.jpg" class="pic">
+        </div>
+        <!--上面图片 -->
+        <div class="out_top">
+            <img src="/love/index/15.jpg" class="pic">
+        </div>
+        <!--下面图片 -->
+        <div class="out_bottom">
+            <img src="/love/index/16.jpg" class="pic">
+        </div>
+
+        <!--小正方体 -->
+        <span class="in_front">
+                <img src="/love/index/11.jpg" class="in_pic">
+            </span>
+        <span class="in_back">
+                 <img src="/love/index/12.jpg" class="in_pic">
+            </span>
+        <span class="in_left">
+                <img src="/love/index/13.jpg" class="in_pic">
+            </span>
+        <span class="in_right">
+                <img src="/love/index/14.jpg" class="in_pic">
+            </span>
+        <span class="in_top">
+                <img src="/love/index/15.jpg" class="in_pic">
+            </span>
+        <span class="in_bottom">
+                <img src="/love/index/16.jpg" class="in_pic">
+            </span>
+
+    </div>
+    <style>
+        /*最外层容器样式*/
+        .wrap {
+            width: 10px;
+            height: 10px;
+            margin: 50%;
+            position: relative;
+        }
+
+        /*得到立方体效果*/
+        .cube {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            /*设置动画播放样式:动画对象 播放速度 时间 播放次数*/
+            animation: rotate linear 20s infinite;
+        }
+
+        /*动画旋转的方式*/
+        /*得到动画效果*/
+        @-moz-keyframes rotate {                     /*firefox*/
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        @-webkit-keyframes rotate {                /*sofari chrome*/
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        @-o-keyframes rotate {                    /*opera*/
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        /*每张图片的样式*/
+        .cube div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            opacity: 0.8;
+            /*过渡效果*/
+            transition: all .4s;
+        }
+
+        /*定义所有图片样式*/
+        .pic {
+            width: 200px;
+            height: 200px;
+        }
+
+        .cube .out_front {
+            transform: rotateY(0deg) translateZ(100px);
+        }
+
+        .cube .out_back {
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        .cube .out_left {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .cube .out_right {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .cube .out_top {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .cube .out_bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        /*定义小正方体样式*/
+        .cube span {
+            display: block;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+
+        .cube .in_pic {
+            width: 100px;
+            height: 100px;
+        }
+
+        .cube .in_front {
+            transform: rotateY(0deg) translateZ(50px);
+        }
+
+        .cube .in_back {
+            transform: translateZ(-50px) rotateY(180deg);
+        }
+
+        .cube .in_left {
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+
+        .cube .in_right {
+            transform: rotateY(90deg) translateZ(50px);
+        }
+
+        .cube .in_top {
+            transform: rotateX(90deg) translateZ(50px);
+        }
+
+        .cube .in_bottom {
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+
+        /*鼠标移入后样式*/
+        .cube:hover .out_front {
+            transform: rotateY(0deg) translateZ(200px);
+        }
+
+        .cube:hover .out_back {
+            transform: translateZ(-200px) rotateY(180deg);
+        }
+
+        .cube:hover .out_left {
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+
+        .cube:hover .out_right {
+            transform: rotateY(90deg) translateZ(200px);
+        }
+
+        .cube:hover .out_top {
+            transform: rotateX(90deg) translateZ(200px);
+        }
+
+        .cube:hover .out_bottom {
+            transform: rotateX(-90deg) translateZ(200px);
+        }
+</style>
+</div>
       </div>
       
       
