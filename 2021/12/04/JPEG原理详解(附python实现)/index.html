@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="CTF of Z2BNS">
 <meta property="og:description" content="JPEG（Joint Photographic Experts Group）是JPEG标准的产物，该标准由国际标准化组织（ISO）制订，是面向连续色调静止图像的一种压缩标准。 JPEG格式是最常用的图像文件格式，后缀名为.jpg或.jpeg。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/lenna.png">
+<meta property="og:image" content="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/Lenna.png">
 <meta property="og:image" content="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/jpeg_01.jpg">
 <meta property="og:image" content="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/JPEG原理详解(附python实现">
 <meta property="og:image" content="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/JPEG原理详解(附python实现">
@@ -73,11 +73,11 @@
 <meta property="og:image" content="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/JPEG原理详解(附python实现">
 <meta property="og:image" content="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/JPEG原理详解(附python实现">
 <meta property="article:published_time" content="2021-12-04T12:09:55.000Z">
-<meta property="article:modified_time" content="2021-12-09T14:09:17.397Z">
+<meta property="article:modified_time" content="2021-12-10T00:59:36.482Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="图像">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/lenna.png">
+<meta name="twitter:image" content="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/Lenna.png">
 
 <link rel="canonical" href="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/">
 
@@ -195,6 +195,11 @@
     <a href="/todolist/" rel="section"><i class="fa fa-clipboard-list fa-fw"></i>愿望单</a>
 
   </li>
+        <li class="menu-item menu-item-love">
+
+    <a href="/love/" rel="section"><i class="fa fa-love fa-fw"></i>爱</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
@@ -285,7 +290,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-09 22:09:17" itemprop="dateModified" datetime="2021-12-09T22:09:17+08:00">2021-12-09</time>
+                <time title="修改时间：2021-12-10 08:59:36" itemprop="dateModified" datetime="2021-12-10T08:59:36+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -350,10 +355,11 @@
 </ol>
 <h6 id="步骤一：图像分割"><a href="#步骤一：图像分割" class="headerlink" title="步骤一：图像分割"></a>步骤一：图像分割</h6><p>JPEG算法的第一步，图像被分割成大小为8X8的小块，这些小块在整个压缩过程中都是单独被处理的。后面我们会以一张非常经典的图为例，这张图片名字叫做Lenna，据说是世界上第一张JPG图片，这张图片自从诞生之日开始，就和图像处理结下渊源，陪伴了无数理工宅男度过了的一个个不眠之夜，可谓功勋卓著，感兴趣的朋友可以在这里了解到这张图片的故事。</p>
 <div align="center">
-    <img src="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/lenna.png">
+    <img src="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/Lenna.png">
         <img src="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/jpeg_01.jpg">  
     
 </div>
+
 
 
 
@@ -450,89 +456,89 @@ X_m=\frac{F_0}{n}+\sum^{n-1}_{k=1}{[\frac{2F_k}{n}cos[\frac{\pi}{n}(m+\frac{1}{2
 <table>
 <thead>
 <tr>
-<th></th>
+<th style="text-align:right"></th>
 <th></th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td>数组0</td>
 <td><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_26.gif" alt="img"></td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td></td>
 <td>[35.9,35.9,35.9,35.9,35.9,35.9,35.9,35.9]</td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td>数组1</td>
 <td><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_27.gif" alt="img"></td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td></td>
 <td>[26.0,22.1,14.8,5.2,-5.2,-14.8,-22.1,-26.1]</td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td>数组2</td>
 <td><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_28.gif" alt="img"></td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td></td>
 <td>[3.3,1.4,-1.4,-3.3,-3.3,-1.4,1.4,3.3]</td>
 </tr>
 <tr>
-<td><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_25.gif" alt="img"></td>
+<td style="text-align:right"><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_25.gif" alt="img"></td>
 <td>数组3</td>
 <td><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_29.gif" alt="img"></td>
 </tr>
 <tr>
-<td>[50,55,67,80,-10,-5,20,30]</td>
+<td style="text-align:right">[50,55,67,80,-10,-5,20,30]</td>
 <td></td>
 <td>[-23.0,5.4,27.2,15.4,-15.4,-27.2,-5.4,23.0]</td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td>数组4</td>
 <td><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_30.gif" alt="img"></td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td></td>
 <td>[1.6,-1.6,-1.6,1.6,1.6,-1.6,-1.6,1.6]</td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td>数组5</td>
 <td><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_31.gif" alt="img"></td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td></td>
 <td>[9.1,-16.1,3.2,13.6,-13.6,-3.2,16.1,-9.1]</td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td>数组6</td>
 <td><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_32.gif" alt="img"></td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td></td>
 <td>[-0.8,1.9,-1.9,0.8,0.8,-1.9,1.9,-0.8]</td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td>数组7</td>
 <td><img src="https://thecodeway.com/blog/wp-content/uploads/2014/09/jpeg_33.gif" alt="img"></td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align:right"></td>
 <td></td>
 <td>[-2.1,6.1,-9.1,10.8,-10.8,9.1,-6.1,2.1]</td>
 </tr>
@@ -571,7 +577,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <p><img src="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/JPEG原理详解(附python实现" alt="jpeg_035">/jpeg_035.gif)</p>
 <p>比如上面数据，以左上角的-415.38为例，对应的量子化系数是16，那么round(-415.38/16)=round(-25.96125)=-26。最终得到的量子化后的结果为</p>
 <p><img src="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/JPEG原理详解(附python实现" alt="jpeg_034">/jpeg_034.gif)</p>
-<p>可以看到，一大部分数据变成了0，这非常有利于后面的压缩存储。这两张神奇的量化表也是有讲究的，还记得我们在第一节中所讲的有损压缩的基本原理吗，有损压缩就是把数据中重要的数据和不重要的数据分开，然后分别处理。DCT系数矩阵中的不同位置的值代表了图像数据中不同频率的分量，这两张表中的数据时人们根据人眼对不不同频率的敏感程度的差别所积累下的经验制定的，一般来说人眼对于低频的分量必高频分量更加敏感，所以两张量化系数矩阵左上角的数值明显小于右下角区域。在实际的压缩过程中，还可以根据需要在这些系数的基础上再乘以一个系数，以使更多或更少的数据变成0，我们平时使用的图像处理软件在生成jpg文件时，在控制压缩质量的时候，就是控制的这个系数。<br>    在进入下一节之前，矩阵的量化还有最后一步要做，就是把量化后的二维矩阵转变成一个一维数组，以方便后面的霍夫曼压缩，但在做这个顺序转换时，需要按照一个特定的取值顺序。</p>
+<p>可以看到，一大部分数据变成了0，这非常有利于后面的压缩存储。这两张神奇的量化表也是有讲究的，还记得我们在第一节中所讲的有损压缩的基本原理吗，有损压缩就是把数据中重要的数据和不重要的数据分开，然后分别处理。DCT系数矩阵中的不同位置的值代表了图像数据中不同频率的分量，这两张表中的数据时人们根据人眼对不不同频率的敏感程度的差别所积累下的经验制定的，一般来说人眼对于低频的分量比高频分量更加敏感，所以两张量化系数矩阵左上角的数值明显小于右下角区域。在实际的压缩过程中，还可以根据需要在这些系数的基础上再乘以一个系数，以使更多或更少的数据变成0，我们平时使用的图像处理软件在生成jpg文件时，在控制压缩质量的时候，就是控制的这个系数。<br>    在进入下一节之前，矩阵的量化还有最后一步要做，就是把量化后的二维矩阵转变成一个一维数组，以方便后面的霍夫曼压缩，但在做这个顺序转换时，需要按照一个特定的取值顺序。</p>
 <p><img src="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/JPEG原理详解(附python实现" alt="jpeg_036">/jpeg_036.gif)</p>
 <p>这么做的目的只有一个，就是尽可能把0放在一起，由于0大部分集中在右下角，所以才去这种由左上角到右下角的顺序，经过这种顺序变换，最终矩阵变成一个整数数组</p>
 <p>-26,-3,0,-3,-2,-6,2,-4,1,-3,0,1,5,,1,2,-1,1,-1,2,0,0,0,0,0,-1,-1,0,0,0,0,…,0,0</p>
@@ -1166,7 +1172,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">244</span>
+          <span class="site-state-item-count">245</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
