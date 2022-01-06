@@ -14758,9 +14758,11 @@ P_8=\left[\begin{array}{cc}1&0&0&0&0&0&0&0\\0&0&0&0&1&0&0&0\\0&0&1&0&0&0&0&0\\0&
     <url>/2021/12/07/%E5%9F%BA%E4%BA%8EJPEG%E7%9A%84%E8%81%94%E5%90%88%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>想法？idea?</p>
 <a id="more"></a>
+<p>根据混沌系统的奇偶转成01串？</p>
 <h6 id="DCT变换"><a href="#DCT变换" class="headerlink" title="DCT变换"></a>DCT变换</h6><p>使用快速计算算法？？？</p>
 <h6 id="量化块置乱"><a href="#量化块置乱" class="headerlink" title="量化块置乱"></a>量化块置乱</h6><p>Fisher-Yates shuffle洗牌算法？？？</p>
 <p>混沌系统？？？</p>
+<h6 id="熵编码阶段"><a href="#熵编码阶段" class="headerlink" title="熵编码阶段"></a>熵编码阶段</h6><p>非零ac系数洗牌算法</p>
 <h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><p><a href="https://www.cnblogs.com/dodng/p/4485713.html">洗牌算法Fisher_Yates原理</a></p>
 ]]></content>
       <categories>
@@ -15625,5 +15627,21 @@ dc_j=dc_j\bigoplus dc_{j-1}</script><p>其中j从(H*W)/64开始，到2结束。D
         <tag>图像加密</tag>
         <tag>论文</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>嘻嘻</title>
+    <url>/2021/12/16/%E5%98%BB%E5%98%BB/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Welcome to my blog, enter password to read.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="d36c4b43d884e092fabe8605f82615d3002e663ec0542d9fdd7db584ded9ce0e">c10a44294c0ccc08337a7be47fe290f9ef6f5300b6c9b72ecb8c2a5769f9d3b4631da442d4ae87b437561172f6a39c271c86797c3ff4d1693d34f344f0c90b1af693e45b08abe877c4f6d18bb53b52b1562d46afa9c8a16991e88682559494c09810aba04cc3db2bfb0ba01426773071acb6a99f63b0d4ef15298e003eb579b5a58098b2c7324f750211e189e293d3dd70702100d645f3650efac43def8ce6cfbb54685a2b8faa7356b3f64fc3d29d6fad8eed6f7cd2f1f79587bb7ba1a6728ecf72b1eba2ca172287d762872a541445cf2ee5867908af9e6075e1d849d24b361fd08deb63ed20640b80a56091af9ee3cff582f4e3c114977cca5c4c28cfbc92d2fcf185c741995ea5199cbb0113687e22b01585041b4c8bc6db9c33a926d2863132c9b487ce13aa5fa77c668b92ad02bc55938ad5160e1be89b96224e1ad902e1a7eedb44929c1b1924a0f5d0308e93911cc2dba72e9be87ee7bceed7cfe56d56d76ff944399182af6a312593965389038facb4882bd60f13bbeb219a2c71a6e002ac3e245a210291170ffbff6c57cbb175d805c7298822ff4aeacce46dd551eb366dc5e2b343fac7dac3a719275aa11b34fcd8d302fb30c78fada3834a9182ff78f757ab4ed171162d015167feaf3f9c68673fcdfb7c4abac07bcca4aafaf1a92c00e676ea8f7acf2d5fac0aa038e4d78205b6b604b1d859d3ad63065403f8e36868c2f3d31ba760e0f58a7a63fc59a80f1d691a0a89bb67f9feff97d3b4a98898c094ef5a40aa42bf71b6ed40486629be9a2b12f213985987571f76a9cb92c346a776ed070f0a3e3ca65e5b6943cfe4277db4143f5316681cfb09b78707b9d1a4e3b0f487d3e7b330c3ab211001ba55b14fe2eb1135af804ca09798dd5f82a44bd030de8025676c09b52985b87f58f7430d089ad120a6a49f846e4357d0f9705da013aaabea922b56f4a494a028a6f0e73f173ac6a078223c3d3d269a8b3260f01db4809a55d9c1bc42562acfa0100e770803cad26086d953d768a533e2ee14d1b3a2e1714effe52ad89053e4d476e2e73571a418883b6ab9fe10d1355a1516b85ec265319c27ef0c0f1ec95b3b09e68c7362a86fe3ffcf8cb73d768c003118c93c6eeb18ee24b8738b01430cc56148d2d38e74e2fc85d1727f28e730080b963ac29e1e00b067573066c179f489761a2f425e7d86dc1bd9930e9d24614a2ba20212db6df81799ad94355ffb7d1debcd6f92a478143d9c3c61c0e1617b1d0936f9d697c7b332840a24406bb3e7ac9871428b497c2739da6af5480e2d0b0778d4ace1e4f226c94cd8b79674670a35ca2a73b20f3de0f5721d116fb2c084fff3c0d118bdd144ac379cd611123567f50ab7c64153e6e386cb01b39b670856c8c8c77718adbfe3338b0ef3613f83d7f23caf6a0087e1deb609675ffa32b846b4a11e7b22280bde56687fcea3ed5d9cf6d3ec575bcf459dd49db5beb56a1932959f165fb79e27a3070474615d20be791633f0080cca877d018fdc7fe68ddd3c81c1281e1f9443d6215d3de7e5611511274b5465c1b573154559b057d8a4c8c8cae8f034915b62832eacaa591aa998662d2c174f7d65dffb3d9fb15e5e9a8efe5f597f1afae5de37bea0ace19272febad7262023e2496fc9e4a482a0769e3e3fa115cb0d6742f39b386144e2494a80ada58d204e5c062c204cd1be6fb7372c9f67a3fe93ee4384c2bd228f6ee65c0556dd5b6f13a118d587f69f8fa67c9678bd14e5</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
   </entry>
 </search>

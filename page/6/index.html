@@ -212,6 +212,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/11/PPT-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/11/PPT-notes/" class="post-title-link" itemprop="url">PPT_notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-11 16:37:15" itemprop="dateCreated datePublished" datetime="2021-04-11T16:37:15+08:00">2021-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-12 10:04:12" itemprop="dateModified" datetime="2021-04-12T10:04:12+08:00">2021-04-12</time>
+              </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/11/PPT-notes/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/11/PPT-notes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>893</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>从图中可以看出，与使用其他图像加密方案相比，使用基于混沌、置乱和排列的方法进行彩色图像加密的文章数量要高得多，另外，基于混沌、进化和频率的方案在已发表论文中使用率最高，而基于dna、双(多)图像和位平面分解的方案使用率最低。<br>在该算法中，采用了三个不同维数的混沌系统来增加复杂性，分别是</p>
+<p>DNA是一种存在于几乎所有生物体内的遗传物质。在人体中，DNA以A, G, C和T是成对的。这些碱基分别是腺嘌呤(A)、胞嘧啶(C)、鸟嘌呤(G)和胸腺嘧啶(T)</p>
+<p>Arnold变换又称之为猫脸变换，利用Arnold变换（又称猫脸变换）可以对图像进行置乱，使得原本有意义的图像变成一张无意义的图像。该变换可以在其它图像处理前对图像做预处理，例如在数字盲水印嵌入前对水印进行置乱。也可以用于普通的图像加密。对于不同的数字图像，加密者都可以用相应的离散化Arnold矩阵进行变换，图像的位置变换实际上是对应点的灰度值或者RGB颜色值的移动，即将原来点（x,y）处的值对应的灰度值移动至变换后的位置处，起到置乱的作用。Arnold变换不仅可以用于图像置乱，也可以用于其它数据的置乱和加密</p>
+<p>二进制数字系统只由两个数字组成;0和1相互对立或互补。同理，00和11是互补的，01和10也是互补的</p>
+<h6 id="NCA映射"><a href="#NCA映射" class="headerlink" title="NCA映射"></a>NCA映射</h6><p>在第一阶段，伪随机密钥流由基于NCA映射的CML生成，其参数和初始值由SHA-256使用密钥和明文图像更新第二阶段将普通图像分割成红、绿、蓝三种成分，并将它们任意转换成大小为M × 4N的三个DNA矩阵。然后，通过密钥流对DNA矩阵进行合并重组，生成一个新的置乱后的大小为3M × 4N的重组DNA矩阵。在第三阶段，将混乱的DNA矩阵分解为3个大小为M × 4N的DNA矩阵，并在3个DNA矩阵上进行DNA的加法、减法和异或运算。最后，利用DNA解码规则对DNA矩阵进行解码，并引入像素级扩散过程，进一步提高了密码系统的安全性。</p>
+<p>实验结果和安全性分析实验结果和安全性分析表明，所提出的图像密码系统具有优越的性能和较高的安全性，并能抵抗噪声和数据丢失攻击。加密过程中不会出现原始图像质量下降的情况，即所提出的加密算法是一种无损加密方案。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/11/Nginx%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1204,119 +1306,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Z2BNS">
-      <meta itemprop="description" content="Because like, so love">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CTF of Z2BNS">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">Chen模型</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-27 16:46:52" itemprop="dateCreated datePublished" datetime="2021-03-27T16:46:52+08:00">2021-03-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-01 22:21:59" itemprop="dateModified" datetime="2021-04-01T22:21:59+08:00">2021-04-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
-                </span>
-            </span>
-		  <div style="display:inline">
-		   |
-		  <i class="fa fa-eye"></i>
-		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
-		  </div>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>482</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>混沌是非线性动力系统的固有特性，是非线性系统普遍存在的现象。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/27/Chen%E6%A8%A1%E5%9E%8B/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1388,7 +1377,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">245</span>
+          <span class="site-state-item-count">246</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1452,7 +1441,7 @@
 <div class="copyright">
   
   &copy; 2020 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
