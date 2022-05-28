@@ -30,7 +30,7 @@
 <meta property="og:description" content="常见题型总结">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-07T01:21:33.000Z">
-<meta property="article:modified_time" content="2022-04-26T06:36:39.509Z">
+<meta property="article:modified_time" content="2022-04-27T05:36:30.607Z">
 <meta property="article:author" content="Z2BNS">
 <meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-26 14:36:39" itemprop="dateModified" datetime="2022-04-26T14:36:39+08:00">2022-04-26</time>
+                <time title="修改时间：2022-04-27 13:36:30" itemprop="dateModified" datetime="2022-04-27T13:36:30+08:00">2022-04-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,6 +310,7 @@
 <p>​    若两个指针指向同一数组，但是遍历方向相反，则可以用来进行搜索，待搜索的数组往往是排好序的。</p>
 <h5 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h5><p>二分查找也常被称为二分法或者折半查找，每次查找时通过将待查找区间分成两部分并只取 一部分继续查找，将查找的复杂度大大减少。对于一个长度为 O(n) 的数组，二分查找的时间复 杂度为 O(log n)。 举例来说，给定一个排好序的数组 {3,4,5,6,7}，我们希望查找 4 在不在这个数组内。第一次 折半时考虑中位数 5，因为 5 大于 4, 所以如果 4 存在于这个数组，那么其必定存在于 5 左边这一 半。于是我们的查找区间变成了 {3,4,5}。（注意，根据具体情况和您的刷题习惯，这里的 5 可以 保留也可以不保留，并不影响时间复杂度的级别。）第二次折半时考虑新的中位数 4，正好是我们 需要查找的数字。于是我们发现，对于一个长度为 5 的数组，我们只进行了 2 次查找。如果是遍 历数组，最坏的情况则需要查找 5 次。 我们也可以用更加数学的方式定义二分查找。给定一个在 [a, b] 区间内的单调函数 f (x)，若 f (a) 和 f (b) 正负性相反，那么必定存在一个解 c，使得 f (c) = 0。在上个例子中，f (x) 是离散函数 f (x) = x +2，查找 4 是否存在等价于求 f (x) −4 = 0 是否有离散解。因为 f (1) −4 = 3−4 = −1 &lt; 0、 f (5) − 4 = 7 − 4 = 3 &gt; 0，且函数在区间内单调递增，因此我们可以利用二分查找求解。如果最后 二分到了不能再分的情况，如只剩一个数字，且剩余区间里不存在满足条件的解，则说明不存在 离散解，即 4 不在这个数组内。 具体到代码上，二分查找时区间的左右端取开区间还是闭区间在绝大多数时候都可以，因此 有些初学者会容易搞不清楚如何定义区间开闭性。这里我提供两个小诀窍，第一是尝试熟练使用 一种写法，比如左闭右开（满足 C++、Python 等语言的习惯）或左闭右闭（便于处理边界条件）， 尽量只保持这一种写法；第二是在刷题时思考如果最后区间只剩下一个数或者两个数，自己的写 法是否会陷入死循环，如果某种写法无法跳出死循环，则考虑尝试另一种写法。 二分查找也可以看作双指针的一种特殊情况，但我们一般会将二者区分。双指针类型的题， 指针通常是一步一步移动的，而在二分查找里，指针每次移动半个区间长度</p>
 <h5 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h5><p>详见【<a target="_blank" rel="noopener" href="https://z2bns.github.io/2022/04/07/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">十大排序算法详解</a>】</p>
+<h5 id="一切皆可搜索"><a href="#一切皆可搜索" class="headerlink" title="一切皆可搜索"></a>一切皆可搜索</h5><p>深度优先搜索和广度优先搜索是两种最常见的优先搜索方法，它们被广泛地运用在图和树等结构中进行搜索。</p>
 
     </div>
 
@@ -427,7 +428,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">贪心算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="nav-number">2.</span> <span class="nav-text">双指针</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">3.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">排序算法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">贪心算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="nav-number">2.</span> <span class="nav-text">双指针</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">3.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">排序算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E5%88%87%E7%9A%86%E5%8F%AF%E6%90%9C%E7%B4%A2"><span class="nav-number">5.</span> <span class="nav-text">一切皆可搜索</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -443,7 +444,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">251</span>
+          <span class="site-state-item-count">253</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -517,13 +518,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">343k</span>
+    <span title="站点总字数">345k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:12</span>
+    <span title="站点阅读时长">5:13</span>
 </div>
 
 
