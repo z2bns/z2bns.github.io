@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件,用来项目构建和依赖管理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven">
+<meta property="og:url" content="http://example.com/2022/10/01/Maven/index.html">
+<meta property="og:site_name" content="CTF of Z2BNS">
+<meta property="og:description" content="Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件,用来项目构建和依赖管理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-01T02:14:40.000Z">
+<meta property="article:modified_time" content="2022-10-01T04:00:24.063Z">
+<meta property="article:author" content="Z2BNS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/10/01/Maven/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Maven | CTF of Z2BNS</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CTF of Z2BNS</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-playlist">
+
+    <a href="/playlist/" rel="section"><i class="fa fa-music fa-fw"></i>歌单</a>
+
+  </li>
+        <li class="menu-item menu-item-todolist">
+
+    <a href="/todolist/" rel="section"><i class="fa fa-clipboard-list fa-fw"></i>愿望单</a>
+
+  </li>
+        <li class="menu-item menu-item-love">
+
+    <a href="/love/" rel="section"><i class="fa fa-heart-fill fa-fw"></i>爱</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/01/Maven/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Maven
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-01 10:14:40 / 修改时间：12:00:24" itemprop="dateCreated datePublished" datetime="2022-10-01T10:14:40+08:00">2022-10-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/10/01/Maven/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/10/01/Maven/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件,用来项目构建和依赖管理。</p>
+<a id="more"></a>
+<h4 id="Maven基础入门"><a href="#Maven基础入门" class="headerlink" title="Maven基础入门"></a>Maven基础入门</h4><h5 id="Maven的概念"><a href="#Maven的概念" class="headerlink" title="Maven的概念"></a>Maven的概念</h5><ul>
+<li>Maven的本质是一个项目管理工具，将项目开发和管理过程抽象成一个项目对象模型（POM）</li>
+<li>POM（Project Object Model）：项目对象模型 </li>
+</ul>
+<h5 id="Maven的作用"><a href="#Maven的作用" class="headerlink" title="Maven的作用"></a>Maven的作用</h5><ul>
+<li>项目构建：提供标准的、跨平台的自动化项目构建方式</li>
+<li>依赖管理：方便快捷的管理项目依赖的资源（jar包），避免资源间的版本冲突问题</li>
+<li>统一开发结构：提供标准的、统一的项目结构</li>
+</ul>
+<h5 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h5><ul>
+<li>仓库：用于存储资源，包含各种jar包</li>
+<li>仓库分类：<ul>
+<li>本地仓库：自己电脑上存储资源的仓库，连接远程仓库获取资源</li>
+<li>远程仓库：非本机电脑上的仓库，为本地仓库提供资源<ul>
+<li>中央仓库：Maven团队维护，存储所有资源的仓库</li>
+<li>私服：部门/公司范围内存储资源的仓库，从中央仓库获取资源</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>私服的作用：<ul>
+<li>保存具有版权的资源，包含购买或自主研发的jar<ul>
+<li>中央仓库的jar都是开源的，不能存储具有版权的资源</li>
+</ul>
+</li>
+<li>一定范围内共享资源，仅对内部开放，不对外共享</li>
+</ul>
+</li>
+</ul>
+<h5 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h5><ul>
+<li><p>什么是坐标？</p>
+<p>Maven中的坐标用于描述仓库中资源的位置</p>
+<p><a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/">https://repo1.maven.org/maven2/</a></p>
+</li>
+<li><p>Maven坐标主要组成</p>
+<p>groupId:定义当前Maven项目隶属组织名称（通常是域名反写，例如：org.mybatis）</p>
+<p>artifactId:定义当前Maven项目名称(通常是模块名称，例如CRM、SMS)</p>
+<p>version：定义当前项目版本号</p>
+<p>packaging：定义该项目的打包方式</p>
+</li>
+</ul>
+<h5 id="Maven项目构建命令"><a href="#Maven项目构建命令" class="headerlink" title="Maven项目构建命令"></a>Maven项目构建命令</h5><p>Maven构建命令使用mvn开头，后面添加功能参数，可以一次执行多个命令，使用空格分隔</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mvn compile #编译</span><br><span class="line">mvn clean   #清理</span><br><span class="line">mvn test    #测试</span><br><span class="line">mvn package #打包</span><br><span class="line">mvn install #安装到	本地仓库</span><br></pre></td></tr></table></figure>
+<h5 id="Maven插件创建工程"><a href="#Maven插件创建工程" class="headerlink" title="Maven插件创建工程"></a>Maven插件创建工程</h5><h6 id="创建java工程"><a href="#创建java工程" class="headerlink" title="创建java工程"></a>创建java工程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId&#x3D;&#123;project-packaging&#125; -DartifactId&#x3D;&#123;project-name&#125; -DarchetypeArtifactId&#x3D;maven-archetype-quickstart -Dversion&#x3D;&#123;version&#125; -DinteractiveMode&#x3D;false</span><br></pre></td></tr></table></figure>
+<h6 id="创建web工程"><a href="#创建web工程" class="headerlink" title="创建web工程"></a>创建web工程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId&#x3D;&#123;project-packaging&#125; -DartifactId&#x3D;&#123;project-name&#125; -DarchetypeArtifactId&#x3D;maven-archetype-webapp -Dversion&#x3D;&#123;version&#125; -DinteractiveMode&#x3D;false</span><br></pre></td></tr></table></figure>
+<h5 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h5><h6 id="依赖配置"><a href="#依赖配置" class="headerlink" title="依赖配置"></a>依赖配置</h6><ul>
+<li>依赖指当前项目运行所需的jar，一个项目可以设置多个依赖</li>
+<li>格式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 设置当前项目所依赖的所有jar --&gt;</span><br><span class="line">&lt;dependencies&gt;</span><br><span class="line">	&lt;!--设置具体的依赖--&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;!--依赖所属群组id --&gt;</span><br><span class="line">		&lt;groupId&gt;junit&lt;&#x2F;groupId&gt;</span><br><span class="line">		&lt;!--依赖所属项目id--&gt;</span><br><span class="line">		&lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">		&lt;!--依赖版本号--&gt;</span><br><span class="line">		&lt;version&gt;4.11&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="依赖传递"><a href="#依赖传递" class="headerlink" title="依赖传递"></a>依赖传递</h6><ul>
+<li>依赖具有传递性<ul>
+<li>直接依赖：在当前项目中通过依赖配置建立的依赖关系</li>
+<li>间接依赖：被依赖的资源如果依赖其他资源，当前项目间接依赖其他资源</li>
+</ul>
+</li>
+</ul>
+<h6 id="依赖传递冲突问题"><a href="#依赖传递冲突问题" class="headerlink" title="依赖传递冲突问题"></a>依赖传递冲突问题</h6><ul>
+<li><p>路径优先：当依赖中出现相同的资源时，层级越深，优先级越低，层级越浅，优先级越高</p>
+</li>
+<li><p>声明优先：当资源在相同层级被依赖时，配置顺序靠前的覆盖配置顺序靠后的</p>
+</li>
+<li><p>特殊优先：当同级配置了相同资源的不同版本，后配置的覆盖先配置的</p>
+</li>
+</ul>
+<h6 id="可选依赖"><a href="#可选依赖" class="headerlink" title="可选依赖"></a>可选依赖</h6><ul>
+<li>可选依赖指对外隐藏当前所依赖的资源——不透明</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;junit&gt;&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;4.12&lt;&#x2F;version&gt;</span><br><span class="line">	&lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="排除依赖"><a href="#排除依赖" class="headerlink" title="排除依赖"></a>排除依赖</h6><ul>
+<li>排除依赖指主动断开依赖的资源，被排除的资源无需制定版本——不需要</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;junit&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;4.12&lt;&#x2F;version&gt;</span><br><span class="line">	&lt;exclusions&gt;</span><br><span class="line">		&lt;exclusion&gt;</span><br><span class="line">			&lt;groupId&gt;org.hamcrest&lt;&#x2F;groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;hamcrest-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">		&lt;&#x2F;exclusion&gt;</span><br><span class="line">	&lt;exclusions&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h6><ul>
+<li>依赖的jar默认情况可以在任何地方使用，可以通过scope标签设定其作用范围</li>
+<li>作用范围<ul>
+<li>主程序范围有效（main文件夹范围内）</li>
+<li>测试程序范围有效（test文件夹范围内）</li>
+<li>是否参与打包（package指令范围内）</li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>scope</th>
+<th>主代码</th>
+<th>测试代码</th>
+<th>打包</th>
+<th>范例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compile(默认)</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>log4j</td>
+</tr>
+<tr>
+<td>test</td>
+<td></td>
+<td>Y</td>
+<td></td>
+<td>junit</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>Y</td>
+<td>Y</td>
+<td></td>
+<td>servlet-api</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td>jdbc</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="生命周期与插件"><a href="#生命周期与插件" class="headerlink" title="生命周期与插件"></a>生命周期与插件</h5><h6 id="项目构建生命周期"><a href="#项目构建生命周期" class="headerlink" title="项目构建生命周期"></a>项目构建生命周期</h6><ul>
+<li>Maven对项目构建的生命周期划分为3套<ul>
+<li>clean：清理工作</li>
+<li>default：核心工作，例如编译，测试，打包，部署等</li>
+<li>site：产生报告，发布站点等</li>
+</ul>
+</li>
+</ul>
+<h6 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h6><ul>
+<li>插件与生命周期内的阶段绑定，在执行到对应生命周期时执行对应的插件功能</li>
+<li>默认maven在各个生命周期上绑定有预设的功能</li>
+<li>通过插件可以自定义其他功能</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;plugins&gt;</span><br><span class="line">		&lt;plugin&gt;</span><br><span class="line">			&lt;groudId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;maven-source-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">			&lt;version&gt;2.2.1&lt;&#x2F;version&gt;</span><br><span class="line">			&lt;executions&gt;</span><br><span class="line">				&lt;execution&gt;</span><br><span class="line">					&lt;goals&gt;</span><br><span class="line">						&lt;goal&gt;jar&lt;&#x2F;goal&gt;</span><br><span class="line">					&lt;&#x2F;goals&gt;</span><br><span class="line">					&lt;phase&gt;generate-test-resources&lt;&#x2F;phase&gt;</span><br><span class="line">				&lt;&#x2F;execution&gt;</span><br><span class="line">			&lt;&#x2F;executions&gt;</span><br><span class="line">		&lt;&#x2F;plugin&gt;</span><br><span class="line">	&lt;&#x2F;plugins&gt;</span><br><span class="line">&lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Maven高级"><a href="#Maven高级" class="headerlink" title="Maven高级"></a>Maven高级</h4><ul>
+<li>pojo模块拆分</li>
+<li>dao模块拆分</li>
+<li>service模块拆分</li>
+<li>controller模块拆分</li>
+</ul>
+<h5 id="分模块开发与设计"><a href="#分模块开发与设计" class="headerlink" title="分模块开发与设计"></a>分模块开发与设计</h5><ul>
+<li>模块中仅包含当前模块对应的功能类与配置文件</li>
+<li>spring核心配置根据模块功能不同进行独立制作</li>
+<li>当前模块所依赖的模块通过导入坐标的形式加入当前模块后才可以使用</li>
+<li>web.xml需要加载所有的spring核心配置文件</li>
+</ul>
+<h5 id="继承和聚合"><a href="#继承和聚合" class="headerlink" title="继承和聚合"></a>继承和聚合</h5><h6 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h6><ul>
+<li><p>作用：聚合用于快速构建maven工程，一次性构建多个项目/模块</p>
+</li>
+<li><p>制作方式：</p>
+<ul>
+<li>创建一个空模块，打包类型定义为pom</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义当前模块进行构建操作时关联的其他模块名称</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">module</span>&gt;</span>../ssm_controller<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">module</span>&gt;</span>../ssm_service<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">module</span>&gt;</span>../ssm_dao<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">module</span>&gt;</span>../ssm_pojo<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意事项：参与聚合操作的模块最终执行顺序与模块间的依赖关系有关，与配置顺序无关</p>
+</li>
+</ul>
+<h6 id="继承-1"><a href="#继承-1" class="headerlink" title="继承"></a>继承</h6><ul>
+<li><p>作用：通过继承可以实现在子工程中沿用父工程中的配置</p>
+<ul>
+<li>maven中的继承与java中的继承相似，在子工程中配置继承关系</li>
+</ul>
+</li>
+<li><p>制作方式：</p>
+<ul>
+<li>在子工程中声明其父工程坐标与对应的位置</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--定义该工程的父工程--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.z2bns<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ssm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 填写父工程的pom文件--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">relativePath</span>&gt;</span>../ssm/pom.xml<span class="tag">&lt;/<span class="name">relativePath</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在父工程中定义依赖管理</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 声明此处进行依赖管理--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--具体的依赖--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--spring环境--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.9.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">denpendency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在子工程中定义依赖关系，无需声明依赖版本，版本参照父工程中依赖的版本</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--spring环境--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span></span></span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="继承和聚合比较"><a href="#继承和聚合比较" class="headerlink" title="继承和聚合比较"></a>继承和聚合比较</h6><ul>
+<li>作用<ul>
+<li>聚合用于快速构建项目</li>
+<li>继承用于快速配置</li>
+</ul>
+</li>
+<li>相同点：<ul>
+<li>聚合与继承的pom.xml文件打包方式均为pom，可以将两种关系制作到同一个pom文件中</li>
+<li>聚合与继承均属于设计型模块，并无实际的模块内容</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>聚合是在当前模块中配置关系，聚合可以感知到参与聚合的模块有哪些</li>
+<li>继承是在子模块中配置关系，父模块无法感知哪些子模块继承了自己</li>
+</ul>
+</li>
+</ul>
+<h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><h6 id><a href="#" class="headerlink" title=" "></a> </h6><h6 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h6><ul>
+<li><p>作用</p>
+<ul>
+<li>等同于定义变量，方便统一维护</li>
+</ul>
+</li>
+<li><p>定义格式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--定义自定义属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">spring.version</span>&gt;</span>5.1.9.RELEASE<span class="tag">&lt;/<span class="name">spring.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用格式</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;sprint.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="内置属性"><a href="#内置属性" class="headerlink" title="内置属性"></a>内置属性</h6><h6 id="Setting属性"><a href="#Setting属性" class="headerlink" title="Setting属性"></a>Setting属性</h6><h6 id="Java系统属性"><a href="#Java系统属性" class="headerlink" title="Java系统属性"></a>Java系统属性</h6><h6 id="环境变量属性"><a href="#环境变量属性" class="headerlink" title="环境变量属性"></a>环境变量属性</h6><h5 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h5><h6 id="工程版本"><a href="#工程版本" class="headerlink" title="工程版本"></a>工程版本</h6><ul>
+<li><p>SNAPSHOT（快照版本）</p>
+<ul>
+<li>项目开发过程中，为方便团队成员合作，解决模块间相互依赖和时时更新的问题，开发者对每个模块进行构建的时候，输出的临时性版本叫快照版本（测试阶段版本）</li>
+<li>快照版本会随着开发的进展不断更新</li>
+</ul>
+</li>
+<li><p>RELEASE（发布版本）</p>
+<ul>
+<li>项目开发到进入阶段里程碑后，向团队外部发布较为稳定的版本，这种版本所对应的构建文件时稳定的，即便进行功能的后续开发，也不会改变当前发布版本内容，这种版本称为发布版本</li>
+</ul>
+</li>
+</ul>
+<h6 id="工程版本号约定"><a href="#工程版本号约定" class="headerlink" title="工程版本号约定"></a>工程版本号约定</h6><ul>
+<li>约定规范<ul>
+<li>&lt;主版本&gt;&lt;次版本&gt;&lt;增量版本&gt;&lt;里程碑版本&gt;</li>
+</ul>
+</li>
+<li>范例：<ul>
+<li>5.1.9.RELEASE</li>
+</ul>
+</li>
+</ul>
+<h5 id="资源配置"><a href="#资源配置" class="headerlink" title="资源配置"></a>资源配置</h5><h6 id="配置文件引用pom属性"><a href="#配置文件引用pom属性" class="headerlink" title="配置文件引用pom属性"></a>配置文件引用pom属性</h6><ul>
+<li><p>作用</p>
+<ul>
+<li>在任意配置文件中加载pom文件中定义的属性</li>
+</ul>
+</li>
+<li><p>调用格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;jdbc.url&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启配置文件加载pom属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置资源文件对应的信息 --&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">	&lt;resource&gt;</span><br><span class="line">		&lt;!--设定配置文件对应的位置目录，支持使用属性动态设定路径--&gt;</span><br><span class="line">		&lt;directory&gt;$&#123;project.basedir&#125;&#x2F;src&#x2F;main&#x2F;resouces&lt;&#x2F;directory&gt;</span><br><span class="line">		&lt;!--开启对配置文件的资源加载过滤--&gt;</span><br><span class="line">		&lt;filtering&gt;true&lt;&#x2F;filtering&gt;</span><br><span class="line">	&lt;&#x2F;resource&gt;</span><br><span class="line">&lt;&#x2F;resources&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="多环境开发配置"><a href="#多环境开发配置" class="headerlink" title="多环境开发配置"></a>多环境开发配置</h5><h6 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h6><h6 id="加载指定环境"><a href="#加载指定环境" class="headerlink" title="加载指定环境"></a>加载指定环境</h6><h5 id="跳过测试"><a href="#跳过测试" class="headerlink" title="跳过测试"></a>跳过测试</h5><h6 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h6><ul>
+<li>整体模块功能未开发</li>
+<li>模块中某个功能未开发完毕</li>
+<li>单个功能更新调试导致其他功能失败</li>
+<li>快速打包</li>
+<li>……</li>
+</ul>
+<h6 id="跳过测试三种方式"><a href="#跳过测试三种方式" class="headerlink" title="跳过测试三种方式"></a>跳过测试三种方式</h6><ul>
+<li>使用命令跳过测试</li>
+<li>使用界面操作跳过测试</li>
+<li>使用配置跳过测试</li>
+</ul>
+<h5 id="私服"><a href="#私服" class="headerlink" title="私服"></a>私服</h5><h6 id="Nexus"><a href="#Nexus" class="headerlink" title="Nexus"></a>Nexus</h6><p>Nexus时Sonatype公司的一款maven私服产品</p>
+<h6 id="仓库分类"><a href="#仓库分类" class="headerlink" title="仓库分类"></a>仓库分类</h6><ul>
+<li>宿主仓库hosted<ul>
+<li>保存无法从中央仓库获取的资源<ul>
+<li>自主研发</li>
+<li>第三方非开源项目</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代理仓库proxy<ul>
+<li>代理远程仓库，通过nexus访问其他公共仓库，例如中央仓库</li>
+</ul>
+</li>
+<li>仓库组group<ul>
+<li>将若干个仓库组成一个群组，简化配置</li>
+<li>仓库组不能保存资源，属于设计型仓库</li>
+</ul>
+</li>
+</ul>
+<h6 id="资源上传"><a href="#资源上传" class="headerlink" title="资源上传"></a>资源上传</h6><ul>
+<li>上传资源时提供对应的信息<ul>
+<li>保存的位置（宿主仓库）</li>
+<li>资源文件</li>
+<li>对应坐标</li>
+</ul>
+</li>
+</ul>
+<h6 id="访问私服配置"><a href="#访问私服配置" class="headerlink" title="访问私服配置"></a>访问私服配置</h6><ul>
+<li><p>本地仓库访问私服</p>
+<ul>
+<li>配置本地仓库访问私服的权限（setting.xml）</li>
+<li>配置本地仓库资源来源（setting.xml）</li>
+</ul>
+</li>
+<li><p>项目工程访问私服</p>
+<ul>
+<li><p>配置当前项目访问私服上传资源的保存位置（pom.xml）</p>
+</li>
+<li><p>发布资源到私服命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn deploy</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><h5 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h5><p>Maven：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ah411S7ZE">【序员Maven全套教程，maven项目管理从基础到高级，Java项目开发必会管理工具maven】</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Z2BNS 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Z2BNS 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+	  
+	  
+	  <div>
+		
+		  <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:40px;">------------- THE END! <i class="fa fa-paw"></i> THANKS! -------------</div>
+    
+</div>
+
+		
+	  </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/01/Zookeeper/" rel="prev" title="Zookeeper">
+      <i class="fa fa-chevron-left"></i> Zookeeper
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/10/01/JavaWeb/" rel="next" title="JavaWeb">
+      JavaWeb <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">Maven基础入门</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Maven%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">Maven的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Maven%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">Maven的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%93%E5%BA%93"><span class="nav-number">1.3.</span> <span class="nav-text">仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9D%90%E6%A0%87"><span class="nav-number">1.4.</span> <span class="nav-text">坐标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Maven%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">Maven项目构建命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Maven%E6%8F%92%E4%BB%B6%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.6.</span> <span class="nav-text">Maven插件创建工程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAjava%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.6.1.</span> <span class="nav-text">创建java工程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAweb%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.6.2.</span> <span class="nav-text">创建web工程</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="nav-number">1.7.</span> <span class="nav-text">依赖管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E9%85%8D%E7%BD%AE"><span class="nav-number">1.7.1.</span> <span class="nav-text">依赖配置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E4%BC%A0%E9%80%92"><span class="nav-number">1.7.2.</span> <span class="nav-text">依赖传递</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E4%BC%A0%E9%80%92%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.7.3.</span> <span class="nav-text">依赖传递冲突问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%AF%E9%80%89%E4%BE%9D%E8%B5%96"><span class="nav-number">1.7.4.</span> <span class="nav-text">可选依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8E%92%E9%99%A4%E4%BE%9D%E8%B5%96"><span class="nav-number">1.7.5.</span> <span class="nav-text">排除依赖</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E8%8C%83%E5%9B%B4"><span class="nav-number">1.7.6.</span> <span class="nav-text">依赖范围</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%8E%E6%8F%92%E4%BB%B6"><span class="nav-number">1.8.</span> <span class="nav-text">生命周期与插件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.8.1.</span> <span class="nav-text">项目构建生命周期</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-number">1.8.2.</span> <span class="nav-text">插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven%E9%AB%98%E7%BA%A7"><span class="nav-number">2.</span> <span class="nav-text">Maven高级</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91%E4%B8%8E%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.1.</span> <span class="nav-text">分模块开发与设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E5%92%8C%E8%81%9A%E5%90%88"><span class="nav-number">2.2.</span> <span class="nav-text">继承和聚合</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">2.2.1.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E5%92%8C%E8%81%9A%E5%90%88%E6%AF%94%E8%BE%83"><span class="nav-number">2.2.3.</span> <span class="nav-text">继承和聚合比较</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">2.3.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.3.1.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7"><span class="nav-number">2.3.2.</span> <span class="nav-text">自定义属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="nav-number">2.3.3.</span> <span class="nav-text">内置属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Setting%E5%B1%9E%E6%80%A7"><span class="nav-number">2.3.4.</span> <span class="nav-text">Setting属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Java%E7%B3%BB%E7%BB%9F%E5%B1%9E%E6%80%A7"><span class="nav-number">2.3.5.</span> <span class="nav-text">Java系统属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%B1%9E%E6%80%A7"><span class="nav-number">2.3.6.</span> <span class="nav-text">环境变量属性</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E7%89%88%E6%9C%AC"><span class="nav-number">2.4.1.</span> <span class="nav-text">工程版本</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E7%89%88%E6%9C%AC%E5%8F%B7%E7%BA%A6%E5%AE%9A"><span class="nav-number">2.4.2.</span> <span class="nav-text">工程版本号约定</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E9%85%8D%E7%BD%AE"><span class="nav-number">2.5.</span> <span class="nav-text">资源配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8pom%E5%B1%9E%E6%80%A7"><span class="nav-number">2.5.1.</span> <span class="nav-text">配置文件引用pom属性</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AE"><span class="nav-number">2.6.</span> <span class="nav-text">多环境开发配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.6.1.</span> <span class="nav-text">多环境配置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E6%8C%87%E5%AE%9A%E7%8E%AF%E5%A2%83"><span class="nav-number">2.6.2.</span> <span class="nav-text">加载指定环境</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B7%B3%E8%BF%87%E6%B5%8B%E8%AF%95"><span class="nav-number">2.7.</span> <span class="nav-text">跳过测试</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.7.1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%B7%B3%E8%BF%87%E6%B5%8B%E8%AF%95%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">2.7.2.</span> <span class="nav-text">跳过测试三种方式</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A7%81%E6%9C%8D"><span class="nav-number">2.8.</span> <span class="nav-text">私服</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Nexus"><span class="nav-number">2.8.1.</span> <span class="nav-text">Nexus</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%93%E5%BA%93%E5%88%86%E7%B1%BB"><span class="nav-number">2.8.2.</span> <span class="nav-text">仓库分类</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E4%B8%8A%E4%BC%A0"><span class="nav-number">2.8.3.</span> <span class="nav-text">资源上传</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%8D%E9%85%8D%E7%BD%AE"><span class="nav-number">2.8.4.</span> <span class="nav-text">访问私服配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99"><span class="nav-number">3.1.</span> <span class="nav-text">学习资料</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Z2BNS"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Z2BNS</p>
+  <div class="site-description" itemprop="description">Because like, so love</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">262</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/z2bns/z2bns.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;z2bns&#x2F;z2bns.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip1234pinyin@163.com" title="E-Mail → mailto:vip1234pinyin@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_41137110" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_41137110" rel="noopener" target="_blank">CSDN</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://z2wnb.github.io/" title="https:&#x2F;&#x2F;z2wnb.github.io" rel="noopener" target="_blank">z2wnb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://zlw00.github.io/" title="https:&#x2F;&#x2F;zlw00.github.io" rel="noopener" target="_blank">zlw00</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.z2bns.com/" title="http:&#x2F;&#x2F;www.z2bns.com" rel="noopener" target="_blank">wordpress</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>  
+  
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Z2BNS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">357k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5:24</span>
+</div>
+
+
+<!-- 添加运行时间 -->
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2020,10,09,04,00,00); //北京时间2020-10-09 12:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<br/>
+<!--访客访问量-->
+<div class="powered-by">
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<i class="fa fa-user-md"></i>
+总访问量<span id="busuanzi_value_site_pv"></span>次
+<i class="fa fa-eye"></i>
+访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+</div>
+
+
+
+ 
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'KN0GiB19RNmgIeCSFonTGgzn-gzGzoHsz',
+      appKey     : 'MiL8FBp9YnzlJSeHuER1p7Ua',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  <!-- ҳ����С����-->
+<script type="text/javascript" src="/js/click-love.js"></script>
+
+<!-- ��̬���� -->
+
+<script color="255,96,47" opacity='0.8' zIndex="-2" count="200" type="text/javascript" src="/js/canvas-nest.min.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":280,"height":480},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

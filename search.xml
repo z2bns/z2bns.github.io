@@ -15958,12 +15958,6 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
       </tags>
   </entry>
   <entry>
-    <title>test_tupian</title>
-    <url>/2022/05/28/test-tupian/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><img src="/2022/05/28/test-tupian/image-20220528165008722.png" alt="image-20220528165008722"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>jpeg彩色图片压缩python实现</title>
     <url>/2022/05/17/jpeg%E5%BD%A9%E8%89%B2%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9python%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>代码：</p>
@@ -15975,5 +15969,694 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
       <tags>
         <tag>图像</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Dubbo</title>
+    <url>/2022/10/01/Dubbo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Dubbo是一款高性能、轻量级的开源Java RPC框架。</p>
+<a id="more"></a>
+<h5 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h5><h6 id="互联网项目架构目标—特点"><a href="#互联网项目架构目标—特点" class="headerlink" title="互联网项目架构目标—特点"></a>互联网项目架构目标—特点</h6><h6 id="互联网项目架构目标—目标"><a href="#互联网项目架构目标—目标" class="headerlink" title="互联网项目架构目标—目标"></a>互联网项目架构目标—目标</h6><h6 id="集群和分布式"><a href="#集群和分布式" class="headerlink" title="集群和分布式"></a>集群和分布式</h6><h6 id="架构演进"><a href="#架构演进" class="headerlink" title="架构演进"></a>架构演进</h6><h5 id="Dubbo概述"><a href="#Dubbo概述" class="headerlink" title="Dubbo概述"></a>Dubbo概述</h5><h5 id="Dubbo快速入门"><a href="#Dubbo快速入门" class="headerlink" title="Dubbo快速入门"></a>Dubbo快速入门</h5><h6 id="zookeeper安装"><a href="#zookeeper安装" class="headerlink" title="zookeeper安装"></a>zookeeper安装</h6><h6 id="spring和springmvc整合"><a href="#spring和springmvc整合" class="headerlink" title="spring和springmvc整合"></a>spring和springmvc整合</h6><h6 id="服务提供者"><a href="#服务提供者" class="headerlink" title="服务提供者"></a>服务提供者</h6><h6 id="服务消费者"><a href="#服务消费者" class="headerlink" title="服务消费者"></a>服务消费者</h6><h5 id="Dubbo高级特性"><a href="#Dubbo高级特性" class="headerlink" title="Dubbo高级特性"></a>Dubbo高级特性</h5><h6 id="dubbo-admin安装"><a href="#dubbo-admin安装" class="headerlink" title="dubbo-admin安装"></a>dubbo-admin安装</h6><h6 id="dubbo-admin使用"><a href="#dubbo-admin使用" class="headerlink" title="dubbo-admin使用"></a>dubbo-admin使用</h6><h6 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h6><h6 id="地址缓存"><a href="#地址缓存" class="headerlink" title="地址缓存"></a>地址缓存</h6><h6 id="超时重试"><a href="#超时重试" class="headerlink" title="超时重试"></a>超时重试</h6><h6 id="多版本"><a href="#多版本" class="headerlink" title="多版本"></a>多版本</h6><h6 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h6><h6 id="集群容错"><a href="#集群容错" class="headerlink" title="集群容错"></a>集群容错</h6><h6 id="服务降级"><a href="#服务降级" class="headerlink" title="服务降级"></a>服务降级</h6><h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://www.bilibili.com/video/BV1VE411q7dX?p=1">黑马视频教程</a></p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>IDEA快捷键和相关操作</title>
+    <url>/2022/06/07/IDEA%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%92%8C%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>IDEA编译器的常用快捷键</p>
+<a id="more"></a>
+<h6 id="1、类的结构视图"><a href="#1、类的结构视图" class="headerlink" title="1、类的结构视图"></a>1、类的结构视图</h6><p>alt+7</p>
+<h6 id="2、查看类的关系"><a href="#2、查看类的关系" class="headerlink" title="2、查看类的关系"></a>2、查看类的关系</h6><p>鼠标放到类名上，右键-&gt;Diagram-&gt;show Diagram</p>
+<h6 id="3、自动生成构造器"><a href="#3、自动生成构造器" class="headerlink" title="3、自动生成构造器"></a>3、自动生成构造器</h6><p>生成get、set方法 重写equals方法等：alt+insert</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础</title>
+    <url>/2022/06/03/Java%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Java基础复习笔记</p>
+<a id="more"></a>
+<h6 id="1、面向对象的三大特征是什么？"><a href="#1、面向对象的三大特征是什么？" class="headerlink" title="1、面向对象的三大特征是什么？"></a>1、面向对象的三大特征是什么？</h6><p>答: 封装、继承、多态</p>
+<h5 id="1、封装-Encapsulation"><a href="#1、封装-Encapsulation" class="headerlink" title="1、封装(Encapsulation)"></a>1、封装(Encapsulation)</h5><p>封转是指属性私有化</p>
+<ul>
+<li>根据需要提供setter和getter方法来访问属性</li>
+<li>隐藏具体属性和实现细节，仅对外开放接口</li>
+<li>控制程序中属性的访问级别</li>
+</ul>
+<p><strong>目的</strong>：增强数据安全性，不能让其他用户随意访问和修改数据，简化编程，使用者不必在意具体实现细节，而只是通过外部接口即可访问类的成员</p>
+<h5 id="2、继承（Extend）"><a href="#2、继承（Extend）" class="headerlink" title="2、继承（Extend）"></a>2、继承（Extend）</h5><p>继承是指将多个相同的属性和方法提取出来，新建一个父类</p>
+<ul>
+<li>java中一个类只能继承一个父类，且只能继承访问权限非private属性和方法</li>
+<li>子类可以重写父类中的方法，命名与父类中同名的属性</li>
+</ul>
+<p><strong>目的</strong>：代码复用</p>
+<h5 id="3、多态"><a href="#3、多态" class="headerlink" title="3、多态"></a>3、多态</h5><p>多态（Polymiorph）可以分为两种：设计时多态、运行时多态</p>
+<p>设计（编译）时多态：即重载（Overload），是指java允许方法名相同而参数不同（返回值可以相同也可以不同），同一个类中允许存在一个或多个以上的同名函数，只要参数类型或参数个数不同即可</p>
+<p>运行时多态：即重写（Override）必须是在继承体系中，子类重写父类方法，JVM运行时根据调用该方法的类型决定调用那个方法</p>
+<p><strong>目的</strong>：增加代码的灵活度</p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><code>总结：</code></h4><p>1、java中应尽量减少继承关系，以降低耦合度</p>
+<p>2、使用多态时，父类在调用方法时，优先调用子类的方法，如果子类没有重写父类的方法，则再调用父类的方法</p>
+<p>3、java访问控制符作用范围表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">本类</th>
+<th style="text-align:left">本包</th>
+<th style="text-align:left">子类</th>
+<th style="text-align:left">外部包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">public</td>
+<td style="text-align:left">✓</td>
+<td style="text-align:left">✓</td>
+<td style="text-align:left">✓</td>
+<td style="text-align:left">✓</td>
+</tr>
+<tr>
+<td style="text-align:left">protected</td>
+<td style="text-align:left">✓</td>
+<td style="text-align:left">✓</td>
+<td style="text-align:left">✓</td>
+<td style="text-align:left">X</td>
+</tr>
+<tr>
+<td style="text-align:left">default</td>
+<td style="text-align:left">✓</td>
+<td style="text-align:left">✓</td>
+<td style="text-align:left">X</td>
+<td style="text-align:left">X</td>
+</tr>
+<tr>
+<td style="text-align:left">private</td>
+<td style="text-align:left">✓</td>
+<td style="text-align:left">X</td>
+<td style="text-align:left">X</td>
+<td style="text-align:left">X</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>✓：可以访问 X：不可访问</p>
+<h6 id="2、继承的两个主要作用是什么？"><a href="#2、继承的两个主要作用是什么？" class="headerlink" title="2、继承的两个主要作用是什么？"></a>2、继承的两个主要作用是什么？</h6><p>答：代码复用和建模</p>
+<h6 id="3、JAVA中实现继承是哪个关键词？"><a href="#3、JAVA中实现继承是哪个关键词？" class="headerlink" title="3、JAVA中实现继承是哪个关键词？"></a>3、JAVA中实现继承是哪个关键词？</h6><p>答：extends</p>
+<h6 id="4、JAVA中的类继承，是单继承还是多继承？JAVA中其他地方有多继承吗？"><a href="#4、JAVA中的类继承，是单继承还是多继承？JAVA中其他地方有多继承吗？" class="headerlink" title="4、JAVA中的类继承，是单继承还是多继承？JAVA中其他地方有多继承吗？"></a>4、JAVA中的类继承，是单继承还是多继承？JAVA中其他地方有多继承吗？</h6><p>答：类是单继承，接口可以多继承</p>
+<h6 id="5、定义类时，没有使用extends，它的父类是什么？"><a href="#5、定义类时，没有使用extends，它的父类是什么？" class="headerlink" title="5、定义类时，没有使用extends，它的父类是什么？"></a>5、定义类时，没有使用extends，它的父类是什么？</h6><p>答：Object类</p>
+<h6 id="6、组合和继承的关系如何理解？"><a href="#6、组合和继承的关系如何理解？" class="headerlink" title="6、组合和继承的关系如何理解？"></a>6、组合和继承的关系如何理解？</h6><p>答：1、它们都可以实现代码的复用；2、继承处理的是is-a关系 组合处理的是has-a 关系</p>
+<h6 id="7、方法重写和方法重载有什么区别？"><a href="#7、方法重写和方法重载有什么区别？" class="headerlink" title="7、方法重写和方法重载有什么区别？"></a>7、方法重写和方法重载有什么区别？</h6><p>答：方法重载：就是在同一个类中，方法的名字相同，但参数个数、参数的类型或返回值类型不同！<br>方法重写：它是指子类和父类的关系，子类重写了父类的方法，但方法名、参数类型、参数个数必须相同！</p>
+<h6 id="8、final关键字修饰变量、方法、类，都分别表示什么含义？"><a href="#8、final关键字修饰变量、方法、类，都分别表示什么含义？" class="headerlink" title="8、final关键字修饰变量、方法、类，都分别表示什么含义？"></a>8、final关键字修饰变量、方法、类，都分别表示什么含义？</h6><p>答：修饰变量代表是常量，修饰方法不能被重写，修饰类不能被继承</p>
+<h6 id="9、一个类定义是时，没有使用extends，则它的父类是？"><a href="#9、一个类定义是时，没有使用extends，则它的父类是？" class="headerlink" title="9、一个类定义是时，没有使用extends，则它的父类是？"></a>9、一个类定义是时，没有使用extends，则它的父类是？</h6><p>答：Object类</p>
+<h6 id="10、Object中的toString-方法默认返回的字符串是什么含义？"><a href="#10、Object中的toString-方法默认返回的字符串是什么含义？" class="headerlink" title="10、Object中的toString()方法默认返回的字符串是什么含义？"></a>10、Object中的toString()方法默认返回的字符串是什么含义？</h6><p>答：类名@哈希地址</p>
+<h6 id="11、super关键字的含义是什么？"><a href="#11、super关键字的含义是什么？" class="headerlink" title="11、super关键字的含义是什么？"></a>11、super关键字的含义是什么？</h6><p>答：直接父类对象的引用</p>
+<h6 id="12、多态指的是什么？"><a href="#12、多态指的是什么？" class="headerlink" title="12、多态指的是什么？"></a>12、多态指的是什么？</h6><p>答：多态指的是同一个方法调用，由于对象不同可能会有不同的行为；多态是方法的多态，不是属性的多态（多态与属性无关）；父类引用指向子类对象后，用该父类引用调用子类重写的方法，此时多态就出现了</p>
+<h6 id="13、多态的三个必要条件是什么？"><a href="#13、多态的三个必要条件是什么？" class="headerlink" title="13、多态的三个必要条件是什么？"></a>13、多态的三个必要条件是什么？</h6><p>答：继承，方法重写，父类引用指向子类对象</p>
+<h6 id="14、抽象方法是什么？如何定义？"><a href="#14、抽象方法是什么？如何定义？" class="headerlink" title="14、抽象方法是什么？如何定义？"></a>14、抽象方法是什么？如何定义？</h6><p>答：使用abstract修饰的方法，没有方法体，只有声明。定义的是一种“规范“，就是告诉子类必须要给抽象方法提供具体的实现。</p>
+<h6 id="15、抽象类可以包含：属性、方法、构造方法；但是，我们不能通过抽象类创建对象"><a href="#15、抽象类可以包含：属性、方法、构造方法；但是，我们不能通过抽象类创建对象" class="headerlink" title="15、抽象类可以包含：属性、方法、构造方法；但是，我们不能通过抽象类创建对象"></a>15、抽象类可以包含：属性、方法、构造方法；但是，我们不能通过抽象类创建对象</h6><h6 id="16、接口定义规范，普通类定义实现，抽象类又有规范又有实现。"><a href="#16、接口定义规范，普通类定义实现，抽象类又有规范又有实现。" class="headerlink" title="16、接口定义规范，普通类定义实现，抽象类又有规范又有实现。"></a>16、接口定义规范，普通类定义实现，抽象类又有规范又有实现。</h6><h6 id="17、JDK1-8（含）以后，接口中不只可以定义：常量、抽象方法。还能定义默认方法、静态方法。"><a href="#17、JDK1-8（含）以后，接口中不只可以定义：常量、抽象方法。还能定义默认方法、静态方法。" class="headerlink" title="17、JDK1.8（含）以后，接口中不只可以定义：常量、抽象方法。还能定义默认方法、静态方法。"></a>17、JDK1.8（含）以后，接口中不只可以定义：常量、抽象方法。还能定义默认方法、静态方法。</h6><h6 id="18、接口中，默认方法和抽象方法有什么区别？"><a href="#18、接口中，默认方法和抽象方法有什么区别？" class="headerlink" title="18、接口中，默认方法和抽象方法有什么区别？"></a>18、接口中，默认方法和抽象方法有什么区别？</h6><p>答：抽象方法必须要被实现，默认方法不是。作为替代方式，接口可以提供默认方法的实现，所有这个接口的实现类都会通过继承得到这个方法。</p>
+<h6 id="19、接口中，默认方法和静态方法有什么区别？"><a href="#19、接口中，默认方法和静态方法有什么区别？" class="headerlink" title="19、接口中，默认方法和静态方法有什么区别？"></a>19、接口中，默认方法和静态方法有什么区别？</h6><p>答：静态方法直接从属于接口，可以通过接口名调用；</p>
+<h6 id="20、JAVA中，类是单继承，接口是多继承。"><a href="#20、JAVA中，类是单继承，接口是多继承。" class="headerlink" title="20、JAVA中，类是单继承，接口是多继承。"></a>20、JAVA中，类是单继承，接口是多继承。</h6><h6 id="21、写出八种基本数据类型对应的包装类的名字。"><a href="#21、写出八种基本数据类型对应的包装类的名字。" class="headerlink" title="21、写出八种基本数据类型对应的包装类的名字。"></a>21、写出八种基本数据类型对应的包装类的名字。</h6><p>答：byte-Byte;int-Integer;short-Short;char-Character;float-Float;double-Double;boolean-Boolean;long-Long</p>
+<h6 id="22、Number类和数字包装类的关系是什么？Number类是-抽象类吗？"><a href="#22、Number类和数字包装类的关系是什么？Number类是-抽象类吗？" class="headerlink" title="22、Number类和数字包装类的关系是什么？Number类是 抽象类吗？"></a>22、Number类和数字包装类的关系是什么？Number类是 抽象类吗？</h6><p>答：Number类是数字包装类的父类，Number是抽象类</p>
+<h6 id="23、包装类的两个基本作用是什么？"><a href="#23、包装类的两个基本作用是什么？" class="headerlink" title="23、包装类的两个基本作用是什么？"></a>23、包装类的两个基本作用是什么？</h6><p>答：1、作为和基本数据类型对应的类型存在，方便涉及到对象的操作，如Object[]、集合等的操作。</p>
+<p>2、包含每种基本数据类型的相关属性如最大值、最小值等，以及相关的操作方法（这些操作方法的作用是在基本数据类型、包装类对象、字符串之间提供相互之间的转化）</p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JavaWeb</title>
+    <url>/2022/10/01/JavaWeb/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Java Web，是用Java技术来解决相关web互联网领域的技术栈</p>
+<a id="more"></a>
+<p>JavaWeb整体介绍</p>
+<p>数据库相关概念</p>
+<p>MySQL安装</p>
+<p>MySQL数据模型</p>
+<p>SQL简介&amp;通用语法&amp;分类</p>
+<p>DDL操作数据库</p>
+<p>DDL操作表-查询表&amp;创建表</p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Maven</title>
+    <url>/2022/10/01/Maven/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件,用来项目构建和依赖管理。</p>
+<a id="more"></a>
+<h4 id="Maven基础入门"><a href="#Maven基础入门" class="headerlink" title="Maven基础入门"></a>Maven基础入门</h4><h5 id="Maven的概念"><a href="#Maven的概念" class="headerlink" title="Maven的概念"></a>Maven的概念</h5><ul>
+<li>Maven的本质是一个项目管理工具，将项目开发和管理过程抽象成一个项目对象模型（POM）</li>
+<li>POM（Project Object Model）：项目对象模型 </li>
+</ul>
+<h5 id="Maven的作用"><a href="#Maven的作用" class="headerlink" title="Maven的作用"></a>Maven的作用</h5><ul>
+<li>项目构建：提供标准的、跨平台的自动化项目构建方式</li>
+<li>依赖管理：方便快捷的管理项目依赖的资源（jar包），避免资源间的版本冲突问题</li>
+<li>统一开发结构：提供标准的、统一的项目结构</li>
+</ul>
+<h5 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h5><ul>
+<li>仓库：用于存储资源，包含各种jar包</li>
+<li>仓库分类：<ul>
+<li>本地仓库：自己电脑上存储资源的仓库，连接远程仓库获取资源</li>
+<li>远程仓库：非本机电脑上的仓库，为本地仓库提供资源<ul>
+<li>中央仓库：Maven团队维护，存储所有资源的仓库</li>
+<li>私服：部门/公司范围内存储资源的仓库，从中央仓库获取资源</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>私服的作用：<ul>
+<li>保存具有版权的资源，包含购买或自主研发的jar<ul>
+<li>中央仓库的jar都是开源的，不能存储具有版权的资源</li>
+</ul>
+</li>
+<li>一定范围内共享资源，仅对内部开放，不对外共享</li>
+</ul>
+</li>
+</ul>
+<h5 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h5><ul>
+<li><p>什么是坐标？</p>
+<p>Maven中的坐标用于描述仓库中资源的位置</p>
+<p><a href="https://repo1.maven.org/maven2/">https://repo1.maven.org/maven2/</a></p>
+</li>
+<li><p>Maven坐标主要组成</p>
+<p>groupId:定义当前Maven项目隶属组织名称（通常是域名反写，例如：org.mybatis）</p>
+<p>artifactId:定义当前Maven项目名称(通常是模块名称，例如CRM、SMS)</p>
+<p>version：定义当前项目版本号</p>
+<p>packaging：定义该项目的打包方式</p>
+</li>
+</ul>
+<h5 id="Maven项目构建命令"><a href="#Maven项目构建命令" class="headerlink" title="Maven项目构建命令"></a>Maven项目构建命令</h5><p>Maven构建命令使用mvn开头，后面添加功能参数，可以一次执行多个命令，使用空格分隔</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn compile #编译</span><br><span class="line">mvn clean   #清理</span><br><span class="line">mvn test    #测试</span><br><span class="line">mvn package #打包</span><br><span class="line">mvn install #安装到	本地仓库</span><br></pre></td></tr></table></figure>
+<h5 id="Maven插件创建工程"><a href="#Maven插件创建工程" class="headerlink" title="Maven插件创建工程"></a>Maven插件创建工程</h5><h6 id="创建java工程"><a href="#创建java工程" class="headerlink" title="创建java工程"></a>创建java工程</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId&#x3D;&#123;project-packaging&#125; -DartifactId&#x3D;&#123;project-name&#125; -DarchetypeArtifactId&#x3D;maven-archetype-quickstart -Dversion&#x3D;&#123;version&#125; -DinteractiveMode&#x3D;false</span><br></pre></td></tr></table></figure>
+<h6 id="创建web工程"><a href="#创建web工程" class="headerlink" title="创建web工程"></a>创建web工程</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId&#x3D;&#123;project-packaging&#125; -DartifactId&#x3D;&#123;project-name&#125; -DarchetypeArtifactId&#x3D;maven-archetype-webapp -Dversion&#x3D;&#123;version&#125; -DinteractiveMode&#x3D;false</span><br></pre></td></tr></table></figure>
+<h5 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h5><h6 id="依赖配置"><a href="#依赖配置" class="headerlink" title="依赖配置"></a>依赖配置</h6><ul>
+<li>依赖指当前项目运行所需的jar，一个项目可以设置多个依赖</li>
+<li>格式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 设置当前项目所依赖的所有jar --&gt;</span><br><span class="line">&lt;dependencies&gt;</span><br><span class="line">	&lt;!--设置具体的依赖--&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;!--依赖所属群组id --&gt;</span><br><span class="line">		&lt;groupId&gt;junit&lt;&#x2F;groupId&gt;</span><br><span class="line">		&lt;!--依赖所属项目id--&gt;</span><br><span class="line">		&lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">		&lt;!--依赖版本号--&gt;</span><br><span class="line">		&lt;version&gt;4.11&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="依赖传递"><a href="#依赖传递" class="headerlink" title="依赖传递"></a>依赖传递</h6><ul>
+<li>依赖具有传递性<ul>
+<li>直接依赖：在当前项目中通过依赖配置建立的依赖关系</li>
+<li>间接依赖：被依赖的资源如果依赖其他资源，当前项目间接依赖其他资源</li>
+</ul>
+</li>
+</ul>
+<h6 id="依赖传递冲突问题"><a href="#依赖传递冲突问题" class="headerlink" title="依赖传递冲突问题"></a>依赖传递冲突问题</h6><ul>
+<li><p>路径优先：当依赖中出现相同的资源时，层级越深，优先级越低，层级越浅，优先级越高</p>
+</li>
+<li><p>声明优先：当资源在相同层级被依赖时，配置顺序靠前的覆盖配置顺序靠后的</p>
+</li>
+<li><p>特殊优先：当同级配置了相同资源的不同版本，后配置的覆盖先配置的</p>
+</li>
+</ul>
+<h6 id="可选依赖"><a href="#可选依赖" class="headerlink" title="可选依赖"></a>可选依赖</h6><ul>
+<li>可选依赖指对外隐藏当前所依赖的资源——不透明</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;junit&gt;&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;4.12&lt;&#x2F;version&gt;</span><br><span class="line">	&lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="排除依赖"><a href="#排除依赖" class="headerlink" title="排除依赖"></a>排除依赖</h6><ul>
+<li>排除依赖指主动断开依赖的资源，被排除的资源无需制定版本——不需要</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;junit&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;4.12&lt;&#x2F;version&gt;</span><br><span class="line">	&lt;exclusions&gt;</span><br><span class="line">		&lt;exclusion&gt;</span><br><span class="line">			&lt;groupId&gt;org.hamcrest&lt;&#x2F;groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;hamcrest-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">		&lt;&#x2F;exclusion&gt;</span><br><span class="line">	&lt;exclusions&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h6><ul>
+<li>依赖的jar默认情况可以在任何地方使用，可以通过scope标签设定其作用范围</li>
+<li>作用范围<ul>
+<li>主程序范围有效（main文件夹范围内）</li>
+<li>测试程序范围有效（test文件夹范围内）</li>
+<li>是否参与打包（package指令范围内）</li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>scope</th>
+<th>主代码</th>
+<th>测试代码</th>
+<th>打包</th>
+<th>范例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compile(默认)</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>log4j</td>
+</tr>
+<tr>
+<td>test</td>
+<td></td>
+<td>Y</td>
+<td></td>
+<td>junit</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>Y</td>
+<td>Y</td>
+<td></td>
+<td>servlet-api</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td></td>
+<td></td>
+<td>Y</td>
+<td>jdbc</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="生命周期与插件"><a href="#生命周期与插件" class="headerlink" title="生命周期与插件"></a>生命周期与插件</h5><h6 id="项目构建生命周期"><a href="#项目构建生命周期" class="headerlink" title="项目构建生命周期"></a>项目构建生命周期</h6><ul>
+<li>Maven对项目构建的生命周期划分为3套<ul>
+<li>clean：清理工作</li>
+<li>default：核心工作，例如编译，测试，打包，部署等</li>
+<li>site：产生报告，发布站点等</li>
+</ul>
+</li>
+</ul>
+<h6 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h6><ul>
+<li>插件与生命周期内的阶段绑定，在执行到对应生命周期时执行对应的插件功能</li>
+<li>默认maven在各个生命周期上绑定有预设的功能</li>
+<li>通过插件可以自定义其他功能</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;plugins&gt;</span><br><span class="line">		&lt;plugin&gt;</span><br><span class="line">			&lt;groudId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;maven-source-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">			&lt;version&gt;2.2.1&lt;&#x2F;version&gt;</span><br><span class="line">			&lt;executions&gt;</span><br><span class="line">				&lt;execution&gt;</span><br><span class="line">					&lt;goals&gt;</span><br><span class="line">						&lt;goal&gt;jar&lt;&#x2F;goal&gt;</span><br><span class="line">					&lt;&#x2F;goals&gt;</span><br><span class="line">					&lt;phase&gt;generate-test-resources&lt;&#x2F;phase&gt;</span><br><span class="line">				&lt;&#x2F;execution&gt;</span><br><span class="line">			&lt;&#x2F;executions&gt;</span><br><span class="line">		&lt;&#x2F;plugin&gt;</span><br><span class="line">	&lt;&#x2F;plugins&gt;</span><br><span class="line">&lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Maven高级"><a href="#Maven高级" class="headerlink" title="Maven高级"></a>Maven高级</h4><ul>
+<li>pojo模块拆分</li>
+<li>dao模块拆分</li>
+<li>service模块拆分</li>
+<li>controller模块拆分</li>
+</ul>
+<h5 id="分模块开发与设计"><a href="#分模块开发与设计" class="headerlink" title="分模块开发与设计"></a>分模块开发与设计</h5><ul>
+<li>模块中仅包含当前模块对应的功能类与配置文件</li>
+<li>spring核心配置根据模块功能不同进行独立制作</li>
+<li>当前模块所依赖的模块通过导入坐标的形式加入当前模块后才可以使用</li>
+<li>web.xml需要加载所有的spring核心配置文件</li>
+</ul>
+<h5 id="继承和聚合"><a href="#继承和聚合" class="headerlink" title="继承和聚合"></a>继承和聚合</h5><h6 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h6><ul>
+<li><p>作用：聚合用于快速构建maven工程，一次性构建多个项目/模块</p>
+</li>
+<li><p>制作方式：</p>
+<ul>
+<li>创建一个空模块，打包类型定义为pom</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义当前模块进行构建操作时关联的其他模块名称</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">module</span>&gt;</span>../ssm_controller<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">module</span>&gt;</span>../ssm_service<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">module</span>&gt;</span>../ssm_dao<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">module</span>&gt;</span>../ssm_pojo<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意事项：参与聚合操作的模块最终执行顺序与模块间的依赖关系有关，与配置顺序无关</p>
+</li>
+</ul>
+<h6 id="继承-1"><a href="#继承-1" class="headerlink" title="继承"></a>继承</h6><ul>
+<li><p>作用：通过继承可以实现在子工程中沿用父工程中的配置</p>
+<ul>
+<li>maven中的继承与java中的继承相似，在子工程中配置继承关系</li>
+</ul>
+</li>
+<li><p>制作方式：</p>
+<ul>
+<li>在子工程中声明其父工程坐标与对应的位置</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--定义该工程的父工程--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.z2bns<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ssm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 填写父工程的pom文件--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">relativePath</span>&gt;</span>../ssm/pom.xml<span class="tag">&lt;/<span class="name">relativePath</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在父工程中定义依赖管理</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 声明此处进行依赖管理--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--具体的依赖--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--spring环境--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.9.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">denpendency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在子工程中定义依赖关系，无需声明依赖版本，版本参照父工程中依赖的版本</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--spring环境--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span></span></span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="继承和聚合比较"><a href="#继承和聚合比较" class="headerlink" title="继承和聚合比较"></a>继承和聚合比较</h6><ul>
+<li>作用<ul>
+<li>聚合用于快速构建项目</li>
+<li>继承用于快速配置</li>
+</ul>
+</li>
+<li>相同点：<ul>
+<li>聚合与继承的pom.xml文件打包方式均为pom，可以将两种关系制作到同一个pom文件中</li>
+<li>聚合与继承均属于设计型模块，并无实际的模块内容</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>聚合是在当前模块中配置关系，聚合可以感知到参与聚合的模块有哪些</li>
+<li>继承是在子模块中配置关系，父模块无法感知哪些子模块继承了自己</li>
+</ul>
+</li>
+</ul>
+<h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><h6 id><a href="#" class="headerlink" title=" "></a> </h6><h6 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h6><ul>
+<li><p>作用</p>
+<ul>
+<li>等同于定义变量，方便统一维护</li>
+</ul>
+</li>
+<li><p>定义格式：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--定义自定义属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">spring.version</span>&gt;</span>5.1.9.RELEASE<span class="tag">&lt;/<span class="name">spring.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用格式</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;sprint.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="内置属性"><a href="#内置属性" class="headerlink" title="内置属性"></a>内置属性</h6><h6 id="Setting属性"><a href="#Setting属性" class="headerlink" title="Setting属性"></a>Setting属性</h6><h6 id="Java系统属性"><a href="#Java系统属性" class="headerlink" title="Java系统属性"></a>Java系统属性</h6><h6 id="环境变量属性"><a href="#环境变量属性" class="headerlink" title="环境变量属性"></a>环境变量属性</h6><h5 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h5><h6 id="工程版本"><a href="#工程版本" class="headerlink" title="工程版本"></a>工程版本</h6><ul>
+<li><p>SNAPSHOT（快照版本）</p>
+<ul>
+<li>项目开发过程中，为方便团队成员合作，解决模块间相互依赖和时时更新的问题，开发者对每个模块进行构建的时候，输出的临时性版本叫快照版本（测试阶段版本）</li>
+<li>快照版本会随着开发的进展不断更新</li>
+</ul>
+</li>
+<li><p>RELEASE（发布版本）</p>
+<ul>
+<li>项目开发到进入阶段里程碑后，向团队外部发布较为稳定的版本，这种版本所对应的构建文件时稳定的，即便进行功能的后续开发，也不会改变当前发布版本内容，这种版本称为发布版本</li>
+</ul>
+</li>
+</ul>
+<h6 id="工程版本号约定"><a href="#工程版本号约定" class="headerlink" title="工程版本号约定"></a>工程版本号约定</h6><ul>
+<li>约定规范<ul>
+<li>&lt;主版本&gt;&lt;次版本&gt;&lt;增量版本&gt;&lt;里程碑版本&gt;</li>
+</ul>
+</li>
+<li>范例：<ul>
+<li>5.1.9.RELEASE</li>
+</ul>
+</li>
+</ul>
+<h5 id="资源配置"><a href="#资源配置" class="headerlink" title="资源配置"></a>资源配置</h5><h6 id="配置文件引用pom属性"><a href="#配置文件引用pom属性" class="headerlink" title="配置文件引用pom属性"></a>配置文件引用pom属性</h6><ul>
+<li><p>作用</p>
+<ul>
+<li>在任意配置文件中加载pom文件中定义的属性</li>
+</ul>
+</li>
+<li><p>调用格式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$&#123;jdbc.url&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启配置文件加载pom属性</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--配置资源文件对应的信息 --&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">	&lt;resource&gt;</span><br><span class="line">		&lt;!--设定配置文件对应的位置目录，支持使用属性动态设定路径--&gt;</span><br><span class="line">		&lt;directory&gt;$&#123;project.basedir&#125;&#x2F;src&#x2F;main&#x2F;resouces&lt;&#x2F;directory&gt;</span><br><span class="line">		&lt;!--开启对配置文件的资源加载过滤--&gt;</span><br><span class="line">		&lt;filtering&gt;true&lt;&#x2F;filtering&gt;</span><br><span class="line">	&lt;&#x2F;resource&gt;</span><br><span class="line">&lt;&#x2F;resources&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="多环境开发配置"><a href="#多环境开发配置" class="headerlink" title="多环境开发配置"></a>多环境开发配置</h5><h6 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h6><h6 id="加载指定环境"><a href="#加载指定环境" class="headerlink" title="加载指定环境"></a>加载指定环境</h6><h5 id="跳过测试"><a href="#跳过测试" class="headerlink" title="跳过测试"></a>跳过测试</h5><h6 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h6><ul>
+<li>整体模块功能未开发</li>
+<li>模块中某个功能未开发完毕</li>
+<li>单个功能更新调试导致其他功能失败</li>
+<li>快速打包</li>
+<li>……</li>
+</ul>
+<h6 id="跳过测试三种方式"><a href="#跳过测试三种方式" class="headerlink" title="跳过测试三种方式"></a>跳过测试三种方式</h6><ul>
+<li>使用命令跳过测试</li>
+<li>使用界面操作跳过测试</li>
+<li>使用配置跳过测试</li>
+</ul>
+<h5 id="私服"><a href="#私服" class="headerlink" title="私服"></a>私服</h5><h6 id="Nexus"><a href="#Nexus" class="headerlink" title="Nexus"></a>Nexus</h6><p>Nexus时Sonatype公司的一款maven私服产品</p>
+<h6 id="仓库分类"><a href="#仓库分类" class="headerlink" title="仓库分类"></a>仓库分类</h6><ul>
+<li>宿主仓库hosted<ul>
+<li>保存无法从中央仓库获取的资源<ul>
+<li>自主研发</li>
+<li>第三方非开源项目</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代理仓库proxy<ul>
+<li>代理远程仓库，通过nexus访问其他公共仓库，例如中央仓库</li>
+</ul>
+</li>
+<li>仓库组group<ul>
+<li>将若干个仓库组成一个群组，简化配置</li>
+<li>仓库组不能保存资源，属于设计型仓库</li>
+</ul>
+</li>
+</ul>
+<h6 id="资源上传"><a href="#资源上传" class="headerlink" title="资源上传"></a>资源上传</h6><ul>
+<li>上传资源时提供对应的信息<ul>
+<li>保存的位置（宿主仓库）</li>
+<li>资源文件</li>
+<li>对应坐标</li>
+</ul>
+</li>
+</ul>
+<h6 id="访问私服配置"><a href="#访问私服配置" class="headerlink" title="访问私服配置"></a>访问私服配置</h6><ul>
+<li><p>本地仓库访问私服</p>
+<ul>
+<li>配置本地仓库访问私服的权限（setting.xml）</li>
+<li>配置本地仓库资源来源（setting.xml）</li>
+</ul>
+</li>
+<li><p>项目工程访问私服</p>
+<ul>
+<li><p>配置当前项目访问私服上传资源的保存位置（pom.xml）</p>
+</li>
+<li><p>发布资源到私服命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn deploy</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><h5 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h5><p>Maven：<a href="https://www.bilibili.com/video/BV1Ah411S7ZE">【序员Maven全套教程，maven项目管理从基础到高级，Java项目开发必会管理工具maven】</a></p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Zookeeper</title>
+    <url>/2022/10/01/Zookeeper/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务。</p>
+<a id="more"></a>
+<h5 id="Zookeeper概念"><a href="#Zookeeper概念" class="headerlink" title="Zookeeper概念"></a>Zookeeper概念</h5><h5 id="Zookeeper安装"><a href="#Zookeeper安装" class="headerlink" title="Zookeeper安装"></a>Zookeeper安装</h5><h5 id="Zookeeper命令操作"><a href="#Zookeeper命令操作" class="headerlink" title="Zookeeper命令操作"></a>Zookeeper命令操作</h5><h6 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h6><h6 id="服务端命令"><a href="#服务端命令" class="headerlink" title="服务端命令"></a>服务端命令</h6><h6 id="客户端命令—基本CRUD"><a href="#客户端命令—基本CRUD" class="headerlink" title="客户端命令—基本CRUD"></a>客户端命令—基本CRUD</h6><h6 id="客户端命令—创建临时循序节点"><a href="#客户端命令—创建临时循序节点" class="headerlink" title="客户端命令—创建临时循序节点"></a>客户端命令—创建临时循序节点</h6><h5 id="Zookeeper-JavaAPI操作"><a href="#Zookeeper-JavaAPI操作" class="headerlink" title="Zookeeper JavaAPI操作"></a>Zookeeper JavaAPI操作</h5><h6 id="Curator介绍"><a href="#Curator介绍" class="headerlink" title="Curator介绍"></a>Curator介绍</h6><h6 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h6><h6 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h6><h6 id="查询节点"><a href="#查询节点" class="headerlink" title="查询节点"></a>查询节点</h6><h6 id="修改节点"><a href="#修改节点" class="headerlink" title="修改节点"></a>修改节点</h6><h6 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h6><h6 id="Watch监听概述"><a href="#Watch监听概述" class="headerlink" title="Watch监听概述"></a>Watch监听概述</h6><h6 id="Watch监听—NodeCache"><a href="#Watch监听—NodeCache" class="headerlink" title="Watch监听—NodeCache"></a>Watch监听—NodeCache</h6><h6 id="Watch监听—PathChildrenCache"><a href="#Watch监听—PathChildrenCache" class="headerlink" title="Watch监听—PathChildrenCache"></a>Watch监听—PathChildrenCache</h6><h6 id="Watch监听—TreeCache"><a href="#Watch监听—TreeCache" class="headerlink" title="Watch监听—TreeCache"></a>Watch监听—TreeCache</h6><h5 id="ZooKeeper分布式锁"><a href="#ZooKeeper分布式锁" class="headerlink" title="ZooKeeper分布式锁"></a>ZooKeeper分布式锁</h5><h6 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h6><h6 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h6><h6 id="模拟12306售票案例"><a href="#模拟12306售票案例" class="headerlink" title="模拟12306售票案例"></a>模拟12306售票案例</h6><h5 id="Zookeeper集群"><a href="#Zookeeper集群" class="headerlink" title="Zookeeper集群"></a>Zookeeper集群</h5><h6 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h6><h6 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h6><h6 id="故障测试"><a href="#故障测试" class="headerlink" title="故障测试"></a>故障测试</h6><h6 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h6>]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>SSM</title>
+    <url>/2022/10/01/ssm/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Spring+SpringMVC+Mybatis框架介绍</p>
+<a id="more"></a>
+<h5 id="Spring简介"><a href="#Spring简介" class="headerlink" title="Spring简介"></a>Spring简介</h5><h6 id="Spring是什么？"><a href="#Spring是什么？" class="headerlink" title="Spring是什么？"></a>Spring是什么？</h6><p>Spring是分层的Java SE/EE应用full-stack轻量级开源框架，以IoC（Inverse Of Control：控制反转）和AOP（Aspect Oriented Programming：面向切面编程）为内核。</p>
+<p>提供了展现层SpringMVC和持久层Spring JDBCTemplate以及业务事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的Java EE企业应用开源框架。</p>
+<h6 id="Spring发展历程"><a href="#Spring发展历程" class="headerlink" title="Spring发展历程"></a>Spring发展历程</h6><h6 id="Spring的优势"><a href="#Spring的优势" class="headerlink" title="Spring的优势"></a>Spring的优势</h6><ol>
+<li>方便解耦，简化开发</li>
+<li>AOP编程的支持</li>
+<li>声明式事务的支持</li>
+<li>方便程序的测试</li>
+<li>方便集成各种优秀框架</li>
+<li>降低JavaEE API的使用难度</li>
+<li>Java源码是经典学习范例</li>
+</ol>
+<h6 id="Spring的体系结构"><a href="#Spring的体系结构" class="headerlink" title="Spring的体系结构"></a>Spring的体系结构</h6><h6 id="Spring程序开发步骤"><a href="#Spring程序开发步骤" class="headerlink" title="Spring程序开发步骤"></a>Spring程序开发步骤</h6><ol>
+<li>导入Spring开发的基本包坐标</li>
+<li>编写Dao接口和实现类</li>
+<li>创建Spring核心配置文件</li>
+<li>在Spring配置文件中配置UserDaoImpl</li>
+<li>使用Spring的API获得Bean实例</li>
+</ol>
+<h6 id="Spring快速入门代码实现"><a href="#Spring快速入门代码实现" class="headerlink" title="Spring快速入门代码实现"></a>Spring快速入门代码实现</h6><h5 id="Spring配置文件"><a href="#Spring配置文件" class="headerlink" title="Spring配置文件"></a>Spring配置文件</h5><h6 id="Bean标签基本配置"><a href="#Bean标签基本配置" class="headerlink" title="Bean标签基本配置"></a>Bean标签基本配置</h6><p>用于配置对象交由Spring来创建</p>
+<p>默认情况下它调用的是类中的无参构造函数，如果没有无参构造函数则不能创建成功。</p>
+<p>基本属性：</p>
+<ul>
+<li>id：Bean实例在Spring容器中的唯一标识</li>
+<li>class：Bean的全限定名称</li>
+</ul>
+<h6 id="Bean标签范围配置"><a href="#Bean标签范围配置" class="headerlink" title="Bean标签范围配置"></a>Bean标签范围配置</h6><p>scope：指对象的作用范围，取值如下：</p>
+<ul>
+<li>singleton——默认值，单例的</li>
+<li>prototype——多例的</li>
+<li>request</li>
+<li>session</li>
+<li>global session</li>
+</ul>
+<h6 id="Bean生命周期配置"><a href="#Bean生命周期配置" class="headerlink" title="Bean生命周期配置"></a>Bean生命周期配置</h6><ul>
+<li>init-method：指定类中的初始化方法名称</li>
+<li>destroy-method：指定类中销毁方法名称</li>
+</ul>
+<h6 id="Bean实例化三种方式"><a href="#Bean实例化三种方式" class="headerlink" title="Bean实例化三种方式"></a>Bean实例化三种方式</h6><ul>
+<li>无参构造方法实例化</li>
+<li>工厂静态方法实例化</li>
+<li>工厂实例方法实例化</li>
+</ul>
+<h6 id="依赖注入概念"><a href="#依赖注入概念" class="headerlink" title="依赖注入概念"></a>依赖注入概念</h6><p>依赖注入（Dependency Injection）：它是Spring框架核心IOC的具体实现。</p>
+<h6 id="依赖注入方式"><a href="#依赖注入方式" class="headerlink" title="依赖注入方式"></a>依赖注入方式</h6><ul>
+<li>构造方法</li>
+<li>set方法</li>
+</ul>
+<h6 id="依赖注入的数据类型"><a href="#依赖注入的数据类型" class="headerlink" title="依赖注入的数据类型"></a>依赖注入的数据类型</h6><ul>
+<li>注入数据的三种数据类型<ul>
+<li>普通数据类型</li>
+<li>引用数据类型</li>
+<li>集合数据类型</li>
+</ul>
+</li>
+</ul>
+<h6 id="引入其他配置文件（分模块开发）"><a href="#引入其他配置文件（分模块开发）" class="headerlink" title="引入其他配置文件（分模块开发）"></a>引入其他配置文件（分模块开发）</h6><p>可以将部分配置拆解到其他配置文件中，在Spring主配置文件通过import标签进行加载</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">&quot;applicationContext-xxx.xml&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="Spring配置数据源"><a href="#Spring配置数据源" class="headerlink" title="Spring配置数据源"></a>Spring配置数据源</h5><h6 id="数据源（连接池）的作用"><a href="#数据源（连接池）的作用" class="headerlink" title="数据源（连接池）的作用"></a>数据源（连接池）的作用</h6><ul>
+<li>数据源（连接池）是提高程序性能出现的</li>
+<li>实现实例化数据源，初始化部分连接资源</li>
+<li>使用连接资源时从数据源中获取</li>
+<li>使用完毕后将连接资源归还给数据源</li>
+</ul>
+<h6 id="常见数据源（连接池）"><a href="#常见数据源（连接池）" class="headerlink" title="常见数据源（连接池）"></a>常见数据源（连接池）</h6><p>DBCP、C3P0、BoneCP、Druid等 </p>
+<h6 id="数据源的开发步骤"><a href="#数据源的开发步骤" class="headerlink" title="数据源的开发步骤"></a>数据源的开发步骤</h6><h6 id="手动创建Druid数据源"><a href="#手动创建Druid数据源" class="headerlink" title="手动创建Druid数据源"></a>手动创建Druid数据源</h6><h6 id="抽取jdbc-properties文件"><a href="#抽取jdbc-properties文件" class="headerlink" title="抽取jdbc.properties文件"></a>抽取jdbc.properties文件</h6><h6 id="Spring产生数据源对象"><a href="#Spring产生数据源对象" class="headerlink" title="Spring产生数据源对象"></a>Spring产生数据源对象</h6><h6 id="Spring容器加载properties文件"><a href="#Spring容器加载properties文件" class="headerlink" title="Spring容器加载properties文件"></a>Spring容器加载properties文件</h6><h5 id="Spring注解开发"><a href="#Spring注解开发" class="headerlink" title="Spring注解开发"></a>Spring注解开发</h5><p>Spring是轻代码而重配置的框架，配置比较繁重，影响开发效率，所以注解开发是一种趋势，注解代替xml配置文件可以简化配置，提高开发效率。</p>
+<h6 id="Spring原始注解"><a href="#Spring原始注解" class="headerlink" title="Spring原始注解"></a>Spring原始注解</h6><p>Spring原始注解主要是替代<Bean>的配置</Bean></p>
+<p>注意：</p>
+<p>使用注解进行开发时，需要在applicationContext.xml中配置组件扫描，作用是指定哪个包及其子包下的Bean需要进行扫描以便识别使用注解配置的类、字段和方法。</p>
+<h6 id="Spring新注解"><a href="#Spring新注解" class="headerlink" title="Spring新注解"></a>Spring新注解</h6><p>使用上面注解还不能全部替代xml配置文件，还需要使用注解替代的配置如下：</p>
+<ul>
+<li>非自定义的Bean的配置：<bean></bean></li>
+<li>加载Properties文件的配置<Context:property-placeholder></Context:property-placeholder></li>
+<li>组件扫描的配置：<context:component-scan></context:component-scan></li>
+<li>引入其他文件：<import></import></li>
+</ul>
+<h6 id="Spring集成Junit"><a href="#Spring集成Junit" class="headerlink" title="Spring集成Junit"></a>Spring集成Junit</h6><h6 id="Spring集成web环境步骤"><a href="#Spring集成web环境步骤" class="headerlink" title="Spring集成web环境步骤"></a>Spring集成web环境步骤</h6><ul>
+<li>配置ContextLoaderListener监听器</li>
+<li>使用WebApplicationContextUtils获得应用上下文</li>
+</ul>
+<h5 id="SpringMVC简介"><a href="#SpringMVC简介" class="headerlink" title="SpringMVC简介"></a>SpringMVC简介</h5><p>SpringMVC是一种基于Java的实现MVC设计模型的请求驱动类型的轻量级Web框架，属于SpringFrameWork的后续产品，已经融合在Spring Web Flow中。</p>
+<p>SpringMVC已经成为目前最主流的MVC框架之一，并且随着Spring3.0的发布，全面超越Struts2，成为最优秀的MVC框架。它通过一套注解，让一个简单的Java类成为处理请求的控制器，而无需实现任何接口。同时，它还支持RESTful编程风格的请求。</p>
+<h6 id="SpringMVC快速入门"><a href="#SpringMVC快速入门" class="headerlink" title="SpringMVC快速入门"></a>SpringMVC快速入门</h6><p>需求：客户端发起请求，服务器端接受请求，执行逻辑并进行视图跳转</p>
+<p>开发步骤：</p>
+<ul>
+<li>导入SpringMVC相关坐标</li>
+<li>配置SpringMVC核心控制器DispathcerServlet</li>
+<li>创建Controller类和视图页面</li>
+<li>使用注解配置Controller类中业务方法的映射地址</li>
+<li>配置SpringMVC核心文件spring-mvc.xml</li>
+<li>客户端发起请求测试 </li>
+</ul>
+<h6 id="SpringMVC的数据响应方式"><a href="#SpringMVC的数据响应方式" class="headerlink" title="SpringMVC的数据响应方式"></a>SpringMVC的数据响应方式</h6><ol>
+<li>页面跳转<ul>
+<li>直接返回字符串</li>
+<li>通过ModelAndView对象返回</li>
+</ul>
+</li>
+<li>回写数据<ul>
+<li>直接返回字符串</li>
+<li>返回对象或集合</li>
+</ul>
+</li>
+</ol>
+<h6 id="SpringMVC获得请求数据"><a href="#SpringMVC获得请求数据" class="headerlink" title="SpringMVC获得请求数据"></a>SpringMVC获得请求数据</h6><p>客户端请求参数的格式是：name=value&amp;name=value…</p>
+<p>服务器端要获得请求的参数，有时还需要进行数据的封装，SpringMVC可以接收如下类型的参数：</p>
+<ul>
+<li>基本类型参数</li>
+<li>POJO类型参数</li>
+<li>数据类型参数</li>
+<li>集合类型参数</li>
+</ul>
+<h6 id="MVC获取数据细节"><a href="#MVC获取数据细节" class="headerlink" title="MVC获取数据细节"></a>MVC获取数据细节</h6><ul>
+<li>中文乱码问题</li>
+<li>@RequestParam和@PathVariable</li>
+<li>自定义类型转换器</li>
+<li>获得Servlet相关API</li>
+<li>@RequestHeader和@CookieValue</li>
+<li>文件上传</li>
+</ul>
+<h5 id="SpringMVC组件解析"><a href="#SpringMVC组件解析" class="headerlink" title="SpringMVC组件解析"></a>SpringMVC组件解析</h5><h6 id="SpringMVC执行流程"><a href="#SpringMVC执行流程" class="headerlink" title="SpringMVC执行流程"></a>SpringMVC执行流程</h6><h6 id="SpringMVC注解解析"><a href="#SpringMVC注解解析" class="headerlink" title="SpringMVC注解解析"></a>SpringMVC注解解析</h6><h6 id="SpringMVC组件扫描"><a href="#SpringMVC组件扫描" class="headerlink" title="SpringMVC组件扫描"></a>SpringMVC组件扫描</h6><h6 id="SpringMVC的XML配置"><a href="#SpringMVC的XML配置" class="headerlink" title="SpringMVC的XML配置"></a>SpringMVC的XML配置</h6><h5 id="SpringMVC数据响应"><a href="#SpringMVC数据响应" class="headerlink" title="SpringMVC数据响应"></a>SpringMVC数据响应</h5><h6 id="数据响应方式"><a href="#数据响应方式" class="headerlink" title="数据响应方式"></a>数据响应方式</h6><h6 id="页面跳转-返回字符"><a href="#页面跳转-返回字符" class="headerlink" title="页面跳转-返回字符"></a>页面跳转-返回字符</h6><h6 id="页面跳转-返回ModelAndView"><a href="#页面跳转-返回ModelAndView" class="headerlink" title="页面跳转-返回ModelAndView"></a>页面跳转-返回ModelAndView</h6><h6 id="回写数据-直接回写字符串"><a href="#回写数据-直接回写字符串" class="headerlink" title="回写数据-直接回写字符串"></a>回写数据-直接回写字符串</h6><h6 id="回写数据-直接回写json格式字符串"><a href="#回写数据-直接回写json格式字符串" class="headerlink" title="回写数据-直接回写json格式字符串"></a>回写数据-直接回写json格式字符串</h6><h6 id="回写数据-返回对象或集合"><a href="#回写数据-返回对象或集合" class="headerlink" title="回写数据-返回对象或集合"></a>回写数据-返回对象或集合</h6><h5 id="SpringMVC获得请求参数"><a href="#SpringMVC获得请求参数" class="headerlink" title="SpringMVC获得请求参数"></a>SpringMVC获得请求参数</h5><h6 id="请求参数类型"><a href="#请求参数类型" class="headerlink" title="请求参数类型"></a>请求参数类型</h6><h6 id="获得基本类型参数"><a href="#获得基本类型参数" class="headerlink" title="获得基本类型参数"></a>获得基本类型参数</h6><h6 id="获得POJO类型参数"><a href="#获得POJO类型参数" class="headerlink" title="获得POJO类型参数"></a>获得POJO类型参数</h6><h6 id="获得数据类型参数"><a href="#获得数据类型参数" class="headerlink" title="获得数据类型参数"></a>获得数据类型参数</h6><h6 id="获得集合类型参数"><a href="#获得集合类型参数" class="headerlink" title="获得集合类型参数"></a>获得集合类型参数</h6><h6 id="开启静态资源访问"><a href="#开启静态资源访问" class="headerlink" title="开启静态资源访问"></a>开启静态资源访问</h6><h6 id="配置全局乱码过滤器"><a href="#配置全局乱码过滤器" class="headerlink" title="配置全局乱码过滤器"></a>配置全局乱码过滤器</h6><h6 id="参数绑定注解"><a href="#参数绑定注解" class="headerlink" title="参数绑定注解"></a>参数绑定注解</h6><h6 id="Restful风格参数获取"><a href="#Restful风格参数获取" class="headerlink" title="Restful风格参数获取"></a>Restful风格参数获取</h6><h6 id="自定义类型转换器"><a href="#自定义类型转换器" class="headerlink" title="自定义类型转换器"></a>自定义类型转换器</h6><h6 id="获得Servlet相关API"><a href="#获得Servlet相关API" class="headerlink" title="获得Servlet相关API"></a>获得Servlet相关API</h6><h6 id="获得请求头信息"><a href="#获得请求头信息" class="headerlink" title="获得请求头信息"></a>获得请求头信息</h6><h5 id="SpringMVC请求-文件上传"><a href="#SpringMVC请求-文件上传" class="headerlink" title="SpringMVC请求-文件上传"></a>SpringMVC请求-文件上传</h5><h6 id="文件上传的原理"><a href="#文件上传的原理" class="headerlink" title="文件上传的原理"></a>文件上传的原理</h6><h6 id="单文件上传"><a href="#单文件上传" class="headerlink" title="单文件上传"></a>单文件上传</h6><h6 id="多文件上传"><a href="#多文件上传" class="headerlink" title="多文件上传"></a>多文件上传</h6><h5 id="JdbcTemplate基本使用"><a href="#JdbcTemplate基本使用" class="headerlink" title="JdbcTemplate基本使用"></a>JdbcTemplate基本使用</h5><h6 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h6><h6 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h6><h6 id="快速入门代码实现"><a href="#快速入门代码实现" class="headerlink" title="快速入门代码实现"></a>快速入门代码实现</h6><h6 id="spring产生模板对象分析"><a href="#spring产生模板对象分析" class="headerlink" title="spring产生模板对象分析"></a>spring产生模板对象分析</h6><h6 id="spring产生模板对象代码实现"><a href="#spring产生模板对象代码实现" class="headerlink" title="spring产生模板对象代码实现"></a>spring产生模板对象代码实现</h6><h6 id="常用操作-更新操作"><a href="#常用操作-更新操作" class="headerlink" title="常用操作-更新操作"></a>常用操作-更新操作</h6><h6 id="常用操作-查询操作"><a href="#常用操作-查询操作" class="headerlink" title="常用操作-查询操作"></a>常用操作-查询操作</h6><h5 id="Spring练习"><a href="#Spring练习" class="headerlink" title="Spring练习"></a>Spring练习</h5><h6 id="环境搭建步骤分析"><a href="#环境搭建步骤分析" class="headerlink" title="环境搭建步骤分析"></a>环境搭建步骤分析</h6><h6 id="环境搭建实现"><a href="#环境搭建实现" class="headerlink" title="环境搭建实现"></a>环境搭建实现</h6><h6 id="用户表和角色表分析"><a href="#用户表和角色表分析" class="headerlink" title="用户表和角色表分析"></a>用户表和角色表分析</h6><h6 id="角色列表展示分析"><a href="#角色列表展示分析" class="headerlink" title="角色列表展示分析"></a>角色列表展示分析</h6><h6 id="角色列表展示-controller层实现"><a href="#角色列表展示-controller层实现" class="headerlink" title="角色列表展示-controller层实现"></a>角色列表展示-controller层实现</h6><h6 id="角色列表展示-service和dao层实现"><a href="#角色列表展示-service和dao层实现" class="headerlink" title="角色列表展示-service和dao层实现"></a>角色列表展示-service和dao层实现</h6><h6 id="角色列表展示-配置实现"><a href="#角色列表展示-配置实现" class="headerlink" title="角色列表展示-配置实现"></a>角色列表展示-配置实现</h6><h6 id="角色列表展示-页面展示"><a href="#角色列表展示-页面展示" class="headerlink" title="角色列表展示-页面展示"></a>角色列表展示-页面展示</h6><h6 id="角色的添加操作"><a href="#角色的添加操作" class="headerlink" title="角色的添加操作"></a>角色的添加操作</h6><h6 id="用户列表展示"><a href="#用户列表展示" class="headerlink" title="用户列表展示"></a>用户列表展示</h6><h6 id="用户添加操作-添加页面展示"><a href="#用户添加操作-添加页面展示" class="headerlink" title="用户添加操作-添加页面展示"></a>用户添加操作-添加页面展示</h6><h6 id="用户添加操作-添加数据到数据库"><a href="#用户添加操作-添加数据到数据库" class="headerlink" title="用户添加操作-添加数据到数据库"></a>用户添加操作-添加数据到数据库</h6><h6 id="删除用户操作"><a href="#删除用户操作" class="headerlink" title="删除用户操作"></a>删除用户操作</h6><h5 id="SpringMVC拦截器"><a href="#SpringMVC拦截器" class="headerlink" title="SpringMVC拦截器"></a>SpringMVC拦截器</h5><h6 id="拦截器的作用"><a href="#拦截器的作用" class="headerlink" title="拦截器的作用"></a>拦截器的作用</h6><h6 id="interceptor和filter区别"><a href="#interceptor和filter区别" class="headerlink" title="interceptor和filter区别"></a>interceptor和filter区别</h6><h6 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h6><h6 id="快速入门详解"><a href="#快速入门详解" class="headerlink" title="快速入门详解"></a>快速入门详解</h6><h6 id="用户登录权限控制分析"><a href="#用户登录权限控制分析" class="headerlink" title="用户登录权限控制分析"></a>用户登录权限控制分析</h6><h6 id="用户登录权限控制代码实现"><a href="#用户登录权限控制代码实现" class="headerlink" title="用户登录权限控制代码实现"></a>用户登录权限控制代码实现</h6><h5 id="SpingMVC异常处理"><a href="#SpingMVC异常处理" class="headerlink" title="SpingMVC异常处理"></a>SpingMVC异常处理</h5><h6 id="异常处理的思路"><a href="#异常处理的思路" class="headerlink" title="异常处理的思路"></a>异常处理的思路</h6><h6 id="异常处理的方式"><a href="#异常处理的方式" class="headerlink" title="异常处理的方式"></a>异常处理的方式</h6><h6 id="简单异常处理器"><a href="#简单异常处理器" class="headerlink" title="简单异常处理器"></a>简单异常处理器</h6><h6 id="自定义异常处理器"><a href="#自定义异常处理器" class="headerlink" title="自定义异常处理器"></a>自定义异常处理器</h6><h5 id="aop简介"><a href="#aop简介" class="headerlink" title="aop简介"></a>aop简介</h5><h6 id="什么是aop"><a href="#什么是aop" class="headerlink" title="什么是aop"></a>什么是aop</h6><h6 id="aop的作用及其优势"><a href="#aop的作用及其优势" class="headerlink" title="aop的作用及其优势"></a>aop的作用及其优势</h6><h6 id="aop的底层实现"><a href="#aop的底层实现" class="headerlink" title="aop的底层实现"></a>aop的底层实现</h6><h6 id="基于jdk的动态代理"><a href="#基于jdk的动态代理" class="headerlink" title="基于jdk的动态代理"></a>基于jdk的动态代理</h6><h6 id="基于cglib的动态代理"><a href="#基于cglib的动态代理" class="headerlink" title="基于cglib的动态代理"></a>基于cglib的动态代理</h6><h6 id="aop相关概念"><a href="#aop相关概念" class="headerlink" title="aop相关概念"></a>aop相关概念</h6><h6 id="aop开发明确的事项和知识要点"><a href="#aop开发明确的事项和知识要点" class="headerlink" title="aop开发明确的事项和知识要点"></a>aop开发明确的事项和知识要点</h6><h5 id="xml方式实现aop"><a href="#xml方式实现aop" class="headerlink" title="xml方式实现aop"></a>xml方式实现aop</h5><h6 id="快速入门-1"><a href="#快速入门-1" class="headerlink" title="快速入门"></a>快速入门</h6><h6 id="切点表达式的写法"><a href="#切点表达式的写法" class="headerlink" title="切点表达式的写法"></a>切点表达式的写法</h6><h6 id="通知的种类"><a href="#通知的种类" class="headerlink" title="通知的种类"></a>通知的种类</h6><h6 id="切点表达式的抽取"><a href="#切点表达式的抽取" class="headerlink" title="切点表达式的抽取"></a>切点表达式的抽取</h6><h6 id="知识要点"><a href="#知识要点" class="headerlink" title="知识要点"></a>知识要点</h6><h5 id="注解方式实现aop"><a href="#注解方式实现aop" class="headerlink" title="注解方式实现aop"></a>注解方式实现aop</h5><h6 id="快速入门-2"><a href="#快速入门-2" class="headerlink" title="快速入门"></a>快速入门</h6><h6 id="注解通知种类和切点表达式抽取"><a href="#注解通知种类和切点表达式抽取" class="headerlink" title="注解通知种类和切点表达式抽取"></a>注解通知种类和切点表达式抽取</h6><h6 id="知识要点-1"><a href="#知识要点-1" class="headerlink" title="知识要点"></a>知识要点</h6><h5 id="Spring的编程式事务控制"><a href="#Spring的编程式事务控制" class="headerlink" title="Spring的编程式事务控制"></a>Spring的编程式事务控制</h5><h6 id="相关对象介绍"><a href="#相关对象介绍" class="headerlink" title="相关对象介绍"></a>相关对象介绍</h6><h6 id="PlatformTransactionManager"><a href="#PlatformTransactionManager" class="headerlink" title="PlatformTransactionManager"></a>PlatformTransactionManager</h6><h6 id="TransactionDefinition"><a href="#TransactionDefinition" class="headerlink" title="TransactionDefinition"></a>TransactionDefinition</h6><h6 id="TransactionStatus和知识要点"><a href="#TransactionStatus和知识要点" class="headerlink" title="TransactionStatus和知识要点"></a>TransactionStatus和知识要点</h6><h5 id="Spring基于xml的声明式事务控制"><a href="#Spring基于xml的声明式事务控制" class="headerlink" title="Spring基于xml的声明式事务控制"></a>Spring基于xml的声明式事务控制</h5><h6 id="什么是声明式事务控制"><a href="#什么是声明式事务控制" class="headerlink" title="什么是声明式事务控制"></a>什么是声明式事务控制</h6><h6 id="转账业务环境搭建"><a href="#转账业务环境搭建" class="headerlink" title="转账业务环境搭建"></a>转账业务环境搭建</h6><h6 id="快速入门-3"><a href="#快速入门-3" class="headerlink" title="快速入门"></a>快速入门</h6><h6 id="事务属性参数的配置"><a href="#事务属性参数的配置" class="headerlink" title="事务属性参数的配置"></a>事务属性参数的配置</h6><h6 id="知识要点-2"><a href="#知识要点-2" class="headerlink" title="知识要点"></a>知识要点</h6><h5 id="Spring基于注解的声明式事务控制"><a href="#Spring基于注解的声明式事务控制" class="headerlink" title="Spring基于注解的声明式事务控制"></a>Spring基于注解的声明式事务控制</h5><h6 id="快速入门-4"><a href="#快速入门-4" class="headerlink" title="快速入门"></a>快速入门</h6><h6 id="知识要点-3"><a href="#知识要点-3" class="headerlink" title="知识要点"></a>知识要点</h6><h5 id="Mybatis简介"><a href="#Mybatis简介" class="headerlink" title="Mybatis简介"></a>Mybatis简介</h5><h6 id="原始jdbc操作"><a href="#原始jdbc操作" class="headerlink" title="原始jdbc操作"></a>原始jdbc操作</h6><h6 id="mybatis的概述"><a href="#mybatis的概述" class="headerlink" title="mybatis的概述"></a>mybatis的概述</h6><h6 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h6><h6 id="知识小结"><a href="#知识小结" class="headerlink" title="知识小结"></a>知识小结</h6><h5 id="mybatis的映射文件概述"><a href="#mybatis的映射文件概述" class="headerlink" title="mybatis的映射文件概述"></a>mybatis的映射文件概述</h5><h5 id="mybatis的增删改查"><a href="#mybatis的增删改查" class="headerlink" title="mybatis的增删改查"></a>mybatis的增删改查</h5><h6 id="插入数据操作"><a href="#插入数据操作" class="headerlink" title="插入数据操作"></a>插入数据操作</h6><h6 id="插入数据注意点"><a href="#插入数据注意点" class="headerlink" title="插入数据注意点"></a>插入数据注意点</h6><h6 id="修改和删除操作"><a href="#修改和删除操作" class="headerlink" title="修改和删除操作"></a>修改和删除操作</h6><h6 id="知识小结-1"><a href="#知识小结-1" class="headerlink" title="知识小结"></a>知识小结</h6><h5 id="mybatis核心配置文件"><a href="#mybatis核心配置文件" class="headerlink" title="mybatis核心配置文件"></a>mybatis核心配置文件</h5><h6 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h6><h6 id="environments标签"><a href="#environments标签" class="headerlink" title="environments标签"></a>environments标签</h6><h6 id="mappers标签"><a href="#mappers标签" class="headerlink" title="mappers标签"></a>mappers标签</h6><h6 id="properties标签"><a href="#properties标签" class="headerlink" title="properties标签"></a>properties标签</h6><h6 id="typealiases标签"><a href="#typealiases标签" class="headerlink" title="typealiases标签"></a>typealiases标签</h6><h6 id="知识小结-2"><a href="#知识小结-2" class="headerlink" title="知识小结"></a>知识小结</h6><h5 id="mybatis相应API"><a href="#mybatis相应API" class="headerlink" title="mybatis相应API"></a>mybatis相应API</h5><h5 id="mybatis的dao层实现"><a href="#mybatis的dao层实现" class="headerlink" title="mybatis的dao层实现"></a>mybatis的dao层实现</h5><h6 id="传统实现方式"><a href="#传统实现方式" class="headerlink" title="传统实现方式"></a>传统实现方式</h6><h6 id="接口代理方式实现规范"><a href="#接口代理方式实现规范" class="headerlink" title="接口代理方式实现规范"></a>接口代理方式实现规范</h6><h6 id="接口代理方式代码实现"><a href="#接口代理方式代码实现" class="headerlink" title="接口代理方式代码实现"></a>接口代理方式代码实现</h6><h6 id="知识小结-3"><a href="#知识小结-3" class="headerlink" title="知识小结"></a>知识小结</h6><h5 id="mybatis映射文件深入"><a href="#mybatis映射文件深入" class="headerlink" title="mybatis映射文件深入"></a>mybatis映射文件深入</h5><h6 id="动态sql概述和环境搭建"><a href="#动态sql概述和环境搭建" class="headerlink" title="动态sql概述和环境搭建"></a>动态sql概述和环境搭建</h6><h6 id="动态sql-if"><a href="#动态sql-if" class="headerlink" title="动态sql-if"></a>动态sql-if</h6><h6 id="动态sql-foreach"><a href="#动态sql-foreach" class="headerlink" title="动态sql-foreach"></a>动态sql-foreach</h6><h6 id="动态sql-sql片段的抽取"><a href="#动态sql-sql片段的抽取" class="headerlink" title="动态sql-sql片段的抽取"></a>动态sql-sql片段的抽取</h6><h6 id="动态sql-知识小结"><a href="#动态sql-知识小结" class="headerlink" title="动态sql-知识小结"></a>动态sql-知识小结</h6><h5 id="mybatis核心配置文件深入"><a href="#mybatis核心配置文件深入" class="headerlink" title="mybatis核心配置文件深入"></a>mybatis核心配置文件深入</h5><h6 id="typeHandler概述"><a href="#typeHandler概述" class="headerlink" title="typeHandler概述"></a>typeHandler概述</h6><h6 id="typeHandler测试环境搭建"><a href="#typeHandler测试环境搭建" class="headerlink" title="typeHandler测试环境搭建"></a>typeHandler测试环境搭建</h6><h6 id="自定义DateTypeHandler实现"><a href="#自定义DateTypeHandler实现" class="headerlink" title="自定义DateTypeHandler实现"></a>自定义DateTypeHandler实现</h6><h6 id="plugins标签介绍和查询全部代码编写"><a href="#plugins标签介绍和查询全部代码编写" class="headerlink" title="plugins标签介绍和查询全部代码编写"></a>plugins标签介绍和查询全部代码编写</h6><h6 id="plugins分页助手代码实现"><a href="#plugins分页助手代码实现" class="headerlink" title="plugins分页助手代码实现"></a>plugins分页助手代码实现</h6><h6 id="plugins分页助手的分页相关数据获取"><a href="#plugins分页助手的分页相关数据获取" class="headerlink" title="plugins分页助手的分页相关数据获取"></a>plugins分页助手的分页相关数据获取</h6><h6 id="知识小结-4"><a href="#知识小结-4" class="headerlink" title="知识小结"></a>知识小结</h6><h5 id="mybatis的多表操作"><a href="#mybatis的多表操作" class="headerlink" title="mybatis的多表操作"></a>mybatis的多表操作</h5><h6 id="一对一模型介绍"><a href="#一对一模型介绍" class="headerlink" title="一对一模型介绍"></a>一对一模型介绍</h6><h6 id="订单环境代码实现"><a href="#订单环境代码实现" class="headerlink" title="订单环境代码实现"></a>订单环境代码实现</h6><h6 id="一对一的配置实现"><a href="#一对一的配置实现" class="headerlink" title="一对一的配置实现"></a>一对一的配置实现</h6><h6 id="一对多配置实现"><a href="#一对多配置实现" class="headerlink" title="一对多配置实现"></a>一对多配置实现</h6><h6 id="多对多配置实现"><a href="#多对多配置实现" class="headerlink" title="多对多配置实现"></a>多对多配置实现</h6><h6 id="知识小结-5"><a href="#知识小结-5" class="headerlink" title="知识小结"></a>知识小结</h6><h5 id="mybatis注解开发"><a href="#mybatis注解开发" class="headerlink" title="mybatis注解开发"></a>mybatis注解开发</h5><h6 id="常用注解介绍"><a href="#常用注解介绍" class="headerlink" title="常用注解介绍"></a>常用注解介绍</h6><h6 id="xml完成基本的crud"><a href="#xml完成基本的crud" class="headerlink" title="xml完成基本的crud"></a>xml完成基本的crud</h6><h6 id="注解完成基本的crud"><a href="#注解完成基本的crud" class="headerlink" title="注解完成基本的crud"></a>注解完成基本的crud</h6><h6 id="一对一的注解开发"><a href="#一对一的注解开发" class="headerlink" title="一对一的注解开发"></a>一对一的注解开发</h6><h6 id="一对多的注解开发"><a href="#一对多的注解开发" class="headerlink" title="一对多的注解开发"></a>一对多的注解开发</h6><h6 id="多对多注解开发"><a href="#多对多注解开发" class="headerlink" title="多对多注解开发"></a>多对多注解开发</h6><h5 id="ssm整合"><a href="#ssm整合" class="headerlink" title="ssm整合"></a>ssm整合</h5><h6 id="原始整合步骤概述"><a href="#原始整合步骤概述" class="headerlink" title="原始整合步骤概述"></a>原始整合步骤概述</h6><h6 id="原始整合方式环境搭建"><a href="#原始整合方式环境搭建" class="headerlink" title="原始整合方式环境搭建"></a>原始整合方式环境搭建</h6><h6 id="原始整合方式mybatis配置文件内容填充"><a href="#原始整合方式mybatis配置文件内容填充" class="headerlink" title="原始整合方式mybatis配置文件内容填充"></a>原始整合方式mybatis配置文件内容填充</h6><h6 id="原始整合方式spring和mvc配置文件内容填充"><a href="#原始整合方式spring和mvc配置文件内容填充" class="headerlink" title="原始整合方式spring和mvc配置文件内容填充"></a>原始整合方式spring和mvc配置文件内容填充</h6><h6 id="原始整合方式web-xml配置文件内容填充"><a href="#原始整合方式web-xml配置文件内容填充" class="headerlink" title="原始整合方式web.xml配置文件内容填充"></a>原始整合方式web.xml配置文件内容填充</h6><h6 id="原始整合方式-逻辑代码编写"><a href="#原始整合方式-逻辑代码编写" class="headerlink" title="原始整合方式-逻辑代码编写"></a>原始整合方式-逻辑代码编写</h6><h6 id="原始整合方式-测试"><a href="#原始整合方式-测试" class="headerlink" title="原始整合方式-测试"></a>原始整合方式-测试</h6><h6 id="mybatis整合spring实现"><a href="#mybatis整合spring实现" class="headerlink" title="mybatis整合spring实现"></a>mybatis整合spring实现</h6><h6 id="声明式事务控制实现"><a href="#声明式事务控制实现" class="headerlink" title="声明式事务控制实现"></a>声明式事务控制实现</h6><h5 id="IDEA快捷键"><a href="#IDEA快捷键" class="headerlink" title="IDEA快捷键"></a>IDEA快捷键</h5><p>查看接口对应的实现类：ctrl+alt+b</p>
+<p>今天7月20必须看完ssm</p>
+<p>21 22  23看完spring boot 然后做项目</p>
+<h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>方法内部类要访问变量必须要声明为final吗？</p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>秋招</title>
+    <url>/2022/10/01/%E7%A7%8B%E6%8B%9B%E5%85%AC%E5%8F%B8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>秋招投简历详情…</p>
+<a id="more"></a>
+<h6 id="腾讯招聘"><a href="#腾讯招聘" class="headerlink" title="腾讯招聘"></a>腾讯招聘</h6><p>腾讯学生招聘开始啦<br>请点击<a href="https://join.qq.com/judgetalent.html?rec_key=NRRbIHYPUuli_sYZUwL8wGP7R4y5CiDeJvvXL4Holug">https://join.qq.com/judgetalent.html?rec_key=NRRbIHYPUuli_sYZUwL8wGP7R4y5CiDeJvvXL4Holug</a><br>腾讯云学生招聘开始啦<br>请点击<a href="https://join.qq.com/judgetalent.html?rec_key=syJrc7-eJbq52_vACTEYm8K0FNqFJEy9EA0n30A7OPU">https://join.qq.com/judgetalent.html?rec_key=syJrc7-eJbq52_vACTEYm8K0FNqFJEy9EA0n30A7OPU</a></p>
+<p><del>小米 <a href="https://hr.xiaomi.com/campus">https://hr.xiaomi.com/campus</a></del>  </p>
+<p>腾讯音乐 <a href="https://join.tencentmusic.com/deliver">https://join.tencentmusic.com/deliver</a></p>
+<p>bilibili<a href="https://jobs.bilibili.com/campus/records?channel=bilibiliaccounts">https://jobs.bilibili.com/campus/records?channel=bilibiliaccounts</a></p>
+<p>阿里巴巴 <a href="https://talent.alibaba.com/campus/position-list?campusType=freshman&amp;lang=zh">https://talent.alibaba.com/campus/position-list?campusType=freshman&amp;lang=zh</a></p>
+<p>快手 <a href="https://campus.kuaishou.cn/">https://campus.kuaishou.cn/</a></p>
+<p>京东 <a href="https://campus.jd.com/">https://campus.jd.com/</a></p>
+<p>字节 <a href="https://jobs.bytedance.com/campus">https://jobs.bytedance.com/campus</a></p>
+<p>搜狐 <a href="https://hr.sohu.com/social-recruitment/sohu/43256#/">https://hr.sohu.com/social-recruitment/sohu/43256#/</a></p>
+<p>去哪儿网：<a href="https://campus.qunar.com/">https://campus.qunar.com/</a></p>
+<p>华为终端 <a href="https://career.huawei.com/reccampportal/portal5/index.html">https://career.huawei.com/reccampportal/portal5/index.html</a></p>
+<p>蚂蚁集团 <a href="https://talent.antgroup.com/campus">https://talent.antgroup.com/campus</a></p>
+<p>荣耀 <a href="https://career.hihonor.com/SU60eea919bef57c1023f6fe78/pb/school.html">https://career.hihonor.com/SU60eea919bef57c1023f6fe78/pb/school.html</a></p>
+<p>浙商银行 <a href="http://u.51job.com/iUr7Br8">http://u.51job.com/iUr7Br8</a></p>
+<p>百度 <a href="https://talent.baidu.com/jobs/center">https://talent.baidu.com/jobs/center</a></p>
+<p>360 <a href="https://360campus.zhiye.com/">https://360campus.zhiye.com/</a></p>
+<p>小红书 <a href="https://campus.xiaohongshu.com/">https://campus.xiaohongshu.com/</a></p>
+<p>美团 <a href="http://campus.meituan.com/">http://campus.meituan.com/</a></p>
+<p>海康威视 <a href="https://campushr.hikvision.com/home">https://campushr.hikvision.com/home</a></p>
+<p>oppo <a href="https://careers.oppo.com/campus/post/home">https://careers.oppo.com/campus/post/home</a></p>
+<p>浪潮 <a href="https://wx64310b3064348282.hcmcloud.cn/recruit#/progress_detail?id=2409367&amp;company_id=8">https://wx64310b3064348282.hcmcloud.cn/recruit#/progress_detail?id=2409367&amp;company_id=8</a></p>
+<p>三一重工 <a href="http://sanycampus.zhiye.com/campus">http://sanycampus.zhiye.com/campus</a></p>
+<p>中国进出口银行 <a href="http://zhaopin.eximbank.gov.cn/#/recruitmentList">http://zhaopin.eximbank.gov.cn/#/recruitmentList</a></p>
+<p>国家开发银行 <a href="https://applyjob.chinahr.com/page/job/success?projectId=63183bab354c1706b3f5c288">https://applyjob.chinahr.com/page/job/success?projectId=63183bab354c1706b3f5c288</a></p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>简历</title>
+    <url>/2022/10/01/%E7%AE%80%E5%8E%86/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Welcome to my blog, enter password to read.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="3df2350554f0d004f669a25026271014fb2497d203c1603721e01345e08d4a84">04b96cf03f1b5d00286d72390b6bf2e0817acbfddb7147d2fcc01912c7f5c0f9713c9c317ba53b9347fde83c930f8c77af411014f8ec84eef7465f6027f6e56361da453a696c51ea2cf726ce74f4d1f870ba487ed6f2d242104af5c0877116b7f14bfb7a90c5973d12ee403d2035f9933239ae2447ed66790333bdf54ffb591262e25fa12dbcf137d44c19a6cd948ebafb15e73fa6eff6dc060b9040f5fe74ceda47dc32b97d576023487f051b3ba548d6ba50e2b500f2040aef18f59839ab6e1e75f19b19b2197541d212a3b8a50be74d4dcb775f19746dc5f65bb1d14038106d809a8f516785e6e320975209525d369518b3e93b5bec268679dda1396e30afe69c8f882a0bd5eacf54f501c1e3d2eca11efb656f7243c78049a6f7fd6bdef3231e64f30117af5dd6ab8173f5fd17cc33fbacf931f0592694b6580674a4e0042a1e08bbe75583a39a6317d6556b1f452570e8e6b9b3441daa50ab99763eefeb02d26542cda67e3e6c2f36fb7a5c1ce84d56cbdf365cdb2bfeff0fdb1f73b45da4421945bc2313585c9c658e79529fe126cff428b33b8ef6548200ea0b7c5554d97550ee67715e731258ee5dc449b2a3ce6803e9157a5a20ebd16f3c45b15e1b0fa6c0216f25b6c0f4c2a9eba1812f551f6107db551c7f95e6aefaf8fc43ff129c7d09eef25736710b0d9ee3dc4a498e2916f46875f17de55373e97ea5aefa1d6b3939cc235c1bae1387190ca3571ac7f78d26876a78f011c855442fac47d8a61bccfa4ff7c749869d7f464e27888497686558e0904e38c39624028234e2f650985c7b3881d6db82ba8d46929534503a047a0d436945cbb43e6ab09420074e4b85fc99eed7c46ffd043ebd25dcb3edca38bc6ee770036da1fcf60e3b4e4de7407c3bbf44d64811d93a92829aea19388e8ec9708756a21bfb5db23e78877fc587af320ac38f926062e6f0139eb1e4259e17b3056bb6e17c9bad859b4adc46586ba697f4d57c728a3c8106f4267154f13910432ef78b6e8a81252a89210735e3329be40914eae9ff4cc8d877fc39ee4f2e528d807c5da9d294a2dd43d89e124c0f25ecec8af06820a4fd50dd2f2e7b4db8eb24d8d10e890d9f79e3338f1fb7d09f1490d03ca9b89eb2ab9702d41932f06ea25dd56018322bb38ef0713f416b869dbe07f68d01a024726e3c5d4a660597fd2a00d32f4d88a9f48c436075628a33d17ea2c32cf05752b161b5650e8ece67ce3f8e22b747dfeff28f4fc25d0a0b9cf572b2d8e0c6d4847ba7f2f418150f3b8c5d8888f8a05c83f8290b3ad76053914a504588f6deaf0af54612d08dc2d74d55ddead956b813209cafbed889ecd23128f32f99921248a62f31ca5e477e900efc1de254de95e19719b76d22f23b583047b8b8138efc52ffc5252f13c65b0516769e57863ddd592fa1be9c608c35bb749b4aa52b1ad4100690a86be95eb40f216c89d69ab725992cab6b8f1b060ee08cfc95885d74e43c28fcf2dcbca8902eef4f198b20a67e7e94c782c42ed84b8acb44135c0b2fdfe8e4e77658ba853507ff612ac39e0c4d44ac0f5af071c528767429bda857bb251489ccb8feb9b1901ab0e161c237e3b66122d7f01fcf04959137a2bb100b349b7d1504d64629e2019314789bf2d10777d385f9f02a8a4b0056cbffdb52069e09ba78ef8830891a0529d542e3b0b7fefd42e7497dadd090e47c1ac41a3376446072c9bac40b0ec974017c05f97186990255f8d002ae497acaea769efffd7babf4b9b20da6d2c22c519a712dc3218ddd47e73d8ff1a62cf3f87521152b70b49c51977b93740d36c8d41e8ed4bd3722084766271178d1b418036982166b0f0f042b2819d130d1b0860db31c76e495abdf59ca8f72c4c5607874545bbf56f1dffa3bbbb3c6c61d96dbb13a93e5e3d18ba46a2ee50a035f96f368b2b6afc51978eaed32dfd4032517883be22be281dd0597ce5a0a55846c9adf90c147fa155c9a927bbf23285866bca1112e94dfa4600796e89e3576d046d3dc9a60a152d83a54e352c6d192072a0951a14732275ed0b5362f44e7d767fb02d8856d5fe98c1a2657582917b5d3911212fae0501d75acabf96aece0fdc270592c73726a5a8dc61b1ca8f43e8c20359d67962ad0c529c81280adfa650851f885f4d5947da8b351aac406e67b31113622d76faa8d1d03915ea9ed4f2cb8e3a77afde11ab75f784bc3139dc00bac68d4986d87e79dcf6ec8d08871267adac336814a688b75557077984a070c832476dbb2b73cbb548f626368f49fecc10a822d4f30c89370dbf6c9697c672ce4953514ce4b04803dc06138b2dbd345a53f7c8dc5e4181dc8ab46d3aa0b63e90ed76f9bf319f7565e00c53e907f3ceb5f30c694df126ee0a1bb764affe34de6ab64e6334c638faa71c0faa9d9720c85ee045e15f8f784883cf2d45555395f62694056f87b37bb4a90e03197b1abe18e5273319a372aecc63cde320f3728459430fe1a1469a1d73773031f690fdfff40abee58ded6ea6652af433b5e9d94c74896e5657f728d78b2452e3978f2d446badea28d052316c5a482d4fc865bc7479d348dc6bfa4d005726f8c991e4c27ecba5d6f7947a0ae3e40787cd4186f322b97b1a5369523179afb5b9990c6132dd82aaf3523e8dbcafb822294b7ba9d4cc5fecb93a47983f1fb2f4b0ce3e06b9e31e61b8357df8785b0f5f4ad4052bc2c736106aa384c4778a0900c950867d7b54b899dbc2b0ce65c940cb36f10c556c7af9ba19e500abdf2bf61fd32991659b98cda9810104e92edacc2f27576efb1c781044efa3e84cb8fffa78b074a6d816c0dcc13d8c8393956c151b5f9b234c2a671547ecc1e4c539d730242e41706d99b556b1caeeae72407acd1a34c1942cf9f01308da5442ec580792ca1fa9f06386146b47a2d6b753958c0c7dadebffd8260a105ec3cf39c2dc232a193985579224c7e952e099259e7fdb7655a464106d56c3d10ec2e1f8e9cb770d35a768aab683f413280d05e5dc9617984f4a60fb67dd535234b6613d921e012f415397892c6d3dcfa24f6033d178c03ff498a</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>项目概况</title>
+    <url>/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Java项目简介</p>
+<a id="more"></a>
+<h5 id="瑞吉外卖"><a href="#瑞吉外卖" class="headerlink" title="瑞吉外卖"></a>瑞吉外卖</h5><p><strong>项目介绍</strong></p>
+<p>本项目（瑞吉外卖）是专门为餐饮企业（餐厅、饭店）定制的一款软件产品，包括系统管理后台和移动端应用两部分。其中系统管理后台主要提供给餐饮企业内部员工使用，可以对餐厅的菜品、套餐、订单等进行管理维护。移动端应用主要提供给消费者使用，可以在线浏览菜品、添加购物车、下单等。</p>
+<p><strong>技术架构</strong></p>
+<p>本项目主要使用Maven+SSMP+MySqL+Redis+Nginx技术栈开发。</p>
+<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/1.png" alt="图片"></p>
+<p><strong>功能架构</strong></p>
+<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/2.png" alt="图片"></p>
+<p>移动端主要的功能有：手机号登录、地址管理、历史订单、菜品规格、购物车、下单、菜品浏览等。</p>
+<p>PC端主要实现的有：分类管理、菜品管理、套餐管理、菜品口味管理、员工登录登出、员工管理、订单管理。</p>
+<h6 id="上线展示"><a href="#上线展示" class="headerlink" title="上线展示"></a>上线展示</h6><p>PC端后台访问地址为：<a href="http://www.z2bns.com/backend/page/login/login.html">http://www.z2bns.com/backend/page/login/login.html</a></p>
+<p>测试账号为：admin 密码为1234</p>
+<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/3.png" alt="图片"></p>
+<p>移动端访问地址为：<a href="http://www.z2bns.com/front/page/login.html">http://www.z2bns.com/front/page/login.html</a></p>
+<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/4.png" alt="图片"></p>
+<h5 id="传智健康"><a href="#传智健康" class="headerlink" title="传智健康"></a>传智健康</h5><p><strong>项目介绍</strong></p>
+<p>传智健康管理系统是一款应用于健康管理机构的业务系统，实现健康管理机构工作内容可视化、会员管理专业化、健康评估数字化、健康干预流程化、知识库集成化，从而提高健康管理师的工作效率，加强与会员间的互动，增强管理者对健康管理机构运营情况的了解。</p>
+<p><strong>技术架构</strong></p>
+<p>本项目主要是使用Maven+SSM+Zookeeper+Dubbo+Spring Security等技术栈进行开发的</p>
+<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/5.png" alt="图片"></p>
+<h6 id="功能架构"><a href="#功能架构" class="headerlink" title="功能架构"></a>功能架构</h6><p>主要实现的功能有PC端的健康管理系统后台，和提供给会员进行体检预约的移动端（公众号开发）</p>
+<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/6.png" alt="图片"></p>
+<h6 id="上线展示-1"><a href="#上线展示-1" class="headerlink" title="上线展示"></a>上线展示</h6><p>PC端后台访问地址为：<a href="http://www.z2bns.com:82/login.html">http://www.z2bns.com:82/login.html</a></p>
+<p>测试账号为:admin，密码:admin</p>
+<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/7.png" alt="图片"></p>
+<p>移动端访问地址为：<a href="http://www.z2bns.com:83/m_setmeal.html">http://www.z2bns.com:83/m_setmeal.html</a></p>
+<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/8.png" alt="图片"></p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
   </entry>
 </search>
