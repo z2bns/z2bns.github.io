@@ -16578,30 +16578,302 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
     <url>/2022/10/01/%E7%A7%8B%E6%8B%9B%E5%85%AC%E5%8F%B8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>秋招投简历详情…</p>
 <a id="more"></a>
-<h6 id="腾讯招聘"><a href="#腾讯招聘" class="headerlink" title="腾讯招聘"></a>腾讯招聘</h6><p>腾讯学生招聘开始啦<br>请点击<a href="https://join.qq.com/judgetalent.html?rec_key=NRRbIHYPUuli_sYZUwL8wGP7R4y5CiDeJvvXL4Holug">https://join.qq.com/judgetalent.html?rec_key=NRRbIHYPUuli_sYZUwL8wGP7R4y5CiDeJvvXL4Holug</a><br>腾讯云学生招聘开始啦<br>请点击<a href="https://join.qq.com/judgetalent.html?rec_key=syJrc7-eJbq52_vACTEYm8K0FNqFJEy9EA0n30A7OPU">https://join.qq.com/judgetalent.html?rec_key=syJrc7-eJbq52_vACTEYm8K0FNqFJEy9EA0n30A7OPU</a></p>
-<p><del>小米 <a href="https://hr.xiaomi.com/campus">https://hr.xiaomi.com/campus</a></del>  </p>
-<p>腾讯音乐 <a href="https://join.tencentmusic.com/deliver">https://join.tencentmusic.com/deliver</a></p>
-<p>bilibili<a href="https://jobs.bilibili.com/campus/records?channel=bilibiliaccounts">https://jobs.bilibili.com/campus/records?channel=bilibiliaccounts</a></p>
-<p>阿里巴巴 <a href="https://talent.alibaba.com/campus/position-list?campusType=freshman&amp;lang=zh">https://talent.alibaba.com/campus/position-list?campusType=freshman&amp;lang=zh</a></p>
-<p>快手 <a href="https://campus.kuaishou.cn/">https://campus.kuaishou.cn/</a></p>
-<p>京东 <a href="https://campus.jd.com/">https://campus.jd.com/</a></p>
-<p>字节 <a href="https://jobs.bytedance.com/campus">https://jobs.bytedance.com/campus</a></p>
-<p>搜狐 <a href="https://hr.sohu.com/social-recruitment/sohu/43256#/">https://hr.sohu.com/social-recruitment/sohu/43256#/</a></p>
-<p>去哪儿网：<a href="https://campus.qunar.com/">https://campus.qunar.com/</a></p>
-<p>华为终端 <a href="https://career.huawei.com/reccampportal/portal5/index.html">https://career.huawei.com/reccampportal/portal5/index.html</a></p>
-<p>蚂蚁集团 <a href="https://talent.antgroup.com/campus">https://talent.antgroup.com/campus</a></p>
-<p>荣耀 <a href="https://career.hihonor.com/SU60eea919bef57c1023f6fe78/pb/school.html">https://career.hihonor.com/SU60eea919bef57c1023f6fe78/pb/school.html</a></p>
-<p>浙商银行 <a href="http://u.51job.com/iUr7Br8">http://u.51job.com/iUr7Br8</a></p>
-<p>百度 <a href="https://talent.baidu.com/jobs/center">https://talent.baidu.com/jobs/center</a></p>
-<p>360 <a href="https://360campus.zhiye.com/">https://360campus.zhiye.com/</a></p>
-<p>小红书 <a href="https://campus.xiaohongshu.com/">https://campus.xiaohongshu.com/</a></p>
-<p>美团 <a href="http://campus.meituan.com/">http://campus.meituan.com/</a></p>
-<p>海康威视 <a href="https://campushr.hikvision.com/home">https://campushr.hikvision.com/home</a></p>
-<p>oppo <a href="https://careers.oppo.com/campus/post/home">https://careers.oppo.com/campus/post/home</a></p>
-<p>浪潮 <a href="https://wx64310b3064348282.hcmcloud.cn/recruit#/progress_detail?id=2409367&amp;company_id=8">https://wx64310b3064348282.hcmcloud.cn/recruit#/progress_detail?id=2409367&amp;company_id=8</a></p>
-<p>三一重工 <a href="http://sanycampus.zhiye.com/campus">http://sanycampus.zhiye.com/campus</a></p>
-<p>中国进出口银行 <a href="http://zhaopin.eximbank.gov.cn/#/recruitmentList">http://zhaopin.eximbank.gov.cn/#/recruitmentList</a></p>
-<p>国家开发银行 <a href="https://applyjob.chinahr.com/page/job/success?projectId=63183bab354c1706b3f5c288">https://applyjob.chinahr.com/page/job/success?projectId=63183bab354c1706b3f5c288</a></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>公司</th>
+<th>地址</th>
+<th>状态</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>腾讯</td>
+<td><a href="https://join.qq.com/judgetalent.html?rec_key=NRRbIHYPUuli_sYZUwL8wGP7R4y5CiDeJvvXL4Holug">https://join.qq.com/judgetalent.html?rec_key=NRRbIHYPUuli_sYZUwL8wGP7R4y5CiDeJvvXL4Holug</a></td>
+<td>已测评</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>小米</td>
+<td><a href="https://hr.xiaomi.com/campus">https://hr.xiaomi.com/campus</a></td>
+<td>简历挂</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>腾讯音乐</td>
+<td><a href="https://join.tencentmusic.com/deliver">https://join.tencentmusic.com/deliver</a></td>
+<td>已笔试</td>
+<td>2022-09-26</td>
+</tr>
+<tr>
+<td>4</td>
+<td>bilibili</td>
+<td><a href="https://jobs.bilibili.com/campus/records?channel=bilibiliaccounts">https://jobs.bilibili.com/campus/records?channel=bilibiliaccounts</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>阿里巴巴</td>
+<td><a href="https://talent.alibaba.com/campus/position-list?campusType=freshman&amp;lang=zh">https://talent.alibaba.com/campus/position-list?campusType=freshman&amp;lang=zh</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>快手</td>
+<td><a href="https://campus.kuaishou.cn/">https://campus.kuaishou.cn/</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>京东</td>
+<td><a href="https://campus.jd.com/">https://campus.jd.com/</a></td>
+<td>已笔试</td>
+<td>2022-09-29</td>
+</tr>
+<tr>
+<td>8</td>
+<td>字节</td>
+<td><a href="https://jobs.bytedance.com/campus">https://jobs.bytedance.com/campus</a></td>
+<td>待笔试</td>
+<td>2022-10-09</td>
+</tr>
+<tr>
+<td>9</td>
+<td>搜狐</td>
+<td><a href="https://hr.sohu.com/social-recruitment/sohu/43256#/">https://hr.sohu.com/social-recruitment/sohu/43256#/</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>去哪儿网</td>
+<td><a href="https://campus.qunar.com/">https://campus.qunar.com/</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>华为终端</td>
+<td><a href="https://career.huawei.com/reccampportal/portal5/index.html">https://career.huawei.com/reccampportal/portal5/index.html</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>蚂蚁集团</td>
+<td><a href="https://talent.antgroup.com/campus">https://talent.antgroup.com/campus</a></td>
+<td>待笔试</td>
+<td>2022-10-12</td>
+</tr>
+<tr>
+<td>13</td>
+<td>荣耀</td>
+<td><a href="https://career.hihonor.com/SU60eea919bef57c1023f6fe78/pb/school.html">https://career.hihonor.com/SU60eea919bef57c1023f6fe78/pb/school.html</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>浙商银行</td>
+<td><a href="http://u.51job.com/iUr7Br8">http://u.51job.com/iUr7Br8</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>百度</td>
+<td><a href="https://talent.baidu.com/jobs/center">https://talent.baidu.com/jobs/center</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>360</td>
+<td><a href="https://360campus.zhiye.com/">https://360campus.zhiye.com/</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>小红书</td>
+<td><a href="https://campus.xiaohongshu.com/">https://campus.xiaohongshu.com/</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>美团</td>
+<td><a href="http://campus.meituan.com/">http://campus.meituan.com/</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>海康威视</td>
+<td><a href="https://campushr.hikvision.com/home">https://campushr.hikvision.com/home</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>oppo</td>
+<td><a href="https://careers.oppo.com/campus/post/home">https://careers.oppo.com/campus/post/home</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>浪潮</td>
+<td><a href="https://wx64310b3064348282.hcmcloud.cn/recruit#/progress_detail?id=2409367&amp;company_id=8">https://wx64310b3064348282.hcmcloud.cn/recruit#/progress_detail?id=2409367&amp;company_id=8</a></td>
+<td>已笔试</td>
+<td>2022-09-28</td>
+</tr>
+<tr>
+<td>22</td>
+<td>三一重工</td>
+<td><a href="http://sanycampus.zhiye.com/campus">http://sanycampus.zhiye.com/campus</a></td>
+<td>已笔试</td>
+<td>2022-09-28</td>
+</tr>
+<tr>
+<td>23</td>
+<td>中国进出口银行</td>
+<td><a href="http://zhaopin.eximbank.gov.cn/#/recruitmentList">http://zhaopin.eximbank.gov.cn/#/recruitmentList</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>国家开发银行</td>
+<td><a href="https://applyjob.chinahr.com/page/job/success?projectId=63183bab354c1706b3f5c288">https://applyjob.chinahr.com/page/job/success?projectId=63183bab354c1706b3f5c288</a></td>
+<td>简历筛选</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>中信银行</td>
+<td><a href="https://www.hotjob.cn/wt/chinaciticbank/web/index/campus">https://www.hotjob.cn/wt/chinaciticbank/web/index/campus</a></td>
+<td>已测评</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>中兴通讯</td>
+<td><a href="https://job.zte.com.cn/cn/campus-recruitment">https://job.zte.com.cn/cn/campus-recruitment</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>携程</td>
+<td><a href="https://job.ctrip.com/index.html#/">https://job.ctrip.com/index.html#/</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>索尼</td>
+<td><a href="https://i.51job.com/userset/my_apply.php?type=xy&amp;lang=c">https://i.51job.com/userset/my_apply.php?type=xy&amp;lang=c</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>顺丰</td>
+<td><a href="https://campus.sf-express.com/#/personalCenter">https://campus.sf-express.com/#/personalCenter</a></td>
+<td>已测评</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>4399</td>
+<td><a href="http://web.4399.com/campus/yjsgw/jishulei/#1157053">http://web.4399.com/campus/yjsgw/jishulei/#1157053</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>SmartX</td>
+<td><a href="https://www.smartx.com/campus/">https://www.smartx.com/campus/</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>海尔</td>
+<td><a href="http://maker.haier.net/">http://maker.haier.net/</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>中国电子科技南湖研究院</td>
+<td><a href="https://cnaeit.hotjob.cn/wt/CNAEIT/web/index/campus">https://cnaeit.hotjob.cn/wt/CNAEIT/web/index/campus</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>联想</td>
+<td><a href="https://campus.lenovo.com.cn/">https://campus.lenovo.com.cn/</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>突然心血来潮，想做一个帮助找工作的网站</p>
+<p>包含招聘公司信息（哪些公司招聘开始了）</p>
+<p>个人投递记录（包含投递状态）</p>
+<p>用户交流评论</p>
+<p>要是早两个月就好了，靠，现在秋招都快结束了，哈哈哈</p>
+<p>想了好多呀，包括注册个公司，去网上发布个需求找个前端，租个配置高一点的服务器，然后宣传网站</p>
+<p>或者后面找到工作后可以到网上接外包，接兼职</p>
+<p>不想了不想了，心血来潮想半小时了都 </p>
+<p>哈哈哈…</p>
 ]]></content>
       <categories>
         <category>工作</category>
@@ -16616,45 +16888,12 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
     <label for="hbePass">Welcome to my blog, enter password to read.</label>
     <div class="bottom-line"></div>
   </div>
-  <script id="hbeData" type="hbeData" data-hmacdigest="3df2350554f0d004f669a25026271014fb2497d203c1603721e01345e08d4a84">04b96cf03f1b5d00286d72390b6bf2e0817acbfddb7147d2fcc01912c7f5c0f9713c9c317ba53b9347fde83c930f8c77af411014f8ec84eef7465f6027f6e56361da453a696c51ea2cf726ce74f4d1f870ba487ed6f2d242104af5c0877116b7f14bfb7a90c5973d12ee403d2035f9933239ae2447ed66790333bdf54ffb591262e25fa12dbcf137d44c19a6cd948ebafb15e73fa6eff6dc060b9040f5fe74ceda47dc32b97d576023487f051b3ba548d6ba50e2b500f2040aef18f59839ab6e1e75f19b19b2197541d212a3b8a50be74d4dcb775f19746dc5f65bb1d14038106d809a8f516785e6e320975209525d369518b3e93b5bec268679dda1396e30afe69c8f882a0bd5eacf54f501c1e3d2eca11efb656f7243c78049a6f7fd6bdef3231e64f30117af5dd6ab8173f5fd17cc33fbacf931f0592694b6580674a4e0042a1e08bbe75583a39a6317d6556b1f452570e8e6b9b3441daa50ab99763eefeb02d26542cda67e3e6c2f36fb7a5c1ce84d56cbdf365cdb2bfeff0fdb1f73b45da4421945bc2313585c9c658e79529fe126cff428b33b8ef6548200ea0b7c5554d97550ee67715e731258ee5dc449b2a3ce6803e9157a5a20ebd16f3c45b15e1b0fa6c0216f25b6c0f4c2a9eba1812f551f6107db551c7f95e6aefaf8fc43ff129c7d09eef25736710b0d9ee3dc4a498e2916f46875f17de55373e97ea5aefa1d6b3939cc235c1bae1387190ca3571ac7f78d26876a78f011c855442fac47d8a61bccfa4ff7c749869d7f464e27888497686558e0904e38c39624028234e2f650985c7b3881d6db82ba8d46929534503a047a0d436945cbb43e6ab09420074e4b85fc99eed7c46ffd043ebd25dcb3edca38bc6ee770036da1fcf60e3b4e4de7407c3bbf44d64811d93a92829aea19388e8ec9708756a21bfb5db23e78877fc587af320ac38f926062e6f0139eb1e4259e17b3056bb6e17c9bad859b4adc46586ba697f4d57c728a3c8106f4267154f13910432ef78b6e8a81252a89210735e3329be40914eae9ff4cc8d877fc39ee4f2e528d807c5da9d294a2dd43d89e124c0f25ecec8af06820a4fd50dd2f2e7b4db8eb24d8d10e890d9f79e3338f1fb7d09f1490d03ca9b89eb2ab9702d41932f06ea25dd56018322bb38ef0713f416b869dbe07f68d01a024726e3c5d4a660597fd2a00d32f4d88a9f48c436075628a33d17ea2c32cf05752b161b5650e8ece67ce3f8e22b747dfeff28f4fc25d0a0b9cf572b2d8e0c6d4847ba7f2f418150f3b8c5d8888f8a05c83f8290b3ad76053914a504588f6deaf0af54612d08dc2d74d55ddead956b813209cafbed889ecd23128f32f99921248a62f31ca5e477e900efc1de254de95e19719b76d22f23b583047b8b8138efc52ffc5252f13c65b0516769e57863ddd592fa1be9c608c35bb749b4aa52b1ad4100690a86be95eb40f216c89d69ab725992cab6b8f1b060ee08cfc95885d74e43c28fcf2dcbca8902eef4f198b20a67e7e94c782c42ed84b8acb44135c0b2fdfe8e4e77658ba853507ff612ac39e0c4d44ac0f5af071c528767429bda857bb251489ccb8feb9b1901ab0e161c237e3b66122d7f01fcf04959137a2bb100b349b7d1504d64629e2019314789bf2d10777d385f9f02a8a4b0056cbffdb52069e09ba78ef8830891a0529d542e3b0b7fefd42e7497dadd090e47c1ac41a3376446072c9bac40b0ec974017c05f97186990255f8d002ae497acaea769efffd7babf4b9b20da6d2c22c519a712dc3218ddd47e73d8ff1a62cf3f87521152b70b49c51977b93740d36c8d41e8ed4bd3722084766271178d1b418036982166b0f0f042b2819d130d1b0860db31c76e495abdf59ca8f72c4c5607874545bbf56f1dffa3bbbb3c6c61d96dbb13a93e5e3d18ba46a2ee50a035f96f368b2b6afc51978eaed32dfd4032517883be22be281dd0597ce5a0a55846c9adf90c147fa155c9a927bbf23285866bca1112e94dfa4600796e89e3576d046d3dc9a60a152d83a54e352c6d192072a0951a14732275ed0b5362f44e7d767fb02d8856d5fe98c1a2657582917b5d3911212fae0501d75acabf96aece0fdc270592c73726a5a8dc61b1ca8f43e8c20359d67962ad0c529c81280adfa650851f885f4d5947da8b351aac406e67b31113622d76faa8d1d03915ea9ed4f2cb8e3a77afde11ab75f784bc3139dc00bac68d4986d87e79dcf6ec8d08871267adac336814a688b75557077984a070c832476dbb2b73cbb548f626368f49fecc10a822d4f30c89370dbf6c9697c672ce4953514ce4b04803dc06138b2dbd345a53f7c8dc5e4181dc8ab46d3aa0b63e90ed76f9bf319f7565e00c53e907f3ceb5f30c694df126ee0a1bb764affe34de6ab64e6334c638faa71c0faa9d9720c85ee045e15f8f784883cf2d45555395f62694056f87b37bb4a90e03197b1abe18e5273319a372aecc63cde320f3728459430fe1a1469a1d73773031f690fdfff40abee58ded6ea6652af433b5e9d94c74896e5657f728d78b2452e3978f2d446badea28d052316c5a482d4fc865bc7479d348dc6bfa4d005726f8c991e4c27ecba5d6f7947a0ae3e40787cd4186f322b97b1a5369523179afb5b9990c6132dd82aaf3523e8dbcafb822294b7ba9d4cc5fecb93a47983f1fb2f4b0ce3e06b9e31e61b8357df8785b0f5f4ad4052bc2c736106aa384c4778a0900c950867d7b54b899dbc2b0ce65c940cb36f10c556c7af9ba19e500abdf2bf61fd32991659b98cda9810104e92edacc2f27576efb1c781044efa3e84cb8fffa78b074a6d816c0dcc13d8c8393956c151b5f9b234c2a671547ecc1e4c539d730242e41706d99b556b1caeeae72407acd1a34c1942cf9f01308da5442ec580792ca1fa9f06386146b47a2d6b753958c0c7dadebffd8260a105ec3cf39c2dc232a193985579224c7e952e099259e7fdb7655a464106d56c3d10ec2e1f8e9cb770d35a768aab683f413280d05e5dc9617984f4a60fb67dd535234b6613d921e012f415397892c6d3dcfa24f6033d178c03ff498a</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="2da1c4adf3966d74512064f7f9f6c7ee94a23147203a2de24feb38b2cc5795cf">04b96cf03f1b5d00286d72390b6bf2e0817acbfddb7147d2fcc01912c7f5c0f9713c9c317ba53b9347fde83c930f8c77af411014f8ec84eef7465f6027f6e56361da453a696c51ea2cf726ce74f4d1f870ba487ed6f2d242104af5c0877116b7f14bfb7a90c5973d12ee403d2035f9933239ae2447ed66790333bdf54ffb591262e25fa12dbcf137d44c19a6cd948ebafb15e73fa6eff6dc060b9040f5fe74ceda47dc32b97d576023487f051b3ba548d6ba50e2b500f2040aef18f59839ab6e1e75f19b19b2197541d212a3b8a50be74d4dcb775f19746dc5f65bb1d14038106d809a8f516785e6e320975209525d369518b3e93b5bec268679dda1396e30afe69c8f882a0bd5eacf54f501c1e3d2eca11efb656f7243c78049a6f7fd6bdef3231e64f30117af5dd6ab8173f5fd17cc33fbacf931f0592694b6580674a4e0042a1e08bbe75583a39a6317d6556b1f452570e8e6b9b3441daa50ab99763eefeb02d26542cda67e3e6c2f36fb7a5c1ce84d56cbdf365cdb2bfeff0fdb1f73b45da4421945bc2313585c9c658e79529fe126cff428b33b8ef6548200ea0b7c5554d97550ee67715e731258ee5dc449b2a3ce6803e9157a5a20ebd16f3c45b15e1b0fa6c0216f25b6c0f4c2a9eba1812f551f6107db551c7f95e6aefaf8fc43ff129c7d09eef25736710b0d9ee3dc4a498e2916f46875f17de55373e97ea5aefa1d6b3939cc235c1bae1387190ca3571ac7f78d26876a78f011c855442fac47d8a63867231afae53640371948f689604cffed19ada295cd2e042a0db27dca5e07f5ea554add9db916d5407c0e3cd9db162f41a2d529c4a5e406d64f35c9d9e9304192f592832652c022c405cdf003978ea63df788a603d117cc84949343359f45fc790daa4f200110aa4c545ce2016355523d1d428e1cff213f2965356f8d3f3454f4132634a204bb3707c07e498e59fa376d269f9e044ab37e439983b91066361f41584653bc111dc6408f23f9f2a219c6c0556941d752b83b4e3b40745f0630f8f8aaa435bdf6cae0ca91edc44b9dd9c65af88855b4286008bc25396d0fbad7202e79333008b3c0f757080cf56df42ae76b45b259cc13cfe708659511ba748ce0e7634613c2b7cbff5bbda132d8c5c7c426de3c14b0b79ab2cc99a2a83a167673f47e5ebbf2d8f94d85279cd5208ffc16de403dcd842ffdf46b1abf6c3dead3199ea3aefa062977dd55837959f506888c241818d7ba5dc179fad0725e8235ab7bb254ee56f341ff0ec403f9f18abe30f7380113f6a121998a43717d699809440dea52dc99a8768b0d774e756ac2ece370492017d0f814b9b8a866a91d26a7e9fa255a7507330880205c763d378b510d2f14674330905874993a8de65eab9f66b352935718612b8307e8f225732e7659b893ba86de23f630e84c69d27f46d57a6a37ab6a1b3bb6f1b12fbea78f04dbc49aaf499deb11909b6bba807085c642d2cb87bd3a1cd98780b7233cd1ed444974ca367f1fe14cd75a3efe5499ddea0f5d266dd4cb7971f280540f3ea43b2898dc01055499a2e392df4808fffa72484c5bf2328334c7227018fae9f60be9ff35bc436bd09ba02993f1ad25aadacb89ca759d4e027280a1a4bc5e38315731314759dca07912c97ae781256bd5cf472401eb49406352863fa8e9267b9fad23da1dca8bed6c491365a6c35fe33c741b2a3a701f26981f7250af380b3d4ae0dd6c93a9e9866d13d2ba74e4b34a59be0d4c619881d80802639e55a4024bac3f27ec1447a28b7fac1227125446c7104db193f615785f8fbb410ee74803422ce041aad555b7598be4b9905371f8e1ea31de23096675196d845cf55df59ab0fa155ef3dc17b1e3a324c16d3ab04e6494c8979b1efaa429c9aa964d91d521025ddb0b34b05e8dc90ee37c710ed5532a4aee5b99a86d07096a924e6981dd829806235fc151e63056f5ae5dee302e590d1d9176a0ff39a6d7ad9971372d3acbda39caa659b73c9a65d7bdcf5a274e26e4692b860c52e041f369ea1f6494ff48e89aefeadd83767db54da0b032b24286262b27caa6d6cfef191391be3a4c5e8eb73be821afe40cebd537851759af73d8be8070bb46f19f8fd88bceceba7c2fc0537ae758cd207dfcd8e178b799ae46e9d043eebfb61b99e5670559af63af1e51e86e2a85ba4b94488e9a88e734849ed387f2250bd5c9f44f9bf5b6cf9200256b12caddc2b8c343ec72f6a0d499b3f5494c96a1b36bd5cbe57f1e32892bc29cec2504ae012929984a57e2a083e7e487665a5e0ae25f4cb8d8adad8f6f8dacc28fe4d66f0cf632578cfc2f61ec4f9fe56c019cef92eefc70f98d95d8913a4e95cb86535dccde52e7fccbabd9234f78662cff4cb774dff70bbbd5e9a79226ea8e3d6b0a9599a40c3e5612541ea8548238d2dc2b748f1961198ef7033fc4b75e3769ad1f9e927e57879281413644c4cbda8e83648c60f84aec80f655487532fb7e5febe2776ef2b7c86c288c180f907b842ea15e153ee50ad229859a831c35244074f278ee264bcfdbeea6d552a08f5b675af0e811a58584d37e9e0d2b66ba59e7b87ab9dd02be06d5cc8830c335a1cbd9298d483e4aca9d5a24354a691b3c91cca043f7c770b97731b10e5be3139b819c8103eaf6f4d4cf9fcf5873e661fafb07629108d7f8c81c2a29375649d185049330fc0dd9eb06336dcf0fe03912bc2981a5f8a9ed212fb509ce0f155dca1f583837953a30292b71e607ee7c1868c4da3db408d2e9467d7c5f475d737c6c8b4f4c44c9f8fa1acd9e043eb94c44a4dd5309b5e8f721b5d273ffb91dbdc511d492fccab4b860aaac6b946e00c47346a7d29c066d321310c22f8f25c860d63394b8cd824f523ce0a7e41defed6e759b0e7075f34588cdbf11adc43fd93abad4756da6600c6de196d6b54f56cc5c7cf5dbd48e0957389e60b4a24c2a11ead364fb8f1c7656e95f8f2e4542aad4c218ae52db2a5947b052af2c7dc4d60b9d4c9935716a5a72a59621b94fad4d3969ec25500453589cf4ef5ea8876196fadfc355501bcd80570c344fc00bd8490ba9d8b08c2336856fe7047d8ad4c7492bbe61eb0dd1d09c1bbdac70ded241c59d3331e702d40dc1f5f1b72f69c3056a0cc69220b12897bcaba8aa9c702bffd2c9b6ba6cab6f9a01bd34cb2cf96caded2f6af662fb1b3b694bc344bf25043a0e304b1db3e4f8d51872963c510808b8de6b206be5f2d47e32cd8f43feeb0137caa3f86de4c1bd58552c095631907fb63695577501450187249785baef2be709ec37ac8057d5b43f2b24bd49471c8a315e4880e985cfece9e7d2810ace0eeb12a4ae148a586fe9bacbbd246ff9f0a1e1a537fdd7d090f3b0065e8fb3d55ad4d261aefde21ae981e98e4fa4b19d54ee36673ca656813acc982e8afad65ac3caa16423e3d72b4803d243329d709dc24bb6786a582a7aaa84d3dc87cc2ba9034e8f67ac19733a06b045fe4148d3155f5f856f748f371588f5bc8ffcb56cdac05e3e6a97c934320c44b23026aac9f3dcfdee09f6fc350558135267bd0f2b880f4d0ec65f5a6384ffaf780d5f60f26c2dab891ff30f41e75ddcb22887ec89f43a9a612693d28d91f7236963d58e49e5a9d25de31867091dd454c8d8de36c1aa400281ad0f60c0cba7316d11c9c7d00ca8171d6b8d6cdb3667db8a4297b0dbd17fef5fe01c1b4b7804bd83253ed68b903ee04b714c561621b942b14c9b12a4e46c95b4297351954c82f943ad87e9c89470847edb44224652f3d5e5ce4152e8716a9cd00b343e2014ccb0ac5c2cc7c8446a4ecac54e6ebca9d85186e07b9c576d5a71d6e68de49d1ba19ccca75907de64df2140cceda1b71e74985fec6530688f201db901e8e9bf86eed0c1225942a6ce90cc416b750f91c4332c0e305d7a7ee5627009f358042971799f03b00a5a5800e0056f5c35da79d3fa43cd8066a6174eb5d6a852487be096e4e9c2772115c57a72ff89b9634043fe2128ff1bfe6499b7ecd7b2738c7e4b867cbe366e3d6363498156787c70c918ff369f885e7f24a669382c58d8363f04a2c72425991d2c634dcabeb3a588ba8a96e0f443b00a6aeb8597725c8d69a4bbdababca437420a111d011857af8066907d5ba44461243144c8131321934eb4c45ae97781f217214331571d5adea1695d05bda227703980f4a8641f3a396634e90d772ccba640690752976dbf8564434fb6d580b73597c36ade3b32387d6aa84348442d123d43614d3e1e5866fe37d7284d8bcd5ec3d7e62cac5bfe40eac715358f6bfce26b124c700e11e4de39775af59ee336334787c15e0431b3b052359f5333e99e0f8dd4546574b7d04403243c112745ee34fab69f9ac4ae1a383e69d70da931c2063fc1cd778d0e9f4372a61d8b19f02442590c574418045ef15d30f99d22ac1f5ab989d9a0857699b194702c5f776bce9fc05761261e9fcc61b92322d9b3be27b9b90ea9ee724a00081d921f9fbee6f1cc101cf31f272e55783d26162d6dcd6ab863390964e2c0fd4d94ee85521f7a1c3a6525dfa899ed3fdd3151c06647b6dfa3310f5dd52f8dba7830fa9cca149198e8d08999d3e39a35a5f28444b6c12d9a64d19644eb69a1fe77aa70b0920ced0233fedbbb4cf8f72a1f8711111b0a4e2ee62f2a2211736a87f60b790d48947311237590b2459d0d9bf20abc9c6c63d61ee2f36853c85b3caa316bb7334c45f953ff4f275a2ed06b97f8e07535d7c08ef163924d20856f62283d1270c13946c696564784a0ca031382b4e3cf27f5b60a15469f3c52a3e38d5d0b469ef0edbe105b38133cc20014518ffb00ff1988415226717ebebfeca7a03ac7ca2b22593d7583f48908320211b982321f9ef61a235672fc86a2bcb764be50c6ef1096fc87779e8587201bb856fa7afe79996b045c5df2045b465c192b7e63f1a6bd3997d6233754a414a31d0b36e742149d5bff560c456aba219cb550eec48e0fab7559a4ae7cd8623c9ff903dfbca074bda6b7787a3724d4ac65a83071837339b7f995c904d119ac2abfca7f01061ebd7e873b7e9a0ef662476d932f704ecfe043bda0dc30af2bf37c63f4bf12aecbe984343bfc2f6d13348b3445006d7fd007eb44534bf2d99f81cdd313b4476e39ef8d63a39bc91759104f9de9a105a8a8e0a5ecf192bc7824fbb9a4b3862d4ba636e84d760406265d1bf78e1cb1187f85ce190f05ff01d33a0a604dbbe26c287ff3a88f0e79addb1fe9792d87fefdd7ae71a9293ff60f127eec095a475311e69a1faaf30056f4256b9325f2f457980397a6efc533ad25171c67b9eddcdaaa9e755fd8d90eac660b7c5a183d784aea6e85e146a496b3f5b92a321bc04e3084217d6ed4862b54ffcbc2362e6f044228b91daab9b2630505c6bd974db7d95288b5e21c36e3845c8c339c731d90b40f8e8883ba7cfc8e7f88ed40b74a65365ce6a6f8a2267a7a29b7fd31f5781745cd10ea7fbdffaf43d811b54b928ef05ab019067fa0b3d4bda826beb0b60eb9ad1c01b33012383c676a618ed44a0c68af4fdd980c013776ab212e68afcac5b1e1fa9367efb510a0744c05c9c703fb2fc052e8517b705e07e56d3cc252980d105419439639d1</script>
 </div>
 <script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>工作</category>
       </categories>
-  </entry>
-  <entry>
-    <title>项目概况</title>
-    <url>/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Java项目简介</p>
-<a id="more"></a>
-<h5 id="瑞吉外卖"><a href="#瑞吉外卖" class="headerlink" title="瑞吉外卖"></a>瑞吉外卖</h5><p><strong>项目介绍</strong></p>
-<p>本项目（瑞吉外卖）是专门为餐饮企业（餐厅、饭店）定制的一款软件产品，包括系统管理后台和移动端应用两部分。其中系统管理后台主要提供给餐饮企业内部员工使用，可以对餐厅的菜品、套餐、订单等进行管理维护。移动端应用主要提供给消费者使用，可以在线浏览菜品、添加购物车、下单等。</p>
-<p><strong>技术架构</strong></p>
-<p>本项目主要使用Maven+SSMP+MySqL+Redis+Nginx技术栈开发。</p>
-<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/1.png" alt="图片"></p>
-<p><strong>功能架构</strong></p>
-<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/2.png" alt="图片"></p>
-<p>移动端主要的功能有：手机号登录、地址管理、历史订单、菜品规格、购物车、下单、菜品浏览等。</p>
-<p>PC端主要实现的有：分类管理、菜品管理、套餐管理、菜品口味管理、员工登录登出、员工管理、订单管理。</p>
-<h6 id="上线展示"><a href="#上线展示" class="headerlink" title="上线展示"></a>上线展示</h6><p>PC端后台访问地址为：<a href="http://www.z2bns.com/backend/page/login/login.html">http://www.z2bns.com/backend/page/login/login.html</a></p>
-<p>测试账号为：admin 密码为1234</p>
-<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/3.png" alt="图片"></p>
-<p>移动端访问地址为：<a href="http://www.z2bns.com/front/page/login.html">http://www.z2bns.com/front/page/login.html</a></p>
-<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/4.png" alt="图片"></p>
-<h5 id="传智健康"><a href="#传智健康" class="headerlink" title="传智健康"></a>传智健康</h5><p><strong>项目介绍</strong></p>
-<p>传智健康管理系统是一款应用于健康管理机构的业务系统，实现健康管理机构工作内容可视化、会员管理专业化、健康评估数字化、健康干预流程化、知识库集成化，从而提高健康管理师的工作效率，加强与会员间的互动，增强管理者对健康管理机构运营情况的了解。</p>
-<p><strong>技术架构</strong></p>
-<p>本项目主要是使用Maven+SSM+Zookeeper+Dubbo+Spring Security等技术栈进行开发的</p>
-<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/5.png" alt="图片"></p>
-<h6 id="功能架构"><a href="#功能架构" class="headerlink" title="功能架构"></a>功能架构</h6><p>主要实现的功能有PC端的健康管理系统后台，和提供给会员进行体检预约的移动端（公众号开发）</p>
-<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/6.png" alt="图片"></p>
-<h6 id="上线展示-1"><a href="#上线展示-1" class="headerlink" title="上线展示"></a>上线展示</h6><p>PC端后台访问地址为：<a href="http://www.z2bns.com:82/login.html">http://www.z2bns.com:82/login.html</a></p>
-<p>测试账号为:admin，密码:admin</p>
-<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/7.png" alt="图片"></p>
-<p>移动端访问地址为：<a href="http://www.z2bns.com:83/m_setmeal.html">http://www.z2bns.com:83/m_setmeal.html</a></p>
-<p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/8.png" alt="图片"></p>
-]]></content>
   </entry>
   <entry>
     <title>常见问题记录</title>
@@ -16694,6 +16933,33 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE/7.png" alt="图片"></p>
 <p>移动端访问地址为：<a href="http://www.z2bns.com:83/pages/setmeal.html">http://www.z2bns.com:83/pages/setmeal.html</a></p>
 <p><img src="/2022/10/01/%E9%A1%B9%E7%9B%AE/8.png" alt="图片"></p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>一些小想法</title>
+    <url>/2022/10/02/%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%83%B3%E6%B3%95/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Welcome to my blog, enter password to read.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="586a75ed397050c7784a9895a10fd28a0261d29c9a0a193c3a4e5fccf5bf5955">04b96cf03f1b5d00286d72390b6bf2e0817acbfddb7147d2fcc01912c7f5c0f9713c9c317ba53b9347fde83c930f8c77af411014f8ec84eef7465f6027f6e56361da453a696c51ea2cf726ce74f4d1f870ba487ed6f2d242104af5c0877116b7f14bfb7a90c5973d12ee403d2035f9933239ae2447ed66790333bdf54ffb591262e25fa12dbcf137d44c19a6cd948ebafb15e73fa6eff6dc060b9040f5fe74ceda47dc32b97d576023487f051b3ba548d6ba50e2b500f2040aef18f59839ab6e1e75f19b19b2197541d212a3b8a50be74d4dcb775f19746dc5f65bb1d14038106d809a8f516785e6e320975209525d369518b3e93b5bec268679dda1396e30afe69c8f882a0bd5eacf54f501c1e3d2ec96f895323cf63139b57919a8e80a0be741d4853f556c863e10c0e9b2cee5cd035b498898686f8d4b7268344ebb9cffe5a43a2ed8777b9d66867b45d11695455c703512ef95dba897769febd3072822e13c520ee720ccb83b1bd6e5ba4c6ba5fb9c19dd406d4518ec2e42fdc23199695bc218cb1fcc4bd44e72db8c8bde6e65fba8164175779eed15b6517279c60a737694e055ad3914c01d7c41b749a183635feed75e68325dd16930b32171dc7fce3c24ead1202a97927de754de834908b31bac39f5def1f39f33cbfd8b9d66ba1244af803bf9a44fcca2be69090416cbbf54f4a8a90a3277edc5dd0c826bf28acd5611d75a27450ec357fef70910a5d6f2630a02f3fdad18ac90697f0347acc9d7d81f3d850681b4df8236c8808e46eef8667de38da3b12ebcbc3f0051d5da04a10d55dbce2622337c6bbea59276fd222a622cb3c0e3ed45f7aedcaa7007d5536c4d3f42683d6a799f33990ff26e3ed0c7077f721089acaa2c8156143efef91ca8a8d681650366f6c5084f9d56ba0d61b3d0db38c1ca37c34ec79026bd1b246481d899576d48d1e107a5e6cd8a4bfe516913dd9eb7510f808066c0f1568c816bc1e4d2374399a0faf01fd61bf5416c33946b09bf954bacf50abc5aede19228bf3231470e1558b8c59531204053eddd5b4f8648072d00452f78db596b610813f9a885f33d9cf509dfd2d42d0262b6a53df9da884606b8af2414273d56ccae4916f2e5f679c3212e855024d5d85103c1ef89e67fa59f53d1881794b341baeccc0a48190dec35e612b3fb8e5b6a266d1eab542c317ed2d7a83724e8bf563986fac1f9567a50f9473ec2c2025c4eea06492add454a9c7806ed756419c6e1fe7d4d45bf733bf911c0604dfcb36dfd70eb95ed6f110e8b885f7c5d0dc6d192404b188c88a4df95eb220ce4308741733549806a264970af40e4d7cd84707d78f143cedc1bc182f4fb0b001b5e207c13d7daa51bd1053a38c8c4f84f7954e94223e50d379c547b233f9eb122a50a696a5ec091aad169cb43d192fb196ab80f57ec65e4bc255d6b6f204fa0f896d69a1a8110fcbfd72a3adf0e92bb8ac325250a9d777fdb7c1b7598314d539afcfe79696b1da8f6e8c98bada52419ab3f24c0b1e9152918682fd3854f0450e25334a4c46423677c734473cbf6d74f7552f28677601bb77d4f09b9ef59ddcda1f4e740c42d14edfaf9f54694951b339339f6debcaa450a28374c</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>面试题</title>
+    <url>/2022/10/01/%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><ol>
+<li>select * from user limit 100000,怎么优化</li>
+</ol>
 ]]></content>
       <categories>
         <category>工作</category>
