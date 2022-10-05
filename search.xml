@@ -16585,8 +16585,10 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <th>序号</th>
 <th>公司</th>
 <th>地址</th>
+<th>投递</th>
+<th>笔试</th>
+<th>面试</th>
 <th>状态</th>
-<th>时间</th>
 </tr>
 </thead>
 <tbody>
@@ -16594,181 +16596,233 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>1</td>
 <td>腾讯</td>
 <td><a href="https://join.qq.com/judgetalent.html?rec_key=NRRbIHYPUuli_sYZUwL8wGP7R4y5CiDeJvvXL4Holug">https://join.qq.com/judgetalent.html?rec_key=NRRbIHYPUuli_sYZUwL8wGP7R4y5CiDeJvvXL4Holug</a></td>
-<td>已测评</td>
+<td>09-22</td>
 <td></td>
+<td></td>
+<td>已测评</td>
 </tr>
 <tr>
 <td>2</td>
 <td>小米</td>
 <td><a href="https://hr.xiaomi.com/campus">https://hr.xiaomi.com/campus</a></td>
-<td>简历挂</td>
+<td>09-22</td>
 <td></td>
+<td></td>
+<td>简历挂</td>
 </tr>
 <tr>
 <td>3</td>
 <td>腾讯音乐</td>
 <td><a href="https://join.tencentmusic.com/deliver">https://join.tencentmusic.com/deliver</a></td>
+<td>09-22</td>
+<td></td>
+<td></td>
 <td>已笔试</td>
-<td>2022-09-26</td>
 </tr>
 <tr>
 <td>4</td>
 <td>bilibili</td>
 <td><a href="https://jobs.bilibili.com/campus/records?channel=bilibiliaccounts">https://jobs.bilibili.com/campus/records?channel=bilibiliaccounts</a></td>
-<td>简历筛选</td>
+<td>09-22</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>5</td>
 <td>阿里巴巴</td>
 <td><a href="https://talent.alibaba.com/campus/position-list?campusType=freshman&amp;lang=zh">https://talent.alibaba.com/campus/position-list?campusType=freshman&amp;lang=zh</a></td>
-<td>简历筛选</td>
+<td>09-22</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>6</td>
 <td>快手</td>
 <td><a href="https://campus.kuaishou.cn/">https://campus.kuaishou.cn/</a></td>
-<td>简历筛选</td>
+<td>09-22</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>7</td>
 <td>京东</td>
 <td><a href="https://campus.jd.com/">https://campus.jd.com/</a></td>
+<td>09-22</td>
+<td>09-29</td>
+<td></td>
 <td>已笔试</td>
-<td>2022-09-29</td>
 </tr>
 <tr>
 <td>8</td>
 <td>字节</td>
 <td><a href="https://jobs.bytedance.com/campus">https://jobs.bytedance.com/campus</a></td>
+<td>09-22</td>
+<td></td>
+<td></td>
 <td>待笔试</td>
-<td>2022-10-09</td>
 </tr>
 <tr>
 <td>9</td>
 <td>搜狐</td>
 <td><a href="https://hr.sohu.com/social-recruitment/sohu/43256#/">https://hr.sohu.com/social-recruitment/sohu/43256#/</a></td>
-<td>简历筛选</td>
+<td>09-24</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>10</td>
 <td>去哪儿网</td>
 <td><a href="https://campus.qunar.com/">https://campus.qunar.com/</a></td>
-<td>简历筛选</td>
+<td>09-24</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>11</td>
 <td>华为终端</td>
 <td><a href="https://career.huawei.com/reccampportal/portal5/index.html">https://career.huawei.com/reccampportal/portal5/index.html</a></td>
-<td>简历筛选</td>
+<td>09-24</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>12</td>
 <td>蚂蚁集团</td>
 <td><a href="https://talent.antgroup.com/campus">https://talent.antgroup.com/campus</a></td>
+<td>09-24</td>
+<td></td>
+<td></td>
 <td>待笔试</td>
-<td>2022-10-12</td>
 </tr>
 <tr>
 <td>13</td>
 <td>荣耀</td>
 <td><a href="https://career.hihonor.com/SU60eea919bef57c1023f6fe78/pb/school.html">https://career.hihonor.com/SU60eea919bef57c1023f6fe78/pb/school.html</a></td>
-<td>简历筛选</td>
+<td>09-24</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>14</td>
 <td>浙商银行</td>
 <td><a href="http://u.51job.com/iUr7Br8">http://u.51job.com/iUr7Br8</a></td>
-<td>简历筛选</td>
+<td>09-27</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>15</td>
 <td>百度</td>
 <td><a href="https://talent.baidu.com/jobs/center">https://talent.baidu.com/jobs/center</a></td>
-<td>简历筛选</td>
+<td>09-27</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>16</td>
 <td>360</td>
 <td><a href="https://360campus.zhiye.com/">https://360campus.zhiye.com/</a></td>
-<td>简历筛选</td>
+<td>09-27</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>17</td>
 <td>小红书</td>
 <td><a href="https://campus.xiaohongshu.com/">https://campus.xiaohongshu.com/</a></td>
-<td>简历筛选</td>
+<td>09-27</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>18</td>
 <td>美团</td>
 <td><a href="http://campus.meituan.com/">http://campus.meituan.com/</a></td>
-<td>简历筛选</td>
+<td>09-27</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>19</td>
 <td>海康威视</td>
 <td><a href="https://campushr.hikvision.com/home">https://campushr.hikvision.com/home</a></td>
-<td>简历筛选</td>
+<td>09-27</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>20</td>
 <td>oppo</td>
 <td><a href="https://careers.oppo.com/campus/post/home">https://careers.oppo.com/campus/post/home</a></td>
-<td>简历筛选</td>
+<td>09-27</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>21</td>
 <td>浪潮</td>
 <td><a href="https://wx64310b3064348282.hcmcloud.cn/recruit#/progress_detail?id=2409367&amp;company_id=8">https://wx64310b3064348282.hcmcloud.cn/recruit#/progress_detail?id=2409367&amp;company_id=8</a></td>
+<td>09-27</td>
+<td>09-29</td>
+<td></td>
 <td>已笔试</td>
-<td>2022-09-28</td>
 </tr>
 <tr>
 <td>22</td>
 <td>三一重工</td>
 <td><a href="http://sanycampus.zhiye.com/campus">http://sanycampus.zhiye.com/campus</a></td>
+<td>09-27</td>
+<td>09-29</td>
+<td></td>
 <td>已笔试</td>
-<td>2022-09-28</td>
 </tr>
 <tr>
 <td>23</td>
 <td>中国进出口银行</td>
 <td><a href="http://zhaopin.eximbank.gov.cn/#/recruitmentList">http://zhaopin.eximbank.gov.cn/#/recruitmentList</a></td>
-<td>简历筛选</td>
+<td>09-30</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>24</td>
 <td>国家开发银行</td>
 <td><a href="https://applyjob.chinahr.com/page/job/success?projectId=63183bab354c1706b3f5c288">https://applyjob.chinahr.com/page/job/success?projectId=63183bab354c1706b3f5c288</a></td>
-<td>简历筛选</td>
+<td>09-30</td>
 <td></td>
+<td></td>
+<td>简历筛选</td>
 </tr>
 <tr>
 <td>25</td>
 <td>中信银行</td>
 <td><a href="https://www.hotjob.cn/wt/chinaciticbank/web/index/campus">https://www.hotjob.cn/wt/chinaciticbank/web/index/campus</a></td>
-<td>已测评</td>
+<td>10-02</td>
 <td></td>
+<td></td>
+<td>已测评</td>
 </tr>
 <tr>
 <td>26</td>
 <td>中兴通讯</td>
 <td><a href="https://job.zte.com.cn/cn/campus-recruitment">https://job.zte.com.cn/cn/campus-recruitment</a></td>
+<td>10-02</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16776,6 +16830,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>27</td>
 <td>携程</td>
 <td><a href="https://job.ctrip.com/index.html#/">https://job.ctrip.com/index.html#/</a></td>
+<td>10-02</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16783,6 +16839,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>28</td>
 <td>索尼</td>
 <td><a href="https://i.51job.com/userset/my_apply.php?type=xy&amp;lang=c">https://i.51job.com/userset/my_apply.php?type=xy&amp;lang=c</a></td>
+<td>10-02</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16790,13 +16848,17 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>29</td>
 <td>顺丰</td>
 <td><a href="https://campus.sf-express.com/#/personalCenter">https://campus.sf-express.com/#/personalCenter</a></td>
-<td>已测评</td>
+<td>10-02</td>
 <td></td>
+<td></td>
+<td>已测评</td>
 </tr>
 <tr>
 <td>30</td>
 <td>4399</td>
 <td><a href="http://web.4399.com/campus/yjsgw/jishulei/#1157053">http://web.4399.com/campus/yjsgw/jishulei/#1157053</a></td>
+<td>10-02</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16804,6 +16866,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>31</td>
 <td>SmartX</td>
 <td><a href="https://www.smartx.com/campus/">https://www.smartx.com/campus/</a></td>
+<td>10-02</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16811,6 +16875,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>32</td>
 <td>海尔</td>
 <td><a href="http://maker.haier.net/">http://maker.haier.net/</a></td>
+<td>10-02</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16818,6 +16884,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>33</td>
 <td>中国电子科技南湖研究院</td>
 <td><a href="https://cnaeit.hotjob.cn/wt/CNAEIT/web/index/campus">https://cnaeit.hotjob.cn/wt/CNAEIT/web/index/campus</a></td>
+<td>10-02</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16825,6 +16893,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>34</td>
 <td>联想</td>
 <td><a href="https://campus.lenovo.com.cn/">https://campus.lenovo.com.cn/</a></td>
+<td>10-02</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16832,6 +16902,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>35</td>
 <td>Tp-Link</td>
 <td><a href="https://hr.tp-link.com.cn/jobList">https://hr.tp-link.com.cn/jobList</a></td>
+<td>10-03</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16839,6 +16911,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>36</td>
 <td>科大讯飞</td>
 <td><a href="https://campus.iflytek.com/official-pc/jobList">https://campus.iflytek.com/official-pc/jobList</a></td>
+<td>10-03</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16846,6 +16920,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>37</td>
 <td>度小满</td>
 <td><a href="https://app.mokahr.com/campus-recruitment/duxiaoman/74050#/">https://app.mokahr.com/campus-recruitment/duxiaoman/74050#/</a></td>
+<td>10-04</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16853,6 +16929,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>38</td>
 <td>大应科技</td>
 <td><a href="https://www.aloudata.com/join_us">https://www.aloudata.com/join_us</a></td>
+<td>10-04</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16860,6 +16938,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>39</td>
 <td>广联达</td>
 <td><a href="https://campus.glodon.com/campus_apply/glodon/1750/#/">https://campus.glodon.com/campus_apply/glodon/1750/#/</a></td>
+<td>10-04</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16867,6 +16947,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>40</td>
 <td>MetaApp</td>
 <td><a href="https://www.metaapp.cn/">https://www.metaapp.cn/</a></td>
+<td>10-04</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -16874,53 +16956,69 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>41</td>
 <td>欣旺达</td>
 <td><a href="https://sunwoda.zhiye.com/Portal/Apply/Index">https://sunwoda.zhiye.com/Portal/Apply/Index</a></td>
+<td>10-04</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>42</td>
-<td></td>
+<td>猿辅导</td>
+<td><a href="https://www.yuanfudao.com">https://www.yuanfudao.com</a></td>
+<td>10-04</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>43</td>
-<td></td>
+<td>贝壳找房</td>
+<td><a href="http://join.ke.com/">http://join.ke.com/</a></td>
+<td>10-05</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>44</td>
-<td></td>
+<td>微众银行</td>
+<td><a href="https://hr.webank.com/apply/webankhr/68/#/">https://hr.webank.com/apply/webankhr/68/#/</a></td>
+<td>10-05</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>45</td>
-<td></td>
+<td>米哈游</td>
+<td><a href="https://join.mihoyo.com/#/campus/resume/position/preview/45">https://join.mihoyo.com/#/campus/resume/position/preview/45</a></td>
+<td>10-05</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>46</td>
-<td></td>
+<td>小鹏汽车</td>
+<td><a href="https://campus.xiaopeng.com/?reserve_source=168801#/">https://campus.xiaopeng.com/?reserve_source=168801#/</a></td>
+<td>10-05</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>47</td>
-<td></td>
+<td>信也科技</td>
+<td><a href="https://app.mokahr.com/su/yypzcu">https://app.mokahr.com/su/yypzcu</a></td>
+<td>10-05</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>48</td>
+<td>疯狂游戏</td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -16928,6 +17026,98 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 </tr>
 <tr>
 <td>49</td>
+<td>hulu</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>50</td>
+<td>嘉楠科技</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>51</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>52</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>54</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
