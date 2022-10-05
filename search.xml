@@ -4132,7 +4132,7 @@ h(x,y)=\frac{1}{\sqrt{2πσ}} exp⁡(-\frac{x^2+y^2}{(2σ^2})</script><p>其中�
 <p><img src="/2022/04/26/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/radioSort.gif" alt="radioSort"></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//基数排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">radioSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=arr.size();</span><br><span class="line">    <span class="keyword">int</span> max_num=arr[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">        max_num=max(max_num,arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//计算最大值是几位数</span></span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(max_num/<span class="number">10</span>&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        ++num;</span><br><span class="line">        max_num/=<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建10个桶</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">bucketList</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">    <span class="comment">//进行每一趟的排序，从个位数开始排</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=num;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;++j)&#123;</span><br><span class="line">            <span class="keyword">int</span> radio=arr[j]/(<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">10</span>,(i<span class="number">-1</span>))%<span class="number">10</span>;</span><br><span class="line">            <span class="comment">//放到对应桶里</span></span><br><span class="line">            bucketList[radio].emplace_back(arr[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//合并放回原数组</span></span><br><span class="line">        <span class="keyword">int</span> k=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> j:bucketList)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> t:j)&#123;</span><br><span class="line">                arr[k++]=t;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//取出来合并了之后把桶数据清空</span></span><br><span class="line">            j.clear();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h6 id="10大排序算法的性质"><a href="#10大排序算法的性质" class="headerlink" title="10大排序算法的性质"></a>10大排序算法的性质</h6><p><img src="/2022/04/26/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/sort.jpg" alt="sort"></p>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p>【<a href>必学十大经典排序算法，看这篇就够了(附完整代码/动图/优质文章)</a>】</p>
+<h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><p>【<a href>必学十大经典排序算法，看这篇就够了(附完整代码/动图/优质文章)</a>】</p>
 ]]></content>
       <categories>
         <category>校招</category>
@@ -17062,8 +17062,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 </tr>
 <tr>
 <td>53</td>
-<td>Boss直聘</td>
-<td></td>
+<td>得物app</td>
+<td><a href="https://www.dewu.com/">https://www.dewu.com/</a></td>
 <td></td>
 <td></td>
 <td></td>
@@ -17224,10 +17224,5 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
       <categories>
         <category>工作</category>
       </categories>
-  </entry>
-  <entry>
-    <title>post</title>
-    <url>/2022/10/04/post/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
   </entry>
 </search>

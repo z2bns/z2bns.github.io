@@ -207,136 +207,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/17/%E4%B8%8A%E5%8D%87%E4%B8%8B%E9%99%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Z2BNS">
-      <meta itemprop="description" content="Because like, so love">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CTF of Z2BNS">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/17/%E4%B8%8A%E5%8D%87%E4%B8%8B%E9%99%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">上升下降字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-11-17 17:04:45" itemprop="dateCreated datePublished" datetime="2020-11-17T17:04:45+08:00">2020-11-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-18 10:56:29" itemprop="dateModified" datetime="2020-11-18T10:56:29+08:00">2020-11-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-            </span>
-		  <div style="display:inline">
-		   |
-		  <i class="fa fa-eye"></i>
-		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
-		  </div>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/11/17/%E4%B8%8A%E5%8D%87%E4%B8%8B%E9%99%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/17/%E4%B8%8A%E5%8D%87%E4%B8%8B%E9%99%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/increasing-decreasing-string/">题目地址</a></strong></p>
-<p><strong>难度：</strong>⭐</p>
-<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个字符串 <code>s</code> ，请你根据下面的算法重新构造字符串：</p>
-<ol>
-<li>从 <code>s</code> 中选出 <strong>最小</strong> 的字符，将它 <strong>接在</strong> 结果字符串的后面。</li>
-<li>从 <code>s</code> 剩余字符中选出 <strong>最小</strong> 的字符，且该字符比上一个添加的字符大，将它 接在 结果字符串后面。</li>
-<li>重复步骤 2 ，直到你没法从 <code>s</code> 中选择字符。</li>
-<li>从 <code>s</code> 中选出 <strong>最大</strong> 的字符，将它 <strong>接在</strong> 结果字符串的后面。</li>
-<li>从 <code>s</code> 剩余字符中选出 <strong>最大</strong> 的字符，且该字符比上一个添加的字符小，将它 接在 结果字符串后面。</li>
-<li>重复步骤 5 ，直到你没法从 <code>s</code> 中选择字符。</li>
-<li>重复步骤 1 到 6 ，直到 <code>s</code> 中所有字符都已经被选过。</li>
-</ol>
-<p>在任何一步中，如果最小或者最大字符不止一个 ，你可以选择其中任意一个，并将其添加到结果字符串。</p>
-<p>请你返回将 <code>s</code> 中字符重新排序后的 <strong>结果字符串</strong> 。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/17/%E4%B8%8A%E5%8D%87%E4%B8%8B%E9%99%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/17/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1393,6 +1263,127 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/13/6%E5%92%8C9%E7%BB%84%E6%88%90%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/13/6%E5%92%8C9%E7%BB%84%E6%88%90%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E5%AD%97/" class="post-title-link" itemprop="url">6和9组成的最大数字</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-13 22:37:53" itemprop="dateCreated datePublished" datetime="2020-11-13T22:37:53+08:00">2020-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-17 20:54:55" itemprop="dateModified" datetime="2020-11-17T20:54:55+08:00">2020-11-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/13/6%E5%92%8C9%E7%BB%84%E6%88%90%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E5%AD%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/13/6%E5%92%8C9%E7%BB%84%E6%88%90%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E5%AD%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-69-number/">题目地址</a></strong></p>
+<p><strong>难度：</strong>⭐</p>
+<h6 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><strong>题目描述：</strong></h6><p>给你一个仅由数字 6 和 9 组成的正整数 <code>num</code>。</p>
+<p>你最多只能翻转一位数字，将 6 变成 9，或者把 9 变成 6 。</p>
+<p>请返回你可以得到的最大数字。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/13/6%E5%92%8C9%E7%BB%84%E6%88%90%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E5%AD%97/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1464,7 +1455,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">266</span>
+          <span class="site-state-item-count">265</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
