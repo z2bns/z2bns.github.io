@@ -16615,7 +16615,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>腾讯音乐</td>
 <td><a href="https://join.tencentmusic.com/deliver">https://join.tencentmusic.com/deliver</a></td>
 <td>09-22</td>
-<td></td>
+<td>09-26（不好）</td>
 <td></td>
 <td>已笔试</td>
 </tr>
@@ -16643,7 +16643,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td><a href="https://campus.kuaishou.cn/">https://campus.kuaishou.cn/</a></td>
 <td>09-22</td>
 <td></td>
-<td></td>
+<td>10-18 11:00</td>
 <td>简历筛选</td>
 </tr>
 <tr>
@@ -16651,18 +16651,18 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>京东</td>
 <td><a href="https://campus.jd.com/">https://campus.jd.com/</a></td>
 <td>09-22</td>
-<td>09-29</td>
+<td>09-29（不好）</td>
+<td>10-09 14:00 -14:30</td>
 <td></td>
-<td>已笔试</td>
 </tr>
 <tr>
-<td>8</td>
-<td>字节</td>
-<td><a href="https://jobs.bytedance.com/campus">https://jobs.bytedance.com/campus</a></td>
-<td>09-22</td>
-<td>10-09 10:00-12:00</td>
+<td><del>8</del></td>
+<td><del>字节</del></td>
+<td><del><a href="https://jobs.bytedance.com/campus">https://jobs.bytedance.com/campus</a></del></td>
+<td><del>09-22</del></td>
+<td><del>10-09 10:00-12:00</del></td>
 <td></td>
-<td>待笔试</td>
+<td></td>
 </tr>
 <tr>
 <td>9</td>
@@ -16678,7 +16678,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>去哪儿网</td>
 <td><a href="https://campus.qunar.com/">https://campus.qunar.com/</a></td>
 <td>09-24</td>
-<td></td>
+<td>10-12</td>
 <td></td>
 <td>简历筛选</td>
 </tr>
@@ -16687,7 +16687,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>华为终端</td>
 <td><a href="https://career.huawei.com/reccampportal/portal5/index.html">https://career.huawei.com/reccampportal/portal5/index.html</a></td>
 <td>09-24</td>
-<td></td>
+<td>10-12（很差）</td>
 <td></td>
 <td>简历筛选</td>
 </tr>
@@ -16696,7 +16696,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>蚂蚁集团</td>
 <td><a href="https://talent.antgroup.com/campus">https://talent.antgroup.com/campus</a></td>
 <td>09-24</td>
-<td></td>
+<td>10-20</td>
 <td></td>
 <td>待笔试</td>
 </tr>
@@ -16714,8 +16714,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>浙商银行</td>
 <td><a href="http://u.51job.com/iUr7Br8">http://u.51job.com/iUr7Br8</a></td>
 <td>09-27</td>
-<td></td>
-<td></td>
+<td>10-13</td>
+<td>10-12</td>
 <td>简历筛选</td>
 </tr>
 <tr>
@@ -16723,7 +16723,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>百度</td>
 <td><a href="https://talent.baidu.com/jobs/center">https://talent.baidu.com/jobs/center</a></td>
 <td>09-27</td>
-<td></td>
+<td>10-11(不好)</td>
 <td></td>
 <td>简历筛选</td>
 </tr>
@@ -16829,7 +16829,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <tr>
 <td>27</td>
 <td>携程</td>
-<td><a href="https://job.ctrip.com/index.html#/">https://job.ctrip.com/index.html#/</a></td>
+<td><a href="https://campus.ctrip.com/#/">https://campus.ctrip.com/#/</a></td>
 <td>10-02</td>
 <td></td>
 <td></td>
@@ -16863,10 +16863,10 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td><del>已结束</del></td>
 </tr>
 <tr>
-<td>31</td>
-<td>SmartX</td>
-<td><a href="https://www.smartx.com/campus/">https://www.smartx.com/campus/</a></td>
-<td>10-02</td>
+<td><del>31</del></td>
+<td><del>SmartX</del></td>
+<td><del><a href="https://www.smartx.com/campus/">https://www.smartx.com/campus/</a></del></td>
+<td><del>10-02</del></td>
 <td></td>
 <td></td>
 <td></td>
@@ -16899,10 +16899,10 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td></td>
 </tr>
 <tr>
-<td>35</td>
-<td>Tp-Link</td>
-<td><a href="https://hr.tp-link.com.cn/jobList">https://hr.tp-link.com.cn/jobList</a></td>
-<td>10-03</td>
+<td><del>35</del></td>
+<td><del>Tp-Link</del></td>
+<td><del><a href="https://hr.tp-link.com.cn/jobList">https://hr.tp-link.com.cn/jobList</a></del></td>
+<td><del>10-03</del></td>
 <td></td>
 <td></td>
 <td></td>
@@ -16917,10 +16917,10 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td></td>
 </tr>
 <tr>
-<td>37</td>
-<td>度小满</td>
-<td><a href="https://app.mokahr.com/campus-recruitment/duxiaoman/74050#/">https://app.mokahr.com/campus-recruitment/duxiaoman/74050#/</a></td>
-<td>10-04</td>
+<td><del>37</del></td>
+<td><del>度小满</del></td>
+<td><del><a href="https://app.mokahr.com/campus-recruitment/duxiaoman/74050#/">https://app.mokahr.com/campus-recruitment/duxiaoman/74050#/</a></del></td>
+<td><del>10-04</del></td>
 <td></td>
 <td></td>
 <td></td>
@@ -16939,15 +16939,15 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>广联达</td>
 <td><a href="https://campus.glodon.com/campus_apply/glodon/1750/#/">https://campus.glodon.com/campus_apply/glodon/1750/#/</a></td>
 <td>10-04</td>
-<td></td>
+<td>10-12</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>40</td>
-<td>MetaApp</td>
-<td><a href="https://www.metaapp.cn/">https://www.metaapp.cn/</a></td>
-<td>10-04</td>
+<td><del>40</del></td>
+<td><del>MetaApp</del></td>
+<td><del><a href="https://www.metaapp.cn/">https://www.metaapp.cn/</a></del></td>
+<td><del>10-04</del></td>
 <td></td>
 <td></td>
 <td></td>
@@ -16964,7 +16964,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <tr>
 <td>42</td>
 <td>猿辅导</td>
-<td><a href="https://www.yuanfudao.com">https://www.yuanfudao.com</a></td>
+<td><a href="https://hr.yuanfudao.com/#/">https://hr.yuanfudao.com/#/</a></td>
 <td>10-04</td>
 <td></td>
 <td></td>
@@ -16998,10 +16998,10 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td></td>
 </tr>
 <tr>
-<td>46</td>
-<td>小鹏汽车</td>
-<td><a href="https://campus.xiaopeng.com/?reserve_source=168801#/">https://campus.xiaopeng.com/?reserve_source=168801#/</a></td>
-<td>10-05</td>
+<td><del>46</del></td>
+<td><del>小鹏汽车</del></td>
+<td><del><a href="https://campus.xiaopeng.com/?reserve_source=168801#/">https://campus.xiaopeng.com/?reserve_source=168801#/</a></del></td>
+<td><del>10-05</del></td>
 <td></td>
 <td></td>
 <td></td>
@@ -17020,7 +17020,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>同花顺</td>
 <td><a href="http://campus.10jqka.com.cn/job/detail?id=171">http://campus.10jqka.com.cn/job/detail?id=171</a></td>
 <td>10-05</td>
-<td></td>
+<td>10-10</td>
 <td></td>
 <td></td>
 </tr>
@@ -17080,17 +17080,17 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 </tr>
 <tr>
 <td>55</td>
-<td></td>
-<td></td>
-<td></td>
+<td>高途</td>
+<td><a href="http://gaotu.zhaopin.com/">http://gaotu.zhaopin.com/</a></td>
+<td>10-11</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>56</td>
-<td></td>
-<td></td>
+<td>移动设计院</td>
+<td><a href="http://cmdi.51job.com/job.html">http://cmdi.51job.com/job.html</a></td>
 <td></td>
 <td></td>
 <td></td>
@@ -17098,7 +17098,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 </tr>
 <tr>
 <td>57</td>
-<td></td>
+<td>中国电信</td>
 <td></td>
 <td></td>
 <td></td>
@@ -17219,7 +17219,9 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
   <entry>
     <title>深入浅出动态规划</title>
     <url>/2022/10/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h5 id="算法解释"><a href="#算法解释" class="headerlink" title="算法解释"></a>算法解释</h5><p>动态规划只能应用于有最优子结构的问题。最优子结构的意思是局部最优解能决定全局最优解（对有些问题这个要求并不能 完全满足，故有时需要引入一定的近似）。简单地说，问题能够分解成子问题来解决。” 通俗一点来讲，动态规划和其它遍历算法（如深/广度优先搜索）都是将原问题拆成多个子问 题然后求解，他们之间最本质的区别是，动态规划保存子问题的解，避免重复计算。解决动态规 划问题的关键是找到状态转移方程，这样我们可以通过计算和储存子问题的解来求解最终问题。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>动态规划只能应用于有最优子结构的问题。</p>
+<a id="more"></a>
+<h5 id="算法解释"><a href="#算法解释" class="headerlink" title="算法解释"></a>算法解释</h5><p>动态规划只能应用于有最优子结构的问题。最优子结构的意思是局部最优解能决定全局最优解（对有些问题这个要求并不能 完全满足，故有时需要引入一定的近似）。简单地说，问题能够分解成子问题来解决。” 通俗一点来讲，动态规划和其它遍历算法（如深/广度优先搜索）都是将原问题拆成多个子问 题然后求解，他们之间最本质的区别是，动态规划保存子问题的解，避免重复计算。解决动态规 划问题的关键是找到状态转移方程，这样我们可以通过计算和储存子问题的解来求解最终问题。</p>
 <h5 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h5><h6 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a><a href="https://leetcode.cn/problems/house-robber/">打家劫舍</a></h6><h6 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h6><p>假如你是一个劫匪，并且决定抢劫一条街上的房子，每个房子内的钱财数量各不相同。如果 你抢了两栋相邻的房子，则会触发警报机关。求在不触发机关的情况下最多可以抢劫多少钱。</p>
 <h6 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h6><p>输入是一个一维数组，表示每个房子的钱财数量；输出是劫匪可以最多抢劫的钱财数量。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [2,7,9,3,1]</span><br><span class="line">Output: 12</span><br></pre></td></tr></table></figure>
@@ -17258,5 +17260,26 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
     <title>化繁为简的分治法</title>
     <url>/2022/10/07/%E5%8C%96%E7%B9%81%E4%B8%BA%E7%AE%80%E7%9A%84%E5%88%86%E6%B2%BB%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+  </entry>
+  <entry>
+    <title>京东一面</title>
+    <url>/2022/10/13/%E4%BA%AC%E4%B8%9C%E4%B8%80%E9%9D%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>京东gg</p>
+<a id="more"></a>
+<h6 id="1、多线程-用哪个map"><a href="#1、多线程-用哪个map" class="headerlink" title="1、多线程 用哪个map"></a>1、多线程 用哪个map</h6><h6 id="2、HashMap为什么不安全"><a href="#2、HashMap为什么不安全" class="headerlink" title="2、HashMap为什么不安全"></a>2、HashMap为什么不安全</h6><h6 id="3、单元测试有哪些注意事项"><a href="#3、单元测试有哪些注意事项" class="headerlink" title="3、单元测试有哪些注意事项"></a>3、单元测试有哪些注意事项</h6><h6 id="4、框架学习中哪个难一些"><a href="#4、框架学习中哪个难一些" class="headerlink" title="4、框架学习中哪个难一些"></a>4、框架学习中哪个难一些</h6><h6 id="5、微服务和单体架构的区别"><a href="#5、微服务和单体架构的区别" class="headerlink" title="5、微服务和单体架构的区别"></a>5、微服务和单体架构的区别</h6><h6 id="6、做项目的时候是怎么做技术选型的，为什么用这些"><a href="#6、做项目的时候是怎么做技术选型的，为什么用这些" class="headerlink" title="6、做项目的时候是怎么做技术选型的，为什么用这些"></a>6、做项目的时候是怎么做技术选型的，为什么用这些</h6><h6 id="7、Mysql索引用过吗？Mysql优化呢"><a href="#7、Mysql索引用过吗？Mysql优化呢" class="headerlink" title="7、Mysql索引用过吗？Mysql优化呢"></a>7、Mysql索引用过吗？Mysql优化呢</h6><h6 id="8、aop打印一个日志输出，流程是什么"><a href="#8、aop打印一个日志输出，流程是什么" class="headerlink" title="8、aop打印一个日志输出，流程是什么"></a>8、aop打印一个日志输出，流程是什么</h6><h6 id="9、项目全是自己做的吗"><a href="#9、项目全是自己做的吗" class="headerlink" title="9、项目全是自己做的吗"></a>9、项目全是自己做的吗</h6><h6 id="10、你有什么要问的吗"><a href="#10、你有什么要问的吗" class="headerlink" title="10、你有什么要问的吗"></a>10、你有什么要问的吗</h6>]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>面试准备</title>
+    <url>/2022/10/13/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>冲</p>
+<a id="more"></a>
+<h6 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h6><p>面试官您好 我叫周威威 ，今年24岁，河南商丘人，本科毕业于长春理工大学软件工程专业,大学期间成绩优异，保送到东北大学攻读硕士研究生，现在是软件工程专业研三学生，我有扎实的计算机理论基础，熟悉操作系统、计算机网络、数据结构等，大学期间时参加了java培训班，系统学习了java、ssm框架、mysql，了解redis、消息队列、集群分布式等技术，项目经验丰富，先后开发的项目有《校园二手书交易平台》，《面对面餐饮管理系统》、《瑞吉外卖》、《传智健康管理系统》我乐观开朗，积极向上，学生期间参加过校运动会、国际马拉松迷你赛、班级篮球赛、新生迎新活动、担任过中美课程助教。喜欢运动、健身，有良好的身体素质，具备出色的学习能力，对未来充满信心，希望可以进入贵公司继续努力，与贵公司共同进步，祝您身体健康，万事如意，谢谢老师。</p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
   </entry>
 </search>
