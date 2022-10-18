@@ -207,6 +207,333 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/17/jpeg%E5%BD%A9%E8%89%B2%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9python%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/17/jpeg%E5%BD%A9%E8%89%B2%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9python%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">jpeg彩色图片压缩python实现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-17 15:33:20 / 修改时间：15:49:34" itemprop="dateCreated datePublished" datetime="2022-05-17T15:33:20+08:00">2022-05-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/05/17/jpeg%E5%BD%A9%E8%89%B2%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9python%E5%AE%9E%E7%8E%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/05/17/jpeg%E5%BD%A9%E8%89%B2%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9python%E5%AE%9E%E7%8E%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#RGB彩色图片jpeg压缩实现</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">jpeg压缩函数</span></span><br><span class="line"><span class="string">data:要压缩的灰度图像数据流</span></span><br><span class="line"><span class="string">quality_scale控制压缩质量(1-99)，默认为50，值越小图像约清晰</span></span><br><span class="line"><span class="string">return:得到压缩后的图像数据，为FFD9开头的jpeg格式字符串</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compress</span>(<span class="params">img_data,quality_scale=<span class="number">50</span></span>):</span></span><br><span class="line">  <span class="comment">#获取图像数据流宽高</span></span><br><span class="line">  m_height,m_width,_=img_data.shape</span><br><span class="line">  m_YTable=np.zeros(<span class="number">64</span>,dtype=int)</span><br><span class="line">  m_CbCrTable=np.zeros(<span class="number">64</span>,dtype=int)</span><br><span class="line">  <span class="comment">#标准亮度量化表</span></span><br><span class="line">  Luminance_Quantization_Table=np.array([<span class="number">16</span>,  <span class="number">11</span>,  <span class="number">10</span>,  <span class="number">16</span>,  <span class="number">24</span>,  <span class="number">40</span>,  <span class="number">51</span>,  <span class="number">61</span>,</span><br><span class="line">	<span class="number">12</span>,  <span class="number">12</span>,  <span class="number">14</span>,  <span class="number">19</span>,  <span class="number">26</span>,  <span class="number">58</span>,  <span class="number">60</span>,  <span class="number">55</span>,</span><br><span class="line">	<span class="number">14</span>,  <span class="number">13</span>,  <span class="number">16</span>,  <span class="number">24</span>,  <span class="number">40</span>,  <span class="number">57</span>,  <span class="number">69</span>,  <span class="number">56</span>,</span><br><span class="line">	<span class="number">14</span>,  <span class="number">17</span>,  <span class="number">22</span>,  <span class="number">29</span>,  <span class="number">51</span>,  <span class="number">87</span>,  <span class="number">80</span>,  <span class="number">62</span>,</span><br><span class="line">	<span class="number">18</span>,  <span class="number">22</span>,  <span class="number">37</span>,  <span class="number">56</span>,  <span class="number">68</span>, <span class="number">109</span>, <span class="number">103</span>,  <span class="number">77</span>,</span><br><span class="line">	<span class="number">24</span>,  <span class="number">35</span>,  <span class="number">55</span>,  <span class="number">64</span>,  <span class="number">81</span>, <span class="number">104</span>, <span class="number">113</span>,  <span class="number">92</span>,</span><br><span class="line">	<span class="number">49</span>,  <span class="number">64</span>,  <span class="number">78</span>,  <span class="number">87</span>, <span class="number">103</span>, <span class="number">121</span>, <span class="number">120</span>, <span class="number">101</span>,</span><br><span class="line">	<span class="number">72</span>,  <span class="number">92</span>,  <span class="number">95</span>,  <span class="number">98</span>, <span class="number">112</span>, <span class="number">100</span>, <span class="number">103</span>,  <span class="number">99</span>],dtype=np.uint8)</span><br><span class="line">  <span class="comment">#标准色度量化表</span></span><br><span class="line">  Chrominance_Quantization_Table=np.array([	<span class="number">17</span>,  <span class="number">18</span>,  <span class="number">24</span>,  <span class="number">47</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,</span><br><span class="line">	<span class="number">18</span>,  <span class="number">21</span>,  <span class="number">26</span>,  <span class="number">66</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,</span><br><span class="line">	<span class="number">24</span>,  <span class="number">26</span>,  <span class="number">56</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,</span><br><span class="line">	<span class="number">47</span>,  <span class="number">66</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,</span><br><span class="line">	<span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,</span><br><span class="line">	<span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,</span><br><span class="line">	<span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,</span><br><span class="line">	<span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>,  <span class="number">99</span>],dtype=np.uint8)</span><br><span class="line"></span><br><span class="line">  ZigZag=np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">27</span>,<span class="number">28</span>,</span><br><span class="line">	<span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>,<span class="number">13</span>,<span class="number">16</span>,<span class="number">26</span>,<span class="number">29</span>,<span class="number">42</span>,</span><br><span class="line">	<span class="number">3</span>, <span class="number">8</span>,<span class="number">12</span>,<span class="number">17</span>,<span class="number">25</span>,<span class="number">30</span>,<span class="number">41</span>,<span class="number">43</span>,</span><br><span class="line">	<span class="number">9</span>,<span class="number">11</span>,<span class="number">18</span>,<span class="number">24</span>,<span class="number">31</span>,<span class="number">40</span>,<span class="number">44</span>,<span class="number">53</span>,</span><br><span class="line">	<span class="number">10</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">32</span>,<span class="number">39</span>,<span class="number">45</span>,<span class="number">52</span>,<span class="number">54</span>,</span><br><span class="line">	<span class="number">20</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">38</span>,<span class="number">46</span>,<span class="number">51</span>,<span class="number">55</span>,<span class="number">60</span>,</span><br><span class="line">	<span class="number">21</span>,<span class="number">34</span>,<span class="number">37</span>,<span class="number">47</span>,<span class="number">50</span>,<span class="number">56</span>,<span class="number">59</span>,<span class="number">61</span>,</span><br><span class="line">	<span class="number">35</span>,<span class="number">36</span>,<span class="number">48</span>,<span class="number">49</span>,<span class="number">57</span>,<span class="number">58</span>,<span class="number">62</span>,<span class="number">63</span>])</span><br><span class="line"></span><br><span class="line">  Standard_DC_Luminance_NRCodes= [ <span class="number">0</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span> ]</span><br><span class="line">  Standard_DC_Luminance_Values= [<span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>]</span><br><span class="line"></span><br><span class="line">  Standard_DC_Chrominance_NRCodes=[<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">  Standard_DC_Chrominance_Values=[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>]</span><br><span class="line">  </span><br><span class="line">  Standard_AC_Luminance_NRCodes=[<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0x7d</span>]</span><br><span class="line">  Standard_AC_Luminance_Values=[<span class="number">0x01</span>, <span class="number">0x02</span>, <span class="number">0x03</span>, <span class="number">0x00</span>, <span class="number">0x04</span>, <span class="number">0x11</span>, <span class="number">0x05</span>, <span class="number">0x12</span>,</span><br><span class="line">	<span class="number">0x21</span>, <span class="number">0x31</span>, <span class="number">0x41</span>, <span class="number">0x06</span>, <span class="number">0x13</span>, <span class="number">0x51</span>, <span class="number">0x61</span>, <span class="number">0x07</span>,</span><br><span class="line">	<span class="number">0x22</span>, <span class="number">0x71</span>, <span class="number">0x14</span>, <span class="number">0x32</span>, <span class="number">0x81</span>, <span class="number">0x91</span>, <span class="number">0xa1</span>, <span class="number">0x08</span>,</span><br><span class="line">	<span class="number">0x23</span>, <span class="number">0x42</span>, <span class="number">0xb1</span>, <span class="number">0xc1</span>, <span class="number">0x15</span>, <span class="number">0x52</span>, <span class="number">0xd1</span>, <span class="number">0xf0</span>,</span><br><span class="line">	<span class="number">0x24</span>, <span class="number">0x33</span>, <span class="number">0x62</span>, <span class="number">0x72</span>, <span class="number">0x82</span>, <span class="number">0x09</span>, <span class="number">0x0a</span>, <span class="number">0x16</span>,</span><br><span class="line">	<span class="number">0x17</span>, <span class="number">0x18</span>, <span class="number">0x19</span>, <span class="number">0x1a</span>, <span class="number">0x25</span>, <span class="number">0x26</span>, <span class="number">0x27</span>, <span class="number">0x28</span>,</span><br><span class="line">	<span class="number">0x29</span>, <span class="number">0x2a</span>, <span class="number">0x34</span>, <span class="number">0x35</span>, <span class="number">0x36</span>, <span class="number">0x37</span>, <span class="number">0x38</span>, <span class="number">0x39</span>,</span><br><span class="line">	<span class="number">0x3a</span>, <span class="number">0x43</span>, <span class="number">0x44</span>, <span class="number">0x45</span>, <span class="number">0x46</span>, <span class="number">0x47</span>, <span class="number">0x48</span>, <span class="number">0x49</span>,</span><br><span class="line">	<span class="number">0x4a</span>, <span class="number">0x53</span>, <span class="number">0x54</span>, <span class="number">0x55</span>, <span class="number">0x56</span>, <span class="number">0x57</span>, <span class="number">0x58</span>, <span class="number">0x59</span>,</span><br><span class="line">	<span class="number">0x5a</span>, <span class="number">0x63</span>, <span class="number">0x64</span>, <span class="number">0x65</span>, <span class="number">0x66</span>, <span class="number">0x67</span>, <span class="number">0x68</span>, <span class="number">0x69</span>,</span><br><span class="line">	<span class="number">0x6a</span>, <span class="number">0x73</span>, <span class="number">0x74</span>, <span class="number">0x75</span>, <span class="number">0x76</span>, <span class="number">0x77</span>, <span class="number">0x78</span>, <span class="number">0x79</span>,</span><br><span class="line">	<span class="number">0x7a</span>, <span class="number">0x83</span>, <span class="number">0x84</span>, <span class="number">0x85</span>, <span class="number">0x86</span>, <span class="number">0x87</span>, <span class="number">0x88</span>, <span class="number">0x89</span>,</span><br><span class="line">	<span class="number">0x8a</span>, <span class="number">0x92</span>, <span class="number">0x93</span>, <span class="number">0x94</span>, <span class="number">0x95</span>, <span class="number">0x96</span>, <span class="number">0x97</span>, <span class="number">0x98</span>,</span><br><span class="line">	<span class="number">0x99</span>, <span class="number">0x9a</span>, <span class="number">0xa2</span>, <span class="number">0xa3</span>, <span class="number">0xa4</span>, <span class="number">0xa5</span>, <span class="number">0xa6</span>, <span class="number">0xa7</span>,</span><br><span class="line">	<span class="number">0xa8</span>, <span class="number">0xa9</span>, <span class="number">0xaa</span>, <span class="number">0xb2</span>, <span class="number">0xb3</span>, <span class="number">0xb4</span>, <span class="number">0xb5</span>, <span class="number">0xb6</span>,</span><br><span class="line">	<span class="number">0xb7</span>, <span class="number">0xb8</span>, <span class="number">0xb9</span>, <span class="number">0xba</span>, <span class="number">0xc2</span>, <span class="number">0xc3</span>, <span class="number">0xc4</span>, <span class="number">0xc5</span>,</span><br><span class="line">	<span class="number">0xc6</span>, <span class="number">0xc7</span>, <span class="number">0xc8</span>, <span class="number">0xc9</span>, <span class="number">0xca</span>, <span class="number">0xd2</span>, <span class="number">0xd3</span>, <span class="number">0xd4</span>,</span><br><span class="line">	<span class="number">0xd5</span>, <span class="number">0xd6</span>, <span class="number">0xd7</span>, <span class="number">0xd8</span>, <span class="number">0xd9</span>, <span class="number">0xda</span>, <span class="number">0xe1</span>, <span class="number">0xe2</span>,</span><br><span class="line">	<span class="number">0xe3</span>, <span class="number">0xe4</span>, <span class="number">0xe5</span>, <span class="number">0xe6</span>, <span class="number">0xe7</span>, <span class="number">0xe8</span>, <span class="number">0xe9</span>, <span class="number">0xea</span>,</span><br><span class="line">	<span class="number">0xf1</span>, <span class="number">0xf2</span>, <span class="number">0xf3</span>, <span class="number">0xf4</span>, <span class="number">0xf5</span>, <span class="number">0xf6</span>, <span class="number">0xf7</span>, <span class="number">0xf8</span>,</span><br><span class="line">	<span class="number">0xf9</span>, <span class="number">0xfa</span>]</span><br><span class="line"></span><br><span class="line">  Standard_AC_Chrominance_NRCodes=[<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0x77</span>]</span><br><span class="line"></span><br><span class="line">  Standard_AC_Chrominance_Values=[<span class="number">0x00</span>, <span class="number">0x01</span>, <span class="number">0x02</span>, <span class="number">0x03</span>, <span class="number">0x11</span>, <span class="number">0x04</span>, <span class="number">0x05</span>, <span class="number">0x21</span>,</span><br><span class="line">	<span class="number">0x31</span>, <span class="number">0x06</span>, <span class="number">0x12</span>, <span class="number">0x41</span>, <span class="number">0x51</span>, <span class="number">0x07</span>, <span class="number">0x61</span>, <span class="number">0x71</span>,</span><br><span class="line">	<span class="number">0x13</span>, <span class="number">0x22</span>, <span class="number">0x32</span>, <span class="number">0x81</span>, <span class="number">0x08</span>, <span class="number">0x14</span>, <span class="number">0x42</span>, <span class="number">0x91</span>,</span><br><span class="line">	<span class="number">0xa1</span>, <span class="number">0xb1</span>, <span class="number">0xc1</span>, <span class="number">0x09</span>, <span class="number">0x23</span>, <span class="number">0x33</span>, <span class="number">0x52</span>, <span class="number">0xf0</span>,</span><br><span class="line">	<span class="number">0x15</span>, <span class="number">0x62</span>, <span class="number">0x72</span>, <span class="number">0xd1</span>, <span class="number">0x0a</span>, <span class="number">0x16</span>, <span class="number">0x24</span>, <span class="number">0x34</span>,</span><br><span class="line">	<span class="number">0xe1</span>, <span class="number">0x25</span>, <span class="number">0xf1</span>, <span class="number">0x17</span>, <span class="number">0x18</span>, <span class="number">0x19</span>, <span class="number">0x1a</span>, <span class="number">0x26</span>,</span><br><span class="line">	<span class="number">0x27</span>, <span class="number">0x28</span>, <span class="number">0x29</span>, <span class="number">0x2a</span>, <span class="number">0x35</span>, <span class="number">0x36</span>, <span class="number">0x37</span>, <span class="number">0x38</span>,</span><br><span class="line">	<span class="number">0x39</span>, <span class="number">0x3a</span>, <span class="number">0x43</span>, <span class="number">0x44</span>, <span class="number">0x45</span>, <span class="number">0x46</span>, <span class="number">0x47</span>, <span class="number">0x48</span>,</span><br><span class="line">	<span class="number">0x49</span>, <span class="number">0x4a</span>, <span class="number">0x53</span>, <span class="number">0x54</span>, <span class="number">0x55</span>, <span class="number">0x56</span>, <span class="number">0x57</span>, <span class="number">0x58</span>,</span><br><span class="line">	<span class="number">0x59</span>, <span class="number">0x5a</span>, <span class="number">0x63</span>, <span class="number">0x64</span>, <span class="number">0x65</span>, <span class="number">0x66</span>, <span class="number">0x67</span>, <span class="number">0x68</span>,</span><br><span class="line">	<span class="number">0x69</span>, <span class="number">0x6a</span>, <span class="number">0x73</span>, <span class="number">0x74</span>, <span class="number">0x75</span>, <span class="number">0x76</span>, <span class="number">0x77</span>, <span class="number">0x78</span>,</span><br><span class="line">	<span class="number">0x79</span>, <span class="number">0x7a</span>, <span class="number">0x82</span>, <span class="number">0x83</span>, <span class="number">0x84</span>, <span class="number">0x85</span>, <span class="number">0x86</span>, <span class="number">0x87</span>,</span><br><span class="line">	<span class="number">0x88</span>, <span class="number">0x89</span>, <span class="number">0x8a</span>, <span class="number">0x92</span>, <span class="number">0x93</span>, <span class="number">0x94</span>, <span class="number">0x95</span>, <span class="number">0x96</span>,</span><br><span class="line">	<span class="number">0x97</span>, <span class="number">0x98</span>, <span class="number">0x99</span>, <span class="number">0x9a</span>, <span class="number">0xa2</span>, <span class="number">0xa3</span>, <span class="number">0xa4</span>, <span class="number">0xa5</span>,</span><br><span class="line">	<span class="number">0xa6</span>, <span class="number">0xa7</span>, <span class="number">0xa8</span>, <span class="number">0xa9</span>, <span class="number">0xaa</span>, <span class="number">0xb2</span>, <span class="number">0xb3</span>, <span class="number">0xb4</span>,</span><br><span class="line">	<span class="number">0xb5</span>, <span class="number">0xb6</span>, <span class="number">0xb7</span>, <span class="number">0xb8</span>, <span class="number">0xb9</span>, <span class="number">0xba</span>, <span class="number">0xc2</span>, <span class="number">0xc3</span>,</span><br><span class="line">	<span class="number">0xc4</span>, <span class="number">0xc5</span>, <span class="number">0xc6</span>, <span class="number">0xc7</span>, <span class="number">0xc8</span>, <span class="number">0xc9</span>, <span class="number">0xca</span>, <span class="number">0xd2</span>,</span><br><span class="line">	<span class="number">0xd3</span>, <span class="number">0xd4</span>, <span class="number">0xd5</span>, <span class="number">0xd6</span>, <span class="number">0xd7</span>, <span class="number">0xd8</span>, <span class="number">0xd9</span>, <span class="number">0xda</span>,</span><br><span class="line">	<span class="number">0xe2</span>, <span class="number">0xe3</span>, <span class="number">0xe4</span>, <span class="number">0xe5</span>, <span class="number">0xe6</span>, <span class="number">0xe7</span>, <span class="number">0xe8</span>, <span class="number">0xe9</span>,</span><br><span class="line">	<span class="number">0xea</span>, <span class="number">0xf2</span>, <span class="number">0xf3</span>, <span class="number">0xf4</span>, <span class="number">0xf5</span>, <span class="number">0xf6</span>, <span class="number">0xf7</span>, <span class="number">0xf8</span>,</span><br><span class="line">	<span class="number">0xf9</span>, <span class="number">0xfa</span>]</span><br><span class="line">  <span class="comment">#将bgr三维数据 扁平化为一维</span></span><br><span class="line">  m_rgbBuffer=img_data.flatten(order=<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line">  <span class="comment"># print(m_rgbBuffer[:10])</span></span><br><span class="line">  <span class="comment">#初始化量化表</span></span><br><span class="line">  <span class="keyword">if</span> quality_scale&lt;=<span class="number">0</span>:</span><br><span class="line">  	quality_scale=<span class="number">1</span></span><br><span class="line">  <span class="keyword">elif</span> quality_scale&gt;=<span class="number">100</span>:</span><br><span class="line">  	quality_scale=<span class="number">99</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">64</span>):</span><br><span class="line">  	tmp=int((Luminance_Quantization_Table[i]*quality_scale+<span class="number">50</span>)/<span class="number">100</span>)</span><br><span class="line">  	<span class="keyword">if</span> tmp&lt;=<span class="number">0</span>:</span><br><span class="line">  		tmp=<span class="number">1</span></span><br><span class="line">  	<span class="keyword">elif</span> tmp&gt;<span class="number">255</span>:</span><br><span class="line">  		tmp=<span class="number">255</span></span><br><span class="line">  	m_YTable[ZigZag[i]]=tmp</span><br><span class="line">  	tmp=int((Chrominance_Quantization_Table[i]*quality_scale+<span class="number">50</span>)/<span class="number">100</span>)</span><br><span class="line">  	<span class="keyword">if</span> tmp&lt;=<span class="number">0</span>:</span><br><span class="line">  		tmp=<span class="number">1</span></span><br><span class="line">  	<span class="keyword">elif</span> tmp&gt;<span class="number">255</span>:</span><br><span class="line">  		tmp=<span class="number">255</span></span><br><span class="line">  	m_CbCrTable[ZigZag[i]]=tmp</span><br><span class="line"></span><br><span class="line">  <span class="comment"># print(m_CbCrTable)</span></span><br><span class="line">  <span class="comment">#初始化huffman表</span></span><br><span class="line">  m_Y_DC_Huffman_Table=np.zeros((<span class="number">12</span>,<span class="number">2</span>),dtype=int)</span><br><span class="line">  m_Y_AC_Huffman_Table=np.zeros((<span class="number">256</span>,<span class="number">2</span>),dtype=int)</span><br><span class="line">  m_CbCr_DC_Huffman_Table=np.zeros((<span class="number">12</span>,<span class="number">2</span>),dtype=int)</span><br><span class="line">  m_CbCr_AC_Huffman_Table=np.zeros((<span class="number">256</span>,<span class="number">2</span>),dtype=int)</span><br><span class="line">  _computeHuffmanTable(Standard_DC_Luminance_NRCodes, Standard_DC_Luminance_Values, m_Y_DC_Huffman_Table);</span><br><span class="line">  _computeHuffmanTable(Standard_AC_Luminance_NRCodes, Standard_AC_Luminance_Values, m_Y_AC_Huffman_Table);</span><br><span class="line">  _computeHuffmanTable(Standard_DC_Chrominance_NRCodes, Standard_DC_Chrominance_Values, m_CbCr_DC_Huffman_Table);</span><br><span class="line">  _computeHuffmanTable(Standard_AC_Chrominance_NRCodes, Standard_AC_Chrominance_Values, m_CbCr_AC_Huffman_Table);</span><br><span class="line">  <span class="comment"># print(m_Y_AC_Huffman_Table[:12])</span></span><br><span class="line">  </span><br><span class="line">  fp=open(<span class="string">&#x27;out.jpg&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">  <span class="comment">#添加jpeg文件头</span></span><br><span class="line">  res=<span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="comment">#SOI(文件头),共89个字节</span></span><br><span class="line">  res+=<span class="string">&#x27;FFD8&#x27;</span></span><br><span class="line">  <span class="comment">#APP0图像识别信息</span></span><br><span class="line">  res+=<span class="string">&#x27;FFE000104A46494600010100000100010000&#x27;</span></span><br><span class="line">  <span class="comment">#DQT定义量化表</span></span><br><span class="line">  res+=<span class="string">&#x27;FFDB008400&#x27;</span></span><br><span class="line">  <span class="comment">#64字节的量化表</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> m_YTable:</span><br><span class="line">  	res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  res+=<span class="string">&#x27;01&#x27;</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> m_CbCrTable:</span><br><span class="line">  	res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#SOF0图像基本信息，13个字节</span></span><br><span class="line">  res+=<span class="string">&#x27;FFC0001108&#x27;</span></span><br><span class="line">  res+=hex(m_height)[<span class="number">2</span>:].rjust(<span class="number">4</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  res+=hex(m_width)[<span class="number">2</span>:].rjust(<span class="number">4</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  res+=<span class="string">&#x27;03011100021101031101&#x27;</span></span><br><span class="line">  <span class="comment">#DHT定义huffman表,33个字节+183</span></span><br><span class="line">  <span class="comment"># res+=&#x27;FFC4001F0000010501010101010100000000000000&#x27;</span></span><br><span class="line">  res+=<span class="string">&#x27;FFC401A200&#x27;</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> Standard_DC_Luminance_NRCodes:</span><br><span class="line">    res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> Standard_DC_Luminance_Values:</span><br><span class="line">    res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  res+=<span class="string">&#x27;10&#x27;</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> Standard_AC_Luminance_NRCodes:</span><br><span class="line">    res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> Standard_AC_Luminance_Values:</span><br><span class="line">    res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  res+=<span class="string">&#x27;01&#x27;</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> Standard_DC_Chrominance_NRCodes:</span><br><span class="line">    res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> Standard_DC_Chrominance_Values:</span><br><span class="line">    res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  res+=<span class="string">&#x27;11&#x27;</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> Standard_AC_Chrominance_NRCodes:</span><br><span class="line">    res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> Standard_AC_Chrominance_Values:</span><br><span class="line">    res+=hex(i)[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  <span class="comment"># #SOS扫描行开始，10个字节</span></span><br><span class="line">  res+=<span class="string">&#x27;FFDA000C03010002110311003f00&#x27;</span></span><br><span class="line">  fp.write(base64.b16decode(res.upper()))</span><br><span class="line">  prev_DC_Y=[<span class="number">0</span>]</span><br><span class="line">  prev_DC_Cb=[<span class="number">0</span>]</span><br><span class="line">  prev_DC_Cr=[<span class="number">0</span>]</span><br><span class="line">  <span class="comment"># prev_DC=[0,0,0]</span></span><br><span class="line">  newByte=[<span class="number">0</span>]</span><br><span class="line">  newBytePos=[<span class="number">7</span>]</span><br><span class="line">  <span class="keyword">for</span> yPos <span class="keyword">in</span> range(<span class="number">0</span>,m_height,<span class="number">8</span>):</span><br><span class="line">  	<span class="keyword">for</span> xPos <span class="keyword">in</span> range(<span class="number">0</span>,m_width,<span class="number">8</span>):</span><br><span class="line">  		<span class="comment">#颜色空间转换后的数据</span></span><br><span class="line">  		yData=np.zeros((<span class="number">64</span>),dtype=int)</span><br><span class="line">  		cbData=np.zeros((<span class="number">64</span>),dtype=int)</span><br><span class="line">  		crData=np.zeros((<span class="number">64</span>),dtype=int)</span><br><span class="line">  		<span class="comment">#dct及量化后的数据</span></span><br><span class="line">  		yQuant=np.zeros((<span class="number">64</span>),dtype=int)</span><br><span class="line">  		cbQuant=np.zeros((<span class="number">64</span>),dtype=int)</span><br><span class="line">  		crQuant=np.zeros((<span class="number">64</span>),dtype=int)</span><br><span class="line">  		<span class="comment">#转换颜色空间 rgb转ycbcr</span></span><br><span class="line">  		<span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">  			pos=(y+yPos)*m_width*<span class="number">3</span>+xPos*<span class="number">3</span></span><br><span class="line">  			<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">  				B=m_rgbBuffer[pos]</span><br><span class="line">  				pos+=<span class="number">1</span></span><br><span class="line">  				G=m_rgbBuffer[pos]</span><br><span class="line">  				pos+=<span class="number">1</span></span><br><span class="line">  				R=m_rgbBuffer[pos]</span><br><span class="line">  				pos+=<span class="number">1</span></span><br><span class="line">  				yData[y*<span class="number">8</span>+x] = (int)(<span class="number">0.299</span> * R + <span class="number">0.587</span> * G + <span class="number">0.114</span> * B - <span class="number">128</span>)</span><br><span class="line">  				cbData[y*<span class="number">8</span>+x] = (int)(<span class="number">-0.1687</span> * R - <span class="number">0.3313</span> * G + <span class="number">0.5</span> * B );</span><br><span class="line">  				crData[y*<span class="number">8</span>+x] = (int)(<span class="number">0.5</span> * R - <span class="number">0.4187</span> * G - <span class="number">0.0813</span> * B);</span><br><span class="line">  		outputBitString=np.zeros((<span class="number">128</span>,<span class="number">2</span>),dtype=int)</span><br><span class="line">  		bitStringCounts=[<span class="number">0</span>];</span><br><span class="line">  		<span class="comment">#Y通道压缩</span></span><br><span class="line">  		_foword_FDC(yData,yQuant,ZigZag,m_YTable)	</span><br><span class="line">  		_doHuffmanEncoding(yQuant,prev_DC_Y,m_Y_DC_Huffman_Table,m_Y_AC_Huffman_Table,outputBitString,bitStringCounts)</span><br><span class="line">  		<span class="comment"># print(m_Y_DC_Huffman_Table)</span></span><br><span class="line">  		_write_bitstring_(outputBitString,bitStringCounts[<span class="number">0</span>],newByte,newBytePos,fp)</span><br><span class="line">  		<span class="comment"># print(outputBitString)</span></span><br><span class="line">  		<span class="comment">#Cb通道压缩</span></span><br><span class="line">  		_foword_FDC(cbData,cbQuant,ZigZag,m_CbCrTable);</span><br><span class="line">  		_doHuffmanEncoding(cbQuant,prev_DC_Cb,m_CbCr_DC_Huffman_Table,m_CbCr_AC_Huffman_Table,outputBitString,bitStringCounts)</span><br><span class="line">  		_write_bitstring_(outputBitString,bitStringCounts[<span class="number">0</span>],newByte,newBytePos,fp)</span><br><span class="line">  		<span class="comment"># # print(m_CbCrTable)</span></span><br><span class="line">  		<span class="comment"># # print(cbQuant)</span></span><br><span class="line">  		<span class="comment"># # return</span></span><br><span class="line">  		<span class="comment">#Cr通道压缩</span></span><br><span class="line">  		_foword_FDC(crData,crQuant,ZigZag,m_CbCrTable);</span><br><span class="line">  		_doHuffmanEncoding(crQuant,prev_DC_Cr,m_CbCr_DC_Huffman_Table,m_CbCr_AC_Huffman_Table,outputBitString,bitStringCounts)</span><br><span class="line">  		_write_bitstring_(outputBitString,bitStringCounts[<span class="number">0</span>],newByte,newBytePos,fp)</span><br><span class="line"></span><br><span class="line">  		<span class="comment"># print(bitStringCounts[0])</span></span><br><span class="line">  		<span class="comment"># print(outputBitString)</span></span><br><span class="line">  		<span class="comment"># print(yQuant)</span></span><br><span class="line">  		<span class="comment"># return</span></span><br><span class="line">  fp.write(base64.b16decode(<span class="string">&#x27;FFD9&#x27;</span>))</span><br><span class="line">  fp.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># #转换颜色空间</span></span><br><span class="line"><span class="comment"># def _convertColorSpace(xPos,yPos,yData,cbData,crData):</span></span><br><span class="line"><span class="comment"># 	for y in range(8):</span></span><br><span class="line"><span class="comment">#把huffman编码后的结果写入文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_write_bitstring_</span>(<span class="params">bs,counts,newByte,newBytePos,fp</span>):</span></span><br><span class="line">	mask=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">16</span>,<span class="number">32</span>,<span class="number">64</span>,<span class="number">128</span>,<span class="number">256</span>,<span class="number">512</span>,<span class="number">1024</span>,<span class="number">2048</span>,<span class="number">4096</span>,<span class="number">8192</span>,<span class="number">16384</span>,<span class="number">32768</span>]</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(counts):</span><br><span class="line">		value=bs[i][<span class="number">1</span>]</span><br><span class="line">		posval=bs[i][<span class="number">0</span>]<span class="number">-1</span></span><br><span class="line">		<span class="comment"># print(posval,value)</span></span><br><span class="line">		<span class="keyword">while</span>(posval&gt;=<span class="number">0</span>):</span><br><span class="line">			<span class="keyword">if</span> value &amp; mask[posval] !=<span class="number">0</span>:</span><br><span class="line">				newByte[<span class="number">0</span>]=newByte[<span class="number">0</span>] | mask[newBytePos[<span class="number">0</span>]]</span><br><span class="line">			posval-=<span class="number">1</span></span><br><span class="line">			newBytePos[<span class="number">0</span>]-=<span class="number">1</span></span><br><span class="line">			<span class="keyword">if</span> newBytePos[<span class="number">0</span>]&lt;<span class="number">0</span>:</span><br><span class="line">				<span class="comment">#write to steam</span></span><br><span class="line">				fp.write(base64.b16decode(hex(newByte[<span class="number">0</span>]).upper()[<span class="number">2</span>:].rjust(<span class="number">2</span>,<span class="string">&#x27;0&#x27;</span>)))</span><br><span class="line">				<span class="keyword">if</span> newByte[<span class="number">0</span>]==<span class="number">0xFF</span>:</span><br><span class="line">					<span class="comment">#Handle special case</span></span><br><span class="line">					fp.write(base64.b16decode(<span class="string">&#x27;00&#x27;</span>))</span><br><span class="line">				<span class="comment">#Reinitialize</span></span><br><span class="line">				newBytePos[<span class="number">0</span>]=<span class="number">7</span></span><br><span class="line">				newByte[<span class="number">0</span>]=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dct离散余弦变换加量化</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_foword_FDC</span>(<span class="params">channel_data,fdc_data,ZigZag,m_YTable</span>):</span></span><br><span class="line">	PI=<span class="number">3.1415926</span></span><br><span class="line">	<span class="keyword">for</span> v <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">		<span class="keyword">for</span> u <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">			alpha_u = <span class="number">1</span>/math.sqrt(<span class="number">8.</span>) <span class="keyword">if</span> u==<span class="number">0</span> <span class="keyword">else</span> <span class="number">0.5</span></span><br><span class="line">			alpha_v = <span class="number">1</span>/math.sqrt(<span class="number">8.</span>) <span class="keyword">if</span> v==<span class="number">0</span> <span class="keyword">else</span> <span class="number">0.5</span></span><br><span class="line">			temp=<span class="number">0.</span></span><br><span class="line">			<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">				<span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">					data=channel_data[y*<span class="number">8</span>+x]</span><br><span class="line">					data*=np.cos((<span class="number">2</span>*x+<span class="number">1</span>)*u*PI/<span class="number">16.</span>)</span><br><span class="line">					data*=np.cos((<span class="number">2</span>*y+<span class="number">1</span>)*v*PI/<span class="number">16.</span>)</span><br><span class="line">					temp+=data</span><br><span class="line">			temp*=alpha_u*alpha_v/m_YTable[ZigZag[v*<span class="number">8</span>+u]]</span><br><span class="line">			fdc_data[ZigZag[v*<span class="number">8</span>+u]]=int((int)(temp+<span class="number">16384.5</span>)<span class="number">-16384</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_doHuffmanEncoding</span>(<span class="params">DU,prevDC,HTDC,HTAC,outputBitString,bitStringCounts</span>):</span></span><br><span class="line">	EOB=HTAC[<span class="number">0x00</span>]</span><br><span class="line">	SIXTEEN_ZEROS=HTAC[<span class="number">0xF0</span>]</span><br><span class="line">	index=<span class="number">0</span></span><br><span class="line">	<span class="comment">#encode DC</span></span><br><span class="line">	dcDiff=(int)(DU[<span class="number">0</span>]-prevDC[<span class="number">0</span>])</span><br><span class="line">	prevDC[<span class="number">0</span>]=DU[<span class="number">0</span>]</span><br><span class="line">	<span class="keyword">if</span> dcDiff==<span class="number">0</span>:</span><br><span class="line">		outputBitString[index]=HTDC[<span class="number">0</span>]</span><br><span class="line">		index+=<span class="number">1</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		bs=_getBitCode(dcDiff)</span><br><span class="line">		outputBitString[index]=HTDC[bs[<span class="number">0</span>]]</span><br><span class="line">		index+=<span class="number">1</span></span><br><span class="line">		outputBitString[index]=bs</span><br><span class="line">		index+=<span class="number">1</span></span><br><span class="line">	<span class="comment">#encode ACs</span></span><br><span class="line">	endPos=<span class="number">63</span></span><br><span class="line">	<span class="comment">#最后一个不为0的索引</span></span><br><span class="line">	<span class="keyword">while</span>((endPos&gt;<span class="number">0</span>) <span class="keyword">and</span> (DU[endPos]==<span class="number">0</span>)):</span><br><span class="line">		endPos-=<span class="number">1</span></span><br><span class="line">	i=<span class="number">1</span></span><br><span class="line">	<span class="keyword">while</span>(i&lt;=endPos):</span><br><span class="line"></span><br><span class="line">		startPos=i</span><br><span class="line">		<span class="keyword">while</span>((DU[i]==<span class="number">0</span>) <span class="keyword">and</span> (i&lt;=endPos)):</span><br><span class="line">			i+=<span class="number">1</span></span><br><span class="line">		zeroCounts=i-startPos</span><br><span class="line">		<span class="keyword">if</span> zeroCounts&gt;=<span class="number">16</span>:</span><br><span class="line">			<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,(int)(zeroCounts/<span class="number">16</span>)+<span class="number">1</span>):</span><br><span class="line">				outputBitString[index]=SIXTEEN_ZEROS</span><br><span class="line">				index+=<span class="number">1</span></span><br><span class="line">			zeroCounts=zeroCounts%<span class="number">16</span></span><br><span class="line">		bs=_getBitCode(DU[i])</span><br><span class="line">		outputBitString[index]=HTAC[(zeroCounts&lt;&lt;<span class="number">4</span>)|bs[<span class="number">0</span>]]</span><br><span class="line">		index+=<span class="number">1</span></span><br><span class="line">		outputBitString[index]=bs</span><br><span class="line">		index+=<span class="number">1</span></span><br><span class="line">		i+=<span class="number">1</span></span><br><span class="line">	<span class="keyword">if</span> endPos!=<span class="number">63</span>:</span><br><span class="line">		outputBitString[index]=EOB</span><br><span class="line">		index+=<span class="number">1</span></span><br><span class="line">	bitStringCounts[<span class="number">0</span>]=index</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_getBitCode</span>(<span class="params">value</span>):</span></span><br><span class="line">	ret=np.zeros((<span class="number">2</span>),dtype=int)</span><br><span class="line">	v=value <span class="keyword">if</span> value&gt;<span class="number">0</span> <span class="keyword">else</span> -value</span><br><span class="line">	<span class="comment">#bit的长度</span></span><br><span class="line">	length=<span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span>(v!=<span class="number">0</span>):</span><br><span class="line">		v&gt;&gt;=<span class="number">1</span></span><br><span class="line">		length+=<span class="number">1</span></span><br><span class="line">	ret[<span class="number">1</span>]=value <span class="keyword">if</span> value&gt;<span class="number">0</span> <span class="keyword">else</span> ((<span class="number">1</span>&lt;&lt;length)+value<span class="number">-1</span>)</span><br><span class="line">	ret[<span class="number">0</span>]=length</span><br><span class="line">	<span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_computeHuffmanTable</span>(<span class="params">nr_codes,std_table,huffman_table</span>):</span></span><br><span class="line">	pos_in_table=<span class="number">0</span>;</span><br><span class="line">	code_value=<span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">17</span>):</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,nr_codes[k<span class="number">-1</span>]+<span class="number">1</span>):</span><br><span class="line">			huffman_table[std_table[pos_in_table]][<span class="number">1</span>]=code_value</span><br><span class="line">			huffman_table[std_table[pos_in_table]][<span class="number">0</span>]=k;</span><br><span class="line">			pos_in_table+=<span class="number">1</span></span><br><span class="line">			code_value+=<span class="number">1</span></span><br><span class="line">		code_value&lt;&lt;=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">	<span class="comment"># img_path=sys.argv[1]</span></span><br><span class="line">	img_path=<span class="string">&#x27;./lena.bmp&#x27;</span></span><br><span class="line">	<span class="comment"># img_data=cv2.imread(img_path)[:,:,(2,1,0)]</span></span><br><span class="line">	<span class="comment">#bgr顺序</span></span><br><span class="line">	img_data=cv2.imread(img_path)</span><br><span class="line">	compress(img_data)</span><br><span class="line">	<span class="comment"># print(img_data)</span></span><br><span class="line">	<span class="comment"># plt.imshow(img_data)</span></span><br><span class="line">	<span class="comment"># plt.show()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/26/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/26/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">十大排序算法详解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-26 14:34:44" itemprop="dateCreated datePublished" datetime="2022-04-26T14:34:44+08:00">2022-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-05 22:26:46" itemprop="dateModified" datetime="2022-10-05T22:26:46+08:00">2022-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%A0%A1%E6%8B%9B/" itemprop="url" rel="index"><span itemprop="name">校招</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/04/26/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/04/26/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>十大排序算法</strong>可以说是每个程序员都必须得掌握的了</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/26/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/25/IDEA%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Z2BNS">
+      <meta itemprop="description" content="Because like, so love">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CTF of Z2BNS">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/25/IDEA%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/" class="post-title-link" itemprop="url">IDEA安装破解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-25 11:11:29" itemprop="dateCreated datePublished" datetime="2022-04-25T11:11:29+08:00">2022-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-26 15:29:12" itemprop="dateModified" datetime="2022-04-26T15:29:12+08:00">2022-04-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+		  <div style="display:inline">
+		   |
+		  <i class="fa fa-eye"></i>
+		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
+		  </div>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/04/25/IDEA%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/04/25/IDEA%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>379</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Intellij IDEA是目前最主流的JAVA开发IDE，但其是收费的，其安装破解过程如下</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/25/IDEA%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/07/%E7%AE%97%E6%B3%95%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -986,350 +1313,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/07/%E5%9F%BA%E4%BA%8EJPEG%E7%9A%84%E8%81%94%E5%90%88%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Z2BNS">
-      <meta itemprop="description" content="Because like, so love">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CTF of Z2BNS">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/07/%E5%9F%BA%E4%BA%8EJPEG%E7%9A%84%E8%81%94%E5%90%88%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">基于JPEG的联合图像压缩加密算法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-07 16:38:19" itemprop="dateCreated datePublished" datetime="2021-12-07T16:38:19+08:00">2021-12-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-14 18:49:03" itemprop="dateModified" datetime="2021-12-14T18:49:03+08:00">2021-12-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
-                </span>
-            </span>
-		  <div style="display:inline">
-		   |
-		  <i class="fa fa-eye"></i>
-		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
-		  </div>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/12/07/%E5%9F%BA%E4%BA%8EJPEG%E7%9A%84%E8%81%94%E5%90%88%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/12/07/%E5%9F%BA%E4%BA%8EJPEG%E7%9A%84%E8%81%94%E5%90%88%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>112</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>想法？idea?</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/07/%E5%9F%BA%E4%BA%8EJPEG%E7%9A%84%E8%81%94%E5%90%88%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Z2BNS">
-      <meta itemprop="description" content="Because like, so love">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CTF of Z2BNS">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/" class="post-title-link" itemprop="url">JPEG原理详解(附python实现)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-04 20:09:55" itemprop="dateCreated datePublished" datetime="2021-12-04T20:09:55+08:00">2021-12-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-22 15:36:06" itemprop="dateModified" datetime="2022-05-22T15:36:06+08:00">2022-05-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
-                </span>
-            </span>
-		  <div style="display:inline">
-		   |
-		  <i class="fa fa-eye"></i>
-		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
-		  </div>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>8.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>JPEG（Joint Photographic Experts Group）是JPEG标准的产物，该标准由国际标准化组织（ISO）制订，是面向连续色调静止图像的一种压缩标准。 JPEG格式是最常用的图像文件格式，后缀名为.jpg或.jpeg。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/04/JPEG%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3(%E9%99%84python%E5%AE%9E%E7%8E%B0)/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Z2BNS">
-      <meta itemprop="description" content="Because like, so love">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CTF of Z2BNS">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/" class="post-title-link" itemprop="url">Joint image compression and encryption based on order-8 alternating transforms</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-17 11:09:39" itemprop="dateCreated datePublished" datetime="2021-11-17T11:09:39+08:00">2021-11-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-24 16:41:25" itemprop="dateModified" datetime="2021-11-24T16:41:25+08:00">2021-11-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%8A%A0%E5%AF%86/" itemprop="url" rel="index"><span itemprop="name">复杂网络与图像加密</span></a>
-                </span>
-            </span>
-		  <div style="display:inline">
-		   |
-		  <i class="fa fa-eye"></i>
-		  阅读次数：<span id="busuanzi_value_page_pv"></span> |
-		  </div>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>【<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1047320317300275">论文地址</a>】</p>
-<h5 id="基于8阶交替的联合图像压缩与加密"><a href="#基于8阶交替的联合图像压缩与加密" class="headerlink" title="基于8阶交替的联合图像压缩与加密"></a>基于8阶交替的联合图像压缩与加密</h5>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/17/Joint-image-compression-and-encryption-based-on-order-8-alternating-transforms/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1397,7 +1384,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">269</span>
+          <span class="site-state-item-count">272</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1474,13 +1461,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">362k</span>
+    <span title="站点总字数">364k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:29</span>
+    <span title="站点阅读时长">5:31</span>
 </div>
 
 
