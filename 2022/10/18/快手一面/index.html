@@ -30,7 +30,7 @@
 <meta property="og:description" content="快手">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-18T05:16:48.000Z">
-<meta property="article:modified_time" content="2022-10-18T08:42:51.823Z">
+<meta property="article:modified_time" content="2022-10-21T06:55:26.779Z">
 <meta property="article:author" content="Z2BNS">
 <meta name="twitter:card" content="summary">
 
@@ -232,10 +232,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-10-18 13:16:48 / 修改时间：16:42:51" itemprop="dateCreated datePublished" datetime="2022-10-18T13:16:48+08:00">2022-10-18</time>
+              <time title="创建时间：2022-10-18 13:16:48" itemprop="dateCreated datePublished" datetime="2022-10-18T13:16:48+08:00">2022-10-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-21 14:55:26" itemprop="dateModified" datetime="2022-10-21T14:55:26+08:00">2022-10-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -270,14 +276,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>285</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -291,23 +297,38 @@
       
         <p>快手</p>
 <a id="more"></a>
-<p>自我介绍</p>
-<p>做的项目哪个最满意？</p>
-<p>项目难点是什么？怎么解决的？</p>
-<p>HashMap和TreeMap的区别？</p>
-<p>操作系统线程和java线程区别？有什么联系吗？</p>
-<p>用户态和内核态的区别？怎么切换？</p>
-<p>有哪几种锁？java中怎么实现的？</p>
-<p>linux命令 有一个文件里面5列数据（姓名、年龄、电话、头像、地址），查找查找年龄为20的记录记录数量？</p>
-<p>UDP和TCP区别？</p>
-<p>TCP可靠性怎么实现的？</p>
-<p>UDP要怎么做才能做到可靠性传输？</p>
-<p>把Ip地址转成整数输出</p>
-<p>输入：127.0.0.1</p>
+<h6 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h6><h6 id="做的项目哪个最满意？"><a href="#做的项目哪个最满意？" class="headerlink" title="做的项目哪个最满意？"></a>做的项目哪个最满意？</h6><h6 id="项目难点是什么？怎么解决的？"><a href="#项目难点是什么？怎么解决的？" class="headerlink" title="项目难点是什么？怎么解决的？"></a>项目难点是什么？怎么解决的？</h6><h6 id="HashMap和TreeMap的区别？"><a href="#HashMap和TreeMap的区别？" class="headerlink" title="HashMap和TreeMap的区别？"></a>HashMap和TreeMap的区别？</h6><p>1、HashMap无序，TreeMap有序。</p>
+<p>2、HashMap重写了equals（）方法和hashcode（）方法，这使得HashMap中两个相等的映射返回相同的哈希值；</p>
+<p>TreeMap则是实现了SortedMap接口，使其有序。</p>
+<p>3、HashMap的工作效率更高，而TreeMap则是基于树的增删查改。更推荐使用HashMap。</p>
+<p>4、HashMap基于数组+链表+红黑树（jdk1.8之后）实现，TreeMap是基于红黑树实现。</p>
+<p>5、两者都不是线性安全的。</p>
+<h6 id="TreeMap怎么实现排序的？"><a href="#TreeMap怎么实现排序的？" class="headerlink" title="TreeMap怎么实现排序的？"></a>TreeMap怎么实现排序的？</h6><p>TreeMap实现SortMap接口，能够把它保存的记录根据键排序，默认是按键值的升序排序，也可以指定排序的比较器。当用Iterator遍历TreeMap时，得到的记录是排过序的。</p>
+<h6 id="HashMap怎么扩容的？"><a href="#HashMap怎么扩容的？" class="headerlink" title="HashMap怎么扩容的？"></a>HashMap怎么扩容的？</h6><h6 id="操作系统线程和java线程区别？有什么联系吗？"><a href="#操作系统线程和java线程区别？有什么联系吗？" class="headerlink" title="操作系统线程和java线程区别？有什么联系吗？"></a>操作系统线程和java线程区别？有什么联系吗？</h6><h6 id="用户态和内核态的区别？怎么切换？"><a href="#用户态和内核态的区别？怎么切换？" class="headerlink" title="用户态和内核态的区别？怎么切换？"></a>用户态和内核态的区别？怎么切换？</h6><p>由于需要限制不同的程序之间的访问能力, 防止他们获取别的程序的内存数据, 或者获取外围设备的数据, 并发送到网络, CPU划分出两个权限等级 — <strong>用户态</strong> 和 <strong>内核态</strong></p>
+<p><strong>——内核态:</strong> CPU可以访问内存所有数据, 包括外围设备, 例如硬盘, 网卡. </p>
+<p><strong>——用户态:</strong> 只能受限的访问内存, 且不允许访问外围设备. 占用CPU的能力被剥夺, CPU资源可以被其他程序获取</p>
+<p><strong>——用户态和内核态的切换</strong></p>
+<p>所有用户程序都是运行在用户态的, 但是有时候程序确实需要做一些内核态的事情,</p>
+<p>例如从硬盘读取数据, 或者从键盘获取输入等. 而唯一可以做这些事情的就是操作系统, 所以此时程序就需要先操作系统请求以程序的名义来执行这些操作.</p>
+<p>这时需要一个这样的机制: 用户态程序切换到内核态, 但是不能控制在内核态中执行的指令</p>
+<p>这种机制叫<strong>系统调用</strong>,</p>
+<p>他们的工作流程如下:</p>
+<p>——用户态程序将一些数据值放在寄存器中, 或者使用参数创建一个堆栈(stack frame), 以此表明需要操作系统提供的服务.</p>
+<p>——用户态程序执行陷阱指令</p>
+<p>——CPU切换到内核态, 并跳到位于内存指定位置的指令, 这些指令是操作系统的一部分, 他们具有内存保护, 不可被用户态程序访问</p>
+<p>——这些指令称之为陷阱(trap)或者系统调用处理器(system call handler). 他们会读取程序放入内存的数据参数, 并执行程序请求的服务</p>
+<p>——系统调用完成后, 操作系统会重置CPU为用户态并返回系统调用的结果</p>
+<h6 id="有哪几种锁？java中怎么使用的？"><a href="#有哪几种锁？java中怎么使用的？" class="headerlink" title="有哪几种锁？java中怎么使用的？"></a>有哪几种锁？java中怎么使用的？</h6><h6 id="linux命令-有一个文件里面5列数据（姓名、年龄、电话、头像、地址），查找查找年龄为20的记录记录数量？"><a href="#linux命令-有一个文件里面5列数据（姓名、年龄、电话、头像、地址），查找查找年龄为20的记录记录数量？" class="headerlink" title="linux命令 有一个文件里面5列数据（姓名、年龄、电话、头像、地址），查找查找年龄为20的记录记录数量？"></a>linux命令 有一个文件里面5列数据（姓名、年龄、电话、头像、地址），查找查找年龄为20的记录记录数量？</h6><h6 id="UDP和TCP区别？"><a href="#UDP和TCP区别？" class="headerlink" title="UDP和TCP区别？"></a>UDP和TCP区别？</h6><h6 id="TCP可靠性怎么实现的？"><a href="#TCP可靠性怎么实现的？" class="headerlink" title="TCP可靠性怎么实现的？"></a>TCP可靠性怎么实现的？</h6><h6 id="UDP要怎么做才能做到可靠性传输？"><a href="#UDP要怎么做才能做到可靠性传输？" class="headerlink" title="UDP要怎么做才能做到可靠性传输？"></a>UDP要怎么做才能做到可靠性传输？</h6><p>传输层无法保证数据的可靠传输，只能通过应用层来实现了。实现的方式可以参照tcp可靠性传输的方式，只是实现不在传输层，实现转移到了应用层。<br>最简单的方式是在应用层模仿传输层TCP的可靠性传输。下面不考虑拥塞处理，可靠UDP的简单设计。</p>
+<p>1、添加seq/ack机制，确保数据发送到对端<br>2、添加发送和接收缓冲区，主要是用户超时重传。<br>3、添加超时重传机制。<br>详细说明：送端发送数据时，生成一个随机seq=x，然后每一片按照数据大小分配seq。数据到达接收端后接收端放入缓存，并发送一个ack=x的包，表示对方已经收到了数据。发送端收到了ack包后，删除缓冲区对应的数据。时间到后，定时任务检查是否需要重传数据。</p>
+<p>下面分别介绍三种使用<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=UDP&amp;spm=1001.2101.3001.7020">UDP</a>进行可靠数据传输的协议：</p>
+<p><strong>RUDP</strong></p>
+<p><strong>RTP</strong></p>
+<p><strong>UDT</strong></p>
+<p>简单来讲，要使用UDP来构建可靠的面向连接的数据传输，就要实现类似于TCP协议的超时重传，有序接受，应答确认，滑动窗口流量控制等机制，等于说要在传输层的上一层（或者直接在应用层）实现TCP协议的可靠数据传输机制，比如使用UDP数据包+序列号，UDP数据包+时间戳等方法，在服务器端进行应答确认机制，这样就会保证不可靠的UDP协议进行可靠的数据传输</p>
+<h6 id="把Ip地址转成整数输出"><a href="#把Ip地址转成整数输出" class="headerlink" title="把Ip地址转成整数输出"></a>把Ip地址转成整数输出</h6><p>输入：127.0.0.1</p>
 <p>输出：4261412865（应该是这个）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       Scanner sc=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">       String str=sc.next();</span><br><span class="line">       String[] arr=str.split(<span class="string">&quot;\\.&quot;</span>);</span><br><span class="line">       <span class="keyword">long</span> res=<span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">           res+=Long.valueOf(arr[i])*(<span class="number">2</span>&lt;&lt;(<span class="number">8</span>*(<span class="number">3</span>-i)));</span><br><span class="line">       &#125;</span><br><span class="line">       res+=Long.valueOf(arr[<span class="number">3</span>]);</span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一个文件每行是用户访问快手的一个url记录，上亿条记录，找出访问快手次数最多的前20个用户；</p>
-
+<h6 id="一个文件每行是用户访问快手的一个url记录，上亿条记录，找出访问快手次数最多的前20个用户；"><a href="#一个文件每行是用户访问快手的一个url记录，上亿条记录，找出访问快手次数最多的前20个用户；" class="headerlink" title="一个文件每行是用户访问快手的一个url记录，上亿条记录，找出访问快手次数最多的前20个用户；"></a>一个文件每行是用户访问快手的一个url记录，上亿条记录，找出访问快手次数最多的前20个用户；</h6>
     </div>
 
     
@@ -357,7 +378,10 @@
     <a href="/2022/10/15/%E5%89%8D%E4%B8%AD%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2/" rel="prev" title="前中后缀表达式转换">
       <i class="fa fa-chevron-left"></i> 前中后缀表达式转换
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/10/19/JPEG%E5%9B%BE%E5%83%8F%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F%E7%AE%97%E6%B3%95%E7%A0%94%E7%A9%B6/" rel="next" title="JPEG图像信息隐藏算法研究">
+      JPEG图像信息隐藏算法研究 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -417,6 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%81%9A%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%93%AA%E4%B8%AA%E6%9C%80%E6%BB%A1%E6%84%8F%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">做的项目哪个最满意？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E9%9A%BE%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E7%9A%84%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">项目难点是什么？怎么解决的？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HashMap%E5%92%8CTreeMap%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">HashMap和TreeMap的区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#TreeMap%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E6%8E%92%E5%BA%8F%E7%9A%84%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">TreeMap怎么实现排序的？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HashMap%E6%80%8E%E4%B9%88%E6%89%A9%E5%AE%B9%E7%9A%84%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">HashMap怎么扩容的？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BA%BF%E7%A8%8B%E5%92%8Cjava%E7%BA%BF%E7%A8%8B%E5%8C%BA%E5%88%AB%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E8%81%94%E7%B3%BB%E5%90%97%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">操作系统线程和java线程区别？有什么联系吗？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%80%81%E5%92%8C%E5%86%85%E6%A0%B8%E6%80%81%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">用户态和内核态的区别？怎么切换？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E9%94%81%EF%BC%9Fjava%E4%B8%AD%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="nav-number">9.</span> <span class="nav-text">有哪几种锁？java中怎么使用的？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#linux%E5%91%BD%E4%BB%A4-%E6%9C%89%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E9%87%8C%E9%9D%A25%E5%88%97%E6%95%B0%E6%8D%AE%EF%BC%88%E5%A7%93%E5%90%8D%E3%80%81%E5%B9%B4%E9%BE%84%E3%80%81%E7%94%B5%E8%AF%9D%E3%80%81%E5%A4%B4%E5%83%8F%E3%80%81%E5%9C%B0%E5%9D%80%EF%BC%89%EF%BC%8C%E6%9F%A5%E6%89%BE%E6%9F%A5%E6%89%BE%E5%B9%B4%E9%BE%84%E4%B8%BA20%E7%9A%84%E8%AE%B0%E5%BD%95%E8%AE%B0%E5%BD%95%E6%95%B0%E9%87%8F%EF%BC%9F"><span class="nav-number">10.</span> <span class="nav-text">linux命令 有一个文件里面5列数据（姓名、年龄、电话、头像、地址），查找查找年龄为20的记录记录数量？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#UDP%E5%92%8CTCP%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">11.</span> <span class="nav-text">UDP和TCP区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#TCP%E5%8F%AF%E9%9D%A0%E6%80%A7%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">TCP可靠性怎么实现的？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#UDP%E8%A6%81%E6%80%8E%E4%B9%88%E5%81%9A%E6%89%8D%E8%83%BD%E5%81%9A%E5%88%B0%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E8%BE%93%EF%BC%9F"><span class="nav-number">13.</span> <span class="nav-text">UDP要怎么做才能做到可靠性传输？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8A%8AIp%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%88%90%E6%95%B4%E6%95%B0%E8%BE%93%E5%87%BA"><span class="nav-number">14.</span> <span class="nav-text">把Ip地址转成整数输出</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E6%AF%8F%E8%A1%8C%E6%98%AF%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE%E5%BF%AB%E6%89%8B%E7%9A%84%E4%B8%80%E4%B8%AAurl%E8%AE%B0%E5%BD%95%EF%BC%8C%E4%B8%8A%E4%BA%BF%E6%9D%A1%E8%AE%B0%E5%BD%95%EF%BC%8C%E6%89%BE%E5%87%BA%E8%AE%BF%E9%97%AE%E5%BF%AB%E6%89%8B%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%89%8D20%E4%B8%AA%E7%94%A8%E6%88%B7%EF%BC%9B"><span class="nav-number">15.</span> <span class="nav-text">一个文件每行是用户访问快手的一个url记录，上亿条记录，找出访问快手次数最多的前20个用户；</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -432,7 +457,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">272</span>
+          <span class="site-state-item-count">273</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -509,13 +534,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">364k</span>
+    <span title="站点总字数">369k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:31</span>
+    <span title="站点阅读时长">5:35</span>
 </div>
 
 
