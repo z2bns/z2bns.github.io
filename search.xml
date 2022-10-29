@@ -17316,7 +17316,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>81</td>
 <td>蔚来</td>
 <td><a href="https://nio.jobs.feishu.cn/referral/campus/resume/application/7125710274128087303?token=NTsxNjU1NzA5OTcyMzAzOzcxMDEzOTA0Mzk0ODAzOTM3Mjk7NzEwMTYyNjkyOTEyOTE2MzAzOQ&amp;from=mobilecopy">https://nio.jobs.feishu.cn/referral/campus/resume/application/7125710274128087303?token=NTsxNjU1NzA5OTcyMzAzOzcxMDEzOTA0Mzk0ODAzOTM3Mjk7NzEwMTYyNjkyOTEyOTE2MzAzOQ&amp;from=mobilecopy</a></td>
-<td></td>
+<td>10-21</td>
 <td></td>
 <td></td>
 <td></td>
@@ -17325,7 +17325,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>82</td>
 <td>中电14所</td>
 <td><a href="http://hr.nriet.com/Pages/Vita/Family.aspx">http://hr.nriet.com/Pages/Vita/Family.aspx</a></td>
-<td></td>
+<td>10-21</td>
 <td></td>
 <td></td>
 <td></td>
@@ -17334,7 +17334,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>83</td>
 <td>中邮信科</td>
 <td><a href="http://campus.51job.com/chinapostzyxk2023/about2.html">http://campus.51job.com/chinapostzyxk2023/about2.html</a></td>
-<td></td>
+<td>10-21</td>
 <td></td>
 <td></td>
 <td></td>
@@ -17343,7 +17343,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>84</td>
 <td>喜马拉雅</td>
 <td><a href="https://app.mokahr.com/campus_apply/himalaya/7258#/candidateHome/applications">https://app.mokahr.com/campus_apply/himalaya/7258#/candidateHome/applications</a></td>
-<td></td>
+<td>10-21</td>
 <td></td>
 <td></td>
 <td></td>
@@ -17352,16 +17352,16 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <td>85</td>
 <td>shein</td>
 <td><a href="https://app.mokahr.com/campus_apply/shein/2932#/jobs?zhineng=15710&amp;commitment=%E5%85%A8%E8%81%8C&amp;location=">https://app.mokahr.com/campus_apply/shein/2932#/jobs?zhineng=15710&amp;commitment=%E5%85%A8%E8%81%8C&amp;location=</a></td>
-<td></td>
+<td>10-24</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>86</td>
+<td>水滴</td>
+<td><a href="https://jobs.waterdrop-inc.com/">https://jobs.waterdrop-inc.com/</a></td>
+<td>10-18</td>
 <td></td>
 <td></td>
 <td></td>
@@ -17686,6 +17686,27 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <p>对后台系统进行权限控制，本质就是对用户进行认证和授权。</p>
 <h5 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h5><h6 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h6><p>内存泄漏（ Memory Leak ）是指程序中己动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。</p>
 <p>静态变量通过类访问和通过实例对象访问效率一样吗？</p>
+<h5 id="场景题"><a href="#场景题" class="headerlink" title="场景题"></a>场景题</h5><h6 id="题目一：只用2G内存在20亿个整数中找到出现次数最多的数"><a href="#题目一：只用2G内存在20亿个整数中找到出现次数最多的数" class="headerlink" title="题目一：只用2G内存在20亿个整数中找到出现次数最多的数"></a>题目一：只用2G内存在20亿个整数中找到出现次数最多的数</h6><p>有一个包含20亿个全是32位整数的大文件，在其中找到出现次数最多的数。<br>内存限制为2G</p>
+<p><strong>分析一：</strong></p>
+<ul>
+<li>对于在很多数中找到出现次数最多的数这种问题，通常的做法是使用哈希表对出现的每一个数做词频统计，哈希表的key为对应的整数，value为该整数出现的次数。</li>
+<li>就本题来说，假设一个数出现了20亿次，用32位的整数可以表示该次数不会产生溢出，<strong>所以哈希表的key为4B，value为4B，则哈希表的一条记录占用了8B</strong>。当哈希表中的记录个数为2亿个时，至少需要1.6GB的内存</li>
+<li>如果20亿个数中不同的数超过2亿个，最极端的情况是20亿个数都不相同，那么所占内存为20亿*8B，很显然内存是不够用的。</li>
+<li>解决办法是把包含20亿个数的小文件用哈希函数分成16个小文件，根据哈希函数的性质，同一种数是不可能被散列到不同的小文件中。假设哈希函数足够优秀，那么每个小文件中不同的数一定不会大于2亿种。</li>
+<li>然后对每一个小文件用哈希表来统计每个数出现的次数，因此得到16个小文件中各自出现次数最多的数和相应的次数统计。</li>
+<li>最后只要在16个数中选出出现次数最多的那个即可。</li>
+<li>之所以分成16个小文件是与内存限制为2G对应的。</li>
+</ul>
+<p>把一个大的集合通过哈希函数分配到多台机器中，或者分配到多个文件里，是处理大数据问题常用的方法，具体分配多少台机器，多少个文件根据内存的限制来确定。<br>比如：</p>
+<ul>
+<li>有一个包含100亿个url的大文件，假设每个url占用64B，请找出其中所有重复的url。</li>
+<li>解决办法：<ul>
+<li>通过哈希函数将大文件中的url哈希到若干台机器中或者单机上拆分成若干个小文件（哈希函数的性质决定了同一条url不会被分配到不同的机器或者不同的文件中），具体的数目根据资源的限制来选择。</li>
+<li>然后对每一个小文件再利用哈希表遍历，找出重复的url。</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.it610.com/article/1170066744501350400.htm">参考链接</a></p>
 ]]></content>
       <categories>
         <category>工作</category>
@@ -17763,7 +17784,16 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>JPEG图像信息隐藏算法研究</p>
 <a id="more"></a>
 <p>根据要嵌入数据的大小来动态选择嵌入的位置</p>
-<h5 id="衡量指标"><a href="#衡量指标" class="headerlink" title="衡量指标"></a>衡量指标</h5><h6 id="嵌入容量"><a href="#嵌入容量" class="headerlink" title="嵌入容量"></a>嵌入容量</h6><h6 id="视觉质量"><a href="#视觉质量" class="headerlink" title="视觉质量"></a>视觉质量</h6><h6 id="文件存储大小"><a href="#文件存储大小" class="headerlink" title="文件存储大小"></a>文件存储大小</h6>]]></content>
+<p>jpeg是一种最常用的用于存储和传输的压缩图像格式。在手机、数码相机等许多电子设备中都采用JPEG作为默认的图像格式，既可以节省存储空间，又能保持良好的视觉质量。采用可逆数据隐藏（RDH）技术对保护jpeg图像的真实性和完整性具有重要意义。</p>
+<p>现有的RDH策略主要针对未压缩图像，包括无损压缩、差分展开（DE），和直方图移动（HS），不能直接应用到jpeg图像。和空间图像相比，JPEG图像具有较少的冗余和较低的嵌入容量。对JPEG图像的微小修改可能导致较大的视觉失真和文件存储容量的大幅增加。如何在保证图像质量的同时减小文件存储空间的增大，已经成为JPEG RDH领域的一个难题。</p>
+<p>根据JPEG的压缩过程，有三种主要的RDH方法，</p>
+<p>第一种方法是基于量化表的修改，该方法易于获得大容量和高视觉质量，但是jpeg压缩效率降低，文件存储容量可能会显著增加。</p>
+<p>第二种方法是基于修改JPEG图像中哈夫曼编码，通过构建不同编码长度的VLCs之间的映射，可以获得更高的嵌入容量和较小的文件存储空间增量。一种新的无损数据隐藏框架。首先对JPEG位流进行基于中继传输的扩展预处理，然后通过VLC映射、组合和排列优化嵌入过程。这类方法通常不会在隐藏数据后造成视觉失真，而且文件存储大小的增加通常很小。然而，嵌入容量比较低。</p>
+<p>第三种方法是基于量化DCT系数修正，一般可以达到嵌入容量、视觉质量和文件存储容量的增加三个指标之间的平衡，</p>
+<p>已经为RDH开发了三种主要方法</p>
+<p>基于量化DCT系数操作的RDH、基于量化表修改的RDH和基于霍夫曼码修改的RDH</p>
+<h5 id="衡量指标"><a href="#衡量指标" class="headerlink" title="衡量指标"></a>衡量指标</h5><h6 id="嵌入容量"><a href="#嵌入容量" class="headerlink" title="嵌入容量"></a>嵌入容量</h6><h6 id="视觉质量"><a href="#视觉质量" class="headerlink" title="视觉质量"></a>视觉质量</h6><p>psnr</p>
+<h6 id="文件存储大小"><a href="#文件存储大小" class="headerlink" title="文件存储大小"></a>文件存储大小</h6>]]></content>
   </entry>
   <entry>
     <title>中信百信一面</title>
@@ -17783,5 +17813,136 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
       <categories>
         <category>工作</category>
       </categories>
+  </entry>
+  <entry>
+    <title>分布式系统相关概念</title>
+    <url>/2022/10/25/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>分布式系统中的相关概念</p>
+<a id="more"></a>
+<h4 id="大型互联网项目架构"><a href="#大型互联网项目架构" class="headerlink" title="大型互联网项目架构"></a>大型互联网项目架构</h4><h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><h6 id="传统项目"><a href="#传统项目" class="headerlink" title="传统项目"></a>传统项目</h6><p>企业内部使用，如OA、HR、CRM</p>
+<h6 id="互联网项目"><a href="#互联网项目" class="headerlink" title="互联网项目"></a>互联网项目</h6><p>网民、天猫、微信、百度</p>
+<p>特点：</p>
+<ul>
+<li>用户多</li>
+<li>流量大，并发高</li>
+<li>海量数据</li>
+<li>易受攻击</li>
+<li>功能繁琐</li>
+<li>变更快</li>
+</ul>
+<h6 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h6><p>用户群体</p>
+<p>用户体验</p>
+<h5 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h5><ul>
+<li><p>高性能：提供快速的访问体验</p>
+</li>
+<li><p>高可用：网站服务一直可以正常访问</p>
+</li>
+<li>可伸缩：通过硬件增加/减少，提高/降低处理能力</li>
+<li>高可扩展：系统间耦合第，方便通过新增/移除方式，增加/减少新的功能/模块</li>
+<li>安全性：提供网站安全访问和数据加密，安全存储等策略</li>
+<li>敏捷性：随需应变，快速响应</li>
+</ul>
+<h5 id="集群和分布式"><a href="#集群和分布式" class="headerlink" title="集群和分布式"></a>集群和分布式</h5><ul>
+<li>集群：很多“人”一起，一起干一样的事<ul>
+<li>一个业务模块，部署在多台服务器上</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>分布式：很多“人”一起，干不一样的事，这些不一样的事，合起来是一件大事。<ul>
+<li>一个大的业务系统，拆分成小的业务模块，分别部署在不同的机器上。</li>
+</ul>
+</li>
+</ul>
+<h5 id="架构演进"><a href="#架构演进" class="headerlink" title="架构演进"></a>架构演进</h5><h6 id="单体架构"><a href="#单体架构" class="headerlink" title="单体架构"></a>单体架构</h6><p>优点：</p>
+<ul>
+<li>简单：开发部署都很方便，小型项目首选</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>项目启动慢</li>
+<li>可靠性差</li>
+<li>可伸缩性差</li>
+<li>扩展性和可维护性差</li>
+<li>性能低</li>
+</ul>
+<h6 id="垂直架构"><a href="#垂直架构" class="headerlink" title="垂直架构"></a>垂直架构</h6><p>垂直架构是指将单体架构中的多个模块拆分为多个独立的项目。形成多个独立的单体架构。</p>
+<p>存在的问题：</p>
+<ul>
+<li>重复功能太多</li>
+</ul>
+<h6 id="分布式架构"><a href="#分布式架构" class="headerlink" title="分布式架构"></a>分布式架构</h6><p>分布式架构是指在垂直架构的基础上，将公共业务模块抽取出来，作为独立的服务，供其他消费者消费，以实现服务的共享和重用。</p>
+<p>存在的问题:</p>
+<p>服务提供方一旦产生变更，所有消费方都需要变更</p>
+<h6 id="SOA架构"><a href="#SOA架构" class="headerlink" title="SOA架构"></a>SOA架构</h6><p>SOA（Service-Oriented Architecture，面向服务的架构）是一个组件模型，它将应用程序的不同功能单元（称为服务）进行拆分，并通过这些服务之间定义良好的接口和契约联系起来。</p>
+<p>ESB（Enterparise Service Bus）企业服务总线，服务中介。主要是提供了一个服务于服务之间的交互。ESB包含的功能如：负载均衡，流量控制，加密处理，服务的监控，异常处理，监控告急等等。</p>
+<h6 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h6><p>微服务架构是在SOA上做的升华，微服务架构强调的一个重点是“业务需要彻底的组件化和服务化”，原有的单个业务系统会拆分为多个可以独立开发、设计、运行的小应用。这些小应用之间通过服务完成交互和集成。</p>
+<p>微服务架构=80%的SOA服务架构思想+100%的组件化架构思想+80%的领域建模思想</p>
+<p>特点：</p>
+<ul>
+<li>服务实现组件化：开发者可以自由选择开发技术。也不需要协调其他团队</li>
+<li>服务之间交互一般使用REST API</li>
+<li>去中心化：每个微服务有自己私有的数据持久化业务数据</li>
+<li>自动化部署：把应用拆分成一个一个独立的单个服务，方便自动化部署、测试、运维</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>动态规划</title>
+    <url>/2022/10/28/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>经典题型</p>
+<a id="more"></a>
+<h6 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a><a href="https://leetcode.cn/problems/longest-palindromic-substring/">最长回文子串</a></h6><p>给你一个字符串s，找到s中最长的回文子串。</p>
+<p>示例1：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+<p>示例2：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;cbbd&quot;</span><br><span class="line">输出：&quot;bb&quot;</span><br></pre></td></tr></table></figure>
+<p>提示：</p>
+<ul>
+<li>1&lt;=s.length&lt;=1000</li>
+<li>s仅由数字和英文字母组成</li>
+</ul>
+<p>代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="最长回文子序列"><a href="#最长回文子序列" class="headerlink" title="最长回文子序列"></a><a href="https://leetcode.cn/problems/longest-palindromic-subsequence/">最长回文子序列</a></h6><p>给你一个字符串s，找出其中最长的回文子序列，并返回该序列的长度。</p>
+<p>子序列定义为：不改变剩余字符顺序的情况下，删除某些字符或者不删除任何字符形成的一个序列。</p>
+<p>示例1：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;bbbab&quot;</span><br><span class="line">输出：4</span><br><span class="line">解释：一个可能的最长回文子序列为 &quot;bbbb&quot; 。</span><br></pre></td></tr></table></figure>
+<p>示例2：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;cbbd&quot;</span><br><span class="line">输出：2</span><br><span class="line">解释：一个可能的最长回文子序列为 &quot;bb&quot; 。</span><br></pre></td></tr></table></figure>
+<p>提示</p>
+<ul>
+<li>1&lt;=s.length&lt;=1000</li>
+<li>s仅由小写英文字母组成</li>
+</ul>
+<h6 id="回文子字符串的个数"><a href="#回文子字符串的个数" class="headerlink" title="回文子字符串的个数"></a><a href="https://leetcode.cn/problems/a7VOhD/">回文子字符串的个数</a></h6><p>给定一个字符串s，请计算这个字符串中有多少个回文子字符串</p>
+<p>具有那个开始位置或结束位置的子串，即使是由相同的字符组成，也会被视为不同的子串。</p>
+<p>示例1：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abc&quot;</span><br><span class="line">输出：3</span><br><span class="line">解释：三个回文子串: &quot;a&quot;, &quot;b&quot;, &quot;c&quot;</span><br></pre></td></tr></table></figure>
+<p>示例2：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &quot;aaa&quot;</span><br><span class="line">输出：6</span><br><span class="line">解释：6个回文子串: &quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;aa&quot;, &quot;aa&quot;, &quot;aaa&quot;</span><br></pre></td></tr></table></figure>
+<p>提示：</p>
+<ul>
+<li>1&lt;=s.length&lt;=1000</li>
+<li>s由小写英文字母组成</li>
+</ul>
+<h6 id="统计不同回文子序列"><a href="#统计不同回文子序列" class="headerlink" title="统计不同回文子序列"></a><a href="https://leetcode.cn/problems/count-different-palindromic-subsequences/">统计不同回文子序列</a></h6><p>给定一个字符串s，返回s中不同的非空【回文子序列】个数</p>
+<p>通过从s中删除0个或多个字符来获得子序列</p>
+<p>如果一个字符序列与它反转后的字符序列一致，那么它是【回文字符序列】。</p>
+<p>如果有某个i，满足ai!=bi,则两个序列a1,a2,…和b1,b2,…不同。</p>
+<p>注意：</p>
+<ul>
+<li>结果可能很大，你需要对10的9次方+7取模</li>
+</ul>
+<p>示例1：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &#39;bccb&#39;</span><br><span class="line">输出：6</span><br><span class="line">解释：6 个不同的非空回文子字符序列分别为：&#39;b&#39;, &#39;c&#39;, &#39;bb&#39;, &#39;cc&#39;, &#39;bcb&#39;, &#39;bccb&#39;。</span><br><span class="line">注意：&#39;bcb&#39; 虽然出现两次但仅计数一次。</span><br></pre></td></tr></table></figure>
+<p>示例2：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：s &#x3D; &#39;abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba&#39;</span><br><span class="line">输出：104860361</span><br><span class="line">解释：共有 3104860382 个不同的非空回文子序列，104860361 对 109 + 7 取模后的值。</span><br></pre></td></tr></table></figure>
+<p>提示：</p>
+<ul>
+<li>1&lt;=s.length&lt;=1000</li>
+<li>s[i]仅包含’a’,’b’,’c’或’d’</li>
+</ul>
+]]></content>
   </entry>
 </search>
