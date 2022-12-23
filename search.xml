@@ -17616,11 +17616,14 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
   </entry>
   <entry>
-    <title>京东一面</title>
+    <title>京东面试</title>
     <url>/2022/10/13/%E4%BA%AC%E4%B8%9C%E4%B8%80%E9%9D%A2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>京东gg</p>
 <a id="more"></a>
-<h6 id="1、多线程-用哪个map"><a href="#1、多线程-用哪个map" class="headerlink" title="1、多线程 用哪个map"></a>1、多线程 用哪个map</h6><h6 id="2、HashMap为什么不安全"><a href="#2、HashMap为什么不安全" class="headerlink" title="2、HashMap为什么不安全"></a>2、HashMap为什么不安全</h6><h6 id="3、单元测试有哪些注意事项"><a href="#3、单元测试有哪些注意事项" class="headerlink" title="3、单元测试有哪些注意事项"></a>3、单元测试有哪些注意事项</h6><h6 id="4、框架学习中哪个难一些"><a href="#4、框架学习中哪个难一些" class="headerlink" title="4、框架学习中哪个难一些"></a>4、框架学习中哪个难一些</h6><h6 id="5、微服务和单体架构的区别"><a href="#5、微服务和单体架构的区别" class="headerlink" title="5、微服务和单体架构的区别"></a>5、微服务和单体架构的区别</h6><h6 id="6、做项目的时候是怎么做技术选型的，为什么用这些"><a href="#6、做项目的时候是怎么做技术选型的，为什么用这些" class="headerlink" title="6、做项目的时候是怎么做技术选型的，为什么用这些"></a>6、做项目的时候是怎么做技术选型的，为什么用这些</h6><h6 id="7、Mysql索引用过吗？Mysql优化呢"><a href="#7、Mysql索引用过吗？Mysql优化呢" class="headerlink" title="7、Mysql索引用过吗？Mysql优化呢"></a>7、Mysql索引用过吗？Mysql优化呢</h6><h6 id="8、aop打印一个日志输出，流程是什么"><a href="#8、aop打印一个日志输出，流程是什么" class="headerlink" title="8、aop打印一个日志输出，流程是什么"></a>8、aop打印一个日志输出，流程是什么</h6><h6 id="9、项目全是自己做的吗"><a href="#9、项目全是自己做的吗" class="headerlink" title="9、项目全是自己做的吗"></a>9、项目全是自己做的吗</h6><h6 id="10、你有什么要问的吗"><a href="#10、你有什么要问的吗" class="headerlink" title="10、你有什么要问的吗"></a>10、你有什么要问的吗</h6>]]></content>
+<h6 id="1、多线程-用哪个map"><a href="#1、多线程-用哪个map" class="headerlink" title="1、多线程 用哪个map"></a>1、多线程 用哪个map</h6><p>答：Hashtable内部的方法基本都使用了Sychronized关键字进行修饰，是线程安全的。</p>
+<h6 id="2、HashMap为什么不安全"><a href="#2、HashMap为什么不安全" class="headerlink" title="2、HashMap为什么不安全"></a>2、HashMap为什么不安全</h6><p>HashMap没有使用使用保证线程安全的一些措施。</p>
+<p>多线程对HashMap执行put操作时，会出现数据覆盖问题。假设A、B两个线程都在进行put操作，如果通过hash函数计算的插入下标是相同的，当线程A执行完hash碰撞检测之后，由于时间片耗尽而被挂起，然后线程B得到时间片后再该下标出插入了数据，完成了正常的插入，然后线程A获得时间片，由于之前已经进行了hash碰撞的判断，所以不会再进行判断直接进行插入，这就导致了线程B插入的数据被线程A覆盖了，从而线程不安全。</p>
+<h6 id="3、单元测试有哪些注意事项"><a href="#3、单元测试有哪些注意事项" class="headerlink" title="3、单元测试有哪些注意事项"></a>3、单元测试有哪些注意事项</h6><h6 id="4、框架学习中哪个难一些"><a href="#4、框架学习中哪个难一些" class="headerlink" title="4、框架学习中哪个难一些"></a>4、框架学习中哪个难一些</h6><h6 id="5、微服务和单体架构的区别"><a href="#5、微服务和单体架构的区别" class="headerlink" title="5、微服务和单体架构的区别"></a>5、微服务和单体架构的区别</h6><h6 id="6、做项目的时候是怎么做技术选型的，为什么用这些"><a href="#6、做项目的时候是怎么做技术选型的，为什么用这些" class="headerlink" title="6、做项目的时候是怎么做技术选型的，为什么用这些"></a>6、做项目的时候是怎么做技术选型的，为什么用这些</h6><h6 id="7、Mysql索引用过吗？Mysql优化呢"><a href="#7、Mysql索引用过吗？Mysql优化呢" class="headerlink" title="7、Mysql索引用过吗？Mysql优化呢"></a>7、Mysql索引用过吗？Mysql优化呢</h6><h6 id="8、aop打印一个日志输出，流程是什么"><a href="#8、aop打印一个日志输出，流程是什么" class="headerlink" title="8、aop打印一个日志输出，流程是什么"></a>8、aop打印一个日志输出，流程是什么</h6><h6 id="9、项目全是自己做的吗"><a href="#9、项目全是自己做的吗" class="headerlink" title="9、项目全是自己做的吗"></a>9、项目全是自己做的吗</h6><h6 id="10、你有什么要问的吗"><a href="#10、你有什么要问的吗" class="headerlink" title="10、你有什么要问的吗"></a>10、你有什么要问的吗</h6>]]></content>
       <categories>
         <category>工作</category>
       </categories>
@@ -17630,7 +17633,28 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
     <url>/2022/10/13/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>冲</p>
 <a id="more"></a>
-<h6 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h6><p>面试官您好 我叫周威威 ，今年24岁，河南商丘人，本科毕业于长春理工大学软件工程专业,大学期间成绩优异，保送到东北大学攻读硕士研究生，现在是软件工程专业研三学生，我有扎实的计算机理论基础，熟悉操作系统、计算机网络、数据结构等，大学期间时参加了java培训班，系统学习了java、ssm框架、mysql，了解redis、消息队列、集群分布式等技术，项目经验丰富，先后开发的项目有《校园二手书交易平台》，《面对面餐饮管理系统》、《瑞吉外卖》、《传智健康管理系统》我乐观开朗，积极向上，学生期间参加过校运动会、国际马拉松迷你赛、班级篮球赛、新生迎新活动、担任过中美课程助教。喜欢运动、健身，有良好的身体素质，具备出色的学习能力，对未来充满信心，希望可以进入贵公司继续努力，与贵公司共同进步，祝您身体健康，万事如意，谢谢老师。</p>
+<h4 id="并发编程-11-5上午"><a href="#并发编程-11-5上午" class="headerlink" title="并发编程(11.5上午)"></a>并发编程(11.5上午)</h4><h6 id="并发和并行的区别？"><a href="#并发和并行的区别？" class="headerlink" title="并发和并行的区别？"></a>并发和并行的区别？</h6><ul>
+<li><p>并发：两个及两个以上的作业在同一时间段内执行。</p>
+</li>
+<li><p>并行：两个及两个以上的作业在同一时刻执行。</p>
+</li>
+</ul>
+<p>注：在计算机操作系统中,作业(Job)是计算机操作员(或称为作业调度程序的程序)提供给操作系统执行任务的工作单元</p>
+<h6 id="同步和异步的区别？"><a href="#同步和异步的区别？" class="headerlink" title="同步和异步的区别？"></a>同步和异步的区别？</h6><ul>
+<li><p>同步：发出一个调用后，在没有得到结果前，该调用就不可以返回，一直等待。</p>
+</li>
+<li><p>异步：调用在发出之后，不用等待返回结果，该调用直接返回。</p>
+</li>
+</ul>
+<h4 id="java集合（11-5下午）"><a href="#java集合（11-5下午）" class="headerlink" title="java集合（11.5下午）"></a>java集合（11.5下午）</h4><p>8:30</p>
+<h4 id="Mysql索引（11-5下午）"><a href="#Mysql索引（11-5下午）" class="headerlink" title="Mysql索引（11.5下午）"></a>Mysql索引（11.5下午）</h4><p>10:30</p>
+<h4 id="操作系统（11-5晚上）"><a href="#操作系统（11-5晚上）" class="headerlink" title="操作系统（11.5晚上）"></a>操作系统（11.5晚上）</h4><p>9:00</p>
+<h4 id="JVM（11-6上午）"><a href="#JVM（11-6上午）" class="headerlink" title="JVM（11.6上午）"></a>JVM（11.6上午）</h4><h5 id="内存溢出（OutOfMemory-OOM）"><a href="#内存溢出（OutOfMemory-OOM）" class="headerlink" title="内存溢出（OutOfMemory OOM）"></a>内存溢出（OutOfMemory OOM）</h5><p>指应用程序系统中存在无法释放的内存或者使用的内存过多，最终导致程序运行需要的内存大于能提供的最大内存，导致程序运行失败，提示内存溢出。</p>
+<h5 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h5><p>指程序中已动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。</p>
+<h4 id="Reids"><a href="#Reids" class="headerlink" title="Reids"></a>Reids</h4><p>10:00</p>
+<h4 id="Java框架-ssm-dubbo-zookeeper（11-6下午）"><a href="#Java框架-ssm-dubbo-zookeeper（11-6下午）" class="headerlink" title="Java框架 ssm+dubbo+zookeeper（11.6下午）"></a>Java框架 ssm+dubbo+zookeeper（11.6下午）</h4><h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p>烧一根不均匀的绳子需要1小时,若干条材质相同的绳子,要计时1小时15分,需要最少绳子？</p>
+<p>有1000瓶药水，只有一瓶是有毒的，小白鼠喝了就会身亡，但是需要一天的时间才会有结果，而且你只有一天时间去判断，问题是，如何使用最少的小白鼠，试验出哪瓶是毒药？</p>
+<h4 id="面试流程"><a href="#面试流程" class="headerlink" title="面试流程"></a>面试流程</h4><h6 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h6><p>面试官您好 我叫周威威 ，今年24岁，河南商丘人，本科毕业于长春理工大学软件工程专业,大学期间成绩优异，保送到东北大学攻读硕士研究生，现在是软件工程专业研三学生，我有扎实的计算机理论基础，熟悉操作系统、计算机网络、数据结构等，大学期间时参加了java培训班，系统学习了java、ssm框架、mysql，了解redis、消息队列、集群分布式等技术，项目经验丰富，先后开发的项目有《校园二手书交易平台》，《面对面餐饮管理系统》、《瑞吉外卖》、《传智健康管理系统》我乐观开朗，积极向上，学生期间参加过校运动会、国际马拉松迷你赛、班级篮球赛、新生迎新活动、担任过中美课程助教。喜欢运动、健身，有良好的身体素质，具备出色的学习能力，对未来充满信心，希望可以进入贵公司继续努力，与贵公司共同进步，祝您身体健康，万事如意，谢谢老师。</p>
 <h6 id="做的项目哪个最满意？"><a href="#做的项目哪个最满意？" class="headerlink" title="做的项目哪个最满意？"></a>做的项目哪个最满意？</h6><h6 id="项目难点是什么？怎么解决的？"><a href="#项目难点是什么？怎么解决的？" class="headerlink" title="项目难点是什么？怎么解决的？"></a>项目难点是什么？怎么解决的？</h6><p><strong>瑞吉外卖</strong></p>
 <p>1编辑菜品那块需要发送多次ajax请求  首先查询出所有的菜品分类 然后还要过去当前菜品所对应的口味数据进行页面回显</p>
 <p>2新增菜品 需要上传图片到服务器 然后把图片名称存到数据库中 然后还需要图片下载进行页面回显</p>
@@ -17687,7 +17711,7 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <p>认证：系统提供的用于识别用户身份的功能，通常提供用户名密码进行登录就是在进行认证，认证的目的是让系统知道你是谁</p>
 <p>授权：用户认证成功后，需要为用户授权，其实就是指定当前用户可以操作哪些功能。</p>
 <p>对后台系统进行权限控制，本质就是对用户进行认证和授权。</p>
-<h5 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h5><h6 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h6><p>内存泄漏（ Memory Leak ）是指程序中己动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。</p>
+<h5 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h5><h6 id="内存泄露-1"><a href="#内存泄露-1" class="headerlink" title="内存泄露"></a>内存泄露</h6><p>内存泄漏（ Memory Leak ）是指程序中己动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。</p>
 <p>静态变量通过类访问和通过实例对象访问效率一样吗？</p>
 <h5 id="场景题"><a href="#场景题" class="headerlink" title="场景题"></a>场景题</h5><h6 id="题目一：只用2G内存在20亿个整数中找到出现次数最多的数"><a href="#题目一：只用2G内存在20亿个整数中找到出现次数最多的数" class="headerlink" title="题目一：只用2G内存在20亿个整数中找到出现次数最多的数"></a>题目一：只用2G内存在20亿个整数中找到出现次数最多的数</h6><p>有一个包含20亿个全是32位整数的大文件，在其中找到出现次数最多的数。<br>内存限制为2G</p>
 <p><strong>分析一：</strong></p>
@@ -17801,6 +17825,8 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <p>那两篇文章都是更多地考虑图像的保真度，但是有的场景是更多的需要嵌入容量和文件存储大小，并且标记图像可以被无损地还原出来，所以我们注重考虑图像的另两个维度。</p>
 <p>探究DCT变换 不同位置系数变化后对IDCT变化的影响</p>
 <p>做实验证明我们想法的有效性</p>
+<p>DCT系数能不能嵌入数据，跟前面0的个数有没有关系呢？只要是满足一定的条件就可以嵌入？</p>
+<p>但是不用hs的话无法还原，考虑用混沌序列控制嵌入位置，然后进行一个提取？</p>
 ]]></content>
   </entry>
   <entry>
@@ -17981,5 +18007,212 @@ B_{i,j}=round(\frac{G_{i,j}}{Q_{i,j}});i,j=0,1,2,...,7</script><p>其中G是我�
 <p>微信公众号访问系统的话是怎么交互的？每次访问的话都需要登陆吗？这块怎么实现？</p>
 <p>OceanBase协议了解吗？</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Reversible Data Hiding in JPEG Images</title>
+    <url>/2022/11/11/Reversible-Data-Hiding-in-JPEG-Images/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>【<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7225117&amp;tag=1">论文地址</a>】</p>
+<h5 id="JPEG图像可逆数据隐藏"><a href="#JPEG图像可逆数据隐藏" class="headerlink" title="JPEG图像可逆数据隐藏"></a>JPEG图像可逆数据隐藏</h5><a id="more"></a>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>​      在日常生活中使用的各种数字图像格式中，JPEG是最受欢迎的。因此JPEG图像的可逆数据隐藏（RDH）对于许多应用程序（如档案管理和图像认证）非常重要和有用。然而，JPEG图像中的RDH比未压缩图像要困难得多，因为JPEG图像中的信息冗余比未压缩图像要少，压缩域中的任何修改都可能导致宿主图像失真。此外除了未压缩图像必须考虑得嵌入容量和保真度（视觉质量）外，标记JPEG文件的存储大小也应考虑在内。在本文中，基于JPEG编码器背后的原理和离散余弦变换（DCT）系数的统计特性，我们对如何为RDH选择量化的DCT系数提出了一些基本见解。然后提出了一种新的基于直方图移位的方法。其中零系数保持不变，只有值为1和-1的系数被展开以携带消息位。此外提出了一种基于8*8块中零系数个数的块选择策略，可用于自适应地选择DCT系数进行数据隐藏。实验结果表明，该方法易于实现高嵌入容量和良好的视觉质量。主机JPEG文件的存储大小也可以很好保存。</p>
+<h5 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h5><h5 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h5><p>dc系数直方图</p>
+<p>dc系数怎么没有负数值呢</p>
+<p>dc直方图 qf=50</p>
+<p><img src="/2022/11/11/Reversible-Data-Hiding-in-JPEG-Images/image-20221121215459342.png" alt="image-20221121215459342"></p>
+<p>diff-dc直方图 qf=50</p>
+<p><img src="/2022/11/11/Reversible-Data-Hiding-in-JPEG-Images/image-20221121215210120.png" alt="image-20221121215210120"></p>
+<p>diff-ac直方图 qf=50</p>
+<p><img src="/2022/11/11/Reversible-Data-Hiding-in-JPEG-Images/image-20221121221941984.png" alt="image-20221121221941984"></p>
+<p>非零ac系数直方图</p>
+<p><img src="/2022/11/11/Reversible-Data-Hiding-in-JPEG-Images/image-20221122110724095.png" alt="image-20221122110724095"></p>
+]]></content>
+      <categories>
+        <category>复杂网络与图像加密</category>
+      </categories>
+      <tags>
+        <tag>图像加密</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中国航信面试</title>
+    <url>/2022/11/05/%E4%B8%AD%E5%9B%BD%E8%88%AA%E4%BF%A1%E9%9D%A2%E8%AF%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>中国航信</p>
+<a id="more"></a>
+<p>自我介绍</p>
+<p>介绍下传智健康这个项目，是做什么的以及技术栈</p>
+<p>项目中哪块比较难，怎么解决的</p>
+<p>框架哪个比较熟</p>
+<p>springMvc的执行流程</p>
+<p>SpringSecurity 登录认证是什么流程</p>
+<p>如果登录系统要加黑名单，怎么做（一种servlet过滤器，一种aop）流程是什么</p>
+<p>SpringBoot的作用是什么</p>
+<p>了解SpringBoot配置的原理吗</p>
+<p>多线程项目中用过吗或者说了解过吗</p>
+<p>java中怎么实现锁</p>
+<p>ConcurrentHashMap用过吗，它的高性能是因为什么</p>
+<p>刚刚提到了底层是链表红黑树，什么时候用链表什么时候用红黑树</p>
+<p>AQS了解吗</p>
+<p>类加载机制了解吗？双亲委派了解吗？</p>
+<p>GC垃圾回收的流程是什么？</p>
+<p>Java spi实现和 ？？有什么不同？</p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>京东面试</title>
+    <url>/2022/10/13/%E4%BA%AC%E4%B8%9C%E9%9D%A2%E8%AF%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>京东gg</p>
+<a id="more"></a>
+<h6 id="1、多线程-用哪个map"><a href="#1、多线程-用哪个map" class="headerlink" title="1、多线程 用哪个map"></a>1、多线程 用哪个map</h6><p>答：Hashtable内部的方法基本都使用了Sychronized关键字进行修饰，是线程安全的。</p>
+<h6 id="2、HashMap为什么不安全"><a href="#2、HashMap为什么不安全" class="headerlink" title="2、HashMap为什么不安全"></a>2、HashMap为什么不安全</h6><p>HashMap没有使用使用保证线程安全的一些措施。</p>
+<h6 id="3、单元测试有哪些注意事项"><a href="#3、单元测试有哪些注意事项" class="headerlink" title="3、单元测试有哪些注意事项"></a>3、单元测试有哪些注意事项</h6><h6 id="4、框架学习中哪个难一些"><a href="#4、框架学习中哪个难一些" class="headerlink" title="4、框架学习中哪个难一些"></a>4、框架学习中哪个难一些</h6><h6 id="5、微服务和单体架构的区别"><a href="#5、微服务和单体架构的区别" class="headerlink" title="5、微服务和单体架构的区别"></a>5、微服务和单体架构的区别</h6><h6 id="6、做项目的时候是怎么做技术选型的，为什么用这些"><a href="#6、做项目的时候是怎么做技术选型的，为什么用这些" class="headerlink" title="6、做项目的时候是怎么做技术选型的，为什么用这些"></a>6、做项目的时候是怎么做技术选型的，为什么用这些</h6><h6 id="7、Mysql索引用过吗？Mysql优化呢"><a href="#7、Mysql索引用过吗？Mysql优化呢" class="headerlink" title="7、Mysql索引用过吗？Mysql优化呢"></a>7、Mysql索引用过吗？Mysql优化呢</h6><h6 id="8、aop打印一个日志输出，流程是什么"><a href="#8、aop打印一个日志输出，流程是什么" class="headerlink" title="8、aop打印一个日志输出，流程是什么"></a>8、aop打印一个日志输出，流程是什么</h6><h6 id="9、项目全是自己做的吗"><a href="#9、项目全是自己做的吗" class="headerlink" title="9、项目全是自己做的吗"></a>9、项目全是自己做的吗</h6><h6 id="10、你有什么要问的吗"><a href="#10、你有什么要问的吗" class="headerlink" title="10、你有什么要问的吗"></a>10、你有什么要问的吗</h6>]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>并发编程</title>
+    <url>/2022/11/04/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h6 id="并发和并行的区别？"><a href="#并发和并行的区别？" class="headerlink" title="并发和并行的区别？"></a>并发和并行的区别？</h6><p>并发：两个及两个以上的作业在同一时间段</p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>笔试</title>
+    <url>/2022/11/09/%E7%AC%94%E8%AF%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>笔试算法题记录</p>
+<a id="more"></a>
+<h6 id="金山云"><a href="#金山云" class="headerlink" title="金山云"></a>金山云</h6><p>N个整数 选择三个数字求它们和为M的方案数？</p>
+<p>第一行两个数：N M</p>
+<p>第二行N个数</p>
+<p>输出方案数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//背包问题？</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="郑州易盛"><a href="#郑州易盛" class="headerlink" title="郑州易盛"></a>郑州易盛</h6><p>N个整数 求它们和为M的方案数？</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 返回符合条件的组合个数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> candidates int整型一维数组 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target int整型 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> int整型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">combinationSum</span> <span class="params">(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="comment">//背包问题</span></span><br><span class="line">        <span class="comment">//dp[i][j] 前i个数中，和为j的组合个数</span></span><br><span class="line">        <span class="keyword">int</span> n=candidates.length;</span><br><span class="line">        <span class="keyword">int</span>[][] dp=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>][target+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp[<span class="number">0</span>][i]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=target;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j==candidates[i-<span class="number">1</span>])&#123;</span><br><span class="line">                   dp[i][j]=dp[i][j-candidates[i-<span class="number">1</span>]]+dp[i-<span class="number">1</span>][j]+<span class="number">1</span>;    </span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j&gt;candidates[i-<span class="number">1</span>])&#123;</span><br><span class="line">                    dp[i][j]=dp[i-<span class="number">1</span>][j]+dp[i][j-candidates[i-<span class="number">1</span>]];</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j]=dp[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//System.out.println(&quot;dp[&quot;+i+&quot;][&quot;+j+&quot;]=&quot;+dp[i][j]);</span></span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n][target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>第319场周赛</title>
+    <url>/2022/11/14/%E7%AC%AC319%E5%9C%BA%E5%91%A8%E8%B5%9B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><a href="https://leetcode.cn/contest/weekly-contest-319/">比赛地址</a></p>
+<h6 id="比赛说明"><a href="#比赛说明" class="headerlink" title="比赛说明"></a>比赛说明</h6><p>本场竞赛由「蔚来 &amp; 力扣」联合主办</p>
+<p><strong>【工作机会奖励】</strong></p>
+<ul>
+<li><strong>排名第 1 ~ 300 名的参赛者</strong>可获「 NIO 蔚来」简历内推机会。</li>
+</ul>
+<p><strong>【实物奖励】</strong></p>
+<ul>
+<li><strong>排名第 1 名的参赛者</strong>可获 NIO 蔚来 ES8 - 1:18 合金车模（天蓝）x 1</li>
+<li><strong>排名第 2 名的参赛者</strong>可获 NIO 蔚来 ES6 - 1:18 合金车模（星云紫）x 1</li>
+<li><strong>排名第 3 ~ 4 名的参赛者</strong>可获 NIO 蔚来Blue Sky 保温杯（蓝绿）x 1</li>
+<li><strong>排名第 5 ~ 10 名的参赛者</strong>可获 NIO 蔚来 NIOLIFE环保软木笔 5支装 x 1</li>
+<li><strong>排名第 166、266、366、466、566、666 名的参赛者</strong>可获 NIO 蔚来的纪念礼品 x 1</li>
+</ul>
+<a id="more"></a>
+<h6 id="题目列表"><a href="#题目列表" class="headerlink" title="题目列表"></a>题目列表</h6><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>题目</th>
+<th>难度</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.<a href="https://leetcode.cn/problems/convert-the-temperature/">温度转换</a></td>
+<td>简单</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2.<a href="https://leetcode.cn/problems/number-of-subarrays-with-lcm-equal-to-k/">最小公倍数为 K 的子数组数目</a></td>
+<td>中等</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3.<a href="https://leetcode.cn/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/">逐层排序二叉树所需的最少操作数目</a></td>
+<td>中等</td>
+<td>5</td>
+</tr>
+<tr>
+<td>4.<a href="https://leetcode.cn/problems/maximum-number-of-non-overlapping-palindrome-substrings/">不重叠回文子字符串的最大数目</a></td>
+<td>困难</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 id="字符串中的最大奇数"><a href="#字符串中的最大奇数" class="headerlink" title="字符串中的最大奇数"></a>字符串中的最大奇数</h6><p><strong>题目描述：</strong></p>
+<p>给你一个四舍五入到两位小数的非负浮点数 celsius 来表示温度，以 <strong>摄氏度（Celsius）</strong>为单位。</p>
+<p>你需要将摄氏度转换为 <strong>开氏度（Kelvin）</strong>和 <strong>华氏度（Fahrenheit）</strong>，并以数组 <code>ans = [kelvin, fahrenheit]</code> 的形式返回结果。</p>
+<p>返回数组 <code>ans</code> 。与实际答案误差不超过 $10^{-5}$ 的会视为正确答案。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><code>开氏度=摄氏度+273.15</code></li>
+<li><code>华氏度=摄氏度*1.80+32.00</code></li>
+</ul>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：celsius &#x3D; 36.50</span><br><span class="line">输出：[309.65000,97.70000]</span><br><span class="line">解释：36.50 摄氏度：转换为开氏度是 309.65 ，转换为华氏度是 97.70 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：celsius &#x3D; 122.11</span><br><span class="line">输出：[395.26000,251.79800]</span><br><span class="line">解释：122.11 摄氏度：转换为开氏度是 395.26 ，转换为华氏度是 251.798 。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0&lt;=celsius&lt;=1000</code></li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>计算公式得到的结果小数点后位数肯定小于5，所以直接计算后返回即可。</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">double</span>[] convertTemperature(<span class="keyword">double</span> celsius) &#123;</span><br><span class="line">        <span class="keyword">double</span>[] ans=<span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">2</span>];</span><br><span class="line">        ans[<span class="number">0</span>]=celsius+<span class="number">273.15</span>;</span><br><span class="line">        ans[<span class="number">1</span>]=celsius*<span class="number">1.80</span>+<span class="number">32.00</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="最小公倍数为K的子数组数目"><a href="#最小公倍数为K的子数组数目" class="headerlink" title="最小公倍数为K的子数组数目"></a>最小公倍数为K的子数组数目</h6><p><strong>题目描述：</strong></p>
+<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，请你统计并返回 <code>nums</code> 的 <strong>子数组</strong> 中满足 <em>元素最小公倍数为 <code>k</code></em> 的子数组数目。</p>
+<p><strong>子数组</strong> 是数组中一个连续非空的元素序列。</p>
+<p><strong>数组的最小公倍数</strong> 是可被所有数组元素整除的最小正整数。</p>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：nums &#x3D; [3,6,2,7,1], k &#x3D; 6</span><br><span class="line">输出：4</span><br><span class="line">解释：以 6 为最小公倍数的子数组是：</span><br><span class="line">- [3,6,2,7,1]</span><br><span class="line">- [3,6,2,7,1]</span><br><span class="line">- [3,6,2,7,1]</span><br><span class="line">- [3,6,2,7,1]</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：nums &#x3D; [3], k &#x3D; 2</span><br><span class="line">输出：0</span><br><span class="line">解释：不存在以 2 为最小公倍数的子数组。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
+<li><code>1 &lt;= nums[i], k &lt;= 1000</code></li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>这应该是道比较经典的动态规划题目吧，之前遇到过类似的还未进行总结</p>
+<p>dp[i]表示前i个元素中满足条件的子数组数目，最后返回dp[nums.length]，关键是需要找出子问题之间的关系</p>
+]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>CONTEST</category>
+      </categories>
+      <tags>
+        <tag>LeetCode周赛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美团面试</title>
+    <url>/2022/11/08/%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>美团面试</p>
+<a id="more"></a>
+<h6 id="美团面试"><a href="#美团面试" class="headerlink" title="美团面试"></a>美团面试</h6><p>自我介绍</p>
+<p>linux命令了解吗？说说</p>
+<p>linux查看某个文件夹占用空间的大小</p>
+<p>udp和tcp的区别？</p>
+<p>tcp怎么保证可靠传输</p>
+<p>tcp流量控制具体流程？</p>
+<p>http和tcp和ip协议是怎么配合的？</p>
+<p>不用库函数计算根号5的解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> num=<span class="number">5</span>;</span><br><span class="line">        <span class="keyword">double</span> left=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">double</span> right=<span class="number">5</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">            <span class="keyword">double</span> mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(num-mid*mid&gt;=<span class="number">0</span> &amp;&amp; num-mid*mid&lt;=<span class="number">0.001</span>)&#123;</span><br><span class="line">                System.out.println(mid);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(mid*mid&gt;num)&#123;</span><br><span class="line">                right=mid;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                left=mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="美团到店面试"><a href="#美团到店面试" class="headerlink" title="美团到店面试"></a>美团到店面试</h6><p>接口和抽象类区别<br>汽车 和轮子 那么轮子应该是用接口还是用抽象类<br>java集合了解吗 聊聊map吧<br>线程安全的除了hashtable还有啥<br>concurrenthashmap怎么实现线程安全的</p>
+<p>hashtable我提到了里面方法用sychronized修饰了，所以线程安全，然后接着问sychronized可以修饰哪几种 讲讲他们区别<br>线程安全除了sychronized还有什么方式<br>sychronized和ReentrantLock 都是可重入锁吗</p>
+<p>线程有几种状态<br>sleep和wait的区别<br>线程池创建方式<br>线程池常用的参数<br>线程池线程调度的流程<br>线程通信方式，答了信号量、管道<br>ThreadLocal了解吗 干嘛的 实现原理<br>tcp/ip分层<br>传输层和网络层协议常用的<br>tcp和udp区别 应用场景<br>http get和post区别<br>http状态码</p>
+<p>https和http区别 https安全为什么<br>mysql 隔离级别<br>幻读是什么<br>mysql隔离级别 能解决幻读吗 怎么解决的<br>mysql 聚集索引和非聚集区别</p>
+]]></content>
+      <categories>
+        <category>工作</category>
+      </categories>
   </entry>
 </search>
